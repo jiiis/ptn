@@ -1,0 +1,24 @@
+---
+
+- hosts: all
+  sudo: yes
+  roles:
+    - system
+    - php
+    - apache
+    - mysql
+    - git
+
+  vars:
+    host: ptn.local
+    mysql:
+      root:
+        password: root
+      host: localhost
+      database: ptn
+      username: ptn
+      password: ptn
+    git:
+      user:
+        name: Hao Chang
+        email: yngwie.chang@gmail.com

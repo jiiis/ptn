@@ -1,0 +1,44 @@
+---
+
+- name: install mysql
+  apt: name={{ item }} state=latest update_cache=yes cache_valid_time=60
+  with_items:
+    - mysql-server
+    - mysql-client
+    - python-mysqldb
+
+- name: configure root user
+  mysql_user: name=root
+              password={{ mysql.root.password }}
+              host={{ item }}
+              check_implicit_admin=yes
+              priv="*.*:ALL,GRANT"
+              login_user=root
+              login_password={{ mysql.root.password }}
+  with_items:
+    - "{{ ansible_hostname }}"
+    - "{{ inventory_hostname }}"
+    - localhost
+    - 127.0.0.1
+    - ::1
+
+- name: delete test database
+  mysql_db: name=test
+            state=absent
+            login_user=root
+            login_password={{ mysql.root.password }}
+
+- name: create databases
+  mysql_db: name={{ mysql.database }}
+            state=present
+            login_user=root
+            login_password={{ mysql.root.password }}
+
+- name: create database users
+  mysql_user: name={{ mysql.username }}
+              password={{ mysql.password }}
+              priv="{{ mysql.database }}.*:ALL"
+              state=present
+              host=%
+              login_user=root
+              login_password={{ mysql.root.password }}

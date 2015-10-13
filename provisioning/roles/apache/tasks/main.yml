@@ -1,0 +1,22 @@
+---
+
+- name: install apache2
+  apt: name={{ item }} state=latest update_cache=yes cache_valid_time=60
+  with_items:
+    - apache2
+    - libapache2-mod-php5
+
+- name: enable module rewrite
+  command: a2enmod rewrite creates=/etc/apache2/mods-enabled/rewrite.load
+
+- name: disable default site
+  command: a2dissite 000-default
+
+- name: delete default site
+  file: path=/var/www/html state=absent
+
+- name: configure envvars
+  file: src=envvars dest=/etc/apache2/envvars force=yes
+  notify: restart apache2
+
+- include: vhost.yml vhost="{{ host }}"
