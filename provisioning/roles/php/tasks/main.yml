@@ -12,3 +12,5 @@
 
 - name: enable module mcrypt
   shell: php5enmod mcrypt
+
+- include: composer.yml
