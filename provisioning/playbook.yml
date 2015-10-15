@@ -4,13 +4,17 @@
   sudo: yes
   roles:
     - system
-    - php
     - apache
+    - php
     - mysql
+    - cron
     - git
 
   vars:
     host: ptn.local
+    vagrant:
+      user:
+        vagrant
     mysql:
       root:
         password: root

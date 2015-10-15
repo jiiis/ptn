@@ -1,0 +1,4 @@
+---
+
+- name: set up scheduler
+  cron: name="scheduler" user={{ vagrant.user }} job="php /var/www/{{ host }}/artisan schedule:run >> /dev/null 2>&1"
