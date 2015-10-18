@@ -1,0 +1,10 @@
+---
+
+- name: set user.name globally
+  shell: git config --global user.name "{{ git.user.name }}"
+
+- name: set user.email globally
+  shell: git config --global user.email "{{ git.user.email }}"
+
+- name: set core.autocrlf globally
+  shell: git config --global core.autocrlf input

@@ -3,8 +3,4 @@
 - name: install git
   apt: name=git state=latest update_cache=yes cache_valid_time=60
 
-- name: set global user name
-  shell: git config --global user.name "{{ git.user.name }}"
-
-- name: set global user email
-  shell: git config --global user.email "{{ git.user.email }}"
+- include: configuration.yml
