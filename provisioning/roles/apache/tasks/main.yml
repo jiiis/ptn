@@ -19,4 +19,4 @@
   file: src=envvars dest=/etc/apache2/envvars force=yes
   notify: restart apache2
 
-- include: vhost.yml vhost="{{ host }}"
+- include: vhost.yml project_name={{ project.name }} project_dir={{ project.dir }} project_host={{ project.host }}

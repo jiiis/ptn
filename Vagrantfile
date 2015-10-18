@@ -5,7 +5,7 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.hostname = "ptn"
   config.vm.network "private_network", ip: "192.168.55.55"
-  config.vm.synced_folder "./", "/var/www/ptn.local", type: "nfs"
+  config.vm.synced_folder "./", "/var/www/ptn", type: "nfs"
 
   config.vm.provider "virtualbox" do |vb|
     vb.cpus = 2

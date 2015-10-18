@@ -11,7 +11,10 @@
     - git
 
   vars:
-    host: ptn.local
+    project:
+      name: ptn
+      dir: ptn
+      host: ptn.local
     vagrant:
       user:
         vagrant
