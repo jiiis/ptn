@@ -1,14 +1,15 @@
 {
   "name": "ptn",
-  "version": "0.0.1",
-  "homepage": "https://github.com/jiiis/ptn",
   "authors": [
     "Hao Chang <yngwie.chang@gmail.com>"
   ],
   "description": "The Bower packages for app \"ptn\".",
+  "homepage": "https://github.com/jiiis/ptn",
+  "version": "0.0.1",
+  "license": "MIT",
+  "private": true,
   "main": "",
   "moduleType": [],
-  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",
