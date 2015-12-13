@@ -18,6 +18,8 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "~3.3.6"
+    "bootstrap": "~3.3.6",
+    "material-shadows": "~2.0.2",
+    "Waves": "waves#~0.7.4"
   }
 }
