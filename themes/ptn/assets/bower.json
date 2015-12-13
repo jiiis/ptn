@@ -6,7 +6,7 @@
   "description": "The Bower packages for app \"ptn\".",
   "homepage": "https://github.com/jiiis/ptn",
   "version": "0.0.1",
-  "license": "MIT",
+  "license": "ISC",
   "private": true,
   "main": "",
   "moduleType": [],
