@@ -18,6 +18,7 @@
     "url": "https://github.com/jiiis/ptn/issues"
   },
   "devDependencies": {
+    "bower": "^1.7.1",
     "gulp": "^3.9.0"
   },
   "scripts": {
