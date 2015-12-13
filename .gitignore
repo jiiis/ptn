@@ -1,4 +1,12 @@
-.idea
+# Environments #
+################
 .vagrant
 
+# Package managers #
+####################
 /vendor
+node_modules
+
+# IDE #
+#######
+.idea
