@@ -21,6 +21,7 @@
     "bower": "^1.7.1",
     "gulp": "^3.9.0",
     "gulp-less": "^3.0.5",
+    "gulp-load-plugins": "^1.1.0",
     "require-dir": "^0.3.0"
   },
   "scripts": {
