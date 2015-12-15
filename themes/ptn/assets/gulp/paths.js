@@ -7,8 +7,16 @@ var path = require('path'),
     dirStylesDist = path.join(dirStyles, 'dist');
 
 module.exports = {
-    'dir-assets': dirAssets,
-    'dir-styles-src': dirStylesSrc,
-    'dir-styles-dist': dirStylesDist,
-    'file-styles-src': path.join(dirStylesSrc, 'ptn.less')
+    assets: {
+        dir: dirAssets
+    },
+    styles: {
+        dir: {
+            src: dirStylesSrc,
+            dist: dirStylesDist
+        },
+        file: {
+            src: path.join(dirStylesSrc, 'ptn.less')
+        }
+    }
 };

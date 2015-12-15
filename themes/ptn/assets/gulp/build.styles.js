@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     $ = require('./plugins');
 
 gulp.task('build:styles', function() {
-    return gulp.src(paths['file-styles-src'])
+    return gulp.src(paths.styles.file.src)
         .pipe($.less())
-        .pipe(gulp.dest(paths['dir-styles-dist']));
+        .pipe(gulp.dest(paths.styles.dir.dist));
 });
