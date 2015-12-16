@@ -5,6 +5,7 @@ var gulp = require('gulp'),
 
 gulp.task('build', function(done) {
     $.runSequence(
+        'clean',
         'build:styles',
         done
     );
