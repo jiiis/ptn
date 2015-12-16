@@ -1,16 +1,20 @@
 'use strict';
 
-var gulp = require('gulp'),
+var $ = require('./plugins'),
+    gulp = require('gulp'),
     paths = require('./paths'),
-    $ = require('./plugins'),
+    argv = $.yargs.argv,
     lessPlugins = [
-        new $.lessPluginCleanCss({
-            advanced: true
-        }),
         new $.lessPluginAutoprefix({
             browsers: ['last 2 versions']
         })
     ];
+
+if (argv.env === 'prod') {
+    lessPlugins.push(new $.lessPluginCleanCss({
+        advanced: true
+    }));
+}
 
 gulp.task('build:styles', function() {
     return gulp.src(paths.styles.file.src)
