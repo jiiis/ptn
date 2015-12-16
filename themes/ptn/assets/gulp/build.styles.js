@@ -6,6 +6,9 @@ var gulp = require('gulp'),
     lessPlugins = [
         new $.lessPluginCleanCss({
             advanced: true
+        }),
+        new $.lessPluginAutoprefix({
+            browsers: ['last 2 versions']
         })
     ];
 

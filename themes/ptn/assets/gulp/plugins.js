@@ -5,6 +5,7 @@ module.exports = require('gulp-load-plugins')({
         'gulp-*',
         'gulp.*',
         'run-sequence',
+        'less-plugin-autoprefix',
         'less-plugin-clean-css'
     ]
 });
