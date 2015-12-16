@@ -4,6 +4,7 @@ module.exports = require('gulp-load-plugins')({
     pattern: [
         'gulp-*',
         'gulp.*',
-        'run-sequence'
+        'run-sequence',
+        'less-plugin-clean-css'
     ]
 });
