@@ -21,7 +21,6 @@
     "bower": "^1.7.1",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
-    "gulp-bless": "^3.0.1",
     "gulp-less": "^3.0.5",
     "gulp-load-plugins": "^1.1.0",
     "gulp-sakugawa": "^0.4.1",
