@@ -26,7 +26,11 @@ gulp.task('build:styles:less', function() {
 
 gulp.task('build:styles:bless', function() {
     return gulp.src(paths.styles.file.dist)
-        .pipe($.bless())
+        .pipe($.sakugawa({
+            maxSelectors: 4000,
+            mediaQueries: 'separate',
+            suffix: '-'
+        }))
         .pipe(gulp.dest(paths.styles.dir.dist + '/blessed'));
 });
 
