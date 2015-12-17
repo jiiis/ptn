@@ -16,10 +16,24 @@ if (argv.env === 'prod') {
     }));
 }
 
-gulp.task('build:styles', function() {
+gulp.task('build:styles:less', function() {
     return gulp.src(paths.styles.file.src)
         .pipe($.less({
             plugins: lessPlugins
         }))
         .pipe(gulp.dest(paths.styles.dir.dist));
+});
+
+gulp.task('build:styles:bless', function() {
+    return gulp.src(paths.styles.file.dist)
+        .pipe($.bless())
+        .pipe(gulp.dest(paths.styles.dir.dist + '/blessed'));
+});
+
+gulp.task('build:styles', function(done) {
+    return $.runSequence(
+        'build:styles:less',
+        'build:styles:bless',
+        done
+    );
 });

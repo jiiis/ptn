@@ -16,7 +16,8 @@ module.exports = {
             dist: dirStylesDist
         },
         file: {
-            src: path.join(dirStylesSrc, 'ptn.less')
+            src: path.join(dirStylesSrc, 'ptn.less'),
+            dist: path.join(dirStylesDist, 'ptn.css')
         }
     }
 };
