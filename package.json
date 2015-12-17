@@ -24,6 +24,7 @@
     "gulp-bless": "^3.0.1",
     "gulp-less": "^3.0.5",
     "gulp-load-plugins": "^1.1.0",
+    "gulp-sakugawa": "^0.4.1",
     "less-plugin-autoprefix": "^1.5.1",
     "less-plugin-clean-css": "^1.5.1",
     "require-dir": "^0.3.0",
