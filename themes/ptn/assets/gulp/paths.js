@@ -11,13 +11,16 @@ module.exports = {
         dir: dirAssets
     },
     styles: {
-        dir: {
-            src: dirStylesSrc,
-            dist: dirStylesDist
+        src: {
+            dir: dirStylesSrc,
+            file: path.join(dirStylesSrc, 'ptn.less')
         },
-        file: {
-            src: path.join(dirStylesSrc, 'ptn.less'),
-            dist: path.join(dirStylesDist, 'ptn.css')
+        dist: {
+            dir: dirStylesDist,
+            file: path.join(dirStylesDist, 'ptn.css'),
+            blessed: {
+                dir: path.join(dirStylesDist, 'blessed')
+            }
         }
     }
 };

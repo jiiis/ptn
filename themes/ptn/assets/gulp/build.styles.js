@@ -17,21 +17,21 @@ if (argv.env === 'prod') {
 }
 
 gulp.task('build:styles:less', function() {
-    return gulp.src(paths.styles.file.src)
+    return gulp.src(paths.styles.src.file)
         .pipe($.less({
             plugins: lessPlugins
         }))
-        .pipe(gulp.dest(paths.styles.dir.dist));
+        .pipe(gulp.dest(paths.styles.dist.dir));
 });
 
 gulp.task('build:styles:bless', function() {
-    return gulp.src(paths.styles.file.dist)
+    return gulp.src(paths.styles.dist.file)
         .pipe($.sakugawa({
             maxSelectors: 4000,
             mediaQueries: 'separate',
             suffix: '-'
         }))
-        .pipe(gulp.dest(paths.styles.dir.dist + '/blessed'));
+        .pipe(gulp.dest(paths.styles.dist.blessed.dir));
 });
 
 gulp.task('build:styles', function(done) {
