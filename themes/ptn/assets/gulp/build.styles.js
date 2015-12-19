@@ -35,10 +35,12 @@ gulp.task('build:styles:minify', function() {
     ], {
         base: paths.styles.dist.dir
     })
+        .pipe($.sourcemaps.init())
         .pipe($.if(isEnvProd, $.minifyCss({
             compatibility: 'ie8',
             keepSpecialComments: 0
         })))
+        .pipe($.sourcemaps.write('./'))
         .pipe(gulp.dest(paths.styles.dist.dir));
 });
 
