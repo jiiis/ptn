@@ -1,52 +1,52 @@
 'use strict';
 
-var gulp = require('gulp'),
-    $ = require('./config.plugins'),
+var $ = require('gulp'),
+    $$ = require('./config.plugins'),
     paths = require('./config.paths'),
-    argv = $.yargs.argv,
+    argv = $$.yargs.argv,
     isEnvProd = argv.env === 'prod';
 
-gulp.task('build:styles:less', function() {
-    return gulp.src(paths.styles.src.file)
-        .pipe($.less({
+$.task('build:styles:less', function() {
+    return $.src(paths.styles.src.file)
+        .pipe($$.less({
             plugins: [
-                new $.lessPluginAutoprefix({
+                new $$.lessPluginAutoprefix({
                     browsers: ['last 2 versions']
                 }),
-                new $.lessPluginCsscomb()
+                new $$.lessPluginCsscomb()
             ]
         }))
-        .pipe(gulp.dest(paths.styles.dist.dir));
+        .pipe($.dest(paths.styles.dist.dir));
 });
 
-gulp.task('build:styles:bless', function() {
-    return gulp.src(paths.styles.dist.file)
-        .pipe($.sakugawa({
+$.task('build:styles:bless', function() {
+    return $.src(paths.styles.dist.file)
+        .pipe($$.sakugawa({
             maxSelectors: 4000,
             mediaQueries: 'separate',
             suffix: '-'
         }))
-        .pipe(gulp.dest(paths.styles.dist.blessed.dir));
+        .pipe($.dest(paths.styles.dist.blessed.dir));
 });
 
-gulp.task('build:styles:minify', function() {
-    return gulp.src([
+$.task('build:styles:minify', function() {
+    return $.src([
         paths.styles.dist.file,
         paths.styles.dist.blessed.files
     ], {
         base: paths.styles.dist.dir
     })
-        .pipe($.sourcemaps.init())
-        .pipe($.if(isEnvProd, $.minifyCss({
+        .pipe($$.sourcemaps.init())
+        .pipe($$.if(isEnvProd, $$.minifyCss({
             compatibility: 'ie8',
             keepSpecialComments: 0
         })))
-        .pipe($.sourcemaps.write('./'))
-        .pipe(gulp.dest(paths.styles.dist.dir));
+        .pipe($$.sourcemaps.write('./'))
+        .pipe($.dest(paths.styles.dist.dir));
 });
 
-gulp.task('build:styles', function(done) {
-    return $.runSequence(
+$.task('build:styles', function(done) {
+    return $$.runSequence(
         'build:styles:less',
         'build:styles:bless',
         'build:styles:minify',

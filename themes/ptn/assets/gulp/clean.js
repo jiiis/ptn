@@ -1,11 +1,11 @@
 'use strict';
 
-var gulp = require('gulp'),
-    paths = require('./config.paths'),
-    $ = require('./config.plugins');
+var $ = require('gulp'),
+    $$ = require('./config.plugins'),
+    paths = require('./config.paths');
 
-gulp.task('clean', function(done) {
-    return $.del([
+$.task('clean', function(done) {
+    return $$.del([
         paths.styles.dist.files
     ], done);
 });
