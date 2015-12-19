@@ -2,7 +2,8 @@
 
 var path = require('path'),
     dirAssets = path.join(__dirname, '..'),
-    dirStyles = path.join(dirAssets, 'styles');
+    dirStyles = path.join(dirAssets, 'styles'),
+    dirVendors = path.join(dirAssets, 'vendors');
 
 module.exports = {
     assets: {
@@ -11,7 +12,8 @@ module.exports = {
     styles: {
         src: {
             dir: path.join(dirStyles, 'src'),
-            file: path.join(dirStyles,'src', 'ptn.less')
+            file: path.join(dirStyles,'src', 'ptn.less'),
+            files: path.join(dirStyles, 'src', '**/*')
         },
         dist: {
             dir: path.join(dirStyles, 'dist'),
@@ -21,6 +23,12 @@ module.exports = {
                 dir: path.join(dirStyles, 'dist', 'blessed'),
                 files: path.join(dirStyles, 'dist', 'blessed', '**/*.css')
             }
+        }
+    },
+    vendors: {
+        dir: dirVendors,
+        styles: {
+            files: path.join(dirVendors, '**/*.@(less|css)')
         }
     }
 };
