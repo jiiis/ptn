@@ -26,6 +26,7 @@
     "gulp-load-plugins": "^1.1.0",
     "gulp-minify-css": "^1.2.2",
     "gulp-sakugawa": "^0.4.1",
+    "gulp-sourcemaps": "^1.6.0",
     "less-plugin-autoprefix": "^1.5.1",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
