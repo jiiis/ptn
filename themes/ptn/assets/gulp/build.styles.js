@@ -1,8 +1,8 @@
 'use strict';
 
-var $ = require('./plugins'),
-    gulp = require('gulp'),
-    paths = require('./paths'),
+var gulp = require('gulp'),
+    $ = require('./config.plugins'),
+    paths = require('./config.paths'),
     argv = $.yargs.argv,
     isEnvProd = argv.env === 'prod';
 
