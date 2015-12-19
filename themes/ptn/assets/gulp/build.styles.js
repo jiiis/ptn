@@ -4,17 +4,16 @@ var $ = require('./plugins'),
     gulp = require('gulp'),
     paths = require('./paths'),
     argv = $.yargs.argv,
-    isEnvProd = argv.env === 'prod',
-    lessPlugins = [
-        new $.lessPluginAutoprefix({
-            browsers: ['last 2 versions']
-        })
-    ];
+    isEnvProd = argv.env === 'prod';
 
 gulp.task('build:styles:less', function() {
     return gulp.src(paths.styles.src.file)
         .pipe($.less({
-            plugins: lessPlugins
+            plugins: [
+                new $.lessPluginAutoprefix({
+                    browsers: ['last 2 versions']
+                })
+            ]
         }))
         .pipe(gulp.dest(paths.styles.dist.dir));
 });
