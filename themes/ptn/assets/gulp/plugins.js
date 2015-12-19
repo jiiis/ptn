@@ -8,6 +8,6 @@ module.exports = require('gulp-load-plugins')({
         'yargs',
         'run-sequence',
         'less-plugin-autoprefix',
-        'less-plugin-clean-css'
+        'less-plugin-csscomb'
     ]
 });

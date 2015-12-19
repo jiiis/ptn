@@ -12,7 +12,8 @@ gulp.task('build:styles:less', function() {
             plugins: [
                 new $.lessPluginAutoprefix({
                     browsers: ['last 2 versions']
-                })
+                }),
+                new $.lessPluginCsscomb()
             ]
         }))
         .pipe(gulp.dest(paths.styles.dist.dir));
