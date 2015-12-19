@@ -9,6 +9,7 @@ var $ = require('./plugins'),
 gulp.task('build:styles:less', function() {
     return gulp.src(paths.styles.src.file)
         .pipe($.less({
+            paths: [paths.assets.dir + '/styles'],
             plugins: [
                 new $.lessPluginAutoprefix({
                     browsers: ['last 2 versions']
