@@ -19,6 +19,7 @@ module.exports = {
         dist: {
             dir: dirStylesDist,
             file: path.join(dirStylesDist, 'ptn.css'),
+            files: path.join(dirStylesDist, '**/*'),
             blessed: {
                 dir: dirStylesDistBlessed,
                 files: path.join(dirStylesDistBlessed, '**/*.css')

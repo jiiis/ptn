@@ -6,6 +6,6 @@ var gulp = require('gulp'),
 
 gulp.task('clean', function(done) {
     return $.del([
-        paths.styles.dist.dir + '/**/*'
+        paths.styles.dist.files
     ], done);
 });
