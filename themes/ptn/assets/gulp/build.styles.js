@@ -33,7 +33,9 @@ gulp.task('build:styles:minify', function() {
     return gulp.src([
         paths.styles.dist.file,
         paths.styles.dist.blessed.files
-    ])
+    ], {
+        base: paths.styles.dist.dir
+    })
         .pipe($.if(isEnvProd, $.minifyCss({
             compatibility: 'ie8',
             keepSpecialComments: 0
