@@ -11,12 +11,6 @@ var $ = require('./plugins'),
         })
     ];
 
-if (isEnvProd) {
-    lessPlugins.push(new $.lessPluginCleanCss({
-        advanced: true
-    }));
-}
-
 gulp.task('build:styles:less', function() {
     return gulp.src(paths.styles.src.file)
         .pipe($.less({
@@ -36,12 +30,15 @@ gulp.task('build:styles:bless', function() {
 });
 
 gulp.task('build:styles:minify', function() {
-    return gulp.src(paths.styles.dist.blessed.files)
+    return gulp.src([
+        paths.styles.dist.file,
+        paths.styles.dist.blessed.files
+    ])
         .pipe($.if(isEnvProd, $.minifyCss({
             compatibility: 'ie8',
             keepSpecialComments: 0
         })))
-        .pipe(gulp.dest(paths.styles.dist.blessed.dir));
+        .pipe(gulp.dest(paths.styles.dist.dir));
 });
 
 gulp.task('build:styles', function(done) {
