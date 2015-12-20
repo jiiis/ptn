@@ -11,7 +11,9 @@ $.task('build:scripts:shared', function() {
         paths.scripts.src.app.file
     ]))
         .pipe($$.concat('shared.js'))
-        .pipe($$.if(isEnvProd, $$.uglify()))
+        .pipe($$.if(isEnvProd, $$.uglify({
+            preserveComments: false
+        })))
         .pipe($.dest(paths.scripts.dist.dir));
 });
 
