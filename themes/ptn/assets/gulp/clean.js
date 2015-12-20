@@ -6,6 +6,7 @@ var $ = require('gulp'),
 
 $.task('clean', function(done) {
     return $$.del([
-        paths.styles.dist.files
+        paths.styles.dist.files,
+        paths.scripts.dist.files
     ], done);
 });

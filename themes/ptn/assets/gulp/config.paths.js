@@ -45,7 +45,8 @@ module.exports = {
             shared: dirScriptsVendorFiles.concat(dirScriptsAppFile)
         },
         dist: {
-            dir: path.join(dirScripts, 'dist')
+            dir: path.join(dirScripts, 'dist'),
+            files: path.join(dirScripts, 'dist', '**/*')
         }
     },
     vendors: {
