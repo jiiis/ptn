@@ -7,8 +7,8 @@ var path = require('path'),
     dirVendors = path.join(dirAssets, 'vendors'),
     dirScriptsAppFile = path.join(dirScripts, 'src', 'app.js'),
     dirScriptsVendorFiles = [
-        path.join(dirVendors, 'bower', 'jquery', 'dist', 'jquery.min.js'),
-        path.join(dirVendors, 'bower', 'bootstrap', 'dist', 'js', 'bootstrap.min.js')
+        path.join(dirVendors, 'bower', 'jquery', 'dist', 'jquery.js'),
+        path.join(dirVendors, 'bower', 'bootstrap', 'dist', 'js', 'bootstrap.js')
     ];
 
 module.exports = {
