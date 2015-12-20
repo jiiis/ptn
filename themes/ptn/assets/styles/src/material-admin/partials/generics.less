@@ -2,8 +2,7 @@
  * Generate Margin Class
  * margin, margin-top, margin-bottom, margin-left, margin-right
  */
-
-.margin (@label, @size: 1, @key:1) when (@size =< 30) {
+.margin (@label, @size: 1, @key: 1) when (@size =< 30) {
   .m-@{key} {
     margin: @size !important;
   }
@@ -27,14 +26,13 @@
   .margin(@label - 5; @size + 5; @key + 5);
 }
 
-.margin(25, 0, 0);
+.margin(25, 0px, 0);
 
 /*
  * Generate Padding Class
  * padding, padding-top, padding-bottom, padding-left, padding-right
  */
-
-.padding (@label, @size: 1, @key:1) when (@size =< 30) {
+.padding (@label, @size: 1, @key: 1) when (@size =< 30) {
   .p-@{key} {
     padding: @size !important;
   }
@@ -58,12 +56,12 @@
   .padding(@label - 5; @size + 5; @key + 5);
 }
 
-.padding(25, 0, 0);
+.padding(25, 0px, 0);
 
 /*
  * Generate Font-Size Classes (8px - 20px)
  */
-.font-size (@label, @size: 8, @key:10) when (@size =< 20) {
+.font-size (@label, @size: 8, @key: 10) when (@size =< 20) {
   .f-@{key} {
     font-size: @size !important;
   }
