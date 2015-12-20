@@ -6,10 +6,10 @@ var $ = require('gulp'),
     argv = $$.yargs.argv,
     isEnvProd = argv.env === 'prod';
 
-$.task('build:scripts:shared', function() {
-    return $.src(paths.scripts.src.shared)
+$.task('build:scripts:shared-bottom', function() {
+    return $.src(paths.scripts.src.shared.bottom.files)
         .pipe($$.sourcemaps.init())
-        .pipe($$.concat('shared.js'))
+        .pipe($$.concat('shared-bottom.js'))
         .pipe($$.if(isEnvProd, $$.uglify({
             preserveComments: false
         })))
@@ -19,7 +19,7 @@ $.task('build:scripts:shared', function() {
 
 $.task('build:scripts', function(done) {
     return $$.runSequence(
-        'build:scripts:shared',
+        'build:scripts:shared-bottom',
         done
     );
 });
