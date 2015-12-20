@@ -31,6 +31,13 @@ module.exports = {
         dir: dirScripts,
         src: {
             shared: {
+                top: {
+                    files: [
+                        path.join(dirVendors, 'bower', 'selectivizr', 'selectivizr.js'),
+                        path.join(dirVendors, 'bower', 'respond', 'dest', 'respond.src.js'),
+                        path.join(dirVendors, 'bower', 'html5shiv', 'dist', 'html5shiv.js')
+                    ]
+                },
                 bottom: {
                     files: [
                         path.join(dirVendors, 'bower', 'jquery', 'dist', 'jquery.js'),

@@ -10,5 +10,7 @@ $.task('watch', ['build'], function() {
         paths.vendors.styles.files
     ], ['build:styles']);
 
+    $.watch(paths.scripts.src.shared.top.files, ['build:scripts:shared-top']);
+
     $.watch(paths.scripts.src.shared.bottom.files, ['build:scripts:shared-bottom']);
 });
