@@ -4,7 +4,12 @@ var path = require('path'),
     dirAssets = path.join(__dirname, '..'),
     dirStyles = path.join(dirAssets, 'styles'),
     dirScripts = path.join(dirAssets, 'scripts'),
-    dirVendors = path.join(dirAssets, 'vendors');
+    dirVendors = path.join(dirAssets, 'vendors'),
+    dirScriptsAppFile = path.join(dirScripts, 'src', 'app.js'),
+    dirScriptsVendorFiles = [
+        path.join(dirVendors, 'bower', 'jquery', 'dist', 'jquery.min.js'),
+        path.join(dirVendors, 'bower', 'bootstrap', 'dist', 'js', 'bootstrap.min.js')
+    ];
 
 module.exports = {
     assets: {
@@ -31,15 +36,13 @@ module.exports = {
         dir: dirScripts,
         src: {
             app: {
-                file: path.join(dirScripts, 'src', 'app.js')
+                file: dirScriptsAppFile
             },
             pages: {},
             vendors: {
-                files: [
-                    path.join(dirVendors, 'bower', 'jquery', 'dist', 'jquery.min.js'),
-                    path.join(dirVendors, 'bower', 'bootstrap', 'dist', 'js', 'bootstrap.min.js')
-                ]
-            }
+                files: dirScriptsVendorFiles
+            },
+            shared: dirScriptsVendorFiles.concat(dirScriptsAppFile)
         },
         dist: {
             dir: path.join(dirScripts, 'dist')

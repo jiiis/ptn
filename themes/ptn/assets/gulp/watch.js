@@ -9,4 +9,6 @@ $.task('watch', ['build'], function() {
         paths.styles.src.files,
         paths.vendors.styles.files
     ], ['build:styles']);
+
+    $.watch(paths.scripts.src.shared, ['build:scripts:shared']);
 });

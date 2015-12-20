@@ -7,9 +7,7 @@ var $ = require('gulp'),
     isEnvProd = argv.env === 'prod';
 
 $.task('build:scripts:shared', function() {
-    return $.src(paths.scripts.src.vendors.files.concat([
-        paths.scripts.src.app.file
-    ]))
+    return $.src(paths.scripts.src.shared)
         .pipe($$.sourcemaps.init())
         .pipe($$.concat('shared.js'))
         .pipe($$.if(isEnvProd, $$.uglify({
