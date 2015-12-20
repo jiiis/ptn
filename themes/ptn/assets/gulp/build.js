@@ -6,7 +6,10 @@ var $ = require('gulp'),
 $.task('build', function(done) {
     $$.runSequence(
         'clean',
-        'build:styles',
+        [
+            'build:styles',
+            'build:scripts'
+        ],
         done
     );
 });
