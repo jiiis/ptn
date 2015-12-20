@@ -10,10 +10,12 @@ $.task('build:scripts:shared', function() {
     return $.src(paths.scripts.src.vendors.files.concat([
         paths.scripts.src.app.file
     ]))
+        .pipe($$.sourcemaps.init())
         .pipe($$.concat('shared.js'))
         .pipe($$.if(isEnvProd, $$.uglify({
             preserveComments: false
         })))
+        .pipe($$.sourcemaps.write('./'))
         .pipe($.dest(paths.scripts.dist.dir));
 });
 
