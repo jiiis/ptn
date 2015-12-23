@@ -1,7 +1,14 @@
-url = "/"
+title = "Test"
+url = "/test"
+is_hidden = 0
 ==
 <!DOCTYPE html>
-<!--[if IE 9 ]><html class="ie9"><![endif]-->
+<!--[if IE 9 ]>
+<html lang="en" class="ie9">
+<![endif]-->
+<!--[if !IE 9 ]><!-->
+<html lang="en">
+<!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -1258,8 +1265,9 @@ url = "/"
     </div>
     <![endif]-->
 
-    <!-- Javascript Libraries -->
-    <script src="/themes/ptn/assets/scripts/dist/shared-bottom.js"></script>
+    <script src="{{ [
+        'assets/scripts/dist/shared-bottom.js'
+    ] | theme }}"></script>
 
     <script src="/themes/ptn/assets/vendors/bower/Flot/jquery.flot.js"></script>
     <script src="/themes/ptn/assets/vendors/bower/Flot/jquery.flot.resize.js"></script>
