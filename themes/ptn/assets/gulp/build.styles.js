@@ -8,6 +8,7 @@ var $ = require('gulp'),
 
 $.task('build:styles:less', function() {
     return $.src(paths.styles.src.file)
+        .pipe($$.plumber())
         .pipe($$.less({
             plugins: [
                 new $$.lessPluginAutoprefix({
@@ -21,6 +22,7 @@ $.task('build:styles:less', function() {
 
 $.task('build:styles:bless', function() {
     return $.src(paths.styles.dist.file)
+        .pipe($$.plumber())
         .pipe($$.sakugawa({
             maxSelectors: 4000,
             mediaQueries: 'separate',
@@ -36,6 +38,7 @@ $.task('build:styles:minify', function() {
     ], {
         base: paths.styles.dist.dir
     })
+        .pipe($$.plumber())
         .pipe($$.sourcemaps.init())
         .pipe($$.if(isEnvProd, $$.minifyCss({
             compatibility: 'ie8',

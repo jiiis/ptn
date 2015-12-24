@@ -8,6 +8,7 @@ var $ = require('gulp'),
 
 $.task('build:scripts:shared-top', function() {
     return $.src(paths.scripts.src.shared.top.files)
+        .pipe($$.plumber())
         .pipe($$.sourcemaps.init())
         .pipe($$.concat('shared-top.js'))
         .pipe($$.if(isEnvProd, $$.uglify({
@@ -19,6 +20,7 @@ $.task('build:scripts:shared-top', function() {
 
 $.task('build:scripts:shared-bottom', function() {
     return $.src(paths.scripts.src.shared.bottom.files)
+        .pipe($$.plumber())
         .pipe($$.sourcemaps.init())
         .pipe($$.concat('shared-bottom.js'))
         .pipe($$.if(isEnvProd, $$.uglify({
