@@ -42,6 +42,8 @@ module.exports = {
                     files: [
                         path.join(dirVendors, 'bower', 'jquery', 'dist', 'jquery.js'),
                         path.join(dirVendors, 'bower', 'bootstrap', 'dist', 'js', 'bootstrap.js'),
+                        path.join(dirVendors, 'bower', 'malihu-custom-scrollbar-plugin', 'jquery.mCustomScrollbar.js'),
+                        path.join(dirVendors, 'bower', 'Waves', 'dist', 'waves.js'),
                         path.join(dirScripts, 'src', 'app.js')
                     ]
                 }
