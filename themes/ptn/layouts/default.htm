@@ -442,6 +442,70 @@ description = "The default layout template."
         </section>
     </section>
 
+    <footer id="footer">
+        Copyright &copy; 2015 PTN
+        <ul class="f-menu">
+            <li><a href="">Home</a></li>
+            <li><a href="">Dashboard</a></li>
+            <li><a href="">Reports</a></li>
+            <li><a href="">Support</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </footer>
+
+    <div class="page-loader">
+        <div class="preloader pls-blue">
+            <svg class="pl-circular" viewBox="25 25 50 50">
+                <circle class="plc-path" cx="50" cy="50" r="20" />
+            </svg>
+
+            <p>Please wait...</p>
+        </div>
+    </div>
+
+    <!--[if lt IE 9]>
+    <div class="ie-warning">
+        <h1 class="c-white">Warning!!</h1>
+        <p>You are using an outdated version of Internet Explorer, please upgrade
+            <br/>to any of the following web browsers to access this website.</p>
+        <div class="iew-container">
+            <ul class="iew-download">
+                <li>
+                    <a href="http://www.google.com/chrome/">
+                        <img src="{{ 'assets/images/browsers/chrome.png' | theme }}" alt="">
+                        <div>Chrome</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.mozilla.org/en-US/firefox/new/">
+                        <img src="{{ 'assets/images/browsers/firefox.png' | theme }}" alt="">
+                        <div>Firefox</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.opera.com">
+                        <img src="{{ 'assets/images/browsers/opera.png' | theme }}" alt="">
+                        <div>Opera</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.apple.com/safari/">
+                        <img src="{{ 'assets/images/browsers/safari.png' | theme }}" alt="">
+                        <div>Safari</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                        <img src="{{ 'assets/images/browsers/ie.png' | theme }}" alt="">
+                        <div>IE (New)</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <p>Sorry for the inconvenience!</p>
+    </div>
+    <![endif]-->
+
     <script src="{{ [
         'assets/scripts/dist/shared-bottom.js'
     ] | theme }}"></script>
