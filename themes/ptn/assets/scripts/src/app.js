@@ -33,8 +33,7 @@ $(document).ready(function() {
                     $('body').addClass('toggled sw-toggled');
                     localStorage.setItem('ma-layout-status', 1);
                 }, 250);
-            }
-            else {
+            } else {
                 setTimeout(function() {
                     $('body').removeClass('toggled sw-toggled');
                     localStorage.setItem('ma-layout-status', 0);
@@ -194,8 +193,7 @@ $(document).ready(function() {
                 $animationDuration = ''
                 if (!$animArray[2]) {
                     $animationDuration = 500; //if duration is not defined, default is set to 500ms
-                }
-                else {
+                } else {
                     $animationDuration = $animArray[2];
                 }
 
@@ -359,8 +357,7 @@ $(document).ready(function() {
                 if (i.length == 0) {
                     $(this).closest('.fg-line').removeClass('fg-toggled');
                 }
-            }
-            else {
+            } else {
                 $(this).closest('.fg-line').removeClass('fg-toggled');
             }
         });
@@ -399,7 +396,7 @@ $(document).ready(function() {
                 start: isStart,
                 range: {
                     'min': 0,
-                    'max': 100,
+                    'max': 100
                 }
             });
         });
@@ -472,14 +469,14 @@ $(document).ready(function() {
         });
     }
 
-    //Air mode
+    // Air mode
     if ($('.html-editor-airmod')[0]) {
         $('.html-editor-airmod').summernote({
             airMode: true
         });
     }
 
-    //Date time picker
+    // Date time picker
     if ($('.date-time-picker')[0]) {
         $('.date-time-picker').datetimepicker();
     }
@@ -587,8 +584,7 @@ $(document).ready(function() {
         $('body').on('click', checkboxes, function() {
             if ($(checkboxes + ':checked')[0]) {
                 actions.addClass('toggled');
-            }
-            else {
+            } else {
                 actions.removeClass('toggled');
             }
         });
@@ -665,16 +661,16 @@ $(document).ready(function() {
             e.preventDefault();
 
             swal({
-                title: "Are you sure?",
-                text: "All your saved localStorage values will be removed",
-                type: "warning",
+                title: 'Are you sure?',
+                text: 'All your saved localStorage values will be removed',
+                type: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, delete it!",
+                confirmButtonColor: '#DD6B55',
+                confirmButtonText: 'Yes, delete it!',
                 closeOnConfirm: false
             }, function() {
                 localStorage.clear();
-                swal("Done!", "localStorage is cleared", "success");
+                swal('Done!', 'localStorage is cleared', 'success');
             });
         });
     }
@@ -780,13 +776,12 @@ $(document).ready(function() {
         $('body').on('click', '.wcc-cencel', function(e) {
             e.preventDefault();
 
-            $(this).closest('.wc-comment').find('.wcc-inner').addClass('wcc-toggle').html('Write Something...')
+            $(this).closest('.wc-comment').find('.wcc-inner').addClass('wcc-toggle').html('Write Something...');
         });
     }
 
     // Skin change
     $('body').on('click', '[data-skin]', function() {
-        var currentSkin = $('[data-current-skin]').data('current-skin');
         var skin = $(this).data('skin');
 
         $('[data-current-skin]').attr('data-current-skin', skin);

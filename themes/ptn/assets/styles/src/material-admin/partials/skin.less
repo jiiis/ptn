@@ -1,7 +1,5 @@
-/*
- * For header type 1 only
- * You may remove these if you opt header 2
- */
+// For header type 1 only
+// Remove this if you opt header 2
 #header {
   .skin-switch {
     padding: 10px 0 2px;
@@ -17,14 +15,10 @@
     margin: 2px 3px;
   }
 }
-
 /* ----------------------------- End header type 1 ------------------------------------- */
 
-/*
- * For header type 2 only
- * You may remove these if you opt header 1
- */
-
+// For header type 2 only
+// Remove this if you opt header 1
 #header-2 {
   .skin-switch {
     position: absolute;
@@ -109,13 +103,9 @@
     }
   }
 }
-
 /* ----------------------------- End header type 2 ------------------------------------- */
 
-/*
- * Do not remove these
- * This is common for both
- */
+// Common for both
 .ss-skin {
   width: 16px;
   height: 16px;
@@ -139,6 +129,10 @@
       background: @color;
     }
   }
+}
+
+[data-current-skin="black"] {
+  .current-skin(@m-black);
 }
 
 [data-current-skin="lightblue"] {
