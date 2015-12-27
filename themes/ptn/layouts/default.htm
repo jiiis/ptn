@@ -1,5 +1,13 @@
 description = "The default layout template."
 ==
+public function onInit()
+{
+    $this['app'] = [
+        'name' => Config::get('ptn.app_name'),
+        'nameAcronym' => Config::get('ptn.app_name_acronym'),
+    ];
+}
+==
 <!doctype html>
 <!--[if IE 9 ]>
 <html lang="en" class="ie9">
@@ -8,7 +16,7 @@ description = "The default layout template."
 <html lang="en">
 <!--<![endif]-->
 <head>
-    <title>PTN | {% placeholder title %}</title>
+    <title>{{ app.nameAcronym }} | {% placeholder title %}</title>
 
     {% partial 'layouts/top' %}
 
