@@ -2,8 +2,10 @@
     /******************** Private variables ********************/
     var _isDeviceMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
         _$window = $(window),
-        _$html = $('html');
+        _$html = $('html'),
+        _$body = $('body');
 
+    /******************** Mobile device class ********************/
     if (_isDeviceMobile) {
         _$html.addClass('ptn-html_device-mobile');
     }
@@ -11,50 +13,21 @@
     /******************** Event: DOM ready ********************/
     $(function() {
         /******************** Widget: scrollbar ********************/
-        function scrollBar(selector, theme, mousewheelaxis) {
-            $(selector).mCustomScrollbar({
-                theme: theme,
-                scrollInertia: 100,
-                axis: 'yx',
-                mouseWheel: {
-                    enable: true,
-                    axis: mousewheelaxis,
-                    preventDefault: true
-                }
-            });
-        }
+        var _$sidebar = $('#sidebar');
 
         if (!_isDeviceMobile) {
-            if ($('.c-overflow')[0]) {
-                scrollBar('.c-overflow', 'minimal-dark', 'y');
-            }
+            _addScrollBar(_$sidebar, 'minimal-dark', 'y');
         }
-    });
 
-    /******************** Event: page load ********************/
-    _$window.load(function() {
-        /******************** Widget: page loader ********************/
-        var _$pageLoader = $('.page-loader');
+        /******************** Widget: layout switcher ********************/
+        var _layoutStatus = localStorage.getItem('ma-layout-status');
 
-        if (!_isDeviceMobile && _$pageLoader.length) {
-            window.setTimeout(function() {
-                _$pageLoader.fadeOut();
-            }, 500);
-        }
-    });
-})(window);
-
-$(document).ready(function() {
-    // Layout
-    (function() {
-        var layoutStatus = localStorage.getItem('ma-layout-status');
-
-        if (layoutStatus == 1) {
+        if (_layoutStatus === 1) {
             $('body').addClass('sw-toggled');
             $('#tw-switch').prop('checked', true);
         }
 
-        $('body').on('change', '#toggle-width input:checkbox', function() {
+        _$body.on('change', '#toggle-width input:checkbox', function() {
             if ($(this).is(':checked')) {
                 setTimeout(function() {
                     $('body').addClass('toggled sw-toggled');
@@ -67,8 +40,44 @@ $(document).ready(function() {
                 }, 250);
             }
         });
-    })();
+    });
 
+    /******************** Event: page load ********************/
+    _$window.load(function() {
+        /******************** Widget: page loader ********************/
+        var _$pageLoader = $('#page-loader');
+
+        if (!_isDeviceMobile && _isElementExistent(_$pageLoader)) {
+            window.setTimeout(function() {
+                _$pageLoader.fadeOut();
+            }, 500);
+        }
+    });
+
+    /******************** Private functions ********************/
+    function _addScrollBar($element, theme, mouseWheelAxis) {
+        if (!_isElementExistent($element)) {
+            return;
+        }
+
+        $element.mCustomScrollbar({
+            theme: theme,
+            scrollInertia: 100,
+            axis: 'yx',
+            mouseWheel: {
+                preventDefault: true,
+                enable: true,
+                axis: mouseWheelAxis
+            }
+        });
+    }
+
+    function _isElementExistent($element) {
+        return !!$element.length;
+    }
+})(window);
+
+$(document).ready(function() {
     // Search
     (function() {
         $('body').on('click', '#top-search > a', function(e) {
@@ -287,55 +296,6 @@ $(document).ready(function() {
         })();
     }
 
-    // Weather
-    if ($('#weather-widget')[0]) {
-        $.simpleWeather({
-            location: 'Austin, TX',
-            woeid: '',
-            unit: 'f',
-            success: function(weather) {
-                html = '<div class="weather-status">' + weather.temp + '&deg;' + weather.units.temp + '</div>';
-                html += '<ul class="weather-info"><li>' + weather.city + ', ' + weather.region + '</li>';
-                html += '<li class="currently">' + weather.currently + '</li></ul>';
-                html += '<div class="weather-icon wi-' + weather.code + '"></div>';
-                html += '<div class="dash-widget-footer"><div class="weather-list tomorrow">';
-                html += '<span class="weather-list-icon wi-' + weather.forecast[2].code + '"></span><span>' + weather.forecast[1].high + '/' + weather.forecast[1].low + '</span><span>' + weather.forecast[1].text + '</span>';
-                html += '</div>';
-                html += '<div class="weather-list after-tomorrow">';
-                html += '<span class="weather-list-icon wi-' + weather.forecast[2].code + '"></span><span>' + weather.forecast[2].high + '/' + weather.forecast[2].low + '</span><span>' + weather.forecast[2].text + '</span>';
-                html += '</div></div>';
-                $("#weather-widget").html(html);
-            },
-            error: function(error) {
-                $("#weather-widget").html('<p>' + error + '</p>');
-            }
-        });
-    }
-
-    if ($('#todo-lists')[0]) {
-        // Todo: add new item
-        $('body').on('click', '#add-tl-item .add-new-item', function() {
-            $(this).parent().addClass('toggled');
-        });
-
-        // Dismiss
-        $('body').on('click', '.add-tl-actions > a', function(e) {
-            e.preventDefault();
-            var x = $(this).closest('#add-tl-item');
-            var y = $(this).data('tl-action');
-
-            if (y == "dismiss") {
-                x.find('textarea').val('');
-                x.removeClass('toggled');
-            }
-
-            if (y == "save") {
-                x.find('textarea').val('');
-                x.removeClass('toggled');
-            }
-        });
-    }
-
     // Auto height textarea
     if ($('.auto-size')[0]) {
         autosize($('.auto-size'));
@@ -382,7 +342,7 @@ $(document).ready(function() {
 
     // Audio and video
     if ($('audio, video')[0]) {
-        $('video,audio').mediaelementplayer();
+        $('video, audio').mediaelementplayer();
     }
 
     // Tag select

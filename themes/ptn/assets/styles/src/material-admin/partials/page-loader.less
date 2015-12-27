@@ -1,6 +1,6 @@
 html {
   &:not(.ptn-html_device-mobile) {
-    .page-loader {
+    .ptn-page-loader {
       background: #fff;
       position: fixed;
       width: 100%;
@@ -16,6 +16,7 @@ html {
         margin-left: -25px;
         top: 50%;
         margin-top: -55px;
+
         .animated(fadeIn, 3000ms);
 
         p {
@@ -29,7 +30,7 @@ html {
     }
   }
 
-  &.ptn-html_device-mobile .page-loader {
+  &.ptn-html_device-mobile .ptn-page-loader {
     display: none;
   }
 }
