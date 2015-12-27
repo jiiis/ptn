@@ -1,5 +1,4 @@
-.header-inner {
-  list-style: none;
+.ptn-header__nav {
   padding: 17px 0;
   margin-bottom: 0;
   position: relative;
@@ -24,14 +23,10 @@
   }
 }
 
-#menu-trigger {
+.ptn-header__sidebar-trigger {
   width: 65px;
   height: 35px;
   cursor: pointer;
-
-  .line-wrap .line {
-    background-color: #fff;
-  }
 
   &:before {
     content: "";
@@ -55,10 +50,7 @@
   }
 }
 
-.top-menu {
-  list-style: none;
-  padding: 0;
-
+.ptn-header__menu {
   & > li {
     display: inline-block;
     margin: 0 1px;
@@ -153,7 +145,6 @@
     .scale-rotate(1, 0deg);
     .opacity(1);
   }
-
 }
 
 /* Full Screen */
@@ -182,12 +173,6 @@
   min-height: @header-height;
   .user-select(none);
 
-  &:not(.sidebar-toggled) {
-    &.header-up {
-      .translate3d(0, -70px, 0);
-    }
-  }
-
   position: fixed;
   z-index: 11;
   width: 100%;
@@ -200,7 +185,7 @@
   }
 }
 
-#top-search-wrap {
+#search-ctn {
   position: absolute;
   top: -65px;
   left: 0;
@@ -222,7 +207,7 @@
     width: 100%;
   }
 
-  #top-search-close {
+  .ptn-header__search-btn {
     position: absolute;
     top: 15px;
     font-size: 23px;
@@ -254,60 +239,16 @@
 }
 
 &.search-toggled {
-  #top-search-wrap {
+  #search-ctn {
     top: 0;
     .opacity(1);
   }
 }
 
-/* Full Width Layout */
-#toggle-width {
-  @media (min-width: @screen-lg-min) {
-    .toggle-switch {
-      margin: 9px 30px 0 0;
-
-      .ts-helper {
-        height: 11px;
-        width: 33px;
-
-        &:before {
-          width: 20px;
-          height: 20px;
-          top: -5px;
-        }
-      }
-
-      input:checked + .ts-helper {
-        background: rgba(0, 0, 0, 0.26);
-        &:before {
-          left: 18px;
-          background: #fff;
-        }
-      }
-    }
-  }
-
-  @media (max-width: @screen-lg-min) {
-    display: none;
-  }
-}
-
-.sw-toggled {
+.ptn-body_sidebar-open {
   @media (min-width: @screen-lg-min) {
     .ptn-header {
       padding-left: 15px;
-    }
-
-    #menu-trigger {
-      display: none;
-    }
-  }
-}
-
-.ie9 {
-  .ptn-header:not(.sidebar-toggled) {
-    &.header-up {
-      display: none;
     }
   }
 }

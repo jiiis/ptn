@@ -12,34 +12,62 @@
 
     /******************** Event: DOM ready ********************/
     $(function() {
-        /******************** Widget: scrollbar ********************/
-        var _$sidebar = $('#sidebar');
+        /******************** Private variables ********************/
+        var _sidebarStatuses = {
+                closed: 'closed',
+                open: 'open'
+            },
+            _sidebarStatusLocalStorageKey = 'ptn-status-layout',
+            _sidebarStatus = localStorage.getItem(_sidebarStatusLocalStorageKey),
+            _sidebarTriggerSelector = '#sidebar-trigger',
+            _$sidebarTrigger = $(_sidebarTriggerSelector),
+            _$sidebar = $('#sidebar');
 
+        /******************** Widget: scrollbar ********************/
         if (!_isDeviceMobile) {
             _addScrollBar(_$sidebar, 'minimal-dark', 'y');
         }
 
-        /******************** Widget: layout switcher ********************/
-        var _layoutStatus = localStorage.getItem('ma-layout-status');
-
-        if (_layoutStatus === 1) {
-            $('body').addClass('sw-toggled');
-            $('#tw-switch').prop('checked', true);
+        /******************** Layout: sidebar ********************/
+        if (_sidebarStatus === _sidebarStatuses.open) {
+            _$body.addClass('ptn-body_sidebar-open');
+            _$sidebar.addClass('toggled');
+            _$sidebarTrigger.addClass('open');
         }
 
-        _$body.on('change', '#toggle-width input:checkbox', function() {
-            if ($(this).is(':checked')) {
-                setTimeout(function() {
-                    $('body').addClass('toggled sw-toggled');
-                    localStorage.setItem('ma-layout-status', 1);
-                }, 250);
-            } else {
-                setTimeout(function() {
-                    $('body').removeClass('toggled sw-toggled');
-                    localStorage.setItem('ma-layout-status', 0);
-                }, 250);
-            }
+        _$body.on('click', _sidebarTriggerSelector, function(e) {
+            e.preventDefault();
+
+            _toggleSidebar();
+
+            // Close opened sub-menus
+            $('.sub-menu.toggled').not('.active').each(function() {
+                $(this).removeClass('toggled');
+                $(this).find('ul').hide();
+            });
+
+
+            $('.profile-menu .main-menu').hide();
         });
+
+        // Submenu
+        _$body.on('click', '.sub-menu > a', function(e) {
+            e.preventDefault();
+            $(this).next().slideToggle(200);
+            $(this).parent().toggleClass('toggled');
+        });
+
+        /******************** Private functions ********************/
+        function _toggleSidebar() {
+            var _status = localStorage.getItem(_sidebarStatusLocalStorageKey),
+                _statusNew = _status === _sidebarStatuses.open ? _sidebarStatuses.closed : _sidebarStatuses.open;
+
+            localStorage.setItem(_sidebarStatusLocalStorageKey, _statusNew);
+
+            _$body.toggleClass('ptn-body_sidebar-open');
+            _$sidebar.toggleClass('toggled');
+            _$sidebarTrigger.toggleClass('open');
+        }
     });
 
     /******************** Event: page load ********************/
@@ -77,87 +105,25 @@
     }
 })(window);
 
+
+
+
+
+
 $(document).ready(function() {
     // Search
     (function() {
-        $('body').on('click', '#top-search > a', function(e) {
+        $('body').on('click', '#search-trigger > a', function(e) {
             e.preventDefault();
 
             $('#header').addClass('search-toggled');
-            $('#top-search-wrap input').focus();
+            $('#search-ctn input').focus();
         });
 
-        $('body').on('click', '#top-search-close', function(e) {
+        $('body').on('click', '#search-btn', function(e) {
             e.preventDefault();
 
             $('#header').removeClass('search-toggled');
-        });
-    })();
-
-    // Sidebar
-    (function() {
-        // Toggle
-        $('body').on('click', '#menu-trigger, #chat-trigger', function(e) {
-            e.preventDefault();
-            var x = $(this).data('trigger');
-
-            $(x).toggleClass('toggled');
-            $(this).toggleClass('open');
-
-            // Close opened sub-menus
-            $('.sub-menu.toggled').not('.active').each(function() {
-                $(this).removeClass('toggled');
-                $(this).find('ul').hide();
-            });
-
-
-            $('.profile-menu .main-menu').hide();
-
-            if (x == '#sidebar') {
-                $elem = '#sidebar';
-                $elem2 = '#menu-trigger';
-
-                $('#chat-trigger').removeClass('open');
-
-                if (!$('#chat').hasClass('toggled')) {
-                    $('#header').toggleClass('sidebar-toggled');
-                } else {
-                    $('#chat').removeClass('toggled');
-                }
-            }
-
-            if (x == '#chat') {
-                $elem = '#chat';
-                $elem2 = '#chat-trigger';
-
-                $('#menu-trigger').removeClass('open');
-
-                if (!$('#sidebar').hasClass('toggled')) {
-                    $('#header').toggleClass('sidebar-toggled');
-                } else {
-                    $('#sidebar').removeClass('toggled');
-                }
-            }
-
-            // When clicking outside
-            if ($('#header').hasClass('sidebar-toggled')) {
-                $(document).on('click', function(e) {
-                    if (($(e.target).closest($elem).length === 0) && ($(e.target).closest($elem2).length === 0)) {
-                        setTimeout(function() {
-                            $($elem).removeClass('toggled');
-                            $('#header').removeClass('sidebar-toggled');
-                            $($elem2).removeClass('open');
-                        });
-                    }
-                });
-            }
-        });
-
-        // Submenu
-        $('body').on('click', '.sub-menu > a', function(e) {
-            e.preventDefault();
-            $(this).next().slideToggle(200);
-            $(this).parent().toggleClass('toggled');
         });
     })();
 
@@ -230,70 +196,6 @@ $(document).ready(function() {
                 }, $animationDuration);
             }
         });
-    }
-
-    // Calendar
-    if ($('#calendar-widget')[0]) {
-        (function() {
-            $('#calendar-widget').fullCalendar({
-                contentHeight: 'auto',
-                theme: true,
-                header: {
-                    right: '',
-                    center: 'prev, title, next',
-                    left: ''
-                },
-                defaultDate: '2014-06-12',
-                editable: true,
-                events: [
-                    {
-                        title: 'All Day',
-                        start: '2014-06-01',
-                        className: 'bgm-cyan'
-                    },
-                    {
-                        title: 'Long Event',
-                        start: '2014-06-07',
-                        end: '2014-06-10',
-                        className: 'bgm-orange'
-                    },
-                    {
-                        id: 999,
-                        title: 'Repeat',
-                        start: '2014-06-09',
-                        className: 'bgm-lightgreen'
-                    },
-                    {
-                        id: 999,
-                        title: 'Repeat',
-                        start: '2014-06-16',
-                        className: 'bgm-lightblue'
-                    },
-                    {
-                        title: 'Meet',
-                        start: '2014-06-12',
-                        end: '2014-06-12',
-                        className: 'bgm-green'
-                    },
-                    {
-                        title: 'Lunch',
-                        start: '2014-06-12',
-                        className: 'bgm-cyan'
-                    },
-                    {
-                        title: 'Birthday',
-                        start: '2014-06-13',
-                        className: 'bgm-amber'
-                    },
-                    {
-                        title: 'Google',
-                        url: 'http://google.com/',
-                        start: '2014-06-28',
-                        className: 'bgm-amber'
-                    }
-                ]
-            });
-        })();
     }
 
     // Auto height textarea
@@ -539,29 +441,6 @@ $(document).ready(function() {
     // Popover
     if ($('[data-toggle="popover"]')[0]) {
         $('[data-toggle="popover"]').popover();
-    }
-
-    // Messages
-    // Actions
-    if ($('.on-select')[0]) {
-        var checkboxes = '.lv-avatar-content input:checkbox';
-        var actions = $('.on-select').closest('.lv-actions');
-
-        $('body').on('click', checkboxes, function() {
-            if ($(checkboxes + ':checked')[0]) {
-                actions.addClass('toggled');
-            } else {
-                actions.removeClass('toggled');
-            }
-        });
-    }
-
-    if ($('#ms-menu-trigger')[0]) {
-        $('body').on('click', '#ms-menu-trigger', function(e) {
-            e.preventDefault();
-            $(this).toggleClass('open');
-            $('.ms-menu').toggleClass('toggled');
-        });
     }
 
     // Login

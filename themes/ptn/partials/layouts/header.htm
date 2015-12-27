@@ -1,6 +1,6 @@
 <header id="header" class="ptn-header clearfix">
-    <ul class="header-inner">
-        <li id="menu-trigger" data-trigger="#sidebar">
+    <ul class="ptn-header__nav list-unstyled">
+        <li id="sidebar-trigger" class="ptn-header__sidebar-trigger">
             <div class="line-wrap">
                 <div class="line top"></div>
                 <div class="line center"></div>
@@ -11,14 +11,8 @@
             <a href="{{ '/' | app }}">{{ app.name }}</a>
         </li>
         <li class="pull-right">
-            <ul class="top-menu">
-                <li id="toggle-width">
-                    <div class="toggle-switch">
-                        <input id="tw-switch" type="checkbox" hidden="hidden">
-                        <label for="tw-switch" class="ts-helper"></label>
-                    </div>
-                </li>
-                <li id="top-search">
+            <ul class="ptn-header__menu list-unstyled">
+                <li id="search-trigger">
                     <a href=""><i class="tm-icon zmdi zmdi-search"></i></a>
                 </li>
                 <li class="dropdown">
@@ -252,10 +246,10 @@
             </ul>
         </li>
     </ul>
-    <div id="top-search-wrap">
+    <div id="search-ctn">
         <div class="tsw-inner">
-            <i id="top-search-close" class="zmdi zmdi-arrow-left"></i>
             <input type="text">
+            <i id="search-btn" class="ptn-header__search-btn zmdi zmdi-arrow-right"></i>
         </div>
     </div>
 </header>
