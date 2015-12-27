@@ -10,15 +10,15 @@ description = "The default layout template."
 <head>
     <title>PTN | {% placeholder title %}</title>
 
-    {% partial "layouts/top" %}
+    {% partial 'layouts/top' %}
 
     {% styles %}
 </head>
 <body>
-    {% partial "layouts/header" %}
+    {% partial 'layouts/header' %}
 
     <section id="main" data-layout="layout-1">
-        {% partial "layouts/sidebar" %}
+        {% partial 'layouts/sidebar' %}
 
         <section id="content">
             <div class="container">
@@ -27,13 +27,13 @@ description = "The default layout template."
         </section>
     </section>
 
-    {% partial "layouts/footer" %}
+    {% partial 'layouts/footer' %}
 
-    {% partial "layouts/page-loader" %}
+    {% partial 'layouts/page-loader' %}
 
-    {% partial "layouts/browser-warning" %}
+    {% partial 'layouts/browser-warning' %}
 
-    {% partial "layouts/bottom" %}
+    {% partial 'layouts/bottom' %}
 
     {% scripts %}
 </body>
