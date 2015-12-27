@@ -169,16 +169,16 @@
 }
 
 .ptn-header {
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-  min-height: @header-height;
-  .user-select(none);
-
   position: fixed;
-  z-index: 11;
-  width: 100%;
-  left: 0;
   top: 0;
+  left: 0;
   padding: 0 11px;
+  width: 100%;
+  height: @header-height;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  z-index: 11;
+
+  .user-select(none);
 
   .logo a {
     padding: 7px 10px;

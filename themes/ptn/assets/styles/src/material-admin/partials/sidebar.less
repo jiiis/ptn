@@ -1,9 +1,9 @@
 .ptn-sidebar {
   overflow-y: auto;
   position: fixed;
-  top: 65px;
+  top: @header-height;
   width: @sidebar-left-width;
-  height: ~"calc(100% - 65px)";
+  height: ~"calc(100% - @{header-height})";
   background: @m-white;
   box-shadow: 0 0 10px rgba(51, 51, 51, 0.38);
   z-index: 10;
