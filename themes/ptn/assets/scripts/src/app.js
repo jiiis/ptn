@@ -1,18 +1,48 @@
-// Detect mobile browsers
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-    $('html').addClass('ismobile');
-}
+(function(window) {
+    /******************** Private variables ********************/
+    var _isDeviceMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+        _$window = $(window),
+        _$html = $('html');
 
-$(window).load(function() {
-    // Page Loader
-    if (!$('html').hasClass('ismobile')) {
-        if ($('.page-loader')[0]) {
-            setTimeout(function() {
-                $('.page-loader').fadeOut();
+    if (_isDeviceMobile) {
+        _$html.addClass('ptn-html_device-mobile');
+    }
+
+    /******************** Event: DOM ready ********************/
+    $(function() {
+        /******************** Widget: scrollbar ********************/
+        function scrollBar(selector, theme, mousewheelaxis) {
+            $(selector).mCustomScrollbar({
+                theme: theme,
+                scrollInertia: 100,
+                axis: 'yx',
+                mouseWheel: {
+                    enable: true,
+                    axis: mousewheelaxis,
+                    preventDefault: true
+                }
+            });
+        }
+
+        if (!_isDeviceMobile) {
+            if ($('.c-overflow')[0]) {
+                scrollBar('.c-overflow', 'minimal-dark', 'y');
+            }
+        }
+    });
+
+    /******************** Event: page load ********************/
+    _$window.load(function() {
+        /******************** Widget: page loader ********************/
+        var _$pageLoader = $('.page-loader');
+
+        if (!_isDeviceMobile && _$pageLoader.length) {
+            window.setTimeout(function() {
+                _$pageLoader.fadeOut();
             }, 500);
         }
-    }
-});
+    });
+})(window);
 
 $(document).ready(function() {
     // Layout
@@ -38,27 +68,6 @@ $(document).ready(function() {
             }
         });
     })();
-
-    // Scrollbar
-    function scrollBar(selector, theme, mousewheelaxis) {
-        $(selector).mCustomScrollbar({
-            theme: theme,
-            scrollInertia: 100,
-            axis: 'yx',
-            mouseWheel: {
-                enable: true,
-                axis: mousewheelaxis,
-                preventDefault: true
-            }
-        });
-    }
-
-    if (!$('html').hasClass('ismobile')) {
-        //On Custom Class
-        if ($('.c-overflow')[0]) {
-            scrollBar('.c-overflow', 'minimal-dark', 'y');
-        }
-    }
 
     // Search
     (function() {
