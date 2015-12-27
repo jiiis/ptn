@@ -17,14 +17,11 @@ $(window).load(function() {
 $(document).ready(function() {
     // Layout
     (function() {
-        // Get saved layout type from LocalStorage
         var layoutStatus = localStorage.getItem('ma-layout-status');
 
-        if (!$('#header-2')[0]) {  //Make it work only on normal headers
-            if (layoutStatus == 1) {
-                $('body').addClass('sw-toggled');
-                $('#tw-switch').prop('checked', true);
-            }
+        if (layoutStatus == 1) {
+            $('body').addClass('sw-toggled');
+            $('#tw-switch').prop('checked', true);
         }
 
         $('body').on('change', '#toggle-width input:checkbox', function() {
@@ -779,11 +776,4 @@ $(document).ready(function() {
             $(this).closest('.wc-comment').find('.wcc-inner').addClass('wcc-toggle').html('Write Something...');
         });
     }
-
-    // Skin change
-    $('body').on('click', '[data-skin]', function() {
-        var skin = $(this).data('skin');
-
-        $('[data-current-skin]').attr('data-current-skin', skin);
-    });
 });

@@ -1,4 +1,4 @@
-<header id="header" class="clearfix" data-current-skin="teal">
+<header id="header" class="ptn-header clearfix">
     <ul class="header-inner">
         <li id="menu-trigger" data-trigger="#sidebar">
             <div class="line-wrap">
@@ -8,7 +8,7 @@
             </div>
         </li>
         <li class="logo hidden-xs">
-            <a href="">{{ app.name }}</a>
+            <a href="{{ '/' | app }}">{{ app.name }}</a>
         </li>
         <li class="pull-right">
             <ul class="top-menu">
@@ -235,15 +235,6 @@
                 <li class="dropdown">
                     <a data-toggle="dropdown" href=""><i class="tm-icon zmdi zmdi-more-vert"></i></a>
                     <ul class="dropdown-menu dm-icon pull-right">
-                        <li class="skin-switch hidden-xs">
-                            <span class="ss-skin bgm-lightblue" data-skin="lightblue"></span>
-                            <span class="ss-skin bgm-bluegray" data-skin="bluegray"></span>
-                            <span class="ss-skin bgm-cyan" data-skin="cyan"></span>
-                            <span class="ss-skin bgm-teal" data-skin="teal"></span>
-                            <span class="ss-skin bgm-orange" data-skin="orange"></span>
-                            <span class="ss-skin bgm-blue" data-skin="blue"></span>
-                        </li>
-                        <li class="divider hidden-xs"></li>
                         <li class="hidden-xs">
                             <a data-action="fullscreen" href=""><i class="zmdi zmdi-fullscreen"></i> Toggle Fullscreen</a>
                         </li>
