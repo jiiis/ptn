@@ -19,32 +19,32 @@
     /******************** event: DOM ready ********************/
     $(function() {
         /******************** private variables ********************/
-        var _sidebarStatuses = {
+        var _asideStatuses = {
                 closed: 'closed',
                 open: 'open'
             },
-            _sidebarStatusLocalStorageKey = 'ptn-status-layout',
-            _sidebarStatus = localStorage.getItem(_sidebarStatusLocalStorageKey),
-            _sidebarTriggerSelector = '#sidebar-trigger',
-            _$sidebarTrigger = $(_sidebarTriggerSelector),
-            _$sidebar = $('#sidebar');
+            _asideStatusLocalStorageKey = 'ptn-status-layout',
+            _asideStatus = localStorage.getItem(_asideStatusLocalStorageKey),
+            _asideTriggerSelector = '#aside-trigger',
+            _$asideTrigger = $(_asideTriggerSelector),
+            _$aside = $('#aside');
 
         /******************** widget: scrollbar ********************/
         if (!_isDeviceMobile) {
-            _addScrollBar(_$sidebar, 'minimal-dark', 'y');
+            _addScrollBar(_$aside, 'minimal-dark', 'y');
         }
 
-        /******************** layout: sidebar ********************/
-        if (_sidebarStatus === _sidebarStatuses.open) {
-            _$body.addClass('ptn-body_sidebar-open');
-            _$sidebar.addClass('toggled');
-            _$sidebarTrigger.addClass('open');
+        /******************** layout: asdie ********************/
+        if (_asideStatus === _asideStatuses.open) {
+            _$body.addClass('ptn-body_aside-open');
+            _$aside.addClass('toggled');
+            _$asideTrigger.addClass('open');
         }
 
-        _$body.on('click', _sidebarTriggerSelector, function(e) {
+        _$body.on('click', _asideTriggerSelector, function(e) {
             e.preventDefault();
 
-            _toggleSidebar();
+            _toggleAside();
 
             // Close opened sub-menus
             $('.sub-menu.toggled').not('.active').each(function() {
@@ -64,15 +64,15 @@
         });
 
         /******************** private functions ********************/
-        function _toggleSidebar() {
-            var _status = localStorage.getItem(_sidebarStatusLocalStorageKey),
-                _statusNew = _status === _sidebarStatuses.open ? _sidebarStatuses.closed : _sidebarStatuses.open;
+        function _toggleAside() {
+            var _status = localStorage.getItem(_asideStatusLocalStorageKey),
+                _statusNew = _status === _asideStatuses.open ? _asideStatuses.closed : _asideStatuses.open;
 
-            localStorage.setItem(_sidebarStatusLocalStorageKey, _statusNew);
+            localStorage.setItem(_asideStatusLocalStorageKey, _statusNew);
 
-            _$body.toggleClass('ptn-body_sidebar-open');
-            _$sidebar.toggleClass('toggled');
-            _$sidebarTrigger.toggleClass('open');
+            _$body.toggleClass('ptn-body_aside-open');
+            _$aside.toggleClass('toggled');
+            _$asideTrigger.toggleClass('open');
         }
     });
 

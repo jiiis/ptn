@@ -1,52 +1,61 @@
+.ptn-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 12px;
+  width: 100%;
+  height: @ptn__height_header;
+  background: @ptn__background_header;
+  box-shadow: @ptn__box-shadow_header;
+  z-index: @ptn__z-index_header;
+}
+
 .ptn-header__nav {
-  padding: 17px 0;
-  margin-bottom: 0;
   position: relative;
+  padding: 12px 0;
+  height: 100%;
 
-  & > li {
-    &:not(.pull-right) {
-      float: left;
-    }
-
-    &:not(:last-child) {
-      margin-right: -2px;
-    }
+  > div {
+    display: inline-block;
   }
 }
 
-.logo {
-  a {
-    color: #fff;
-    text-transform: uppercase;
-    display: block;
-    font-size: 16px;
-  }
-}
-
-.ptn-header__sidebar-trigger {
-  width: 65px;
-  height: 35px;
+.ptn-header__aside-trigger {
+  padding: 18px 15px;
+  width: 48px;
+  height: 48px;
   cursor: pointer;
 
   &:before {
-    content: "";
+    content: '';
     position: absolute;
-    top: 13px;
-    left: 7px;
-    width: 45px;
-    height: 45px;
+    top: 12px;
+    margin: 0 0 0 -15px;
+    width: 48px;
+    height: 48px;
+    background: @ptn__background_line-wrap;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.22);
+
     .transition(all);
-    .transition-duration(300ms);
+    .transition-duration(@ptn__animation-duration_line-wrap);
     .scale(0);
-    z-index: 0;
   }
 
   &.open {
     &:before {
       .scale(1);
     }
+  }
+}
+
+
+
+.ptn-header__logo {
+  a {
+    color: #fff;
+    text-transform: uppercase;
+    display: block;
+    font-size: 16px;
   }
 }
 
@@ -168,24 +177,6 @@
   display: none;
 }
 
-.ptn-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 0 11px;
-  width: 100%;
-  height: @header-height;
-  background: rgba(0, 0, 0, 0.85);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-  z-index: 11;
-
-  .user-select(none);
-
-  .logo a {
-    padding: 7px 10px;
-  }
-}
-
 #search-ctn {
   position: absolute;
   top: -65px;
@@ -243,13 +234,5 @@
   #search-ctn {
     top: 0;
     .opacity(1);
-  }
-}
-
-.ptn-body_sidebar-open {
-  @media (min-width: @screen-lg-min) {
-    .ptn-header {
-      padding-left: 15px;
-    }
   }
 }

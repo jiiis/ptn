@@ -1,0 +1,36 @@
+.ptn-line-wrap {
+  width: 18px;
+  height: 12px;
+
+  .transition(all);
+  .transition-duration(@ptn__animation-duration_line-wrap);
+}
+
+.ptn-line-wrap__line {
+  width: 18px;
+  height: 2px;
+  background: @ptn-util__color_white;
+
+  .transition(all);
+  .transition-duration(@ptn__animation-duration_line-wrap);
+}
+
+.ptn-line-wrap__line_center {
+  margin: 3px 0;
+}
+
+&.open {
+  .ptn-line-wrap {
+    .rotate(180deg);
+  }
+
+  .ptn-line-wrap__line_top {
+    width: 12px;
+    transform: translateX(8px) translateY(1px) rotate(45deg);
+  }
+
+  .ptn-line-wrap__line_bottom {
+    width: 12px;
+    transform: translateX(8px) translateY(-1px) rotate(-45deg);
+  }
+}

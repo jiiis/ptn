@@ -5,7 +5,7 @@
 
 .ptn-loader__svg {
   transform-origin: center center;
-  animation: ptn-util__keyframes_loader-rotate @ptn-util__animation-duration_loader-rotate linear infinite;
+  animation: ptn-util__keyframes_loader-rotate @ptn__animation-duration_loader-rotate linear infinite;
 }
 
 .ptn-loader__circle {
@@ -15,12 +15,12 @@
   stroke-linecap: round;
   stroke-miterlimit: 10;
   fill: none;
-  animation: ptn-util__keyframes_loader-dash @ptn-util__animation-duration_loader-dash ease-in-out infinite, ptn-util__keyframes_loader-color @ptn-util__animation-duration_loader-color ease-in-out infinite;
+  animation: ptn-util__keyframes_loader-dash @ptn__animation-duration_loader-dash ease-in-out infinite, ptn-util__keyframes_loader-color @ptn__animation-duration_loader-color ease-in-out infinite;
 }
 
 .ptn-loader__circle_black {
   stroke: @ptn-util__color_black;
-  animation: ptn-util__keyframes_loader-dash @ptn-util__animation-duration_loader-dash ease-in-out infinite;
+  animation: ptn-util__keyframes_loader-dash @ptn__animation-duration_loader-dash ease-in-out infinite;
 }
 
 @keyframes ptn-util__keyframes_loader-rotate {

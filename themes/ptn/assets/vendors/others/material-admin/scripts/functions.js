@@ -93,7 +93,7 @@ $(document).ready(function(){
     })();
 
     /*
-     * Sidebar
+     * Aside
      */
     (function(){
         //Toggle
