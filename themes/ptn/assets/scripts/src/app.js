@@ -1,18 +1,18 @@
 (function(window) {
-    /******************** Private variables ********************/
+    /******************** private variables ********************/
     var _isDeviceMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
         _$window = $(window),
         _$html = $('html'),
         _$body = $('body');
 
-    /******************** Mobile device class ********************/
+    /******************** mobile device class ********************/
     if (_isDeviceMobile) {
         _$html.addClass('ptn-html_device-mobile');
     }
 
-    /******************** Event: DOM ready ********************/
+    /******************** event: DOM ready ********************/
     $(function() {
-        /******************** Private variables ********************/
+        /******************** private variables ********************/
         var _sidebarStatuses = {
                 closed: 'closed',
                 open: 'open'
@@ -23,12 +23,12 @@
             _$sidebarTrigger = $(_sidebarTriggerSelector),
             _$sidebar = $('#sidebar');
 
-        /******************** Widget: scrollbar ********************/
+        /******************** widget: scrollbar ********************/
         if (!_isDeviceMobile) {
             _addScrollBar(_$sidebar, 'minimal-dark', 'y');
         }
 
-        /******************** Layout: sidebar ********************/
+        /******************** layout: sidebar ********************/
         if (_sidebarStatus === _sidebarStatuses.open) {
             _$body.addClass('ptn-body_sidebar-open');
             _$sidebar.addClass('toggled');
@@ -57,7 +57,7 @@
             $(this).parent().toggleClass('toggled');
         });
 
-        /******************** Private functions ********************/
+        /******************** private functions ********************/
         function _toggleSidebar() {
             var _status = localStorage.getItem(_sidebarStatusLocalStorageKey),
                 _statusNew = _status === _sidebarStatuses.open ? _sidebarStatuses.closed : _sidebarStatuses.open;
@@ -70,19 +70,19 @@
         }
     });
 
-    /******************** Event: page load ********************/
+    /******************** event: page load ********************/
     _$window.load(function() {
-        /******************** Widget: page loader ********************/
+        /******************** widget: page loader ********************/
         var _$pageLoader = $('#page-loader');
 
         if (!_isDeviceMobile && _isElementExistent(_$pageLoader)) {
             window.setTimeout(function() {
-                _$pageLoader.fadeOut();
+                //_$pageLoader.fadeOut();
             }, 500);
         }
     });
 
-    /******************** Private functions ********************/
+    /******************** private functions ********************/
     function _addScrollBar($element, theme, mouseWheelAxis) {
         if (!_isElementExistent($element)) {
             return;

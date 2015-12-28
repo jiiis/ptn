@@ -1,0 +1,67 @@
+/******************** display ********************/
+.ptn-util__display_none {
+  display: none !important;
+}
+
+.ptn-util__display_inline {
+  display: inline !important;
+}
+
+.ptn-util__display_block {
+  display: none !important;
+}
+
+.ptn-util__display_inline-block {
+  display: inline-block !important;
+}
+
+/******************** position ********************/
+.ptn-util__position_fixed {
+  position: fixed;
+}
+
+.ptn-util__position_absolute {
+  position: absolute;
+}
+
+.ptn-util__position_relative {
+  position: relative;
+}
+
+/******************** white-space ********************/
+.ptn-util__white-space_nowrap {
+  white-space: nowrap;
+}
+
+/******************** layout ********************/
+.ptn-util__layout_center(@size) {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  left: 50%;
+  right: 50%;
+  margin: -@size/2 0 0 -@size/2;
+  width: @size;
+  height: @size;
+}
+
+/******************** overlay ********************/
+.ptn-util__overlay_full-screen(@background, @zIndex) {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: @background;
+  z-index: @zIndex;
+}
+
+/******************** animation ********************/
+.ptn-util__animation(@name, @duration, @fillMode: both) {
+  animation-name: @name;
+  animation-duration: @duration;
+  animation-fill-mode: @fillMode;
+}
