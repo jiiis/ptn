@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  padding: 0 12px;
+  padding: 0 18px;
   width: 100%;
   height: @ptn__height_header;
   background: @ptn__background_header;
@@ -17,27 +17,29 @@
 
   > div {
     display: inline-block;
+    float: left;
+    height: @ptn__size_header-item;
   }
 }
 
 .ptn-header__aside-trigger {
   padding: 18px 15px;
-  width: 48px;
-  height: 48px;
-  cursor: pointer;
+  width: @ptn__size_header-item;
+
+  .ptn-util__cursor_pointer;
 
   &:before {
     content: '';
     position: absolute;
     top: 12px;
     margin: 0 0 0 -15px;
-    width: 48px;
-    height: 48px;
+    width: inherit;
+    height: inherit;
     background: @ptn__background_line-wrap;
     border-radius: 50%;
 
     .transition(all);
-    .transition-duration(@ptn__animation-duration_line-wrap);
+    .transition-duration(@ptn__animation-duration_trigger);
     .scale(0);
   }
 
@@ -48,14 +50,15 @@
   }
 }
 
-
-
 .ptn-header__logo {
+  margin: 0 0 0 24px;
+  line-height: @ptn__size_header-item;
+
   a {
-    color: #fff;
+    display: inline-block;
+    color: @ptn-util__color_white;
+    font-size: @ptn__font-size_logo;
     text-transform: uppercase;
-    display: block;
-    font-size: 16px;
   }
 }
 
@@ -129,6 +132,19 @@
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #notifications {
   position: relative;

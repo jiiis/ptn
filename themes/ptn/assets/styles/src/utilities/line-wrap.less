@@ -1,18 +1,17 @@
 .ptn-line-wrap {
   width: 18px;
   height: 12px;
-
-  .transition(all);
-  .transition-duration(@ptn__animation-duration_line-wrap);
 }
 
 .ptn-line-wrap__line {
   width: 18px;
   height: 2px;
   background: @ptn-util__color_white;
+}
 
+.ptn-line-wrap_animation-style_rotate, .ptn-line-wrap__line {
   .transition(all);
-  .transition-duration(@ptn__animation-duration_line-wrap);
+  .transition-duration(@ptn__animation-duration_trigger);
 }
 
 .ptn-line-wrap__line_center {
