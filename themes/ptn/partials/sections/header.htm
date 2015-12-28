@@ -8,11 +8,14 @@
             </div>
         </div>
         <div class="ptn-header__logo hidden-xs">
-            <a href="{{ '/' | app }}">{{ app.name }}</a>
+            <a class="ptn-header__logo-link" href="{{ '/' | app }}">
+                <span>{{ app.name }}</span>
+                <span><img src="{{ 'assets/images/logos/logo-white-96x96.png' | theme }}"></span>
+            </a>
         </div>
         <div class="pull-right">
-            <ul class="ptn-header__menu list-unstyled">
-                <li class="dropdown">
+            <ul class="ptn-header__menu">
+                <li class="ptn-header__menu-item dropdown">
                     <a data-toggle="dropdown" href="">
                         <i class="tm-icon zmdi zmdi-email"></i>
                         <i class="tmn-counts">6</i>
@@ -83,7 +86,7 @@
                         </div>
                     </div>
                 </li>
-                <li class="dropdown">
+                <li class="ptn-header__menu-item dropdown">
                     <a data-toggle="dropdown" href="">
                         <i class="tm-icon zmdi zmdi-notifications"></i>
                         <i class="tmn-counts">9</i>
@@ -162,7 +165,7 @@
                         </div>
                     </div>
                 </li>
-                <li class="dropdown hidden-xs">
+                <li class="ptn-header__menu-item dropdown hidden-xs">
                     <a data-toggle="dropdown" href="">
                         <i class="tm-icon zmdi zmdi-view-list-alt"></i>
                         <i class="tmn-counts">2</i>
@@ -223,10 +226,10 @@
                         </div>
                     </div>
                 </li>
-                <li id="search-trigger">
+                <li id="search-trigger" class="ptn-header__menu-item">
                     <a href=""><i class="tm-icon zmdi zmdi-search"></i></a>
                 </li>
-                <li class="dropdown">
+                <li class="ptn-header__menu-item dropdown">
                     <a data-toggle="dropdown" href=""><i class="tm-icon zmdi zmdi-more-vert"></i></a>
                     <ul class="dropdown-menu dm-icon pull-right">
                         <li class="hidden-xs">
