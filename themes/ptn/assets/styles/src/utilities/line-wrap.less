@@ -20,17 +20,29 @@
 }
 
 &.open {
-  .ptn-line-wrap {
+  .ptn-line-wrap__line_top, .ptn-line-wrap__line_bottom {
+    width: 12px;
+  }
+
+  .ptn-line-wrap_animation-1 {
+    .ptn-line-wrap__line_top {
+      transform: translateX(-3px) translateY(1px) rotate(-45deg);
+    }
+
+    .ptn-line-wrap__line_bottom {
+      transform: translateX(-3px) translateY(-1px) rotate(45deg);
+    }
+  }
+
+  .ptn-line-wrap_animation-2 {
     .rotate(180deg);
-  }
 
-  .ptn-line-wrap__line_top {
-    width: 12px;
-    transform: translateX(8px) translateY(1px) rotate(45deg);
-  }
+    .ptn-line-wrap__line_top {
+      transform: translateX(8px) translateY(1px) rotate(45deg);
+    }
 
-  .ptn-line-wrap__line_bottom {
-    width: 12px;
-    transform: translateX(8px) translateY(-1px) rotate(-45deg);
+    .ptn-line-wrap__line_bottom {
+      transform: translateX(8px) translateY(-1px) rotate(-45deg);
+    }
   }
 }
