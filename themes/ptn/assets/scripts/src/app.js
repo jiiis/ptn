@@ -1,6 +1,12 @@
+'use strict';
+
 (function(window) {
     /******************** private variables ********************/
     var _isDeviceMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+        _animationDurations = {
+            fade: 500,
+            slide: 200
+        },
         _$window = $(window),
         _$html = $('html'),
         _$body = $('body');
@@ -53,7 +59,7 @@
         // Submenu
         _$body.on('click', '.sub-menu > a', function(e) {
             e.preventDefault();
-            $(this).next().slideToggle(200);
+            $(this).next().slideToggle(_animationDurations.slide);
             $(this).parent().toggleClass('toggled');
         });
 
@@ -77,8 +83,8 @@
 
         if (!_isDeviceMobile && _isElementExistent(_$pageLoader)) {
             window.setTimeout(function() {
-                //_$pageLoader.fadeOut();
-            }, 500);
+                _$pageLoader.fadeOut();
+            }, _animationDurations.fade);
         }
     });
 
