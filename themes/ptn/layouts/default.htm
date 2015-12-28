@@ -20,17 +20,17 @@ public function onInit()
 <head>
     <title>{{ app.nameAcronym }} | {% placeholder title %}</title>
 
-    {% partial 'layouts/assets-top' %}
+    {% partial 'assets/top' %}
 </head>
 <body>
-    {% partial 'layouts/section-header' %}
+    {% partial 'sections/header' %}
 
-    {% partial 'layouts/section-main' %}
+    {% partial 'sections/main' %}
 
-    {% partial 'layouts/page-loader' %}
+    {% partial 'widgets/page-loader' %}
 
-    {% partial 'layouts/page-warning' %}
+    {% partial 'widgets/page-warning' %}
 
-    {% partial 'layouts/assets-bottom' %}
+    {% partial 'assets/bottom' %}
 </body>
 </html>
