@@ -18,26 +18,26 @@ public function onInit()
 <head>
     <title>{{ app.nameAcronym }} | {% placeholder title %}</title>
 
-    {% partial 'layouts/top' %}
+    {% partial 'layouts-old/top' %}
 
     {% styles %}
 </head>
 <body>
-    {% partial 'layouts/header' %}
+    {% partial 'layouts-old/header' %}
 
     <section id="main" data-layout="layout-1">
-        {% partial 'layouts/sidebar' %}
+        {% partial 'layouts-old/sidebar' %}
 
-        {% partial 'layouts/content' %}
+        {% partial 'layouts-old/content' %}
     </section>
 
-    {% partial 'layouts/footer' %}
+    {% partial 'layouts-old/footer' %}
 
-    {% partial 'layouts/page-loader' %}
+    {% partial 'layouts-old/page-loader' %}
 
-    {% partial 'layouts/browser-warning' %}
+    {% partial 'layouts-old/browser-warning' %}
 
-    {% partial 'layouts/bottom' %}
+    {% partial 'layouts-old/bottom' %}
 
     {% scripts %}
 </body>
