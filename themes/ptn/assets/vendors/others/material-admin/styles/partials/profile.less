@@ -5,11 +5,11 @@
   .pm-overview {
     overflow-y: auto;
 
-    @media (min-width: 1200px) {
+    @media (min-width: @screen-lg-min) {
       width: 300px;
     }
 
-    @media (min-width: @screen-sm-min) and (max-width: 1200px) {
+    @media (min-width: @screen-sm-min) and (max-width: @screen-md-max) {
       width: 250px;
     }
 
@@ -30,11 +30,11 @@
   }
 
   .pm-body {
-    @media (min-width: 1200px) {
+    @media (min-width: @screen-lg-min) {
       padding-left: 300px;
     }
 
-    @media (min-width: @screen-sm-min) and (max-width: 1200px) {
+    @media (min-width: @screen-sm-min) and (max-width: @screen-md-max) {
       padding-left: 250px;
     }
 
@@ -145,11 +145,11 @@
   .pmb-block {
     margin-bottom: 20px;
 
-    @media (min-width: 1200px) {
+    @media (min-width: @screen-lg-min) {
       padding: 40px 42px 0;
     }
 
-    @media (max-width: 1199px) {
+    @media (max-width: @screen-md-max) {
       padding: 30px 20px 0;
     }
 
