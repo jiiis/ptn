@@ -2,7 +2,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  padding: 0 18px;
+  padding: 0 @ptn-util__mardding_horizontal-1;
   width: 100%;
   height: @ptn__height_header;
   background: @ptn__background_header;
@@ -13,35 +13,44 @@
 }
 
 .ptn-header__nav {
-  position: relative;
-  padding: 12px 0;
+  padding: @ptn-util__mardding_vertical-1 0;
   height: 100%;
+}
 
-  > div {
-    display: inline-block;
-    float: left;
-    height: @ptn__size_header-item;
-  }
+.ptn-header__nav-item {
+  display: inline-block;
+  float: left;
+  height: @ptn__height_header-nav-item;
+}
+
+.ptn-header__nav-item_logo {
+  margin: 0 0 0 @ptn-util__mardding_horizontal-1;
+
+  .hidden-xs;
+}
+
+.ptn-header__nav-item_menu {
+  .pull-right;
 }
 
 .ptn-header__aside-trigger {
-  padding: 18px 15px;
-  width: @ptn__size_header-item;
+  padding: @ptn__padding_aside-trigger-vertical @ptn__padding_aside-trigger-horizontal;
+  width: @ptn__height_header-nav-item;
+  height: @ptn__height_header-nav-item;
 
   .ptn-util__cursor_pointer;
 
   &:before {
     content: '';
     position: absolute;
-    top: 12px;
-    margin: 0 0 0 -15px;
+    margin: -@ptn__padding_aside-trigger-vertical 0 0 -@ptn__padding_aside-trigger-horizontal;
     width: inherit;
     height: inherit;
     background: @ptn__background_highlight-white;
     border-radius: 50%;
 
     .transition(all);
-    .transition-duration(@ptn__animation-duration_trigger);
+    .transition-duration(@ptn-util__animation-duration_trigger);
     .scale(0);
   }
 
@@ -53,28 +62,27 @@
 }
 
 .ptn-header__logo {
-  margin: 0 0 0 18px;
-  line-height: @ptn__size_header-item;
+  height: 100%;
 }
 
 .ptn-header__logo-link {
   display: inline-block;
-  margin: 12px 0;
-  height: @ptn__size_logo;
-  line-height: @ptn__size_logo;
+  margin: @ptn__margin_logo-vertical 0;
+  height: @ptn__height_logo;
   color: @ptn__color_header !important;
   font-size: @ptn__font-size_logo;
   text-transform: uppercase;
 
   > span {
     display: inline-block;
-    height: @ptn__size_logo;
+    height: 100%;
+    line-height: @ptn__height_logo;
 
     img {
       position: relative;
       top: -2px;
-      width: @ptn__size_logo;
-      height: @ptn__size_logo;
+      width: @ptn__height_logo;
+      height: 100%;
       vertical-align: bottom;
     }
   }
@@ -85,69 +93,48 @@
   margin: 0;
   padding: 0;
   height: 100%;
-
-  @media (max-width: @screen-xs-max) {
-    .dropdown-menu-lg {
-      width: ~"calc(100% - 28px)" !important;
-    }
-
-    .dropdown-menu {
-      right: 14px;
-      top: 55px;
-    }
-  }
 }
 
 .ptn-header__menu-item {
   display: inline-block;
-  margin: 6px 3px;
-  width: 48px;
-  height: 36px;
+  margin: @ptn__margin_menu-item-vertical @ptn__margin_menu-item-horizontal;
+  width: @ptn__width_menu-item;
+  height: @ptn__height_menu-item;
 
-  .hover-pop(@ptn__background_highlight-white, @ptn-util__border-radius_2, @ptn__animation-duration_hover, @ptn-util__z-index_0);
-
-  .dropdown-menu-lg {
-    padding: 0;
-
-    .lv-body {
-      min-height: 295px;
-      overflow-x: hidden;
-    }
-  }
-
-  & > a {
-    color: @ptn__color_header;
-    display: block;
-    text-align: center;
-    z-index: 1;
-    position: relative;
-
-    & > .tm-icon {
-      font-size: 24px;
-      line-height: 36px;
-    }
-
-    & > .tm-label {
-      line-height: 35px;
-      white-space: nowrap;
-      padding: 0 10px;
-      font-size: @font-size-base + 1;
-      text-transform: uppercase;
-    }
-
-    & > .tmn-counts {
-      position: absolute;
-      font-style: normal;
-      background: @ptn-util__color_magenta;
-      padding: 1px 5px;
-      border-radius: @ptn-util__border-radius_1;
-      right: 7px;
-      top: -3px;
-      font-size: 10px;
-      line-height: 15px;
-    }
+  .ptn-dropdown {
+    .hover-pop(@ptn__background_highlight-white, @ptn-util__border-radius_2, @ptn-util__animation-duration_hover, @ptn-util__z-index_0);
   }
 }
+
+.ptn-header__menu-item-icon {
+  height: 100%;
+  line-height: @ptn__height_menu-item;
+  font-size: @ptn__font-size_zmdi;
+}
+
+.ptn-header__menu-item-count {
+  position: absolute;
+  top: -3px;
+  right: 6px;
+  box-sizing: content-box;
+  padding: @ptn__padding_count;
+  height: @ptn__height_count;
+  line-height: @ptn__height_count;
+  background: @ptn-util__color_magenta;
+  border-radius: @ptn-util__border-radius_1;
+  font-size: @ptn__font-size_count;
+  font-style: normal;
+}
+
+//.ptn-header__menu-item {
+//  .dropdown-menu-lg {
+//
+//    .lv-body {
+//      min-height: 295px;
+//      overflow-x: hidden;
+//    }
+//  }
+//}
 
 
 

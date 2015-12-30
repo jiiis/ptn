@@ -1,0 +1,122 @@
+.ptn-dropdown {
+  position: static;
+  width: 100%;
+  height: 100%;
+}
+
+.ptn-dropdown, .btn-group {
+  &:not([data-animation]) {
+    .ptn-dropdown__menu {
+      display: block;
+
+      .scale(0);
+      .opacity(0);
+    }
+  }
+}
+
+.ptn-dropdown, .bootstrap-select, .btn-group {
+  .ptn-dropdown__menu {
+    &:not([data-animation]) {
+      &.pull-right, &.ptn-dropdown__menu_pull-right {
+        .transform-origin(top right);
+      }
+
+      &:not(.pull-right):not(.ptn-dropdown__menu_pull-right) {
+        .transform-origin(top left);
+      }
+    }
+  }
+}
+
+.ptn-dropup {
+  .ptn-dropdown__menu {
+    &:not([data-animation]) {
+      &.pull-right, &.ptn-dropdown__menu_pull-right {
+        .transform-origin(bottom right);
+      }
+
+      &:not(.pull-right):not(.ptn-dropdown__menu_pull-right) {
+        .transform-origin(bottom left);
+      }
+    }
+  }
+}
+
+.ptn-dropdown, .ptn-dropup, .bootstrap-select, .btn-group {
+  &.open {
+    .ptn-dropdown__menu {
+      &:not([data-animation]) {
+        .scale(1);
+        .opacity(1);
+      }
+    }
+  }
+}
+
+.ptn-dropdown__trigger {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  color: @ptn__color_header;
+  text-align: center;
+
+  .ptn-util__cursor_pointer;
+}
+
+.ptn-dropdown__menu {
+  margin: 6px 0 0;
+  padding: 0;
+  min-width: 160px;
+  background: @ptn__background_dropdown-menu;
+  box-shadow: @ptn__box-shadow_dropdown;
+  border: none;
+  border-radius: @ptn-util__border-radius_2;
+  font-size: @ptn__font-size_dropdown-menu;
+
+  .transition(all);
+  .transition-duration(@ptn-util__animation-duration_dropdown);
+
+  @media (max-width: @screen-xs-max) {
+    right: @ptn-util__mardding_horizontal-1;
+    width: ~"calc(100% - @{ptn-util__mardding_horizontal-1} * 2)";
+  }
+}
+
+.ptn-dropdown__menu_size_large {
+  width: 300px;
+}
+
+.ptn-dropdown__menu_size_small {
+  width: 180px;
+}
+
+.ptn-dropdown__menu_pull-right {
+  left: auto;
+  right: 0;
+}
+
+
+
+
+
+
+.dropdown-menu {
+  & > li > a {
+    padding: 8px 17px;
+    .transition(background-color);
+    .transition-duration(300ms);
+  }
+
+  &.dm-icon {
+    & > li > a > .zmdi {
+      line-height: 100%;
+      vertical-align: top;
+      font-size: 18px;
+      width: 28px;
+    }
+  }
+
+
+}

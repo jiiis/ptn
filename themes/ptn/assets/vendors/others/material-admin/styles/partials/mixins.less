@@ -1,6 +1,4 @@
-/*
- * Font Face
- */
+/******************** font-face ********************/
 .font-face(@family, @name, @weight: 300, @style) {
   @font-face {
     font-family: @family;
@@ -14,17 +12,13 @@
   }
 }
 
-/*
- * Background Repeat + Position
- */
+/******************** background-repeat & background-position ********************/
 .bg-option(@repeat: no-repeat, @position: center) {
   background-repeat: @repeat;
   background-position: @position;
 }
 
-/*
- * CSS Animations based on animate.css
- */
+/******************** animations based on animate.css ********************/
 .animated(@name, @duration) {
   -webkit-animation-name: @name;
   animation-name: @name;
@@ -34,9 +28,7 @@
   animation-fill-mode: both;
 }
 
-/*
- * CSS Transform - Scale and Rotate
- */
+/******************** transform: scale & rotate ********************/
 .scale-rotate(@scale, @rotate) {
   -webkit-transform: scale(@scale) rotate(@rotate);
   -ms-transform: scale(@scale) rotate(@rotate);
@@ -44,9 +36,7 @@
   transform: scale(@scale) rotate(@rotate);
 }
 
-/*
- * User Select
- */
+/******************** user-select ********************/
 .user-select (@val) {
   -webkit-touch-callout: @val;
   -webkit-user-select: @val;
@@ -56,9 +46,7 @@
   user-select: @val;
 }
 
-/*
- * Background Image Cover
- */
+/******************** background image cover ********************/
 .bg-cover(@image) {
   background-image: url(@image);
   background-repeat: no-repeat;
@@ -78,48 +66,52 @@
   background-position: center;
 }
 
-/*
- * Tab Focus
- */
+/******************** tab focus ********************/
 .tab-focus() {
   outline: none !important;
 }
 
-/*
- * Pop-in Hover effects
- */
+/******************** hover-pop ********************/
 .hover-pop(@background: ~"rgba(0,0,0,0.5)", @radius: 0, @duration: 250ms, @zindex: 0) {
   @media (min-width: @screen-sm-min) {
     position: relative;
 
     &:before {
+      content: '';
+      position: absolute;
       left: 0;
       top: 0;
-      content: "";
-      position: absolute;
       width: 100%;
       height: 100%;
+      background: @background;
+      border-radius: @radius;
+      z-index: @zindex;
+
       .scale3d(0, 0, 0);
       .transition(all);
       .transition-duration(@duration);
       .backface-visibility(hidden);
-      background-color: @background;
-      z-index: @zindex;
-      border-radius: @radius;
       .opacity(0);
     }
 
-    &:hover:before,
-    &.open:before {
+    &:hover:before, &.open:before {
       .scale3d(1, 1, 1);
       .opacity(1);
     }
   }
 }
 
-/*
- *  Override Bootstrap Button Mixin
- */
+/******************** scale 3d ********************/
+.scale3d(...) {
+  @process: ~`(function(e){return e=e||"1, 1, 1"})((function(){var e="@{arguments}";return e=e.replace(/^\[|\]$/g,"")})())`;
+  -webkit-transform: scale3d(@process);
+  -moz-transform: scale3d(@process);
+  -ms-transform: scale3d(@process);
+  -o-transform: scale3d(@process);
+  transform: scale3d(@process);
+}
+
+/******************** override: BS button mixin ********************/
 .button-variant(@color; @background; @border) {
   color: @color;
   background-color: @background;
@@ -164,16 +156,4 @@
     color: @background;
     background-color: @color;
   }
-}
-
-/*
- * Scale 3d
- */
-.scale3d(...) {
-  @process: ~`(function(e){return e=e||"1, 1, 1"})((function(){var e="@{arguments}";return e=e.replace(/^\[|\]$/g,"")})())`;
-  -webkit-transform: scale3d(@process);
-  -moz-transform: scale3d(@process);
-  -ms-transform: scale3d(@process);
-  -o-transform: scale3d(@process);
-  transform: scale3d(@process);
 }

@@ -1,17 +1,17 @@
 .ptn-line-wrap {
-  width: 18px;
-  height: 12px;
+  width: @ptn__width_line-wrap;
+  height: @ptn__height_line-wrap;
 }
 
 .ptn-line-wrap__line {
-  width: 18px;
+  width: @ptn__width_line-wrap;
   height: 2px;
   background: @ptn__color_header;
 }
 
 .ptn-line-wrap_animation-style_rotate, .ptn-line-wrap__line {
   .transition(all);
-  .transition-duration(@ptn__animation-duration_trigger);
+  .transition-duration(@ptn-util__animation-duration_trigger);
 }
 
 .ptn-line-wrap__line_center {
@@ -20,7 +20,7 @@
 
 &.open {
   .ptn-line-wrap__line_top, .ptn-line-wrap__line_bottom {
-    width: 12px;
+    width: @ptn__height_line-wrap;
   }
 
   .ptn-line-wrap_animation-style_converge {

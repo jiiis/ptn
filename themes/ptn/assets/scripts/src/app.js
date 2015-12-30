@@ -23,57 +23,75 @@
                 closed: 'closed',
                 open: 'open'
             },
-            _asideStatusLocalStorageKey = 'ptn-status-layout',
-            _asideStatus = localStorage.getItem(_asideStatusLocalStorageKey),
-            _asideTriggerSelector = '#aside-trigger',
-            _$asideTrigger = $(_asideTriggerSelector),
+            _localStorageKeyAsideStatus = 'ptn-status-layout',
+            _asideStatus = localStorage.getItem(_localStorageKeyAsideStatus),
+            _selectorDropdownMenuActive = '.ptn-dropdown.open .ptn-dropdown__menu',
+            _selectorAsideTrigger = '#aside-trigger',
+            _$dropdown = $('.ptn-dropdown'),
+            _$asideTrigger = $(_selectorAsideTrigger),
             _$aside = $('#aside');
 
         /******************** widget: scrollbar ********************/
-        if (!_isDeviceMobile) {
+        (function() {
+            if (_isDeviceMobile) {
+                return;
+            }
+
             _addScrollBar(_$aside, 'minimal-dark', 'y');
-        }
+        })();
+
+        /******************** widget: dropdown ********************/
+        (function() {
+            if (!_isElementExistent(_$dropdown)) {
+                return;
+            }
+
+            _$body.on('click', _selectorDropdownMenuActive, function(e) {
+                e.stopPropagation();
+            });
+        })();
 
         /******************** layout: asdie ********************/
-        if (_asideStatus === _asideStatuses.open) {
-            _$body.addClass('ptn-body_aside-open');
-            _$aside.addClass('toggled');
-            _$asideTrigger.addClass('open');
-        }
+        (function() {
+            if (_asideStatus === _asideStatuses.open) {
+                _$body.addClass('ptn-body_aside-open');
+                _$aside.addClass('toggled');
+                _$asideTrigger.addClass('open');
+            }
 
-        _$body.on('click', _asideTriggerSelector, function(e) {
-            e.preventDefault();
+            _$body.on('click', _selectorAsideTrigger, function(e) {
+                e.preventDefault();
 
-            _toggleAside();
+                _toggleAside();
 
-            // Close opened sub-menus
-            $('.sub-menu.toggled').not('.active').each(function() {
-                $(this).removeClass('toggled');
-                $(this).find('ul').hide();
+                // Close opened sub-menus
+                $('.sub-menu.toggled').not('.active').each(function() {
+                    $(this).removeClass('toggled');
+                    $(this).find('ul').hide();
+                });
+
+
+                $('.profile-menu .main-menu').hide();
             });
 
+            // Submenu
+            _$body.on('click', '.sub-menu > a', function(e) {
+                e.preventDefault();
+                $(this).next().slideToggle(_animationDurations.slide);
+                $(this).parent().toggleClass('toggled');
+            });
 
-            $('.profile-menu .main-menu').hide();
-        });
+            function _toggleAside() {
+                var _status = localStorage.getItem(_localStorageKeyAsideStatus),
+                    _statusNew = _status === _asideStatuses.open ? _asideStatuses.closed : _asideStatuses.open;
 
-        // Submenu
-        _$body.on('click', '.sub-menu > a', function(e) {
-            e.preventDefault();
-            $(this).next().slideToggle(_animationDurations.slide);
-            $(this).parent().toggleClass('toggled');
-        });
+                localStorage.setItem(_localStorageKeyAsideStatus, _statusNew);
 
-        /******************** private functions ********************/
-        function _toggleAside() {
-            var _status = localStorage.getItem(_asideStatusLocalStorageKey),
-                _statusNew = _status === _asideStatuses.open ? _asideStatuses.closed : _asideStatuses.open;
-
-            localStorage.setItem(_asideStatusLocalStorageKey, _statusNew);
-
-            _$body.toggleClass('ptn-body_aside-open');
-            _$aside.toggleClass('toggled');
-            _$asideTrigger.toggleClass('open');
-        }
+                _$body.toggleClass('ptn-body_aside-open');
+                _$aside.toggleClass('toggled');
+                _$asideTrigger.toggleClass('open');
+            }
+        })();
     });
 
     /******************** event: page load ********************/
@@ -110,6 +128,13 @@
         return !!$element.length;
     }
 })(window);
+
+
+
+
+
+
+
 
 
 
@@ -162,47 +187,6 @@ $(document).ready(function() {
             $('#notifications').addClass('empty');
         }, (z * 150) + 200);
     });
-
-    //Dropdown menu
-    if ($('.dropdown')[0]) {
-        // Propagate
-        $('body').on('click', '.dropdown.open .dropdown-menu', function(e) {
-            e.stopPropagation();
-        });
-
-        $('.dropdown').on('shown.bs.dropdown', function(e) {
-            if ($(this).attr('data-animation')) {
-                $animArray = [];
-                $animation = $(this).data('animation');
-                $animArray = $animation.split(',');
-                $animationIn = 'animated ' + $animArray[0];
-                $animationOut = 'animated ' + $animArray[1];
-                $animationDuration = ''
-                if (!$animArray[2]) {
-                    $animationDuration = 500; //if duration is not defined, default is set to 500ms
-                } else {
-                    $animationDuration = $animArray[2];
-                }
-
-                $(this).find('.dropdown-menu').removeClass($animationOut)
-                $(this).find('.dropdown-menu').addClass($animationIn);
-            }
-        });
-
-        $('.dropdown').on('hide.bs.dropdown', function(e) {
-            if ($(this).attr('data-animation')) {
-                e.preventDefault();
-                $this = $(this);
-                $dropdownMenu = $this.find('.dropdown-menu');
-
-                $dropdownMenu.addClass($animationOut);
-                setTimeout(function() {
-                    $this.removeClass('open')
-
-                }, $animationDuration);
-            }
-        });
-    }
 
     // Auto height textarea
     if ($('.auto-size')[0]) {
