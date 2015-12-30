@@ -8,6 +8,8 @@
   background: @ptn__background_header;
   box-shadow: @ptn__box-shadow_header;
   z-index: @ptn__z-index_header;
+
+  .ptn-util__user-select_none;
 }
 
 .ptn-header__nav {
@@ -60,7 +62,7 @@
   margin: 12px 0;
   height: @ptn__size_logo;
   line-height: @ptn__size_logo;
-  color: @ptn-util__color_white !important;
+  color: @ptn__color_header !important;
   font-size: @ptn__font-size_logo;
   text-transform: uppercase;
 
@@ -114,7 +116,7 @@
   }
 
   & > a {
-    color: #fff;
+    color: @ptn__color_header;
     display: block;
     text-align: center;
     z-index: 1;
@@ -136,7 +138,7 @@
     & > .tmn-counts {
       position: absolute;
       font-style: normal;
-      background: @m-red;
+      background: @ptn-util__color_magenta;
       padding: 1px 5px;
       border-radius: @ptn-util__border-radius_1;
       right: 7px;
@@ -146,6 +148,11 @@
     }
   }
 }
+
+
+
+
+
 
 
 
