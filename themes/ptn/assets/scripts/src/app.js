@@ -148,7 +148,7 @@ $(document).ready(function() {
             e.preventDefault();
 
             $('#header').addClass('search-toggled');
-            $('#search-ctn input').focus();
+            $('#search-container input').focus();
         });
 
         $('body').on('click', '#search-btn', function(e) {
