@@ -8,6 +8,7 @@
             slide: 200
         },
         _classes = {
+            mobile_device: 'ptn-html_mobile-device',
             trigger_on: 'ptn-util__trigger_on',
             trigger_off: 'ptn-util__trigger_off',
             widget_active: 'ptn-util__widget_active',
@@ -19,7 +20,7 @@
 
     /******************** mobile device class ********************/
     if (_isDeviceMobile) {
-        _$html.addClass('ptn-html_device-mobile');
+        _$html.addClass(_classes.mobile_device);
     }
 
     /******************** event: DOM ready ********************/
@@ -33,6 +34,23 @@
             }
 
             _addScrollBar(_$aside, 'minimal-dark', 'y');
+
+            function _addScrollBar($element, theme, mouseWheelAxis) {
+                if (!_isElementExistent($element)) {
+                    return;
+                }
+
+                $element.mCustomScrollbar({
+                    theme: theme,
+                    scrollInertia: 100,
+                    axis: 'yx',
+                    mouseWheel: {
+                        preventDefault: true,
+                        enable: true,
+                        axis: mouseWheelAxis
+                    }
+                });
+            }
         })();
 
         /******************** widget: dropdown ********************/
@@ -117,6 +135,27 @@
                 _$asideTrigger.toggleClass('open');
             }
         })();
+
+        /******************** widget: fullscreen ********************/
+        (function() {
+            var _documentElement = document.documentElement,
+                _$fullscreenTrigger = $('[data-ptn-action="fullscreen"]');
+
+            if (!_isElementExistent(_$fullscreenTrigger)) {
+                return;
+            }
+
+            _$fullscreenTrigger.on('click', function(e) {
+                e.preventDefault();
+
+                var _$dropdown = $(this).closest('.ptn-dropdown'),
+                    _$dropdownTrigger = _$dropdown.find('.ptn-dropdown__trigger');
+
+                _isElementExistent(_$dropdownTrigger) && _$dropdown.hasClass('open') && _$dropdownTrigger.dropdown('toggle');
+
+                _launchFullscreen(_documentElement);
+            });
+        })();
     });
 
     /******************** event: page load ********************/
@@ -132,25 +171,20 @@
     });
 
     /******************** private functions ********************/
-    function _addScrollBar($element, theme, mouseWheelAxis) {
-        if (!_isElementExistent($element)) {
-            return;
-        }
-
-        $element.mCustomScrollbar({
-            theme: theme,
-            scrollInertia: 100,
-            axis: 'yx',
-            mouseWheel: {
-                preventDefault: true,
-                enable: true,
-                axis: mouseWheelAxis
-            }
-        });
-    }
-
     function _isElementExistent($element) {
         return !!$element.length;
+    }
+
+    function _launchFullscreen(element) {
+        if (element.requestFullscreen) {
+            element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+            element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) {
+            element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+            element.msRequestFullscreen();
+        }
     }
 })(window);
 
@@ -468,43 +502,6 @@ $(document).ready(function() {
                 $(z).addClass('toggled');
             });
         })
-    }
-
-    // Fullscreen browsing
-    if ($('[data-action="fullscreen"]')[0]) {
-        var fs = $("[data-action='fullscreen']");
-        fs.on('click', function(e) {
-            e.preventDefault();
-
-            // Launch
-            function launchIntoFullscreen(element) {
-
-                if (element.requestFullscreen) {
-                    element.requestFullscreen();
-                } else if (element.mozRequestFullScreen) {
-                    element.mozRequestFullScreen();
-                } else if (element.webkitRequestFullscreen) {
-                    element.webkitRequestFullscreen();
-                } else if (element.msRequestFullscreen) {
-                    element.msRequestFullscreen();
-                }
-            }
-
-            // Exit
-            function exitFullscreen() {
-
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.mozCancelFullScreen) {
-                    document.mozCancelFullScreen();
-                } else if (document.webkitExitFullscreen) {
-                    document.webkitExitFullscreen();
-                }
-            }
-
-            launchIntoFullscreen(document.documentElement);
-            fs.closest('.dropdown').removeClass('open');
-        });
     }
 
     // Clear local storage
