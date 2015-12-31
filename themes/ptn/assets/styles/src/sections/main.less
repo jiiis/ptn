@@ -1,0 +1,18 @@
+.ptn-main {
+  overflow-y: auto;
+  position: absolute;
+  padding: @ptn__height_header 0 0 0;
+  width: 100%;
+  height: 100%;
+
+  .transition(all);
+  .transition-duration(@ptn-util__animation-duration_trigger);
+}
+
+@media (min-width: @screen-md-min) {
+  .ptn-body_aside-on {
+    .ptn-main {
+      padding-left: @ptn__width_aside;
+    }
+  }
+}

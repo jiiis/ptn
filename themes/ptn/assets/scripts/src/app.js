@@ -8,11 +8,12 @@
             slide: 200
         },
         _classes = {
-            mobile_device: 'ptn-html_mobile-device',
+            html_mobile_device: 'ptn-html_mobile-device',
+            body_aside_on: 'ptn-body_aside-on',
             trigger_on: 'ptn-util__trigger_on',
             trigger_off: 'ptn-util__trigger_off',
-            widget_active: 'ptn-util__widget_active',
-            widget_inactive: 'ptn-util__widget_inactive'
+            widget_on: 'ptn-util__widget_on',
+            widget_off: 'ptn-util__widget_off'
         },
         _$window = $(window),
         _$html = $('html'),
@@ -20,7 +21,7 @@
 
     /******************** mobile device class ********************/
     if (_isDeviceMobile) {
-        _$html.addClass(_classes.mobile_device);
+        _$html.addClass(_classes.html_mobile_device);
     }
 
     /******************** event: DOM ready ********************/
@@ -76,30 +77,30 @@
 
             _$body
                 .on('click', _selectorSearchTrigger, function() {
-                    _$search.addClass(_classes.widget_active);
+                    _$search.addClass(_classes.widget_on);
                     _$searchInput.focus();
                 })
                 .on('click', _selectorSearchButton, function() {
-                    _$search.removeClass(_classes.widget_active);
+                    _$search.removeClass(_classes.widget_on);
                 });
         })();
 
         /******************** widget: aside ********************/
         (function() {
             var _asideStatuses = {
-                    closed: 'closed',
-                    open: 'open'
+                    on: 'on',
+                    off: 'off'
                 },
-                _localStorageKeyAsideStatus = 'ptn-status-layout',
+                _localStorageKeyAsideStatus = 'ptn-status-aside',
                 _asideStatus = localStorage.getItem(_localStorageKeyAsideStatus),
                 _selectorAsideTrigger = '#aside-trigger',
                 _$asideTrigger = $(_selectorAsideTrigger),
                 _$aside = $('#aside');
 
-            if (_asideStatus === _asideStatuses.open) {
-                _$body.addClass('ptn-body_aside-open');
-                _$aside.addClass('toggled');
-                _$asideTrigger.addClass('open');
+            if (_asideStatus === _asideStatuses.on) {
+                _$body.addClass(_classes.body_aside_on);
+                _$asideTrigger.addClass(_classes.trigger_on);
+                _$aside.addClass(_classes.widget_on);
             }
 
             _$body.on('click', _selectorAsideTrigger, function(e) {
@@ -107,32 +108,32 @@
 
                 _toggleAside();
 
-                // Close opened sub-menus
-                $('.sub-menu.toggled').not('.active').each(function() {
-                    $(this).removeClass('toggled');
-                    $(this).find('ul').hide();
-                });
-
-
-                $('.profile-menu .main-menu').hide();
+                //// Close opened sub-menus
+                //$('.sub-menu.toggled').not('.active').each(function() {
+                //    $(this).removeClass('toggled');
+                //    $(this).find('ul').hide();
+                //});
+                //
+                //
+                //$('.profile-menu .main-menu').hide();
             });
 
-            // Submenu
-            _$body.on('click', '.sub-menu > a', function(e) {
-                e.preventDefault();
-                $(this).next().slideToggle(_animationDurations.slide);
-                $(this).parent().toggleClass('toggled');
-            });
+            //// Submenu
+            //_$body.on('click', '.sub-menu > a', function(e) {
+            //    e.preventDefault();
+            //    $(this).next().slideToggle(_animationDurations.slide);
+            //    $(this).parent().toggleClass('toggled');
+            //});
 
             function _toggleAside() {
-                var _status = localStorage.getItem(_localStorageKeyAsideStatus),
-                    _statusNew = _status === _asideStatuses.open ? _asideStatuses.closed : _asideStatuses.open;
+                var _statusOld = localStorage.getItem(_localStorageKeyAsideStatus),
+                    _statusNew = _statusOld === _asideStatuses.on ? _asideStatuses.off : _asideStatuses.on;
 
                 localStorage.setItem(_localStorageKeyAsideStatus, _statusNew);
 
-                _$body.toggleClass('ptn-body_aside-open');
-                _$aside.toggleClass('toggled');
-                _$asideTrigger.toggleClass('open');
+                _$body.toggleClass(_classes.body_aside_on);
+                _$asideTrigger.toggleClass(_classes.trigger_on);
+                _$aside.toggleClass(_classes.widget_on);
             }
         })();
 
@@ -187,6 +188,17 @@
         }
     }
 })(window);
+
+
+
+
+
+
+
+
+
+
+
 
 
 
