@@ -7,6 +7,12 @@
             fade: 500,
             slide: 200
         },
+        _classes = {
+            trigger_on: 'ptn-util__trigger_on',
+            trigger_off: 'ptn-util__trigger_off',
+            widget_active: 'ptn-util__widget_active',
+            widget_inactive: 'ptn-util__widget_inactive'
+        },
         _$window = $(window),
         _$html = $('html'),
         _$body = $('body');
@@ -18,21 +24,10 @@
 
     /******************** event: DOM ready ********************/
     $(function() {
-        /******************** private variables ********************/
-        var _asideStatuses = {
-                closed: 'closed',
-                open: 'open'
-            },
-            _localStorageKeyAsideStatus = 'ptn-status-layout',
-            _asideStatus = localStorage.getItem(_localStorageKeyAsideStatus),
-            _selectorDropdownMenuActive = '.ptn-dropdown.open .ptn-dropdown__menu',
-            _selectorAsideTrigger = '#aside-trigger',
-            _$dropdown = $('.ptn-dropdown'),
-            _$asideTrigger = $(_selectorAsideTrigger),
-            _$aside = $('#aside');
-
         /******************** widget: scrollbar ********************/
         (function() {
+            var _$aside = $('#aside');
+
             if (_isDeviceMobile) {
                 return;
             }
@@ -42,6 +37,9 @@
 
         /******************** widget: dropdown ********************/
         (function() {
+            var _selectorDropdownMenuActive = '.ptn-dropdown.open .ptn-dropdown__menu',
+                _$dropdown = $('.ptn-dropdown');
+
             if (!_isElementExistent(_$dropdown)) {
                 return;
             }
@@ -51,8 +49,35 @@
             });
         })();
 
-        /******************** layout: asdie ********************/
+        /******************** widget: search ********************/
         (function() {
+            var _selectorSearchTrigger = '#search-trigger',
+                _selectorSearchButton = '#search-button',
+                _$search = $('#search'),
+                _$searchInput = $('#search-input input');
+
+            _$body
+                .on('click', _selectorSearchTrigger, function() {
+                    _$search.addClass(_classes.widget_active);
+                    _$searchInput.focus();
+                })
+                .on('click', _selectorSearchButton, function() {
+                    _$search.removeClass(_classes.widget_active);
+                });
+        })();
+
+        /******************** widget: aside ********************/
+        (function() {
+            var _asideStatuses = {
+                    closed: 'closed',
+                    open: 'open'
+                },
+                _localStorageKeyAsideStatus = 'ptn-status-layout',
+                _asideStatus = localStorage.getItem(_localStorageKeyAsideStatus),
+                _selectorAsideTrigger = '#aside-trigger',
+                _$asideTrigger = $(_selectorAsideTrigger),
+                _$aside = $('#aside');
+
             if (_asideStatus === _asideStatuses.open) {
                 _$body.addClass('ptn-body_aside-open');
                 _$aside.addClass('toggled');
@@ -141,23 +166,17 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 $(document).ready(function() {
-    // Search
-    (function() {
-        $('body').on('click', '#search-trigger > a', function(e) {
-            e.preventDefault();
-
-            $('#header').addClass('search-toggled');
-            $('#search-container input').focus();
-        });
-
-        $('body').on('click', '#search-btn', function(e) {
-            e.preventDefault();
-
-            $('#header').removeClass('search-toggled');
-        });
-    })();
-
     // Clear notification
     $('body').on('click', '[data-clear="notification"]', function(e) {
         e.preventDefault();

@@ -1,11 +1,12 @@
 /******************** mardding ********************/
 @ptn-util__mardding_horizontal-1: 18px;
+@ptn-util__mardding_horizontal-2: 12px;
 @ptn-util__mardding_vertical-1: 12px;
 
 /******************** margin ********************/
+@ptn__margin_header-menu-item-horizontal: 3px;
+@ptn__margin_header-menu-item-vertical: (@ptn__height_header-nav-item - @ptn__height_header-menu-item) / 2;
 @ptn__margin_logo-vertical: (@ptn__height_header-nav-item - @ptn__height_logo) / 2;
-@ptn__margin_menu-item-horizontal: 3px;
-@ptn__margin_menu-item-vertical: (@ptn__height_header-nav-item - @ptn__height_menu-item) / 2;
 
 /******************** padding ********************/
 @ptn__padding_aside-trigger-horizontal: (@ptn__height_header-nav-item - @ptn__width_line-wrap) / 2;
@@ -16,16 +17,18 @@
 @ptn__size_page-loader: 50px;
 
 /******************** width ********************/
+@ptn__width_header-menu-item: 48px;
+@ptn__width_search: 700px;
+@ptn__width_search-button: 60px;
 @ptn__width_line-wrap: 18px;
-@ptn__width_menu-item: 48px;
 
 /******************** height ********************/
 @ptn__height_header: 72px;
 @ptn__height_header-nav-item: 48px;
-@ptn__height_line-wrap: 12px;
+@ptn__height_header-menu-item: 36px;
 @ptn__height_logo: 24px;
-@ptn__height_menu-item: 36px;
 @ptn__height_count: 15px;
+@ptn__height_line-wrap: 12px;
 
 /******************** color ********************/
 @ptn-util__color_white: #fff;
@@ -61,8 +64,10 @@
 @ptn__color_header: @ptn-util__color_white;
 
 /******************** background ********************/
+@ptn-util__background_highlight-white: rgba(255, 255, 255, 0.3);
+
 @ptn__background_header: rgba(0, 0, 0, 0.85);
-@ptn__background_highlight-white: rgba(255, 255, 255, 0.3);
+@ptn__background_search: @ptn-util__color_white;
 @ptn__background_dropdown-menu: @ptn-util__color_white;
 
 /******************** font-size ********************/
@@ -74,6 +79,7 @@
 @ptn-util__font-size_24: 24px;
 
 @ptn__font-size_logo: @ptn-util__font-size_18;
+@ptn__font-size_search: @ptn-util__font-size_18;
 @ptn__font-size_zmdi: @ptn-util__font-size_24;
 @ptn__font-size_count: @ptn-util__font-size_10;
 @ptn__font-size_dropdown-menu: @ptn-util__font-size_13;
@@ -91,6 +97,7 @@
 
 @ptn__z-index_page-loader: 1000;
 @ptn__z-index_header: 11;
+@ptn__z-index_search: 12;
 
 /******************** animation-duration ********************/
 @ptn-util__animation-duration_fade: 3000ms;
@@ -101,4 +108,3 @@
 @ptn__animation-duration_loader-rotate: 2000ms;
 @ptn__animation-duration_loader-dash: 1500ms;
 @ptn__animation-duration_loader-color: 6000ms;
-

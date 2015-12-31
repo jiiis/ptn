@@ -20,7 +20,7 @@
         <div class="ptn-header__nav-item ptn-header__nav-item_menu">
             <ul class="ptn-header__menu">
                 <li class="ptn-header__menu-item">
-                    <div class="ptn-header__menu-item-button ptn-dropdown dropdown">
+                    <div class="ptn-header__menu-item-container ptn-dropdown dropdown">
                         <div class="ptn-dropdown__trigger" data-toggle="dropdown">
                             <i class="ptn-header__menu-item-icon zmdi zmdi-email"></i>
                             <i class="ptn-header__menu-item-count">6</i>
@@ -93,7 +93,7 @@
                     </div>
                 </li>
                 <li class="ptn-header__menu-item">
-                    <div class="ptn-header__menu-item-button ptn-dropdown dropdown">
+                    <div class="ptn-header__menu-item-container ptn-dropdown dropdown">
                         <div class="ptn-dropdown__trigger" data-toggle="dropdown">
                             <i class="ptn-header__menu-item-icon zmdi zmdi-notifications"></i>
                             <i class="ptn-header__menu-item-count">5</i>
@@ -173,7 +173,7 @@
                     </div>
                 </li>
                 <li class="ptn-header__menu-item">
-                    <div class="ptn-header__menu-item-button ptn-dropdown dropdown">
+                    <div class="ptn-header__menu-item-container ptn-dropdown dropdown">
                         <div class="ptn-dropdown__trigger" data-toggle="dropdown">
                             <i class="ptn-header__menu-item-icon zmdi zmdi-view-list-alt"></i>
                             <i class="ptn-header__menu-item-count">7</i>
@@ -235,13 +235,13 @@
                         </div>
                     </div>
                 </li>
-                <li id="search-trigger" class="ptn-header__menu-item">
-                    <div class="ptn-header__menu-item-button">
+                <li class="ptn-header__menu-item">
+                    <div id="search-trigger" class="ptn-header__menu-item-container">
                         <i class="ptn-header__menu-item-icon zmdi zmdi-search"></i>
                     </div>
                 </li>
                 <li class="ptn-header__menu-item">
-                    <div class="ptn-header__menu-item-button ptn-dropdown dropdown">
+                    <div class="ptn-header__menu-item-container ptn-dropdown dropdown">
                         <div class="ptn-dropdown__trigger" data-toggle="dropdown">
                             <i class="ptn-header__menu-item-icon zmdi zmdi-more-vert"></i>
                         </div>
@@ -264,10 +264,14 @@
             </ul>
         </div>
     </div>
-    <div id="search-container">
-        <div class="tsw-inner">
-            <input type="text">
-            <i id="search-btn" class="ptn-header__search-btn zmdi zmdi-arrow-right"></i>
+    <div id="search" class="ptn-header__search">
+        <div class="ptn-header__search-container">
+            <div id="search-button" class="ptn-header__search-button">
+                <i class="ptn-header__search-button-icon zmdi zmdi-arrow-left"></i>
+            </div>
+            <div id="search-input" class="ptn-header__search-input">
+                <input type="text">
+            </div>
         </div>
     </div>
 </header>
