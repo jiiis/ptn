@@ -6,6 +6,8 @@
   color: @ptn__color_footer;
   text-align: center;
 
+  .ptn-util__user-select_none;
+
   & > div {
     height: @ptn__height_footer-row;
     line-height: @ptn__height_footer-row;
@@ -17,14 +19,13 @@
 }
 
 .ptn-footer__menu-container {
-  margin: 10px 0 0;
+  margin: @ptn__margin_footer-row-vertical 0 0;
 }
 
 .ptn-footer__menu {
   list-style: none;
   margin: 0;
   padding: 0;
-  width: 100%;
 
   & > li {
     display: inline-block;

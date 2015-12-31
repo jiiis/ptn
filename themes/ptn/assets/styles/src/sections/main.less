@@ -12,7 +12,8 @@
 @media (min-width: @screen-md-min) {
   .ptn-body_aside-on {
     .ptn-main {
-      padding-left: @ptn__width_aside;
+      margin-left: @ptn__width_aside;
+      width: ~"calc(100% - @{ptn__width_aside})";
     }
   }
 }
