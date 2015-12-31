@@ -504,28 +504,6 @@ $(document).ready(function() {
         })
     }
 
-    // Clear local storage
-    if ($('[data-action="clear-localstorage"]')[0]) {
-        var cls = $('[data-action="clear-localstorage"]');
-
-        cls.on('click', function(e) {
-            e.preventDefault();
-
-            swal({
-                title: 'Are you sure?',
-                text: 'All your saved localStorage values will be removed',
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, delete it!',
-                closeOnConfirm: false
-            }, function() {
-                localStorage.clear();
-                swal('Done!', 'localStorage is cleared', 'success');
-            });
-        });
-    }
-
     // Profile edit toggle
     if ($('[data-pmb-action]')[0]) {
         $('body').on('click', '[data-pmb-action]', function(e) {
