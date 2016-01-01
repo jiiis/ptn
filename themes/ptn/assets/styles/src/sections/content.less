@@ -4,4 +4,19 @@
   @media (max-width: @screen-xs-max) {
     padding: @ptn-util__mardding_vertical-1 @ptn-util__mardding_horizontal-1;
   }
+
+  & > .container {
+    .transition(all);
+    .transition-duration(@ptn-util__animation-duration_trigger);
+  }
+
+  .ptn-util__debug(@ptn__width_screen-md-max-aside-on);
+}
+
+@media (max-width: @ptn__width_screen-md-max-aside-on) {
+  .ptn-body_aside-on {
+    .ptn-content > .container {
+      width: 100%;
+    }
+  }
 }
