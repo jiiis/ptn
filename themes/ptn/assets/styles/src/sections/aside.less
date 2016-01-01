@@ -10,8 +10,7 @@
 
   .opacity(0);
   .translate3d(-@ptn__width_aside, 0, 0);
-  .transition(all);
-  .transition-duration(@ptn-util__animation-duration_trigger);
+  .ptn-util__transition(all, @ptn-util__animation-duration_trigger);
 
   &.ptn-util__widget_on {
     .opacity(1);

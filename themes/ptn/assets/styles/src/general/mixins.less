@@ -69,6 +69,12 @@
   z-index: @zIndex;
 }
 
+/******************** transition ********************/
+.ptn-util__transition(@property, @duration) {
+  .transition-property(@property);
+  .transition-duration(@duration);
+}
+
 /******************** animation ********************/
 .ptn-util__animation(@name, @duration, @fillMode: both) {
   animation-name: @name;

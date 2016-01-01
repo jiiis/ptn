@@ -47,9 +47,8 @@
     background: @ptn-util__background_highlight-white;
     border-radius: 50%;
 
-    .transition(all);
-    .transition-duration(@ptn-util__animation-duration_trigger);
     .scale(0);
+    .ptn-util__transition(all, @ptn-util__animation-duration_trigger);
   }
 
   &.ptn-util__trigger_on {
@@ -150,8 +149,7 @@
   z-index: @ptn__z-index_search;
 
   .opacity(0);
-  .transition(all);
-  .transition-duration(@ptn-util__animation-duration_trigger);
+  .ptn-util__transition(all, @ptn-util__animation-duration_trigger);
 
   &.ptn-util__widget_on {
     top: 0;

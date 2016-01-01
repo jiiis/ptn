@@ -1,8 +1,7 @@
 .ptn-content {
   padding: @ptn__padding_content-large-screen;
 
-  .transition(all);
-  .transition-duration(@ptn-util__animation-duration_resize);
+  .ptn-util__transition(all, @ptn-util__animation-duration_resize);
 
   @media (max-width: @screen-xs-max) {
     padding: @ptn__padding_content-small-screen;

@@ -68,8 +68,7 @@
   border-radius: @ptn-util__border-radius_2;
   font-size: @ptn__font-size_dropdown-menu;
 
-  .transition(all);
-  .transition-duration(@ptn-util__animation-duration_dropdown);
+  .ptn-util__transition(all, @ptn-util__animation-duration_dropdown);
 
   @media (max-width: @screen-xs-max) {
     right: @ptn-util__mardding_horizontal-1;
