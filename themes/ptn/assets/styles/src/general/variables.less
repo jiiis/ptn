@@ -14,17 +14,19 @@
 /******************** padding ********************/
 @ptn__padding_aside-trigger-horizontal: (@ptn__height_header-nav-item - @ptn__width_line-wrap) / 2;
 @ptn__padding_aside-trigger-vertical: (@ptn__height_header-nav-item - @ptn__height_line-wrap) / 2;
+@ptn__padding_content-small-screen: @ptn-util__mardding_vertical-1 @ptn-util__mardding_horizontal-1;
+@ptn__padding_content-large-screen: @ptn-util__mardding_vertical-1 * 2 @ptn-util__mardding_horizontal-1 * 2;
 @ptn__padding_count: 1px 5px;
 
 /******************** size ********************/
 @ptn__size_page-loader: 50px;
 
 /******************** width ********************/
-@ptn__width_screen-md-max-aside-on: (@screen-md-max + @ptn__width_aside + @ptn-util__mardding_horizontal-1 * 4);
 @ptn__width_header-menu-item: 48px;
 @ptn__width_search: 700px;
 @ptn__width_search-button: 60px;
 @ptn__width_aside: 270px;
+@ptn__width_content-container: 1200px + @ptn-util__mardding_horizontal-1 * 2;
 @ptn__width_line-wrap: 18px;
 
 /******************** height ********************/
@@ -120,6 +122,7 @@
 /******************** animation-duration ********************/
 @ptn-util__animation-duration_fade: 3000ms;
 @ptn-util__animation-duration_trigger: 300ms;
+@ptn-util__animation-duration_resize: 300ms;
 @ptn-util__animation-duration_hover: 200ms;
 @ptn-util__animation-duration_dropdown: 200ms;
 
