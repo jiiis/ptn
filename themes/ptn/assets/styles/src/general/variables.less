@@ -11,6 +11,7 @@
 @ptn__margin_footer-bottom: 36px;
 @ptn__margin_footer-row-vertical: 12px;
 @ptn__margin_footer-menu-item-horizontal: 6px;
+@ptn__margin_list-header-actions: (@ptn__height_list-header - @ptn__size_action) / 2;
 
 /******************** padding ********************/
 @ptn__padding_aside-trigger-horizontal: (@ptn__height_header-nav-item - @ptn__width_line-wrap) / 2;
@@ -22,6 +23,9 @@
 
 /******************** size ********************/
 @ptn__size_page-loader: 50px;
+@ptn__size_action: 30px;
+@ptn__size_action-icon: 18px;
+@ptn__height_media-image: 36px;
 
 /******************** width ********************/
 @ptn__width_header-menu-item: 48px;
@@ -39,6 +43,9 @@
 @ptn__height_footer-row: 18px;
 @ptn__height_count: 15px;
 @ptn__height_line-wrap: 12px;
+@ptn__height_list-header: 48px;
+@ptn__height_list-footer: 36px;
+@ptn__height_media-text-row: @ptn__height_media-image / 2;
 
 /******************** color ********************/
 @ptn-util__color_white: #fff;
@@ -77,9 +84,15 @@
 @ptn__color_header: @ptn-util__color_white;
 @ptn__color_footer: @ptn-util__color_gray-9;
 @ptn__color_footer_highlight: @ptn-util__color_gray-6;
+@ptn__color_divider: @ptn-util__color_gray-e;
+@ptn__color_media-header: @text-color;
+@ptn__color_hover-before: @ptn-util__color_gray-6;
+@ptn__color_hover-after: @text-color;
 
 /******************** background ********************/
+@ptn-util__background_highlight-black: rgba(0, 0, 0, 0.1);
 @ptn-util__background_highlight-white: rgba(255, 255, 255, 0.3);
+@ptn-util__background_highlight-coral: rgba(255, 127, 80, 0.3);
 
 @ptn__background_header: rgba(0, 0, 0, 0.85);
 @ptn__background_search: @ptn-util__color_white;
@@ -88,6 +101,7 @@
 
 /******************** font-size ********************/
 @ptn-util__font-size_10: 10px;
+@ptn-util__font-size_12: 12px;
 @ptn-util__font-size_13: 13px;
 @ptn-util__font-size_15: 15px;
 @ptn-util__font-size_18: 18px;
@@ -96,9 +110,13 @@
 
 @ptn__font-size_logo: @ptn-util__font-size_18;
 @ptn__font-size_search: @ptn-util__font-size_18;
-@ptn__font-size_zmdi: @ptn-util__font-size_24;
+@ptn__font-size_header-menu-item-icon: @ptn-util__font-size_24;
+@ptn__font-size_action-icon: @ptn__size_action-icon;
 @ptn__font-size_count: @ptn-util__font-size_10;
 @ptn__font-size_dropdown-menu: @ptn-util__font-size_13;
+@ptn__font-size_list-header: @ptn-util__font-size_15;
+@ptn__font-size_list-media-header: @ptn-util__font-size_13;
+@ptn__font-size_list-media-body: @ptn-util__font-size_12;
 
 /******************** font-weight ********************/
 @ptn__font-weight_700: 700;
@@ -106,6 +124,7 @@
 /******************** border-radius ********************/
 @ptn-util__border-radius_1: 1px;
 @ptn-util__border-radius_2: 2px;
+@ptn-util__border-radius_round: 50%;
 
 /******************** box-shadow ********************/
 @ptn__box-shadow_header: 0 1px 4px rgba(0, 0, 0, 0.3);
@@ -125,6 +144,7 @@
 @ptn-util__animation-duration_fade: 3000ms;
 @ptn-util__animation-duration_trigger: 300ms;
 @ptn-util__animation-duration_resize: 300ms;
+@ptn-util__animation-duration_background: 300ms;
 @ptn-util__animation-duration_hover: 200ms;
 @ptn-util__animation-duration_dropdown: 200ms;
 

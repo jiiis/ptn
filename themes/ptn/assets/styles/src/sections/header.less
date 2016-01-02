@@ -86,10 +86,9 @@
 }
 
 .ptn-header__menu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   height: 100%;
+
+  .ptn-util__list_unstyled;
 }
 
 .ptn-header__menu-item {
@@ -102,17 +101,15 @@
 .ptn-header__menu-item-container {
   width: 100%;
   height: 100%;
-  color: @ptn__color_header;
-  text-align: center;
 
-  .ptn-util__cursor_pointer;
   .hover-pop(@ptn-util__background_highlight-white, @ptn-util__border-radius_2, @ptn-util__animation-duration_hover, @ptn-util__z-index_0);
 }
 
 .ptn-header__menu-item-icon {
   height: 100%;
   line-height: @ptn__height_header-menu-item;
-  font-size: @ptn__font-size_zmdi;
+  color: @ptn__color_header;
+  font-size: @ptn__font-size_header-menu-item-icon;
 }
 
 .ptn-header__menu-item-count {
@@ -123,11 +120,16 @@
   padding: @ptn__padding_count;
   height: @ptn__height_count;
   line-height: @ptn__height_count;
+  color: @ptn__color_header;
   background: @ptn-util__color_lightcoral;
   border-radius: @ptn-util__border-radius_1;
   font-size: @ptn__font-size_count;
   font-weight: @ptn__font-weight_700;
   font-style: normal;
+}
+
+.ptn-header__notifications {
+  cursor: default;
 }
 
 //.ptn-header__menu-item {
@@ -200,7 +202,7 @@
 
 .ptn-header__search-button-icon {
   line-height: @ptn__height_header-nav-item;
-  font-size: @ptn__font-size_zmdi;
+  font-size: @ptn__font-size_header-menu-item-icon;
 }
 
 
