@@ -8,12 +8,13 @@
             slide: 200
         },
         _classes = {
-            html_mobile_device: 'ptn-html_mobile-device',
-            body_aside_on: 'ptn-body_aside-on',
             trigger_on: 'ptn-util__trigger_on',
             trigger_off: 'ptn-util__trigger_off',
             widget_on: 'ptn-util__widget_on',
-            widget_off: 'ptn-util__widget_off'
+            widget_off: 'ptn-util__widget_off',
+            html_mobile_device: 'ptn-html_mobile-device',
+            body_aside_on: 'ptn-body_aside-on',
+            notifications_empty: 'ptn-header-notifications_empty'
         },
         _$window = $(window),
         _$html = $('html'),
@@ -157,6 +158,33 @@
                 _launchFullscreen(_documentElement);
             });
         })();
+
+        /******************** widget: notifications ********************/
+        (function() {
+            var _selectorClearNotifications = '[data-ptn-action="clear-notifications"]',
+                _$notifications = $('#notifications');
+
+            _$body.on('click', _selectorClearNotifications, function() {
+                var _interval = 150,
+                    _index = 0,
+                    _$notification = $('.ptn-list__list-item-link'),
+                    _notificationCount = _$notification.length;
+
+                _$notification.each(function() {
+                    var _$notificationCurrent = $(this);
+
+                    setTimeout(function() {
+                        _$notificationCurrent.addClass('animated fadeOutRightBig');
+                    }, (_index += 1) * _interval);
+                });
+
+                setTimeout(function() {
+                    _$notification.remove().delay(_interval).queue(function() {
+                        _$notifications.addClass(_classes.notifications_empty);
+                    });
+                }, _notificationCount * _interval);
+            });
+        })();
     });
 
     /******************** event: page load ********************/
@@ -223,36 +251,6 @@
 
 
 $(document).ready(function() {
-    // Clear notification
-    $('body').on('click', '[data-clear="notification"]', function(e) {
-        e.preventDefault();
-
-        var x = $(this).closest('.listview');
-        var y = x.find('.lv-item');
-        var z = y.size();
-
-        $(this).parent().fadeOut();
-
-        x.find('.list-group').prepend('<i class="grid-loading hide-it"></i>');
-        x.find('.grid-loading').fadeIn(1500);
-
-
-        var w = 0;
-        y.each(function() {
-            var z = $(this);
-            setTimeout(function() {
-                z.addClass('animated fadeOutRightBig').delay(1000).queue(function() {
-                    z.remove();
-                });
-            }, w += 150);
-        });
-
-        // Popup empty message
-        setTimeout(function() {
-            $('#notifications').addClass('empty');
-        }, (z * 150) + 200);
-    });
-
     // Auto height textarea
     if ($('.auto-size')[0]) {
         autosize($('.auto-size'));
