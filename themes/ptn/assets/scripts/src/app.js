@@ -167,7 +167,7 @@
             _$body.on('click', _selectorClearNotifications, function() {
                 var _interval = 150,
                     _index = 0,
-                    _$notification = $('.ptn-list__list-item-link'),
+                    _$notification = _$notifications.find('.ptn-list__list-item-link'),
                     _notificationCount = _$notification.length;
 
                 _$notification.each(function() {
