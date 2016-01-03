@@ -1,5 +1,5 @@
 .ptn-list {
-
+  cursor: default;
 }
 
 .ptn-list__header {
@@ -36,17 +36,27 @@
   & > a {
     .ptn-util__link_block;
     .ptn-util__hover-color;
+
+    &:hover {
+      background: @ptn-util__background_highlight-coral;
+    }
   }
 }
 
 .ptn-list__list-item {
   padding: @ptn-util__mardding_vertical-1 @ptn-util__mardding_horizontal-1;
+}
 
-  .ptn-util__transition(background, @ptn-util__animation-duration_background);
+.ptn-list__list-item-header {
+  margin: 0;
+  height: @ptn__height_list-item-header;
+  line-height: @ptn__height_list-item-header;
+  color: @ptn__color_list-item-header;
+  font-size: @ptn__font-size_list-item-header;
+}
 
-  &:hover {
-    background: @ptn-util__background_highlight-coral;
-  }
+.ptn-list__list-item-body {
+  margin: @ptn__margin_list-item-body-top 0 0;
 }
 
 .ptn-list__footer {
@@ -59,6 +69,6 @@
 }
 
 .ptn-list__footer-link {
-  .ptn-util__hover-color;
   .text-overflow;
+  .ptn-util__hover-color;
 }

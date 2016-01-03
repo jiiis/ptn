@@ -12,6 +12,7 @@
 @ptn__margin_footer-row-vertical: 12px;
 @ptn__margin_footer-menu-item-horizontal: 6px;
 @ptn__margin_list-header-actions: (@ptn__height_list-header - @ptn__size_action) / 2;
+@ptn__margin_list-item-body-top: 6px;
 
 /******************** padding ********************/
 @ptn__padding_aside-trigger-horizontal: (@ptn__height_header-nav-item - @ptn__width_line-wrap) / 2;
@@ -45,7 +46,9 @@
 @ptn__height_line-wrap: 12px;
 @ptn__height_list-header: 48px;
 @ptn__height_list-footer: 36px;
+@ptn__height_list-item-header: 18px;
 @ptn__height_media-text-row: @ptn__height_media-image / 2;
+@ptn__height_progress: 6px;
 
 /******************** color ********************/
 @ptn-util__color_white: #fff;
@@ -85,6 +88,7 @@
 @ptn__color_footer: @ptn-util__color_gray-9;
 @ptn__color_footer_highlight: @ptn-util__color_gray-6;
 @ptn__color_divider: @ptn-util__color_gray-e;
+@ptn__color_list-item-header: @text-color;
 @ptn__color_media-header: @text-color;
 @ptn__color_hover-before: @ptn-util__color_gray-6;
 @ptn__color_hover-after: @text-color;
@@ -98,6 +102,7 @@
 @ptn__background_search: @ptn-util__color_white;
 @ptn__background_aside: @ptn-util__color_white;
 @ptn__background_dropdown-menu: @ptn-util__color_white;
+@ptn__background_progress: @ptn-util__color_gray-e;
 
 /******************** font-size ********************/
 @ptn-util__font-size_10: 10px;
@@ -115,6 +120,7 @@
 @ptn__font-size_count: @ptn-util__font-size_10;
 @ptn__font-size_dropdown-menu: @ptn-util__font-size_13;
 @ptn__font-size_list-header: @ptn-util__font-size_15;
+@ptn__font-size_list-item-header: @ptn-util__font-size_13;
 @ptn__font-size_list-media-header: @ptn-util__font-size_13;
 @ptn__font-size_list-media-body: @ptn-util__font-size_12;
 
@@ -144,8 +150,7 @@
 @ptn-util__animation-duration_fade: 3000ms;
 @ptn-util__animation-duration_trigger: 300ms;
 @ptn-util__animation-duration_resize: 300ms;
-@ptn-util__animation-duration_background: 300ms;
-@ptn-util__animation-duration_hover: 200ms;
+@ptn-util__animation-duration_hover: 300ms;
 @ptn-util__animation-duration_dropdown: 200ms;
 
 @ptn__animation-duration_loader-rotate: 2000ms;
