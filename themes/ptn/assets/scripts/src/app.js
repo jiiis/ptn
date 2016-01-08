@@ -185,6 +185,17 @@
                 }, _notificationCount * _interval);
             });
         })();
+
+        /******************** widget: aside account ********************/
+        (function() {
+            var _selectorAccountMenuTrigger = '#account-menu-trigger',
+                _$accountMenu = $('#account-menu');
+
+            _$body.on('click', _selectorAccountMenuTrigger, function() {
+                $(this).toggleClass(_classes.trigger_on);
+                _$accountMenu.slideToggle(_animationDurations.slide);
+            });
+        })();
     });
 
     /******************** event: page load ********************/
@@ -255,13 +266,6 @@ $(document).ready(function() {
     if ($('.auto-size')[0]) {
         autosize($('.auto-size'));
     }
-
-    // Profile menu
-    $('body').on('click', '.profile-menu > a', function(e) {
-        e.preventDefault();
-        $(this).parent().toggleClass('toggled');
-        $(this).next().slideToggle(200);
-    });
 
     // Text field
     // Add blue animated border and remove with condition when focus and blur

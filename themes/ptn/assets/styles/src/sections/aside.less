@@ -26,72 +26,93 @@
   }
 }
 
+.ptn-aside__account {
+}
 
+.ptn-aside__account-profile-container {
+  position: relative;
+  height: @ptn__height_aside-account-profile;
+  background: url('@{ptn-util__path_root-assets}images/profile-menu.png') no-repeat;
+  background-size: 100%;
+}
 
+.ptn-aside__account-profile-picture {
+  padding: @ptn__padding_aside-account-profile-picture;
 
-
-
-
-
-
-
-
-
-
-.profile-menu {
-  & > a {
-    display: block;
-    height: 129px;
-    margin-bottom: 5px;
-    width: 100%;
-    background: url('@{ptn-util__path_root-assets}images/profile-menu.png') no-repeat left top;
-    background-size: 100%;
-
-    .profile-pic {
-      padding: 12px;
-
-      & > img {
-        width: 47px;
-        height: 47px;
-        border-radius: 50%;
-        border: 3px solid rgba(0, 0, 0, 0.14);
-        box-sizing: content-box;
-      }
-    }
-
-    .profile-info {
-      background: rgba(0, 0, 0, 0.37);
-      padding: 7px 14px;
-      color: #fff;
-      margin-top: 20px;
-      position: relative;
-
-      & > i {
-        font-size: 19px;
-        line-height: 100%;
-        position: absolute;
-        right: 15px;
-        top: 7px;
-        .transition(all);
-        .transition-duration(300ms);
-      }
-    }
+  & > img {
+    width: @ptn__size_aside-account-picture;
+    height: @ptn__size_aside-account-picture;
+    border-radius: @ptn-util__border-radius_round;
+    box-shadow: @ptn__box-shadow_aside-account-picture;
   }
+}
 
-  .main-menu {
-    display: none;
-    margin: 0 0 0;
-    border-bottom: 1px solid #e6e6e6;
-  }
+.ptn-aside__account-menu-trigger {
+  position: absolute;
+  bottom: 0;
+  padding: 0 @ptn-util__mardding_horizontal-2;
+  width: 100%;
+  height: @ptn__height_aside-account-menu-trigger;
+  line-height: @ptn__height_aside-account-menu-trigger;
+  color: @ptn-util__color_white;
+  background: @ptn-util__background_highlight-black-2;
 
-  &.toggled {
-    .profile-info {
-      & > i {
-        .rotate(180deg)
-      }
+  .ptn-util__cursor_pointer;
+
+  &.ptn-util__trigger_on {
+    .ptn-aside__account-menu-trigger-icon {
+      .rotate(180deg);
     }
   }
 }
+
+.ptn-aside__account-menu-trigger-text {
+  font-size: @ptn__font-size_aside-account-menu-trigger-text;
+}
+
+.ptn-aside__account-menu-trigger-icon {
+  position: absolute;
+  right: @ptn-util__mardding_horizontal-2;
+  line-height: @ptn__height_aside-account-menu-trigger;
+  font-size: @ptn__font-size_aside-account-menu-trigger-icon;
+
+  .ptn-util__transition(all, @ptn-util__animation-duration_slide);
+}
+
+.ptn-aside__account-menu-container {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .main-menu {
   list-style: none;

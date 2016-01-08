@@ -1,31 +1,75 @@
 <aside id="aside" class="ptn-aside">
-    <div class="profile-menu">
-        <a href="">
-            <div class="profile-pic">
+    <div class="ptn-aside__account">
+        <div class="ptn-aside__account-profile-container">
+            <div class="ptn-aside__account-profile-picture">
                 <img src="{{ 'assets/images/avatars/1.jpg' | theme }}" alt="">
             </div>
-
-            <div class="profile-info">
-                Malinda Hollaway
-
-                <i class="zmdi zmdi-caret-down"></i>
+            <div id="account-menu-trigger" class="ptn-aside__account-menu-trigger">
+                <span class="ptn-aside__account-menu-trigger-text">Malinda Hollaway</span>
+                <i class="ptn-aside__account-menu-trigger-icon zmdi zmdi-caret-down"></i>
             </div>
-        </a>
-        <ul class="main-menu">
-            <li>
-                <a href=""><i class="zmdi zmdi-account"></i> View Profile</a>
-            </li>
-            <li>
-                <a href=""><i class="zmdi zmdi-input-antenna"></i> Privacy Settings</a>
-            </li>
-            <li>
-                <a href=""><i class="zmdi zmdi-settings"></i> Settings</a>
-            </li>
-            <li>
-                <a href=""><i class="zmdi zmdi-time-restore"></i> Logout</a>
-            </li>
-        </ul>
+        </div>
+        <div id="account-menu" class="ptn-aside__account-menu-container ptn-list">
+            <div class="ptn-list__body">
+                <ul class="ptn-list__list">
+                    <a class="ptn-list__list-item-link" href="">
+                        <li class="ptn-list__list-item">
+                            <div class="ptn-list__list-item-icon-container">
+                                <i class="ptn-list__list-item-icon zmdi zmdi-account"></i>
+                            </div>
+                            <div class="ptn-list__list-item-text-container">
+                                <p class="ptn-list__list-item-text">View profile</p>
+                            </div>
+                        </li>
+                    </a>
+                    <a class="ptn-list__list-item-link" href="">
+                        <li class="ptn-list__list-item">
+                            <div class="ptn-list__list-item-icon-container">
+                                <i class="ptn-list__list-item-icon zmdi zmdi-input-antenna"></i>
+                            </div>
+                            <div class="ptn-list__list-item-text-container">
+                                <p class="ptn-list__list-item-text">Privacy settings</p>
+                            </div>
+                        </li>
+                    </a>
+                    <a class="ptn-list__list-item-link" href="">
+                        <li class="ptn-list__list-item">
+                            <div class="ptn-list__list-item-icon-container">
+                                <i class="ptn-list__list-item-icon zmdi zmdi-settings"></i>
+                            </div>
+                            <div class="ptn-list__list-item-text-container">
+                                <p class="ptn-list__list-item-text">Settings</p>
+                            </div>
+                        </li>
+                    </a>
+                    <a class="ptn-list__list-item-link" href="">
+                        <li class="ptn-list__list-item">
+                            <div class="ptn-list__list-item-icon-container">
+                                <i class="ptn-list__list-item-icon zmdi zmdi-time-restore"></i>
+                            </div>
+                            <div class="ptn-list__list-item-text-container">
+                                <p class="ptn-list__list-item-text">Logout</p>
+                            </div>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <ul class="main-menu">
         <li class="active">
             <a href=""><i class="zmdi zmdi-home"></i> Home</a>

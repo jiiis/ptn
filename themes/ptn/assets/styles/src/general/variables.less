@@ -5,6 +5,7 @@
 @ptn-util__mardding_horizontal-1: 18px;
 @ptn-util__mardding_horizontal-2: 12px;
 @ptn-util__mardding_vertical-1: 12px;
+@ptn-util__mardding_vertical-2: 6px;
 @ptn-util__mardding_content-footer: 48px;
 
 /******************** margin ********************/
@@ -24,12 +25,13 @@
 @ptn__padding_content-small-screen: @ptn-util__mardding_vertical-1 @ptn-util__mardding_horizontal-1 @ptn__padding_content-bottom;
 @ptn__padding_content-large-screen: @ptn-util__mardding_vertical-1 * 2 @ptn-util__mardding_horizontal-1 * 2 @ptn__padding_content-bottom;
 @ptn__padding_count: 1px 5px;
+@ptn__padding_aside-account-profile-picture: @ptn-util__mardding_vertical-1 @ptn-util__mardding_horizontal-1;
 
 /******************** size ********************/
 @ptn__size_page-loader: 50px;
 @ptn__size_action: 30px;
 @ptn__size_action-icon: 18px;
-@ptn__height_media-image: 36px;
+@ptn__size_aside-account-picture: 48px;
 
 /******************** width ********************/
 @ptn__width_header-menu-item: 48px;
@@ -50,10 +52,13 @@
 @ptn__height_list-header: 48px;
 @ptn__height_list-footer: 36px;
 @ptn__height_list-item-header: 18px;
-@ptn__height_list-item-default: 18px;
+@ptn__height_list-item-default: 20px;
+@ptn__height_media-image: 36px;
 @ptn__height_media-text-row: @ptn__height_media-image / 2;
 @ptn__height_progress: 6px;
 @ptn__height_empty-notifications-min: 270px;
+@ptn__height_aside-account-profile: 139px;
+@ptn__height_aside-account-menu-trigger: 30px;
 
 /******************** color ********************/
 @ptn-util__color_white: #fff;
@@ -95,11 +100,12 @@
 @ptn__color_divider: @ptn-util__color_gray-e;
 @ptn__color_list-item-header: @text-color;
 @ptn__color_media-header: @text-color;
-@ptn__color_hover-before: @ptn-util__color_gray-6;
+@ptn__color_hover-before: @ptn-util__color_gray-4;
 @ptn__color_hover-after: @text-color;
 
 /******************** background ********************/
-@ptn-util__background_highlight-black: rgba(0, 0, 0, 0.1);
+@ptn-util__background_highlight-black-1: rgba(0, 0, 0, 0.1);
+@ptn-util__background_highlight-black-2: rgba(0, 0, 0, 0.4);
 @ptn-util__background_highlight-white: rgba(255, 255, 255, 0.3);
 @ptn-util__background_highlight-coral: rgba(255, 127, 80, 0.3);
 
@@ -129,6 +135,8 @@
 @ptn__font-size_list-media-header: @ptn-util__font-size_13;
 @ptn__font-size_list-media-body: @ptn-util__font-size_12;
 @ptn__font-size_list-item-icon: @ptn__height_list-item-default;
+@ptn__font-size_aside-account-menu-trigger-text: @ptn-util__font-size_13;
+@ptn__font-size_aside-account-menu-trigger-icon: @ptn-util__font-size_20;
 
 /******************** font-weight ********************/
 @ptn__font-weight_700: 700;
@@ -143,6 +151,7 @@
 @ptn__box-shadow_dropdown: 0 2px 10px rgba(0, 0, 0, 0.2);
 @ptn__box-shadow_aside-small-screen: 0 0 10px rgba(50, 50, 50, 0.4);
 @ptn__box-shadow_aside-large-screen: 0 1px 1px rgba(0, 0, 0, 0.2);
+@ptn__box-shadow_aside-account-picture: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
 
 /******************** z-index ********************/
 @ptn-util__z-index_0: 0;
@@ -154,6 +163,7 @@
 
 /******************** animation-duration ********************/
 @ptn-util__animation-duration_fade: 3000ms;
+@ptn-util__animation-duration_slide: 200ms;
 @ptn-util__animation-duration_trigger: 300ms;
 @ptn-util__animation-duration_resize: 300ms;
 @ptn-util__animation-duration_hover: 300ms;

@@ -1,5 +1,7 @@
 .ptn-list {
   cursor: default;
+
+  .clearfix;
 }
 
 .ptn-list__header {
@@ -27,7 +29,6 @@
 }
 
 .ptn-list__body {
-  overflow: hidden;
   margin: @ptn-util__mardding_vertical-1 0;
 }
 
@@ -83,6 +84,8 @@
 
 .ptn-list__list-item-text {
   margin: 0;
+  height: @ptn__height_list-item-default;
+  line-height: @ptn__height_list-item-default;
 
   .text-overflow;
 }
