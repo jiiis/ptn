@@ -122,23 +122,6 @@
 
                 _resetSublists();
             }
-
-            function _resetSublists() {
-                var selectorListItemActive = '.ptn-list__list-item_active',
-                    selectorSublistTrigger = '.ptn-list__list-item-link_sublist',
-                    selectorSublist = '.ptn-list__list-item-sublist',
-                    $activeListItemAncestors = $(selectorListItemActive).parents();
-
-                $(selectorSublist).slideUp(_animationDurations.slide);
-                $(selectorSublistTrigger).removeClass(_classes.trigger_on);
-
-                $activeListItemAncestors.each(function() {
-                    var $listItem = $(this);
-
-                    $listItem.children(selectorSublist).slideDown(_animationDurations.slide);
-                    $listItem.children(selectorSublistTrigger).addClass(_classes.trigger_on);
-                });
-            }
         })();
 
         /******************** widget: aside account ********************/
@@ -152,7 +135,12 @@
             });
         })();
 
-        /******************** widget: sublist ********************/
+        /******************** widget: sublist | init ********************/
+        (function() {
+            _resetSublists();
+        })();
+
+        /******************** widget: sublist | toggle ********************/
         (function() {
             var _selectorListItem = '.ptn-list__list-item',
                 _selectorSublistTrigger = '.ptn-list__list-item-link_sublist',
@@ -254,6 +242,23 @@
         } else if (element.msRequestFullscreen) {
             element.msRequestFullscreen();
         }
+    }
+
+    function _resetSublists() {
+        var selectorListItemActive = '.ptn-list__list-item_active',
+            selectorSublistTrigger = '.ptn-list__list-item-link_sublist',
+            selectorSublist = '.ptn-list__list-item-sublist',
+            $activeListItemAncestors = $(selectorListItemActive).parents();
+
+        $(selectorSublist).slideUp(_animationDurations.slide);
+        $(selectorSublistTrigger).removeClass(_classes.trigger_on);
+
+        $activeListItemAncestors.each(function() {
+            var $listItem = $(this);
+
+            $listItem.children(selectorSublist).slideDown(_animationDurations.slide);
+            $listItem.children(selectorSublistTrigger).addClass(_classes.trigger_on);
+        });
     }
 })(window);
 
