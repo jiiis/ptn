@@ -108,22 +108,13 @@
                 e.preventDefault();
 
                 _toggleAside();
-
-                //// Close opened sub-menus
-                //$('.sub-menu.toggled').not('.active').each(function() {
-                //    $(this).removeClass('toggled');
-                //    $(this).find('ul').hide();
-                //});
-                //
-                //
-                //$('.profile-menu .main-menu').hide();
             });
 
             function _toggleAside() {
-                var _statusOld = localStorage.getItem(_localStorageKeyAsideStatus),
-                    _statusNew = _statusOld === _asideStatuses.on ? _asideStatuses.off : _asideStatuses.on;
+                var statusOld = localStorage.getItem(_localStorageKeyAsideStatus),
+                    statusNew = statusOld === _asideStatuses.on ? _asideStatuses.off : _asideStatuses.on;
 
-                localStorage.setItem(_localStorageKeyAsideStatus, _statusNew);
+                localStorage.setItem(_localStorageKeyAsideStatus, statusNew);
 
                 _$body.toggleClass(_classes.body_aside_on);
                 _$asideTrigger.toggleClass(_classes.trigger_on);
@@ -144,15 +135,28 @@
 
         /******************** widget: sublist ********************/
         (function() {
-            var _selectorSublistTrigger = '.ptn-list__list-item-link_sublist',
+            var _selectorListItem = '.ptn-list__list-item',
+                _selectorSublistTrigger = '.ptn-list__list-item-link_sublist',
                 _selectorSublist = '.ptn-list__list-item-sublist';
 
             _$body.on('click', _selectorSublistTrigger, function(e) {
                 e.preventDefault();
 
-                $(this).next(_selectorSublist).slideToggle(_animationDurations.slide);
-                $(this).toggleClass(_classes.trigger_on);
+                _toggleSublist($(this));
             });
+
+            function _toggleSublist($trigger) {
+                var isSublistOn = $trigger.hasClass(_classes.trigger_on),
+                    $listItemClosest = $trigger.closest(_selectorListItem);
+
+                if (isSublistOn) {
+                    $listItemClosest.find(_selectorSublist).slideUp(_animationDurations.slide);
+                    $listItemClosest.find(_selectorSublistTrigger).removeClass(_classes.trigger_on);
+                } else {
+                    $trigger.next(_selectorSublist).slideDown(_animationDurations.slide);
+                    $trigger.addClass(_classes.trigger_on);
+                }
+            }
         })();
 
         /******************** widget: fullscreen ********************/
