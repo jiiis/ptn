@@ -46,7 +46,7 @@
 .ptn-util__link_block {
   display: block;
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 /******************** list ********************/
@@ -58,13 +58,13 @@
 
 /******************** hover color ********************/
 .ptn-util__hover-color {
-  color: @ptn__color_hover-before;
+  color: @ptn__color_hover-before !important;
 
   &:hover {
-    color: @ptn__color_hover-after;
+    color: @ptn__color_hover-after !important;
   }
 
-  .ptn-util__transition(all, @ptn-util__animation-duration_hover);
+  .ptn-util__transition(all, @ptn-util__animation-duration_hover-2);
 }
 
 /******************** layout ********************/

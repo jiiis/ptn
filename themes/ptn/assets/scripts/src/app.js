@@ -119,13 +119,6 @@
                 //$('.profile-menu .main-menu').hide();
             });
 
-            //// Submenu
-            //_$body.on('click', '.sub-menu > a', function(e) {
-            //    e.preventDefault();
-            //    $(this).next().slideToggle(_animationDurations.slide);
-            //    $(this).parent().toggleClass('toggled');
-            //});
-
             function _toggleAside() {
                 var _statusOld = localStorage.getItem(_localStorageKeyAsideStatus),
                     _statusNew = _statusOld === _asideStatuses.on ? _asideStatuses.off : _asideStatuses.on;
@@ -136,6 +129,30 @@
                 _$asideTrigger.toggleClass(_classes.trigger_on);
                 _$aside.toggleClass(_classes.widget_on);
             }
+        })();
+
+        /******************** widget: aside account ********************/
+        (function() {
+            var _selectorAccountMenuTrigger = '#account-menu-trigger',
+                _$accountMenu = $('#account-menu');
+
+            _$body.on('click', _selectorAccountMenuTrigger, function() {
+                $(this).toggleClass(_classes.trigger_on);
+                _$accountMenu.slideToggle(_animationDurations.slide);
+            });
+        })();
+
+        /******************** widget: sublist ********************/
+        (function() {
+            var _selectorSublistTrigger = '.ptn-list__list-item-link_sublist',
+                _selectorSublist = '.ptn-list__list-item-sublist';
+
+            _$body.on('click', _selectorSublistTrigger, function(e) {
+                e.preventDefault();
+
+                $(this).next(_selectorSublist).slideToggle(_animationDurations.slide);
+                $(this).toggleClass(_classes.trigger_on);
+            });
         })();
 
         /******************** widget: fullscreen ********************/
@@ -167,7 +184,7 @@
             _$body.on('click', _selectorClearNotifications, function() {
                 var _interval = 150,
                     _index = 0,
-                    _$notification = _$notifications.find('.ptn-list__list-item-link'),
+                    _$notification = _$notifications.find('.ptn-list__list-item'),
                     _notificationCount = _$notification.length;
 
                 _$notification.each(function() {
@@ -183,17 +200,6 @@
                         _$notifications.addClass(_classes.notifications_empty);
                     });
                 }, _notificationCount * _interval);
-            });
-        })();
-
-        /******************** widget: aside account ********************/
-        (function() {
-            var _selectorAccountMenuTrigger = '#account-menu-trigger',
-                _$accountMenu = $('#account-menu');
-
-            _$body.on('click', _selectorAccountMenuTrigger, function() {
-                $(this).toggleClass(_classes.trigger_on);
-                _$accountMenu.slideToggle(_animationDurations.slide);
             });
         })();
     });

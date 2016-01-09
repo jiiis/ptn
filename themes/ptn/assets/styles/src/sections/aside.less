@@ -11,6 +11,7 @@
   .opacity(0);
   .translate3d(-@ptn__width_aside, 0, 0);
   .ptn-util__transition(all, @ptn-util__animation-duration_trigger);
+  .ptn-util__user-select_none;
 
   &.ptn-util__widget_on {
     .opacity(1);
@@ -37,7 +38,7 @@
 }
 
 .ptn-aside__account-profile-picture {
-  padding: @ptn__padding_aside-account-profile-picture;
+  padding: @ptn-util__mardding_vertical-1 @ptn-util__mardding_horizontal-1;
 
   & > img {
     width: @ptn__size_aside-account-picture;
@@ -81,6 +82,7 @@
 
 .ptn-aside__account-menu-container {
   display: none;
+  border-bottom: 1px solid @ptn__color_divider;
 }
 
 
@@ -98,146 +100,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.main-menu {
-  list-style: none;
-  padding-left: 0;
-  margin: 20px 0 0 0;
-
-  & > li {
-    & > a {
-      padding: 14px 20px 14px 52px;
-      display: block;
-      color: #4c4c4c;
-      font-weight: 500;
-      position: relative;
-
-      &:hover {
-        color: #262626;
-        background-color: #f7f7f7;
-      }
-
-      & > i {
-        position: absolute;
-        left: 16px;
-        font-size: 20px;
-        top: 0;
-        width: 25px;
-        text-align: center;
-        padding: 13px 0;
-      }
-    }
-
-    &.active {
-      & > a {
-        color: #262626;
-        background-color: #f4f4f4;
-      }
-    }
-  }
-}
-
-.sub-menu {
-  & > a {
-    position: relative;
-
-    &:before, &:after {
-      position: absolute;
-      top: 12px;
-      color: #575757;
-      font-family: @font-icon-md;
-      font-size: 17px;
-      right: 15px;
-      .transition(all);
-      .transition-duration(250ms);
-      .backface-visibility(hidden);
-    }
-
-    &:before {
-      content: "\f278";
-      .scale(1);
-    }
-
-    &:after {
-      content: "\f273";
-      .scale(0);
-    }
-  }
-
-  .sub-menu > a {
-    &:before, &:after {
-      top: 5px;
-    }
-  }
-
-  &.toggled {
-    & > a {
-      &:before {
-        content: "\f278";
-        .scale(0);
-      }
-
-      &:after {
-        content: "\f273";
-        .scale(1);
-      }
-    }
-  }
-
-  ul {
-    list-style: none;
-    display: none;
-    padding: 0;
-
-    & > li {
-      & > a {
-        color: #7f7f7f;
-        padding: 8px 20px 8px 50px;
-        font-weight: 500;
-        display: block;
-
-        &.active, &:hover {
-          color: #000;
-        }
-      }
-
-      &:first-child > a {
-        padding-top: 14px;
-      }
-
-      &:last-child > a {
-        padding-bottom: 16px;
-      }
-
-      ul {
-        font-size: 12px;
-        margin: 10px 0;
-        background-color: @app-gray;
-      }
-    }
-  }
-
-  &.active {
-    & > ul {
-      display: block;
-    }
-  }
-}
 
 .ie9 {
   body.ptn-body_aside-on .ptn-aside {
