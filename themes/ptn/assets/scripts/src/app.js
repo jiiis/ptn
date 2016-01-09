@@ -119,6 +119,25 @@
                 _$body.toggleClass(_classes.body_aside_on);
                 _$asideTrigger.toggleClass(_classes.trigger_on);
                 _$aside.toggleClass(_classes.widget_on);
+
+                _resetSublists();
+            }
+
+            function _resetSublists() {
+                var selectorListItemActive = '.ptn-list__list-item_active',
+                    selectorSublistTrigger = '.ptn-list__list-item-link_sublist',
+                    selectorSublist = '.ptn-list__list-item-sublist',
+                    $activeListItemAncestors = $(selectorListItemActive).parents();
+
+                $(selectorSublist).slideUp(_animationDurations.slide);
+                $(selectorSublistTrigger).removeClass(_classes.trigger_on);
+
+                $activeListItemAncestors.each(function() {
+                    var $listItem = $(this);
+
+                    $listItem.children(selectorSublist).slideDown(_animationDurations.slide);
+                    $listItem.children(selectorSublistTrigger).addClass(_classes.trigger_on);
+                });
             }
         })();
 
