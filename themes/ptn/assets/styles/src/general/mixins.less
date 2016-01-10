@@ -56,15 +56,22 @@
   padding: 0;
 }
 
-/******************** hover color ********************/
-.ptn-util__hover-color {
+/******************** hover ********************/
+.ptn-util__text-hover {
   color: @ptn__color_hover-before !important;
 
   &:hover {
-    color: @ptn__color_hover-after !important;
+    .ptn-util__text-highlight;
   }
 
   .ptn-util__transition(all, @ptn-util__animation-duration_hover-2);
+}
+
+/******************** highlight ********************/
+.ptn-util__text-highlight {
+  color: @ptn__color_hover-after !important;
+  background: @ptn-util__background_highlight-coral !important;
+  font-weight: @ptn__font-weight_500 !important;
 }
 
 /******************** layout ********************/

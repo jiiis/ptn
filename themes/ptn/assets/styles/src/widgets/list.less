@@ -44,7 +44,7 @@
 
 .ptn-list__list-item_active {
   .ptn-list__list-item-link {
-    background: @ptn-util__background_highlight-coral;
+    .ptn-util__text-highlight;
   }
 }
 
@@ -52,11 +52,7 @@
   position: relative;
 
   .ptn-util__link_block;
-  .ptn-util__hover-color;
-
-  &:hover {
-    background: @ptn-util__background_highlight-coral;
-  }
+  .ptn-util__text-hover;
 }
 
 .ptn-list__list-item-container {
@@ -100,6 +96,7 @@
   margin: 0;
   height: @ptn__height_list-item-default;
   line-height: @ptn__height_list-item-default;
+  font-size: @ptn__font-size_list-item-text;
 
   .text-overflow;
 }
@@ -115,7 +112,7 @@
 
 .ptn-list__footer-link {
   .text-overflow;
-  .ptn-util__hover-color;
+  .ptn-util__text-hover;
 }
 
 .ptn-list__list-item-link_sublist {
