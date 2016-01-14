@@ -31,10 +31,6 @@
         (function() {
             var _$aside = $('#aside');
 
-            if (_isDeviceMobile) {
-                return;
-            }
-
             _addScrollBar(_$aside, 'minimal-dark', 'y');
 
             function _addScrollBar($element, theme, mouseWheelAxis) {
