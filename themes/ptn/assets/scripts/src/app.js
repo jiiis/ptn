@@ -32,23 +32,6 @@
             var _$aside = $('#aside');
 
             _addScrollBar(_$aside, 'minimal-dark', 'y');
-
-            function _addScrollBar($element, theme, mouseWheelAxis) {
-                if (!_isElementExistent($element)) {
-                    return;
-                }
-
-                $element.mCustomScrollbar({
-                    theme: theme,
-                    scrollInertia: 100,
-                    axis: 'yx',
-                    mouseWheel: {
-                        preventDefault: true,
-                        enable: true,
-                        axis: mouseWheelAxis
-                    }
-                });
-            }
         })();
 
         /******************** widget: dropdown ********************/
@@ -117,6 +100,7 @@
                 _$aside.toggleClass(_classes.widget_on);
 
                 _resetSublists();
+                _scrollTo(_$aside, 'top');
             }
         })();
 
@@ -226,6 +210,29 @@
     /******************** private functions ********************/
     function _isElementExistent($element) {
         return !!$element.length;
+    }
+
+    function _addScrollBar($element, theme, mouseWheelAxis) {
+        if (!_isElementExistent($element)) {
+            return;
+        }
+
+        $element.mCustomScrollbar({
+            theme: theme,
+            scrollInertia: 100,
+            axis: 'yx',
+            mouseWheel: {
+                preventDefault: true,
+                enable: true,
+                axis: mouseWheelAxis
+            }
+        });
+    }
+
+    function _scrollTo($element, position) {
+        $element.mCustomScrollbar('scrollTo', position, {
+            scrollInertia: 0
+        });
     }
 
     function _launchFullscreen(element) {
