@@ -7,7 +7,7 @@
             page_loader: '#page-loader',
             search: '#search',
             search_trigger: '#search-trigger',
-            search_input: '#search-input input',
+            search_input: '#search-input',
             search_button: '#search-button',
             aside: '#aside',
             aside_trigger: '#aside-trigger',
@@ -16,13 +16,13 @@
             notifications: '#notifications',
             dropdown: '.ptn-dropdown',
             dropdown_trigger: '.ptn-dropdown__trigger',
-            dropdown_menu_active: '.ptn-dropdown.open .ptn-dropdown__menu',
+            dropdown_menu: '.ptn-dropdown__menu',
             list_item: '.ptn-list__list-item',
             list_item_active: '.ptn-list__list-item_active',
             sublist: '.ptn-list__list-item-sublist',
             sublist_trigger: '.ptn-list__list-item-link_sublist',
             fullscreen_trigger: '[data-ptn-action="fullscreen"]',
-            clear_notifications_trigger: '[data-ptn-action="clear-notifications"]',
+            clear_notifications_trigger: '[data-ptn-action="clear-notifications"]'
         },
         _localStorageKeys = {
             status_aside: 'ptn-status-aside'
@@ -66,7 +66,7 @@
 
         /******************** widget: dropdown ********************/
         (function() {
-            _$body.on('click', _selectors.dropdown_menu_active, function(e) {
+            _$body.on('click', _selectors.dropdown_menu, function(e) {
                 e.stopPropagation();
             });
         })();
