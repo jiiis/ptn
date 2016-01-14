@@ -220,7 +220,7 @@
         /******************** widget: page loader ********************/
         var _$pageLoader = $('#page-loader');
 
-        if (!_isDeviceMobile && _isElementExistent(_$pageLoader)) {
+        if (_isElementExistent(_$pageLoader)) {
             window.setTimeout(function() {
                 _$pageLoader.fadeOut();
             }, _animationDurations.fade);
