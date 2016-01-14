@@ -16,6 +16,17 @@
             body_aside_on: 'ptn-body_aside-on',
             notifications_empty: 'ptn-header-notifications_empty'
         },
+        _actions = {
+            show: 'show',
+            hide: 'hide'
+        },
+        _statuses = {
+            on: 'on',
+            off: 'off'
+        },
+        _localStorageKeys = {
+            status_aside: 'ptn-status-aside'
+        },
         _$window = $(window),
         _$html = $('html'),
         _$body = $('body');
@@ -48,7 +59,7 @@
             });
         })();
 
-        /******************** widget: search ********************/
+        /******************** widget: search | toggle ********************/
         (function() {
             var _selectorSearchTrigger = '#search-trigger',
                 _selectorSearchButton = '#search-button',
@@ -60,6 +71,8 @@
                 .on('click', _selectorSearchTrigger, function() {
                     _$search.addClass(_classes.widget_on);
                     _$searchInput.focus();
+
+                    _toggleAsideStatelessly(_actions.hide);
                 })
                 .on('click', _selectorSearchButton, function() {
                     _$search.removeClass(_classes.widget_on);
@@ -73,22 +86,13 @@
                 });
         })();
 
-        /******************** widget: aside ********************/
+        /******************** widget: aside | toggle ********************/
         (function() {
-            var _asideStatuses = {
-                    on: 'on',
-                    off: 'off'
-                },
-                _localStorageKeyAsideStatus = 'ptn-status-aside',
-                _asideStatus = localStorage.getItem(_localStorageKeyAsideStatus),
-                _selectorAsideTrigger = '#aside-trigger',
-                _$asideTrigger = $(_selectorAsideTrigger),
-                _$aside = $('#aside');
+            var _asideStatus = localStorage.getItem(_localStorageKeys.status_aside),
+                _selectorAsideTrigger = '#aside-trigger';
 
-            if (_asideStatus === _asideStatuses.on) {
-                _$body.addClass(_classes.body_aside_on);
-                _$asideTrigger.addClass(_classes.trigger_on);
-                _$aside.addClass(_classes.widget_on);
+            if (_asideStatus === _statuses.on) {
+                _toggleAsideStatelessly(_actions.show);
             }
 
             _$body.on('click', _selectorAsideTrigger, function(e) {
@@ -96,23 +100,9 @@
 
                 _toggleAside();
             });
-
-            function _toggleAside() {
-                var statusOld = localStorage.getItem(_localStorageKeyAsideStatus),
-                    statusNew = statusOld === _asideStatuses.on ? _asideStatuses.off : _asideStatuses.on;
-
-                localStorage.setItem(_localStorageKeyAsideStatus, statusNew);
-
-                _$body.toggleClass(_classes.body_aside_on);
-                _$asideTrigger.toggleClass(_classes.trigger_on);
-                _$aside.toggleClass(_classes.widget_on);
-
-                _resetSublists();
-                _scrollTo(_$aside, 'top');
-            }
         })();
 
-        /******************** widget: aside account ********************/
+        /******************** widget: aside | account ********************/
         (function() {
             var _selectorAccountMenuTrigger = '#account-menu-trigger',
                 _$accountMenu = $('#account-menu');
@@ -241,6 +231,40 @@
         $element.mCustomScrollbar('scrollTo', position, {
             scrollInertia: 0
         });
+    }
+
+    function _toggleAside() {
+        var statusOld = localStorage.getItem(_localStorageKeys.status_aside),
+            statusNew = statusOld === _statuses.on ? _statuses.off : _statuses.on,
+            $asideTrigger = $('#aside-trigger'),
+            $aside = $('#aside');
+
+        localStorage.setItem(_localStorageKeys.status_aside, statusNew);
+
+        _$body.toggleClass(_classes.body_aside_on);
+        $asideTrigger.toggleClass(_classes.trigger_on);
+        $aside.toggleClass(_classes.widget_on);
+
+        _resetSublists();
+        _scrollTo($aside, 'top');
+    }
+
+    function _toggleAsideStatelessly(action) {
+        var $asideTrigger = $('#aside-trigger'),
+            $aside = $('#aside');
+
+        if (action === _actions.show) {
+            _$body.addClass(_classes.body_aside_on);
+            $asideTrigger.addClass(_classes.trigger_on);
+            $aside.addClass(_classes.widget_on);
+        } else if (action === _actions.hide) {
+            _$body.removeClass(_classes.body_aside_on);
+            $asideTrigger.removeClass(_classes.trigger_on);
+            $aside.removeClass(_classes.widget_on);
+        }
+
+        _resetSublists();
+        _scrollTo($aside, 'top');
     }
 
     function _launchFullscreen(element) {
