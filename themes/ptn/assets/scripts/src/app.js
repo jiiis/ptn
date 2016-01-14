@@ -3,9 +3,29 @@
 (function(window) {
     /******************** private variables ********************/
     var _isDeviceMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
-        _animationDurations = {
-            fade: 500,
-            slide: 200
+        _selectors = {
+            page_loader: '#page-loader',
+            search: '#search',
+            search_trigger: '#search-trigger',
+            search_input: '#search-input input',
+            search_button: '#search-button',
+            aside: '#aside',
+            aside_trigger: '#aside-trigger',
+            account_menu: '#account-menu',
+            account_menu_trigger: '#account-menu-trigger',
+            notifications: '#notifications',
+            dropdown: '.ptn-dropdown',
+            dropdown_trigger: '.ptn-dropdown__trigger',
+            dropdown_menu_active: '.ptn-dropdown.open .ptn-dropdown__menu',
+            list_item: '.ptn-list__list-item',
+            list_item_active: '.ptn-list__list-item_active',
+            sublist: '.ptn-list__list-item-sublist',
+            sublist_trigger: '.ptn-list__list-item-link_sublist',
+            fullscreen_trigger: '[data-ptn-action="fullscreen"]',
+            clear_notifications_trigger: '[data-ptn-action="clear-notifications"]',
+        },
+        _localStorageKeys = {
+            status_aside: 'ptn-status-aside'
         },
         _classes = {
             trigger_on: 'ptn-util__trigger_on',
@@ -24,8 +44,9 @@
             on: 'on',
             off: 'off'
         },
-        _localStorageKeys = {
-            status_aside: 'ptn-status-aside'
+        _animationDurations = {
+            fade: 500,
+            slide: 200
         },
         _$window = $(window),
         _$html = $('html'),
@@ -40,62 +61,49 @@
     $(function() {
         /******************** widget: scrollbar ********************/
         (function() {
-            var _$aside = $('#aside');
-
-            _addScrollBar(_$aside, 'minimal-dark', 'y');
+            _addScrollBar($(_selectors.aside), 'minimal-dark', 'y');
         })();
 
         /******************** widget: dropdown ********************/
         (function() {
-            var _selectorDropdownMenuActive = '.ptn-dropdown.open .ptn-dropdown__menu',
-                _$dropdown = $('.ptn-dropdown');
-
-            if (!_isElementExistent(_$dropdown)) {
-                return;
-            }
-
-            _$body.on('click', _selectorDropdownMenuActive, function(e) {
+            _$body.on('click', _selectors.dropdown_menu_active, function(e) {
                 e.stopPropagation();
             });
         })();
 
         /******************** widget: search | toggle ********************/
         (function() {
-            var _selectorSearchTrigger = '#search-trigger',
-                _selectorSearchButton = '#search-button',
-                _selectorSearch = '#search',
-                _$search = $(_selectorSearch),
-                _$searchInput = $('#search-input input');
+            var $search = $(_selectors.search),
+                $searchInput = $(_selectors.search_input);
 
             _$body
-                .on('click', _selectorSearchTrigger, function() {
-                    _$search.addClass(_classes.widget_on);
-                    _$searchInput.focus();
+                .on('click', _selectors.search_trigger, function() {
+                    $search.addClass(_classes.widget_on);
+                    $searchInput.focus();
 
                     _toggleAsideStatelessly(_actions.hide);
                 })
-                .on('click', _selectorSearchButton, function() {
-                    _$search.removeClass(_classes.widget_on);
+                .on('click', _selectors.search_button, function() {
+                    $search.removeClass(_classes.widget_on);
                 })
                 .on('click', function(e) {
                     var $target = $(e.target);
 
-                    if (!_isElementExistent($target.closest(_selectorSearch)) && !_isElementExistent($target.closest(_selectorSearchTrigger))) {
-                        _$search.removeClass(_classes.widget_on);
+                    if (!_isElementExistent($target.closest(_selectors.search)) && !_isElementExistent($target.closest(_selectors.search_trigger))) {
+                        $search.removeClass(_classes.widget_on);
                     }
                 });
         })();
 
         /******************** widget: aside | toggle ********************/
         (function() {
-            var _asideStatus = localStorage.getItem(_localStorageKeys.status_aside),
-                _selectorAsideTrigger = '#aside-trigger';
+            var asideStatus = localStorage.getItem(_localStorageKeys.status_aside);
 
-            if (_asideStatus === _statuses.on) {
+            if (asideStatus === _statuses.on) {
                 _toggleAsideStatelessly(_actions.show);
             }
 
-            _$body.on('click', _selectorAsideTrigger, function(e) {
+            _$body.on('click', _selectors.aside_trigger, function(e) {
                 e.preventDefault();
 
                 _toggleAside();
@@ -104,12 +112,9 @@
 
         /******************** widget: aside | account ********************/
         (function() {
-            var _selectorAccountMenuTrigger = '#account-menu-trigger',
-                _$accountMenu = $('#account-menu');
-
-            _$body.on('click', _selectorAccountMenuTrigger, function() {
+            _$body.on('click', _selectors.account_menu_trigger, function() {
                 $(this).toggleClass(_classes.trigger_on);
-                _$accountMenu.slideToggle(_animationDurations.slide);
+                $(_selectors.account_menu).slideToggle(_animationDurations.slide);
             });
         })();
 
@@ -120,11 +125,7 @@
 
         /******************** widget: sublist | toggle ********************/
         (function() {
-            var _selectorListItem = '.ptn-list__list-item',
-                _selectorSublistTrigger = '.ptn-list__list-item-link_sublist',
-                _selectorSublist = '.ptn-list__list-item-sublist';
-
-            _$body.on('click', _selectorSublistTrigger, function(e) {
+            _$body.on('click', _selectors.sublist_trigger, function(e) {
                 e.preventDefault();
 
                 _toggleSublist($(this));
@@ -132,13 +133,13 @@
 
             function _toggleSublist($trigger) {
                 var isSublistOn = $trigger.hasClass(_classes.trigger_on),
-                    $listItemClosest = $trigger.closest(_selectorListItem);
+                    $listItemClosest = $trigger.closest(_selectors.list_item);
 
                 if (isSublistOn) {
-                    $listItemClosest.find(_selectorSublist).slideUp(_animationDurations.slide);
-                    $listItemClosest.find(_selectorSublistTrigger).removeClass(_classes.trigger_on);
+                    $listItemClosest.find(_selectors.sublist).slideUp(_animationDurations.slide);
+                    $listItemClosest.find(_selectors.sublist_trigger).removeClass(_classes.trigger_on);
                 } else {
-                    $trigger.next(_selectorSublist).slideDown(_animationDurations.slide);
+                    $trigger.next(_selectors.sublist).slideDown(_animationDurations.slide);
                     $trigger.addClass(_classes.trigger_on);
                 }
             }
@@ -146,49 +147,41 @@
 
         /******************** widget: fullscreen ********************/
         (function() {
-            var _documentElement = document.documentElement,
-                _$fullscreenTrigger = $('[data-ptn-action="fullscreen"]');
-
-            if (!_isElementExistent(_$fullscreenTrigger)) {
-                return;
-            }
-
-            _$fullscreenTrigger.on('click', function(e) {
+            _$body.on('click', _selectors.fullscreen_trigger, function(e) {
                 e.preventDefault();
 
-                var _$dropdown = $(this).closest('.ptn-dropdown'),
-                    _$dropdownTrigger = _$dropdown.find('.ptn-dropdown__trigger');
+                var $dropdown = $(this).closest(_selectors.dropdown),
+                    $dropdownTrigger = $dropdown.find(_selectors.dropdown_trigger);
 
-                _isElementExistent(_$dropdownTrigger) && _$dropdown.hasClass('open') && _$dropdownTrigger.dropdown('toggle');
+                _isElementExistent($dropdownTrigger) && $dropdown.hasClass('open') && $dropdownTrigger.dropdown('toggle');
 
-                _launchFullscreen(_documentElement);
+                _launchFullscreen(document.documentElement);
             });
         })();
 
         /******************** widget: notifications ********************/
         (function() {
-            var _selectorClearNotifications = '[data-ptn-action="clear-notifications"]',
-                _$notifications = $('#notifications');
+            var $notifications = $(_selectors.notifications);
 
-            _$body.on('click', _selectorClearNotifications, function() {
-                var _interval = 150,
-                    _index = 0,
-                    _$notification = _$notifications.find('.ptn-list__list-item'),
-                    _notificationCount = _$notification.length;
+            _$body.on('click', _selectors.clear_notifications_trigger, function() {
+                var interval = 150,
+                    index = 0,
+                    $notification = $notifications.find('.ptn-list__list-item'),
+                    notificationCount = $notification.length;
 
-                _$notification.each(function() {
-                    var _$notificationCurrent = $(this);
+                $notification.each(function() {
+                    var $notificationCurrent = $(this);
 
                     setTimeout(function() {
-                        _$notificationCurrent.addClass('animated fadeOutRightBig');
-                    }, (_index += 1) * _interval);
+                        $notificationCurrent.addClass('animated fadeOutRightBig');
+                    }, (index += 1) * interval);
                 });
 
                 setTimeout(function() {
-                    _$notification.remove().delay(_interval).queue(function() {
-                        _$notifications.addClass(_classes.notifications_empty);
+                    $notification.remove().delay(interval).queue(function() {
+                        $notifications.addClass(_classes.notifications_empty);
                     });
-                }, _notificationCount * _interval);
+                }, notificationCount * interval);
             });
         })();
     });
@@ -196,11 +189,11 @@
     /******************** event: page load ********************/
     _$window.load(function() {
         /******************** widget: page loader ********************/
-        var _$pageLoader = $('#page-loader');
+        var $pageLoader = $(_selectors.page_loader);
 
-        if (_isElementExistent(_$pageLoader)) {
+        if (_isElementExistent($pageLoader)) {
             window.setTimeout(function() {
-                _$pageLoader.fadeOut();
+                $pageLoader.fadeOut();
             }, _animationDurations.fade);
         }
     });
@@ -236,8 +229,8 @@
     function _toggleAside() {
         var statusOld = localStorage.getItem(_localStorageKeys.status_aside),
             statusNew = statusOld === _statuses.on ? _statuses.off : _statuses.on,
-            $asideTrigger = $('#aside-trigger'),
-            $aside = $('#aside');
+            $asideTrigger = $(_selectors.aside_trigger),
+            $aside = $(_selectors.aside);
 
         localStorage.setItem(_localStorageKeys.status_aside, statusNew);
 
@@ -250,8 +243,8 @@
     }
 
     function _toggleAsideStatelessly(action) {
-        var $asideTrigger = $('#aside-trigger'),
-            $aside = $('#aside');
+        var $asideTrigger = $(_selectors.aside_trigger),
+            $aside = $(_selectors.aside);
 
         if (action === _actions.show) {
             _$body.addClass(_classes.body_aside_on);
@@ -280,19 +273,16 @@
     }
 
     function _resetSublists() {
-        var selectorListItemActive = '.ptn-list__list-item_active',
-            selectorSublistTrigger = '.ptn-list__list-item-link_sublist',
-            selectorSublist = '.ptn-list__list-item-sublist',
-            $activeListItemAncestors = $(selectorListItemActive).parents();
+        var $activeListItemAncestors = $(_selectors.list_item_active).parents();
 
-        $(selectorSublist).slideUp(_animationDurations.slide);
-        $(selectorSublistTrigger).removeClass(_classes.trigger_on);
+        $(_selectors.sublist).slideUp(_animationDurations.slide);
+        $(_selectors.sublist_trigger).removeClass(_classes.trigger_on);
 
         $activeListItemAncestors.each(function() {
             var $listItem = $(this);
 
-            $listItem.children(selectorSublist).slideDown(_animationDurations.slide);
-            $listItem.children(selectorSublistTrigger).addClass(_classes.trigger_on);
+            $listItem.children(_selectors.sublist).slideDown(_animationDurations.slide);
+            $listItem.children(_selectors.sublist_trigger).addClass(_classes.trigger_on);
         });
     }
 })(window);
