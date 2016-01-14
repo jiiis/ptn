@@ -52,7 +52,8 @@
         (function() {
             var _selectorSearchTrigger = '#search-trigger',
                 _selectorSearchButton = '#search-button',
-                _$search = $('#search'),
+                _selectorSearch = '#search',
+                _$search = $(_selectorSearch),
                 _$searchInput = $('#search-input input');
 
             _$body
@@ -62,6 +63,13 @@
                 })
                 .on('click', _selectorSearchButton, function() {
                     _$search.removeClass(_classes.widget_on);
+                })
+                .on('click', function(e) {
+                    var $target = $(e.target);
+
+                    if (!_isElementExistent($target.closest(_selectorSearch)) && !_isElementExistent($target.closest(_selectorSearchTrigger))) {
+                        _$search.removeClass(_classes.widget_on);
+                    }
                 });
         })();
 
