@@ -688,8 +688,7 @@ class RelationController extends ControllerBehavior
             if ($this->viewMode == 'single') {
                 $config->showCheckboxes = false;
                 $config->recordOnClick = sprintf(
-                    "$.oc.relationBehavior.clickManageListRecord(:%s, '%s', '%s')",
-                    $this->relationModel->getKeyName(),
+                    "$.oc.relationBehavior.clickManageListRecord(:id, '%s', '%s')",
                     $this->field,
                     $this->relationGetSessionKey()
                 );
@@ -699,8 +698,7 @@ class RelationController extends ControllerBehavior
             }
             elseif ($isPivot) {
                 $config->recordOnClick = sprintf(
-                    "$.oc.relationBehavior.clickManagePivotListRecord(:%s, '%s', '%s')",
-                    $this->relationModel->getKeyName(),
+                    "$.oc.relationBehavior.clickManagePivotListRecord(:id, '%s', '%s')",
                     $this->field,
                     $this->relationGetSessionKey()
                 );
@@ -1432,4 +1430,5 @@ class RelationController extends ControllerBehavior
 
         return $this->makeConfig($config);
     }
+
 }

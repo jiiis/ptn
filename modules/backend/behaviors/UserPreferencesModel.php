@@ -109,8 +109,6 @@ class UserPreferencesModel extends SettingsModel
      */
     protected function getCacheKey()
     {
-        $item = UserPreferences::forUser();
-        $userId = $item->userContext ? $item->userContext->id : 0;
-        return $this->recordCode.'-userpreference-'.$userId;
+        return 'backend::userpreferences.'.$this->recordCode;
     }
 }
