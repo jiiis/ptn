@@ -6,6 +6,7 @@ $.oc.table={}
 var Table=function(element,options){this.el=element
 this.$el=$(element)
 this.options=options
+this.disposed=false
 this.dataSource=null
 this.cellProcessors={}
 this.activeCellProcessor=null
@@ -24,7 +25,9 @@ if(this.options.postback&&this.options.clientDataSourceClass=='client')
 this.formSubmitHandler=this.onFormSubmit.bind(this)
 this.navigation=null
 this.recordsAddedOrDeleted=0
-this.init()}
+this.disposeBound=this.dispose.bind(this)
+this.init()
+$.oc.foundation.controlUtils.markDisposable(element)}
 Table.prototype.init=function(){this.createDataSource()
 this.initCellProcessors()
 this.navigation=new $.oc.table.helper.navigation(this)
@@ -41,6 +44,7 @@ throw new Error('The table client-side data source class "'+dataSourceClass+'" i
 this.dataSource=new $.oc.table.datasource[dataSourceClass](this)}
 Table.prototype.registerHandlers=function(){this.el.addEventListener('click',this.clickHandler)
 this.el.addEventListener('keydown',this.keydownHandler)
+this.$el.one('dispose-control',this.disposeBound)
 document.addEventListener('click',this.documentClickHandler)
 if(this.options.postback&&this.options.clientDataSourceClass=='client')
 this.$el.closest('form').bind('oc.beforeRequest',this.formSubmitHandler)
@@ -221,6 +225,7 @@ this.navigation.pageIndex=newPageIndex}
 this.recordsAddedOrDeleted++
 var keyColumn=this.options.keyColumn,recordData={},self=this
 recordData[keyColumn]=-1*this.recordsAddedOrDeleted
+this.$el.trigger('oc.tableNewRow',[recordData])
 this.dataSource.createRecord(recordData,placement,relativeToKey,this.navigation.getPageFirstRowOffset(),this.options.recordsPerPage,function onAddRecordDataTableSuccess(records,totalCount){self.buildDataTable(records,totalCount)
 var row=self.findRowByKey(recordData[keyColumn])
 if(!row)
@@ -306,7 +311,10 @@ return
 if(this.activeCellProcessor&&this.activeCellProcessor.elementBelongsToProcessor(target))
 return
 this.unfocusTable()}
-Table.prototype.dispose=function(){this.unfocusTable()
+Table.prototype.dispose=function(){if(this.disposed){return}
+this.disposed=true
+this.disposeBound=true
+this.unfocusTable()
 this.dataSource.dispose()
 this.dataSource=null
 this.unregisterHandlers()
@@ -863,6 +871,54 @@ DropdownProcessor.prototype.elementBelongsToProcessor=function(element){if(!this
 return false
 return this.tableObj.parentContainsElement(this.itemListElement,element)}
 $.oc.table.processor.dropdown=DropdownProcessor;}(window.jQuery);+function($){"use strict";if($.oc.table===undefined)
+throw new Error("The $.oc.table namespace is not defined. Make sure that the table.js script is loaded.");if($.oc.table.processor===undefined)
+throw new Error("The $.oc.table.processor namespace is not defined. Make sure that the table.processor.base.js script is loaded.");var Base=$.oc.table.processor.string,BaseProto=Base.prototype
+var AutocompleteProcessor=function(tableObj,columnName,columnConfiguration){this.cachedOptionPromises={}
+Base.call(this,tableObj,columnName,columnConfiguration)}
+AutocompleteProcessor.prototype=Object.create(BaseProto)
+AutocompleteProcessor.prototype.constructor=AutocompleteProcessor
+AutocompleteProcessor.prototype.dispose=function(){this.cachedOptionPromises=null
+BaseProto.dispose.call(this)}
+AutocompleteProcessor.prototype.onUnfocus=function(){if(!this.activeCell)
+return
+this.removeAutocomplete()
+BaseProto.onUnfocus.call(this)}
+AutocompleteProcessor.prototype.renderCell=function(value,cellContentContainer){BaseProto.renderCell.call(this,value,cellContentContainer)}
+AutocompleteProcessor.prototype.buildEditor=function(cellElement,cellContentContainer,isClick){BaseProto.buildEditor.call(this,cellElement,cellContentContainer,isClick)
+var self=this
+this.fetchOptions(cellElement,function autocompleteFetchOptions(options){self.buildAutoComplete(options)
+self=null})}
+AutocompleteProcessor.prototype.fetchOptions=function(cellElement,onSuccess){if(this.columnConfiguration.options){if(onSuccess!==undefined){onSuccess(this.columnConfiguration.options)}}else{if(this.triggerGetOptions(onSuccess)===false){return}
+var row=cellElement.parentNode,cachingKey=this.createOptionsCachingKey(row),viewContainer=this.getViewContainer(cellElement)
+$.oc.foundation.element.addClass(viewContainer,'loading')
+if(!this.cachedOptionPromises[cachingKey]){var requestData={column:this.columnName,rowData:this.tableObj.getRowData(row)},handlerName=this.tableObj.getAlias()+'::onGetAutocompleteOptions'
+this.cachedOptionPromises[cachingKey]=this.tableObj.$el.request(handlerName,{data:requestData})}
+this.cachedOptionPromises[cachingKey].done(function onAutocompleteLoadOptionsSuccess(data){if(onSuccess!==undefined){onSuccess(data.options)}}).always(function onAutocompleteLoadOptionsAlways(){$.oc.foundation.element.removeClass(viewContainer,'loading')})}}
+AutocompleteProcessor.prototype.createOptionsCachingKey=function(row){var cachingKey='non-dependent',dependsOn=this.columnConfiguration.dependsOn
+if(dependsOn){if(typeof dependsOn=='object'){for(var i=0,len=dependsOn.length;i<len;i++)
+cachingKey+=dependsOn[i]+this.tableObj.getRowCellValueByColumnName(row,dependsOn[i])}else
+cachingKey=dependsOn+this.tableObj.getRowCellValueByColumnName(row,dependsOn)}
+return cachingKey}
+AutocompleteProcessor.prototype.triggerGetOptions=function(callback){var tableElement=this.tableObj.getElement()
+if(!tableElement){return}
+var optionsEvent=$.Event('autocompleteitems.oc.table'),values={}
+$(tableElement).trigger(optionsEvent,[{values:values,callback:callback,column:this.columnName,columnConfiguration:this.columnConfiguration}])
+if(optionsEvent.isDefaultPrevented()){return false}
+return true}
+AutocompleteProcessor.prototype.getInput=function(){if(!this.activeCell){return null}
+return this.activeCell.querySelector('.string-input')}
+AutocompleteProcessor.prototype.buildAutoComplete=function(items){if(!this.activeCell){return}
+var input=this.getInput()
+if(!input){return}
+if(items===undefined){items=[]}
+$(input).autocomplete({source:this.prepareItems(items),matchWidth:true,menu:'<ul class="autocomplete dropdown-menu table-widget-autocomplete"></ul>',bodyContainer:true})}
+AutocompleteProcessor.prototype.prepareItems=function(items){var result={}
+if($.isArray(items)){for(var i=0,len=items.length;i<len;i++){result[items[i]]=items[i]}}
+else{result=items}
+return result}
+AutocompleteProcessor.prototype.removeAutocomplete=function(){var input=this.getInput()
+$(input).autocomplete('destroy')}
+$.oc.table.processor.autocomplete=AutocompleteProcessor;}(window.jQuery);+function($){"use strict";if($.oc.table===undefined)
 throw new Error("The $.oc.table namespace is not defined. Make sure that the table.js script is loaded.");if($.oc.table.validator===undefined)
 $.oc.table.validator={}
 var Base=function(options){this.options=options}
