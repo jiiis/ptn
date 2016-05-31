@@ -35,6 +35,7 @@ baseConfig = {
         ]
     },
     plugins: [
+        new webpack.optimize.UglifyJsPlugin(),
         new NpmInstallPlugin({
             save: true,
             saveDev: true,
