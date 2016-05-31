@@ -18,6 +18,7 @@
     "url": "https://github.com/jiiis/ptn/issues"
   },
   "dependencies": {
+    "bootstrap": "^3.3.6",
     "jquery": "^2.2.4",
     "lodash": "^4.13.1",
     "lt-ie-9": "^0.1.0"
