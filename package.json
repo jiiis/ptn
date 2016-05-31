@@ -33,7 +33,8 @@
     "webpack-merge": "^0.13.0"
   },
   "scripts": {
-    "prestart": "npm install",
+    "prebuild": "npm install",
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
