@@ -604,7 +604,7 @@ $(document).ready(function() {
     if ($('.lvh-search-trigger')[0]) {
         $('body').on('click', '.lvh-search-trigger', function(e) {
             e.preventDefault();
-            x = $(this).closest('.lv-header-alt').find('.lvh-search');
+            var x = $(this).closest('.lv-header-alt').find('.lvh-search');
 
             x.fadeIn(300);
             x.find('.lvhs-input').focus();
