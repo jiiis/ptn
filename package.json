@@ -17,6 +17,10 @@
   "bugs": {
     "url": "https://github.com/jiiis/ptn/issues"
   },
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "lodash": "^4.13.1"
+  },
   "devDependencies": {
     "css-loader": "^0.23.1",
     "less": "^2.7.1",
