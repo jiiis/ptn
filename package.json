@@ -40,6 +40,7 @@
     "predev": "npm install && cd ./themes/ptn/assets && bower install",
     "dev": "cd ./themes/ptn/assets && gulp",
     "preprod": "npm install && cd ./themes/ptn/assets && bower install",
-    "prod": "cd ./themes/ptn/assets && gulp --env=prod"
+    "prod": "cd ./themes/ptn/assets && gulp --env=prod",
+    "watch": "npm run dev watch"
   }
 }
