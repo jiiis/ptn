@@ -1,3 +1,8 @@
 # Distributions #
 #################
+/assets/styles/dist
 /assets/scripts/dist
+
+# Vendors #
+###########
+/assets/vendors/bower
