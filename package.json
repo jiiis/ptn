@@ -37,7 +37,9 @@
     "yargs": "^3.31.0"
   },
   "scripts": {
-    "pregulp": "npm install && cd ./themes/ptn/assets && bower install",
-    "gulp": "cd ./themes/ptn/assets && gulp --env=prod"
+    "predev": "npm install && cd ./themes/ptn/assets && bower install",
+    "dev": "cd ./themes/ptn/assets && gulp",
+    "preprod": "npm install && cd ./themes/ptn/assets && bower install",
+    "prod": "cd ./themes/ptn/assets && gulp --env=prod"
   }
 }
