@@ -30,6 +30,7 @@
     "gulp-sakugawa": "^0.4.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
+    "jscs": "^3.0.4",
     "less-plugin-autoprefix": "^1.5.1",
     "less-plugin-csscomb": "0.0.2",
     "require-dir": "^0.3.0",
