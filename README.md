@@ -68,3 +68,12 @@ ptn
 * Under `./themes/ptn/assets/`, run ___`gulp watch`___
     * Shorthand
         * Under the project root, run ___`npm run watch`___
+
+===
+
+## Code quality
+
+#### JavaScript
+* JSCS
+    * Configuration file: ___`config.jscs.json`___
+    * Check [JSCS friendly packages](http://jscs.info/overview) for information about enabling JSCS for your IDE/Editor
