@@ -4,4 +4,10 @@
   shell: curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 
 - name: install node & npm
-  apt: name=nodejs state=latest
+  apt: name=nodejs state=latest update_cache=yes cache_valid_time=60
+
+- name: install npm modules
+  npm: name={{ item }} state=latest global=yes
+  with_items:
+    - bower
+    - gulp
