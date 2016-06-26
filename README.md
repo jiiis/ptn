@@ -45,6 +45,9 @@ ptn
 #### Install Composer dependencies
 * Under the project root of the guest machine, run ___`composer self-update && composer install`___
 
+#### Run migrations to build up database tables
+* Under the project root of the guest machine, run ___`php artisan october:up`___
+
 #### About running the `front-end` related commands
 * All `NPM` commands should be run under the project root
 * Commands can be run in either the host or the guest machine
