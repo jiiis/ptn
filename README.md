@@ -42,6 +42,9 @@ ptn
 * Under the project root, run ___`vagrant ssh`___
     * This command drops you into a full-fledged SSH session
 
+#### Install Composer dependencies
+* Under the project root of the guest machine, run ___`composer self-update && composer install`___
+
 #### About running the `front-end` related commands
 * All `NPM` commands should be run under the project root
 * Commands can be run in either the host or the guest machine
