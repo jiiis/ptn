@@ -3,5 +3,5 @@
 - name: set up node
   shell: curl -sL https://deb.nodesource.com/setup_5.x | sudo -E bash -
 
-- name: install node
+- name: install node & npm
   apt: name=nodejs state=latest
