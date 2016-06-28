@@ -8,10 +8,14 @@
 @ptn-util__path_bower: '@{ptn-util__path_vendors}/bower';
 
 /******************** mardding ********************/
-@ptn-util__mardding_horizontal-1: 18px;
-@ptn-util__mardding_horizontal-2: 12px;
-@ptn-util__mardding_vertical-1: 12px;
-@ptn-util__mardding_vertical-2: 6px;
+@ptn-util__mardding_smallest: 6px;
+@ptn-util__mardding_smaller: 12px;
+@ptn-util__mardding_small: 18px;
+@ptn-util__mardding_medium: 24px;
+@ptn-util__mardding_large: 30px;
+@ptn-util__mardding_larger: 36px;
+@ptn-util__mardding_largest: 48px;
+
 @ptn-util__mardding_content-footer: 48px;
 
 /******************** margin ********************/
@@ -28,8 +32,8 @@
 @ptn__padding_aside-trigger-horizontal: (@ptn__height_header-nav-item - @ptn__width_line-wrap) / 2;
 @ptn__padding_aside-trigger-vertical: (@ptn__height_header-nav-item - @ptn__height_line-wrap) / 2;
 @ptn__padding_content-bottom: (@ptn__height_footer-row * 2 + @ptn__margin_footer-row-vertical + @ptn__margin_footer-bottom + @ptn-util__mardding_content-footer);
-@ptn__padding_content-small-screen: @ptn-util__mardding_vertical-1 @ptn-util__mardding_horizontal-1 @ptn__padding_content-bottom;
-@ptn__padding_content-large-screen: @ptn-util__mardding_vertical-1 * 2 @ptn-util__mardding_horizontal-1 * 2 @ptn__padding_content-bottom;
+@ptn__padding_content-small-screen: @ptn-util__mardding_smaller @ptn-util__mardding_small @ptn__padding_content-bottom;
+@ptn__padding_content-large-screen: @ptn-util__mardding_smaller * 2 @ptn-util__mardding_small * 2 @ptn__padding_content-bottom;
 @ptn__padding_count: 1px 5px;
 
 /******************** size ********************/
@@ -43,7 +47,7 @@
 @ptn__width_search: 700px;
 @ptn__width_search-button: 60px;
 @ptn__width_aside: 270px;
-@ptn__width_content-container: 1200px + @ptn-util__mardding_horizontal-1 * 2;
+@ptn__width_content-container: 1200px + @ptn-util__mardding_small * 2;
 @ptn__width_line-wrap: 18px;
 
 /******************** height ********************/
