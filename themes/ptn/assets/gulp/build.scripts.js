@@ -9,24 +9,24 @@ var $ = require('gulp'),
 $.task('build:scripts:shared-top', function() {
     return $.src(paths.scripts.src.shared.top.files)
         .pipe($$.plumber())
-        .pipe($$.sourcemaps.init())
+        .pipe($$.if(isEnvProd, $$.sourcemaps.init()))
         .pipe($$.concat('shared-top.js'))
         .pipe($$.if(isEnvProd, $$.uglify({
             preserveComments: false
         })))
-        .pipe($$.sourcemaps.write('./'))
+        .pipe($$.if(isEnvProd, $$.sourcemaps.write('./')))
         .pipe($.dest(paths.scripts.dist.dir));
 });
 
 $.task('build:scripts:shared-bottom', function() {
     return $.src(paths.scripts.src.shared.bottom.files)
         .pipe($$.plumber())
-        .pipe($$.sourcemaps.init())
+        .pipe($$.if(isEnvProd, $$.sourcemaps.init()))
         .pipe($$.concat('shared-bottom.js'))
         .pipe($$.if(isEnvProd, $$.uglify({
             preserveComments: false
         })))
-        .pipe($$.sourcemaps.write('./'))
+        .pipe($$.if(isEnvProd, $$.sourcemaps.write('./')))
         .pipe($.dest(paths.scripts.dist.dir));
 });
 

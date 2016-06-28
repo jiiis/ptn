@@ -39,12 +39,12 @@ $.task('build:styles:minify', function() {
         base: paths.styles.dist.dir
     })
         .pipe($$.plumber())
-        .pipe($$.sourcemaps.init())
+        .pipe($$.if(isEnvProd, $$.sourcemaps.init()))
         .pipe($$.if(isEnvProd, $$.minifyCss({
             compatibility: 'ie8',
             keepSpecialComments: 0
         })))
-        .pipe($$.sourcemaps.write('./'))
+        .pipe($$.if(isEnvProd, $$.sourcemaps.write('./')))
         .pipe($.dest(paths.styles.dist.dir));
 });
 
