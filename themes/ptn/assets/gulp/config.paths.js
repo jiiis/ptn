@@ -24,7 +24,8 @@ module.exports = {
             blessed: {
                 dir: path.join(dirStyles, 'dist', 'blessed'),
                 files: path.join(dirStyles, 'dist', 'blessed', '**/*.css')
-            }
+            },
+            url: '/themes/ptn/assets/styles/dist'
         }
     },
     scripts: {
@@ -52,7 +53,8 @@ module.exports = {
         },
         dist: {
             dir: path.join(dirScripts, 'dist'),
-            files: path.join(dirScripts, 'dist', '**/*')
+            files: path.join(dirScripts, 'dist', '**/*'),
+            url: '/themes/ptn/assets/scripts/dist'
         }
     },
     vendors: {

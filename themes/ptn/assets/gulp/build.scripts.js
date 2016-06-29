@@ -14,7 +14,9 @@ $.task('build:scripts:shared-top', function() {
         .pipe($$.if(isEnvProd, $$.uglify({
             preserveComments: false
         })))
-        .pipe($$.if(isEnvProd, $$.sourcemaps.write('./')))
+        .pipe($$.if(isEnvProd, $$.sourcemaps.write('./', {
+            sourceMappingURLPrefix: paths.scripts.dist.url
+        })))
         .pipe($.dest(paths.scripts.dist.dir));
 });
 
@@ -26,7 +28,9 @@ $.task('build:scripts:shared-bottom', function() {
         .pipe($$.if(isEnvProd, $$.uglify({
             preserveComments: false
         })))
-        .pipe($$.if(isEnvProd, $$.sourcemaps.write('./')))
+        .pipe($$.if(isEnvProd, $$.sourcemaps.write('./', {
+            sourceMappingURLPrefix: paths.scripts.dist.url
+        })))
         .pipe($.dest(paths.scripts.dist.dir));
 });
 

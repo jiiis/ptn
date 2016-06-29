@@ -44,7 +44,11 @@ $.task('build:styles:minify', function() {
             compatibility: 'ie8',
             keepSpecialComments: 0
         })))
-        .pipe($$.if(isEnvProd, $$.sourcemaps.write('./')))
+        .pipe($$.if(isEnvProd, $$.sourcemaps.write('./', {
+            sourceMappingURL: function(file) {
+                return paths.styles.dist.url + '/' + file.relative + '.map';
+            }
+        })))
         .pipe($.dest(paths.styles.dist.dir));
 });
 
