@@ -6,8 +6,8 @@
     - system
     - apache
     - php
-    - node
     - mysql
+    - node
     - cron
     - git
 
