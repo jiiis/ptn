@@ -7,6 +7,7 @@ return [
         'author' => 'Gergő Szabó'
     ],
     'settings' => [
+        'tab_title' => 'Accesorios',
         'search_label' => 'Hacer "focus" en el campo de búsqueda automáticamente.',
         'search_comment' => 'En primer lugar en las listas, en segundo lugar, en la barra lateral.',
         'avatar_label' => 'Imagen de perfil redondeado en lugar de un solo cubo.',
@@ -19,8 +20,6 @@ return [
         'sidebar_desc_comment' => 'Ocultar la descripción de los menús en la barra lateral.',
         'sidebar_search_label' => 'Ocultar el campo de búsqueda en la barra lateral.',
         'sidebar_search_comment' => 'Ocultar la descripción de los menús en la barra lateral.',
-        'media_label' => 'Ocultar el enlace de los medios de comunicación en el menú superior.',
-        'media_comment' => 'Todavía disponible, pero no muestra.',
         'themes_label' => 'Esconder el "Buscar nuevos temas" enlace.',
         'themes_comment' => 'Está en la página del tema Front-end.',
         'delete_plugin_label' => 'Eliminar la Demo plugin de Octubre.',

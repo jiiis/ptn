@@ -1,4 +1,4 @@
-##Backend toolkit plugin for OctoberCMS
+##Backend toolkit plugin
 This plugin extend the backend to some new dashboard widgets, form widgets, useful features and front-end components.
 
 ###New back-end features
@@ -8,21 +8,20 @@ This plugin extend the backend to some new dashboard widgets, form widgets, usef
 * Show the virtual keyboard by input fields.
 * __Add the clear button to input fields.__
 * Hide the search field in sidebar.
-* __Hide the Media menu in top menu.__
+* __Uninstall the October Demo plugin.__
 * Hide the "Find more themes" link in Design.
-* __Delete the October demo plugin.__
 
 ###New dashboard widgets
 * __System status plus (updates, plugins and themes)__
-* Versions (cms, php and gd library)
+* Versions (CMS, PHP and GD library)
 * __RSS viewer (title, date and description)__
 * Logs (event, access and request)
 * __Cache storage (view diagram and delete files)__
 * Random images (hundreds of high-quality photos)
-* __Last logins (date, user name and ip address)__
+* __Last logins (date, user name and IP address)__
 * Administrators (users, groups and last login)
 * __PHP settings (upload limit, memory limit and timezone)__
-* Server info (host, ip address and operation system)
+* Server info (host, IP address and operation system)
 
 ###New form widgets
 * __Pickadate__ (datepicker and timepicker)
@@ -106,18 +105,18 @@ See the demo: [http://labs.abeautifulsite.net/jquery-minicolors](http://labs.abe
 * tr - Türkçe
 
 ###Installation
-1. Go to the __Settings > Updates__ page in Backend.
-1. Click on the __Install Plugins__ button.
-1. Type the __Backend Plus__ in search field.
+1. Go to the __Settings > Updates & Plugins__ page in the Backend.
+1. Click on the __Install plugins__ button.
+1. Type the __Backend Plus__ text in the search field.
 
 ###Activate features
-1. Go to the __Settings > Back-end preferences__ page in Backend.
-1. You can activate any new features.
+1. Go to the __Settings > Back-end preferences__ page in the Backend.
+1. You can __activate any new features__.
 
 ###Add widget
-1. Go to the __Dashboard__ page in Backend.
-1. Click on the __Add widget__ button.
-1. __Select__ the current widget from the list.
+1. Go to the __Dashboard__ page in the Backend.
+1. Click on the __Manage widgets > Add widget__ button.
+1. Select the any __Backend Plus widgets__ from the list.
 
 ###Credits
 * Clear button: [Add Clear](https://github.com/skorecky/Add-Clear)

@@ -7,6 +7,7 @@ return [
         'author' => 'Szabó Gergő'
     ],
     'settings' => [
+        'tab_title' => 'Kiegészítések',
         'search_label' => 'Kereső mező automatikus aktiválása.',
         'search_comment' => 'Elsőként a listáknál, másodsorban az oldalsó menüben.',
         'avatar_label' => 'Kerek profilkép használata a szögletes helyett.',
@@ -19,11 +20,9 @@ return [
         'sidebar_desc_comment' => 'Csak a Beállítások aloldalain működik.',
         'sidebar_search_label' => 'Kereső mező rejtése az oldalsó menüben.',
         'sidebar_search_comment' => 'Csak a Beállítások aloldalain működik.',
-        'media_label' => 'A Média link rejtése a felső menüben.',
-        'media_comment' => 'Továbbra is elérhető marad, csak nem látszik.',
         'themes_label' => 'A "További témák ..." link rejtése.',
         'themes_comment' => 'A Dizájn oldalon található a hivatkozás.',
-        'delete_plugin_label' => 'Az October Demo bővítményének törlése.',
+        'delete_plugin_label' => 'Az October Demo bővítmény eltávolítása.',
         'delete_plugin_comment' => 'Az összes fájl véglegesen eltávolításra kerül.'
     ],
     'widgets' => [

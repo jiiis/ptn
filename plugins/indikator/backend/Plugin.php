@@ -1,13 +1,12 @@
 <?php namespace Indikator\Backend;
 
 use System\Classes\PluginBase;
+use System\Classes\PluginManager;
 use Backend\Classes\Controller as BackendController;
-use Event;
 use Backend;
 use BackendAuth;
-use Backend\Models\UserPreferences;
-use File;
 use BackendMenu;
+use Event;
 
 class Plugin extends PluginBase
 {
@@ -100,16 +99,18 @@ class Plugin extends PluginBase
     {
         Event::listen('backend.form.extendFields', function($form)
         {
-            if ($form->model instanceof Backend\Models\BackendPreferences) {
+            if ($form->model instanceof Backend\Models\Preference) {
                 $form->addFields([
                     'focus_searchfield' => [
+                        'tab'     => 'indikator.backend::lang.settings.tab_title',
                         'label'   => 'indikator.backend::lang.settings.search_label',
                         'type'    => 'switch',
-                        'span'    => 'left',
+                        'span'    => 'auto',
                         'default' => 'false',
                         'comment' => 'indikator.backend::lang.settings.search_comment'
                     ],
                     'rounded_avatar' => [
+                        'tab'     => 'indikator.backend::lang.settings.tab_title',
                         'label'   => 'indikator.backend::lang.settings.avatar_label',
                         'type'    => 'switch',
                         'span'    => 'auto',
@@ -117,6 +118,7 @@ class Plugin extends PluginBase
                         'comment' => 'indikator.backend::lang.settings.avatar_comment'
                     ],
                     'form_clearbutton' => [
+                        'tab'     => 'indikator.backend::lang.settings.tab_title',
                         'label'   => 'indikator.backend::lang.settings.clearbutton_label',
                         'type'    => 'switch',
                         'span'    => 'auto',
@@ -124,6 +126,7 @@ class Plugin extends PluginBase
                         'comment' => 'indikator.backend::lang.settings.clearbutton_comment'
                     ],
                     'virtual_keyboard' => [
+                        'tab'     => 'indikator.backend::lang.settings.tab_title',
                         'label'   => 'indikator.backend::lang.settings.keyboard_label',
                         'type'    => 'switch',
                         'span'    => 'auto',
@@ -131,6 +134,7 @@ class Plugin extends PluginBase
                         'comment' => 'indikator.backend::lang.settings.keyboard_comment'
                     ],
                     'sidebar_description' => [
+                        'tab'     => 'indikator.backend::lang.settings.tab_title',
                         'label'   => 'indikator.backend::lang.settings.sidebar_desc_label',
                         'type'    => 'switch',
                         'span'    => 'auto',
@@ -138,20 +142,15 @@ class Plugin extends PluginBase
                         'comment' => 'indikator.backend::lang.settings.sidebar_desc_comment'
                     ],
                     'sidebar_search' => [
+                        'tab'     => 'indikator.backend::lang.settings.tab_title',
                         'label'   => 'indikator.backend::lang.settings.sidebar_search_label',
                         'type'    => 'switch',
                         'span'    => 'auto',
                         'default' => 'false',
                         'comment' => 'indikator.backend::lang.settings.sidebar_search_comment'
                     ],
-                    'media_menu' => [
-                        'label'   => 'indikator.backend::lang.settings.media_label',
-                        'type'    => 'switch',
-                        'span'    => 'auto',
-                        'default' => 'false',
-                        'comment' => 'indikator.backend::lang.settings.media_comment'
-                    ],
                     'more_themes' => [
+                        'tab'     => 'indikator.backend::lang.settings.tab_title',
                         'label'   => 'indikator.backend::lang.settings.themes_label',
                         'type'    => 'switch',
                         'span'    => 'auto',
@@ -159,6 +158,7 @@ class Plugin extends PluginBase
                         'comment' => 'indikator.backend::lang.settings.themes_comment'
                     ],
                     'delete_plugin' => [
+                        'tab'     => 'indikator.backend::lang.settings.tab_title',
                         'label'   => 'indikator.backend::lang.settings.delete_plugin_label',
                         'type'    => 'switch',
                         'span'    => 'auto',
@@ -172,7 +172,12 @@ class Plugin extends PluginBase
         BackendController::extend(function($controller)
         {
             if (BackendAuth::check()) {
-                $preferences = UserPreferences::forUser()->get('backend::backend.preferences');
+
+                $preferenceModel = class_exists('Backend\Models\UserPreference')
+                    ? Backend\Models\UserPreference::forUser()
+                    : Backend\Models\UserPreferences::forUser();
+
+                $preferences = $preferenceModel->get('backend::backend.preferences');
 
                 if (isset($preferences['focus_searchfield']) && $preferences['focus_searchfield']) {
                     $controller->addJs('/plugins/indikator/backend/assets/js/setting-search.js');
@@ -195,16 +200,12 @@ class Plugin extends PluginBase
                     $controller->addCss('/plugins/indikator/backend/assets/css/sidebar-search.css');
                 }
 
-                if (isset($preferences['media_menu']) && $preferences['media_menu']) {
-                    $controller->addJs('/plugins/indikator/backend/assets/js/media-menu.js');
-                }
-
                 if (isset($preferences['more_themes']) && $preferences['more_themes']) {
                     $controller->addJs('/plugins/indikator/backend/assets/js/setting-theme.js');
                 }
 
-                if (isset($preferences['delete_plugin']) && $preferences['delete_plugin'] && File::exists('plugins/october/demo')) {
-                    File::deleteDirectory('plugins/october/demo');
+                if (isset($preferences['delete_plugin']) && $preferences['delete_plugin'] && PluginManager::instance()->exists('October.Demo')) {
+                    PluginManager::instance()->deletePlugin('October.Demo');
                 }
             }
         });

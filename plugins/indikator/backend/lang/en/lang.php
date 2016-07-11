@@ -7,6 +7,7 @@ return [
         'author' => 'Gergő Szabó'
     ],
     'settings' => [
+        'tab_title' => 'Accessories',
         'search_label' => 'Focus the search field automatically.',
         'search_comment' => 'Firstly in the lists, secondly in the sidebar.',
         'avatar_label' => 'Rounded profile image instead of cube one.',
@@ -19,11 +20,9 @@ return [
         'sidebar_desc_comment' => 'It works only the pages of Settings menu.',
         'sidebar_search_label' => 'Hide the search field in the sidebar.',
         'sidebar_search_comment' => 'It works only the pages of Settings menu.',
-        'media_label' => 'Hide the Media link in the top menu.',
-        'media_comment' => 'It still available but it not shows.',
         'themes_label' => 'Hide the "Find more themes" link.',
         'themes_comment' => 'Located on the Front-end theme page.',
-        'delete_plugin_label' => 'Delete the October Demo plugin.',
+        'delete_plugin_label' => 'Uninstall the October Demo plugin.',
         'delete_plugin_comment' => 'All files will be removed permanently.'
     ],
     'widgets' => [
