@@ -1,0 +1,11 @@
+title = "Album"
+url = "/album/:slug"
+layout = "default"
+description = "The page displaying an album."
+is_hidden = 0
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "publisher"
+==
+{% component 'blogPost' %}

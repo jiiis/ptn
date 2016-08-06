@@ -1,21 +1,21 @@
 title = "Home"
 url = "/:page?|^[0-9]+$"
 layout = "default"
-description = "The home page."
+description = "The home page displaying a list of all albums."
 is_hidden = 0
 
 [blogCategories]
 slug = "{{ :slug }}"
 displayEmpty = 1
-categoryPage = "home"
+categoryPage = "publisher"
 
 [blogPosts]
 pageNumber = "{{ :page }}"
-postsPerPage = 1
+postsPerPage = 24
 noPostsMessage = "There is no album found."
 sortOrder = "published_at desc"
-categoryPage = "home"
-postPage = "home"
+categoryPage = "publisher"
+postPage = "album"
 ==
 {% put title %}
 Home
