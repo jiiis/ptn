@@ -1,6 +1,11 @@
 description = "The default layout template."
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 1
+categoryPage = "publisher"
 ==
-<?
+<?php
 public function onInit()
 {
     $this['app'] = [
