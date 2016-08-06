@@ -4,11 +4,6 @@ layout = "default"
 description = "The page displaying a list of albums by a specific publisher."
 is_hidden = 0
 
-[blogCategories]
-slug = "{{ :slug }}"
-displayEmpty = 1
-categoryPage = "publisher"
-
 [blogPosts]
 pageNumber = "{{ :page }}"
 categoryFilter = "{{ :slug }}"
@@ -21,5 +16,4 @@ postPage = "album"
 {% put title %}
 Publisher
 {% endput %}
-{% component 'blogCategories' %}
 {% component 'blogPosts' %}

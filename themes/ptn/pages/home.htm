@@ -4,11 +4,6 @@ layout = "default"
 description = "The home page displaying a list of all albums."
 is_hidden = 0
 
-[blogCategories]
-slug = "{{ :slug }}"
-displayEmpty = 1
-categoryPage = "publisher"
-
 [blogPosts]
 pageNumber = "{{ :page }}"
 postsPerPage = 24
@@ -20,5 +15,4 @@ postPage = "album"
 {% put title %}
 Home
 {% endput %}
-{% component 'blogCategories' %}
 {% component 'blogPosts' %}
