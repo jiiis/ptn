@@ -1,10 +1,18 @@
 title = "Home"
-url = "/"
+url = "/:page?|^[0-9]+$"
 layout = "default"
 description = "The home page."
 is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 24
+noPostsMessage = "There is no album found."
+sortOrder = "published_at desc"
+categoryPage = "home"
+postPage = "home"
 ==
 {% put title %}
 Home
 {% endput %}
-erNiuNiu
+{% component 'blogPosts' %}
