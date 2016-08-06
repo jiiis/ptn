@@ -67,8 +67,8 @@
     <div class="ptn-aside__menu-container ptn-list">
         <div class="ptn-list__body">
             <ul class="ptn-list__list">
-                <li class="ptn-list__list-item">
-                    <a class="ptn-list__list-item-link" href="">
+                <li class="ptn-list__list-item{% if this.page.id == 'home' %} ptn-list__list-item_active{% endif %}">
+                    <a class="ptn-list__list-item-link" href="{{ '/' | app }}">
                         <div class="ptn-list__list-item-container">
                             <div class="ptn-list__list-item-icon-container">
                                 <i class="ptn-list__list-item-icon zmdi zmdi-home"></i>
