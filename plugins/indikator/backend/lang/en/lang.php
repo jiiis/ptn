@@ -10,6 +10,8 @@ return [
         'tab_display' => 'Display',
         'avatar_label' => 'Rounded profile image instead of cube one.',
         'avatar_comment' => 'The avatar modifies only in the top menu.',
+        'topmenu_label' => 'Hide the label in the top menu.',
+        'topmenu_comment' => 'It works with all menu style.',
         'sidebar_desc_label' => 'Hide the description of menus in the sidebar.',
         'sidebar_desc_comment' => 'It works only the pages of Settings menu.',
         'sidebar_search_label' => 'Hide the search field in the sidebar.',
@@ -24,7 +26,9 @@ return [
         'keyboard_label' => 'Show the virtual keyboard by forms.',
         'keyboard_comment' => 'It works only by simple text fields.',
         'delete_plugin_label' => 'Uninstall the October Demo plugin.',
-        'delete_plugin_comment' => 'All files will be removed permanently.'
+        'delete_plugin_comment' => 'All files will be removed permanently.',
+        'enabled_gzip_label' => 'Enable the gzip compression.',
+        'enabled_gzip_comment' => 'It works on the front-end and back-end too.'
     ],
     'widgets' => [
         'system' => [

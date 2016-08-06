@@ -28,6 +28,8 @@ return [
         'unban_confirm' => 'Do you really want to unban this user?',
         'unbanned_success' => 'User has been unbanned',
         'return_to_list' => 'Return to users list',
+        'update_details' => 'Update details',
+        'bulk_actions' => 'Bulk actions',
         'delete_selected' => 'Delete selected',
         'delete_selected_confirm' => 'Delete the selected users?',
         'delete_selected_empty' => 'There are no selected users to delete.',
@@ -86,6 +88,10 @@ return [
         'surname' => 'Surname',
         'email' => 'Email',
         'created_at' => 'Registered',
+        'last_seen' => 'Last seen',
+        'joined' => 'Joined',
+        'is_online' => 'Online now',
+        'is_offline' => 'Currently offline',
         'create_password' => 'Create Password',
         'create_password_comment' => 'Enter a new password used for signing in.',
         'reset_password' => 'Reset Password',
@@ -96,7 +102,8 @@ return [
         'empty_groups' => 'There are no user groups available.',
         'avatar' => 'Avatar',
         'details' => 'Details',
-        'account' => 'Account'
+        'account' => 'Account',
+        'block_mail' => 'Block all outgoing mail sent to this user.'
     ],
     'group' => [
         'label' => 'Group',

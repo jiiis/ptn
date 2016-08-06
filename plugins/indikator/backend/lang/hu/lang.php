@@ -10,6 +10,8 @@ return [
         'tab_display' => 'Megjelenés',
         'avatar_label' => 'Kerek profilkép használata a szögletes helyett.',
         'avatar_comment' => 'Csak a felső menüben módosul a bélyegkép.',
+        'topmenu_label' => 'Címke elrejtése a felső menüben.',
+        'topmenu_comment' => 'Mindegyik menü stílusnál működik.',
         'sidebar_desc_label' => 'Leírások rejtése az oldalsó menüben.',
         'sidebar_desc_comment' => 'Csak a Beállítások aloldalain működik.',
         'sidebar_search_label' => 'Kereső mező rejtése az oldalsó menüben.',
@@ -24,7 +26,9 @@ return [
         'keyboard_label' => 'Virtuális billentyűzet megjelenítése.',
         'keyboard_comment' => 'Csak az egysoros szöveges mezőknél működik.',
         'delete_plugin_label' => 'Az October Demo bővítmény eltávolítása.',
-        'delete_plugin_comment' => 'Az összes fájl véglegesen eltávolításra kerül.'
+        'delete_plugin_comment' => 'Az összes fájl véglegesen eltávolításra kerül.',
+        'enabled_gzip_label' => 'Gzip tömörítés engedélyezése.',
+        'enabled_gzip_comment' => 'A teljes weboldalra érvényes a beállítás.'
     ],
     'widgets' => [
         'system' => [
