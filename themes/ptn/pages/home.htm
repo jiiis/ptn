@@ -4,9 +4,14 @@ layout = "default"
 description = "The home page."
 is_hidden = 0
 
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 1
+categoryPage = "home"
+
 [blogPosts]
 pageNumber = "{{ :page }}"
-postsPerPage = 24
+postsPerPage = 1
 noPostsMessage = "There is no album found."
 sortOrder = "published_at desc"
 categoryPage = "home"
@@ -15,4 +20,5 @@ postPage = "home"
 {% put title %}
 Home
 {% endput %}
+{% component 'blogCategories' %}
 {% component 'blogPosts' %}
