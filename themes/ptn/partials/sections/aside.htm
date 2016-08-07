@@ -86,40 +86,24 @@
                                 <i class="ptn-list__list-item-icon zmdi zmdi-view-compact"></i>
                             </div>
                             <div class="ptn-list__list-item-text-container">
-                                <p class="ptn-list__list-item-text">Headers</p>
+                                <p class="ptn-list__list-item-text">Publishers</p>
                             </div>
                         </div>
                     </a>
                     <div class="ptn-list__list-item-sublist ptn-list">
                         <div class="ptn-list__body">
                             <ul class="ptn-list__list">
-                                <li class="ptn-list__list-item">
-                                    <a class="ptn-list__list-item-link" href="">
-                                        <div class="ptn-list__list-item-container">
-                                            <div class="ptn-list__list-item-text-container">
-                                                <p class="ptn-list__list-item-text">Textual menu</p>
+                                {% for category in categories %}
+                                    <li class="ptn-list__list-item{% if category.slug == currentCategorySlug %} ptn-list__list-item_active{% endif %}">
+                                        <a class="ptn-list__list-item-link" href="{{ category.url }}">
+                                            <div class="ptn-list__list-item-container">
+                                                <div class="ptn-list__list-item-text-container">
+                                                    <p class="ptn-list__list-item-text">{{ category.name }}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="ptn-list__list-item">
-                                    <a class="ptn-list__list-item-link" href="">
-                                        <div class="ptn-list__list-item-container">
-                                            <div class="ptn-list__list-item-text-container">
-                                                <p class="ptn-list__list-item-text">Image logo</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="ptn-list__list-item">
-                                    <a class="ptn-list__list-item-link" href="">
-                                        <div class="ptn-list__list-item-container">
-                                            <div class="ptn-list__list-item-text-container">
-                                                <p class="ptn-list__list-item-text">Mainmenu on top</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
+                                        </a>
+                                    </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
