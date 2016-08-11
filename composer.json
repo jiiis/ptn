@@ -37,6 +37,11 @@
     "phpunit/phpunit": "~4.0",
     "phpunit/phpunit-selenium": "~1.2"
   },
+  "autoload": {
+    "psr-4": {
+      "Ptn\\": "ptn/"
+    }
+  },
   "autoload-dev": {
     "classmap": [
       "tests/TestCase.php",
