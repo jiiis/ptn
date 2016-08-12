@@ -1,6 +1,6 @@
 <?php
 
-namespace Ptn\Tag;
+namespace Ptn;
 
 class Tag
 {
