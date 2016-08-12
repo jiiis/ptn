@@ -81,9 +81,9 @@ return [
     |
     */
 
-    'key' => 'kqRoJ8DGjYyhNV8R',
+    'key' => 'QeMcQPPPVIxCNqZYGE6QDj8YHIRRQrqM',
 
-    'cipher' => MCRYPT_RIJNDAEL_128,
+    'cipher' => MCRYPT_RIJNDAEL_256,
 
     /*
     |--------------------------------------------------------------------------
