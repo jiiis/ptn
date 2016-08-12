@@ -17,5 +17,6 @@
 
 - name: enable module mcrypt
   shell: php5enmod mcrypt
+  notify: restart apache2
 
 - include: composer.yml
