@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "06d1066d067845def272151d76e812a4",
+    "hash": "d2f91c7b2be8c4a8935710cfe77258cd",
     "content-hash": "022833d6b10526f48cfbda049f821e15",
     "packages": [
         {
@@ -1148,16 +1148,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.1.40",
+            "version": "v5.1.41",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "555269ee07cfe4e966ad16b394c89fa0b586d8b0"
+                "reference": "4f338f494ee2fffe6605f70a7cb8a36c93da95b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/555269ee07cfe4e966ad16b394c89fa0b586d8b0",
-                "reference": "555269ee07cfe4e966ad16b394c89fa0b586d8b0",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/4f338f494ee2fffe6605f70a7cb8a36c93da95b6",
+                "reference": "4f338f494ee2fffe6605f70a7cb8a36c93da95b6",
                 "shasum": ""
             },
             "require": {
@@ -1273,7 +1273,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-06-17 19:23:17"
+            "time": "2016-08-10 12:23:27"
         },
         {
             "name": "leafo/scssphp",
@@ -1387,16 +1387,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.26",
+            "version": "1.0.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "fb3b30dca320b36931ea878fea17ebe136fba1b0"
+                "reference": "50e2045ed70a7e75a5e30bc3662904f3b67af8a9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/fb3b30dca320b36931ea878fea17ebe136fba1b0",
-                "reference": "fb3b30dca320b36931ea878fea17ebe136fba1b0",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/50e2045ed70a7e75a5e30bc3662904f3b67af8a9",
+                "reference": "50e2045ed70a7e75a5e30bc3662904f3b67af8a9",
                 "shasum": ""
             },
             "require": {
@@ -1466,7 +1466,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-08-03 09:49:11"
+            "time": "2016-08-10 08:55:11"
         },
         {
             "name": "linkorb/jsmin-php",
@@ -1751,12 +1751,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/octoberrain/backend.git",
-                "reference": "8d31534d028b039b86883755ba34d04b7d03f859"
+                "reference": "2e85ee6bf0c18a12290dcc9ef7a6b77c0d3171ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/octoberrain/backend/zipball/8d31534d028b039b86883755ba34d04b7d03f859",
-                "reference": "8d31534d028b039b86883755ba34d04b7d03f859",
+                "url": "https://api.github.com/repos/octoberrain/backend/zipball/2e85ee6bf0c18a12290dcc9ef7a6b77c0d3171ad",
+                "reference": "2e85ee6bf0c18a12290dcc9ef7a6b77c0d3171ad",
                 "shasum": ""
             },
             "require": {
@@ -1796,7 +1796,7 @@
                 "october",
                 "october cms"
             ],
-            "time": "2016-08-02 09:53:20"
+            "time": "2016-08-12 21:56:11"
         },
         {
             "name": "october/cms",
@@ -1804,12 +1804,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/octoberrain/cms.git",
-                "reference": "3acf8b255e29f008c37a14f5a82f8b53fc09decc"
+                "reference": "527a3bdb8094766f7af2dcf3be22eadc32303788"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/octoberrain/cms/zipball/3acf8b255e29f008c37a14f5a82f8b53fc09decc",
-                "reference": "3acf8b255e29f008c37a14f5a82f8b53fc09decc",
+                "url": "https://api.github.com/repos/octoberrain/cms/zipball/527a3bdb8094766f7af2dcf3be22eadc32303788",
+                "reference": "527a3bdb8094766f7af2dcf3be22eadc32303788",
                 "shasum": ""
             },
             "require": {
@@ -1849,7 +1849,7 @@
                 "october",
                 "october cms"
             ],
-            "time": "2016-07-27 07:21:38"
+            "time": "2016-08-12 23:49:13"
         },
         {
             "name": "october/rain",
@@ -1857,12 +1857,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/octobercms/library.git",
-                "reference": "b4d604a7e8e47a1d011519580420702c2d61593d"
+                "reference": "3e580d0639919499e216321f005411386b33d17c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/octobercms/library/zipball/b4d604a7e8e47a1d011519580420702c2d61593d",
-                "reference": "b4d604a7e8e47a1d011519580420702c2d61593d",
+                "url": "https://api.github.com/repos/octobercms/library/zipball/3e580d0639919499e216321f005411386b33d17c",
+                "reference": "3e580d0639919499e216321f005411386b33d17c",
                 "shasum": ""
             },
             "require": {
@@ -1944,7 +1944,7 @@
                 "october",
                 "rain"
             ],
-            "time": "2016-08-03 07:37:39"
+            "time": "2016-08-06 05:59:04"
         },
         {
             "name": "october/system",
@@ -1952,12 +1952,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/octoberrain/system.git",
-                "reference": "6a9e11a39739173749e23659af55dfb335ace1a0"
+                "reference": "9c21609ecaf57e0e2f17f69230826f90115645a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/octoberrain/system/zipball/6a9e11a39739173749e23659af55dfb335ace1a0",
-                "reference": "6a9e11a39739173749e23659af55dfb335ace1a0",
+                "url": "https://api.github.com/repos/octoberrain/system/zipball/9c21609ecaf57e0e2f17f69230826f90115645a6",
+                "reference": "9c21609ecaf57e0e2f17f69230826f90115645a6",
                 "shasum": ""
             },
             "require": {
@@ -1997,7 +1997,7 @@
                 "october cms",
                 "system"
             ],
-            "time": "2016-08-04 21:51:15"
+            "time": "2016-08-12 21:56:11"
         },
         {
             "name": "owl/tagbox",
