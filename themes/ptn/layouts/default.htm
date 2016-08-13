@@ -12,6 +12,8 @@ orderBy = 0
 direction = "desc"
 ==
 <?php
+use Ptn\Tag;
+
 public function onInit()
 {
     $this['app'] = [
@@ -22,7 +24,21 @@ public function onInit()
 
 public function onBeforePageStart()
 {
-    $this['tags'] = $this->blogTags->tags;
+    $tagSlugs = array_map(function($tagObject) {
+        return $tagObject->name;
+    }, iterator_to_array($this->blogTags->tags));
+
+    $filterTags = function($tags) use ($tagSlugs) {
+        return array_filter($tags, function($tagSlug) use ($tagSlugs) {
+            return in_array($tagSlug, $tagSlugs);
+        }, ARRAY_FILTER_USE_KEY);
+    };
+
+    $this['regionTags'] = $filterTags(Tag::REGIONS);
+    $this['typeTags'] = $filterTags(Tag::TYPES);
+    $this['styleTags'] = $filterTags(Tag::STYLES);
+    $this['sheernessTags'] = $filterTags(Tag::SHEERNESS);
+    $this['colorTags'] = $filterTags(Tag::COLORS);
 }
 ?>
 ==

@@ -1,3 +1,4 @@
+==
 <aside id="aside" class="ptn-aside">
     <div class="ptn-aside__account">
         <div class="ptn-aside__account-profile-container">
@@ -115,19 +116,19 @@
                                 <i class="ptn-list__list-item-icon zmdi zmdi-view-compact"></i>
                             </div>
                             <div class="ptn-list__list-item-text-container">
-                                <p class="ptn-list__list-item-text">Tags</p>
+                                <p class="ptn-list__list-item-text">Regions</p>
                             </div>
                         </div>
                     </a>
                     <div class="ptn-list__list-item-sublist ptn-list">
                         <div class="ptn-list__body">
                             <ul class="ptn-list__list">
-                                {% for tag in tags %}
+                                {% for tagSlug, tagName in regionTags %}
                                 <li class="ptn-list__list-item">
                                     <a class="ptn-list__list-item-link" href="">
                                         <div class="ptn-list__list-item-container">
                                             <div class="ptn-list__list-item-text-container">
-                                                <p class="ptn-list__list-item-text text-uppercase">{{ tag.name }}</p>
+                                                <p class="ptn-list__list-item-text text-uppercase">{{ tagName }}</p>
                                             </div>
                                         </div>
                                     </a>
@@ -138,49 +139,30 @@
                     </div>
                 </li>
                 <li class="ptn-list__list-item">
-                    <a class="ptn-list__list-item-link" href="">
-                        <div class="ptn-list__list-item-container">
-                            <div class="ptn-list__list-item-icon-container">
-                                <i class="ptn-list__list-item-icon zmdi zmdi-format-underlined"></i>
-                            </div>
-                            <div class="ptn-list__list-item-text-container">
-                                <p class="ptn-list__list-item-text">Typography</p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="ptn-list__list-item">
                     <a class="ptn-list__list-item-link ptn-list__list-item-link_sublist" href="">
                         <div class="ptn-list__list-item-container">
                             <div class="ptn-list__list-item-icon-container">
-                                <i class="ptn-list__list-item-icon zmdi zmdi-widgets"></i>
+                                <i class="ptn-list__list-item-icon zmdi zmdi-view-compact"></i>
                             </div>
                             <div class="ptn-list__list-item-text-container">
-                                <p class="ptn-list__list-item-text">Widgets</p>
+                                <p class="ptn-list__list-item-text">Types</p>
                             </div>
                         </div>
                     </a>
                     <div class="ptn-list__list-item-sublist ptn-list">
                         <div class="ptn-list__body">
                             <ul class="ptn-list__list">
+                                {% for tagSlug, tagName in typeTags %}
                                 <li class="ptn-list__list-item">
                                     <a class="ptn-list__list-item-link" href="">
                                         <div class="ptn-list__list-item-container">
                                             <div class="ptn-list__list-item-text-container">
-                                                <p class="ptn-list__list-item-text">Widget set 1</p>
+                                                <p class="ptn-list__list-item-text text-uppercase">{{ tagName }}</p>
                                             </div>
                                         </div>
                                     </a>
                                 </li>
-                                <li class="ptn-list__list-item">
-                                    <a class="ptn-list__list-item-link" href="">
-                                        <div class="ptn-list__list-item-container">
-                                            <div class="ptn-list__list-item-text-container">
-                                                <p class="ptn-list__list-item-text">Widget set 2</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
@@ -189,154 +171,88 @@
                     <a class="ptn-list__list-item-link ptn-list__list-item-link_sublist" href="">
                         <div class="ptn-list__list-item-container">
                             <div class="ptn-list__list-item-icon-container">
-                                <i class="ptn-list__list-item-icon zmdi zmdi-view-list"></i>
+                                <i class="ptn-list__list-item-icon zmdi zmdi-view-compact"></i>
                             </div>
                             <div class="ptn-list__list-item-text-container">
-                                <p class="ptn-list__list-item-text">Tables</p>
+                                <p class="ptn-list__list-item-text">Styles</p>
                             </div>
                         </div>
                     </a>
                     <div class="ptn-list__list-item-sublist ptn-list">
                         <div class="ptn-list__body">
                             <ul class="ptn-list__list">
+                                {% for tagSlug, tagName in styleTags %}
                                 <li class="ptn-list__list-item">
                                     <a class="ptn-list__list-item-link" href="">
                                         <div class="ptn-list__list-item-container">
                                             <div class="ptn-list__list-item-text-container">
-                                                <p class="ptn-list__list-item-text">Table set 1</p>
+                                                <p class="ptn-list__list-item-text text-uppercase">{{ tagName }}</p>
                                             </div>
                                         </div>
                                     </a>
                                 </li>
-                                <li class="ptn-list__list-item">
-                                    <a class="ptn-list__list-item-link" href="">
-                                        <div class="ptn-list__list-item-container">
-                                            <div class="ptn-list__list-item-text-container">
-                                                <p class="ptn-list__list-item-text">Table set 2</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="ptn-list__list-item">
-                                    <a class="ptn-list__list-item-link" href="">
-                                        <div class="ptn-list__list-item-container">
-                                            <div class="ptn-list__list-item-text-container">
-                                                <p class="ptn-list__list-item-text">Table set 3</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
-                </li>
-                <li class="ptn-list__list-item">
-                    <a class="ptn-list__list-item-link" href="">
-                        <div class="ptn-list__list-item-container">
-                            <div class="ptn-list__list-item-icon-container">
-                                <i class="ptn-list__list-item-icon zmdi zmdi-collection-text"></i>
-                            </div>
-                            <div class="ptn-list__list-item-text-container">
-                                <p class="ptn-list__list-item-text">Forms</p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="ptn-list__list-item">
-                    <a class="ptn-list__list-item-link" href="">
-                        <div class="ptn-list__list-item-container">
-                            <div class="ptn-list__list-item-icon-container">
-                                <i class="ptn-list__list-item-icon zmdi zmdi-swap-alt"></i>
-                            </div>
-                            <div class="ptn-list__list-item-text-container">
-                                <p class="ptn-list__list-item-text">User interface</p>
-                            </div>
-                        </div>
-                    </a>
                 </li>
                 <li class="ptn-list__list-item">
                     <a class="ptn-list__list-item-link ptn-list__list-item-link_sublist" href="">
                         <div class="ptn-list__list-item-container">
                             <div class="ptn-list__list-item-icon-container">
-                                <i class="ptn-list__list-item-icon zmdi zmdi-trending-up"></i>
+                                <i class="ptn-list__list-item-icon zmdi zmdi-view-compact"></i>
                             </div>
                             <div class="ptn-list__list-item-text-container">
-                                <p class="ptn-list__list-item-text">Charts</p>
+                                <p class="ptn-list__list-item-text">Sheerness</p>
                             </div>
                         </div>
                     </a>
                     <div class="ptn-list__list-item-sublist ptn-list">
                         <div class="ptn-list__body">
                             <ul class="ptn-list__list">
+                                {% for tagSlug, tagName in sheernessTags %}
                                 <li class="ptn-list__list-item">
                                     <a class="ptn-list__list-item-link" href="">
                                         <div class="ptn-list__list-item-container">
                                             <div class="ptn-list__list-item-text-container">
-                                                <p class="ptn-list__list-item-text">Chart set 1</p>
+                                                <p class="ptn-list__list-item-text text-uppercase">{{ tagName }}</p>
                                             </div>
                                         </div>
                                     </a>
                                 </li>
-                                <li class="ptn-list__list-item">
-                                    <a class="ptn-list__list-item-link" href="">
-                                        <div class="ptn-list__list-item-container">
-                                            <div class="ptn-list__list-item-text-container">
-                                                <p class="ptn-list__list-item-text">Chart set 2</p>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
                 </li>
                 <li class="ptn-list__list-item">
-                    <a class="ptn-list__list-item-link" href="">
+                    <a class="ptn-list__list-item-link ptn-list__list-item-link_sublist" href="">
                         <div class="ptn-list__list-item-container">
                             <div class="ptn-list__list-item-icon-container">
-                                <i class="ptn-list__list-item-icon zmdi zmdi-calendar"></i>
+                                <i class="ptn-list__list-item-icon zmdi zmdi-view-compact"></i>
                             </div>
                             <div class="ptn-list__list-item-text-container">
-                                <p class="ptn-list__list-item-text">Calendar</p>
+                                <p class="ptn-list__list-item-text">Colors</p>
                             </div>
                         </div>
                     </a>
-                </li>
-                <li class="ptn-list__list-item">
-                    <a class="ptn-list__list-item-link" href="">
-                        <div class="ptn-list__list-item-container">
-                            <div class="ptn-list__list-item-icon-container">
-                                <i class="ptn-list__list-item-icon zmdi zmdi-image"></i>
-                            </div>
-                            <div class="ptn-list__list-item-text-container">
-                                <p class="ptn-list__list-item-text">Photo gallery</p>
-                            </div>
+                    <div class="ptn-list__list-item-sublist ptn-list">
+                        <div class="ptn-list__body">
+                            <ul class="ptn-list__list">
+                                {% for tagSlug, tagName in colorTags %}
+                                <li class="ptn-list__list-item">
+                                    <a class="ptn-list__list-item-link" href="">
+                                        <div class="ptn-list__list-item-container">
+                                            <div class="ptn-list__list-item-text-container">
+                                                <p class="ptn-list__list-item-text text-uppercase">{{ tagName }}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
                         </div>
-                    </a>
-                </li>
-                <li class="ptn-list__list-item">
-                    <a class="ptn-list__list-item-link" href="">
-                        <div class="ptn-list__list-item-container">
-                            <div class="ptn-list__list-item-icon-container">
-                                <i class="ptn-list__list-item-icon zmdi zmdi-layers"></i>
-                            </div>
-                            <div class="ptn-list__list-item-text-container">
-                                <p class="ptn-list__list-item-text">Generic classes</p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li class="ptn-list__list-item">
-                    <a class="ptn-list__list-item-link" href="">
-                        <div class="ptn-list__list-item-container">
-                            <div class="ptn-list__list-item-icon-container">
-                                <i class="ptn-list__list-item-icon zmdi zmdi-collection-item"></i>
-                            </div>
-                            <div class="ptn-list__list-item-text-container">
-                                <p class="ptn-list__list-item-text">Sample pages</p>
-                            </div>
-                        </div>
-                    </a>
+                    </div>
                 </li>
                 <li class="ptn-list__list-item">
                     <a class="ptn-list__list-item-link ptn-list__list-item-link_sublist" href="">
