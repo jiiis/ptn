@@ -5,39 +5,39 @@ namespace Ptn;
 class Tag
 {
     const REGIONS = [
-        'China',
-        'Japan',
-        'South Korea',
-        'Taiwan'
+        'china' => 'China',
+        'japan' => 'Japan',
+        'south-korea' => 'South Korea',
+        'taiwan' => 'Taiwan'
     ];
 
     const TYPES = [
-        'Pantyhose',
-        'Leggings',
-        'Thigh highs',
-        'Knee highs',
-        'Garters',
-        'Bodystockings',
-        'Footlets'
+        'pantyhose' => 'Pantyhose',
+        'leggings' => 'Leggings',
+        'thigh-highs' => 'Thigh highs',
+        'knee-highs' => 'Knee highs',
+        'garters' => 'Garters',
+        'bodystockings' => 'Bodystockings',
+        'footlets' => 'Footlets'
     ];
 
     const STYLES = [
-        'Control top',
-        'Sheer to waist',
-        'Crotchless'
+        'control-top' => 'Control top',
+        'sheer-to-waist' => 'Sheer to waist',
+        'crotchless' => 'Crotchless'
     ];
 
     const SHEERNESS = [
-        'Sheer',
-        'Opaque',
-        'Fishnet'
+        'sheer' => 'Sheer',
+        'opaque' => 'Opaque',
+        'fishnet' => 'Fishnet'
     ];
 
     const COLORS = [
-        'Black',
-        'Suntan',
-        'Gray',
-        'White',
-        'Candy'
+        'suntan' => 'Suntan',
+        'black' => 'Black',
+        'white' => 'White',
+        'gray' => 'Gray',
+        'candy' => 'Candy'
     ];
 }
