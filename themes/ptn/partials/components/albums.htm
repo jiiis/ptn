@@ -3,8 +3,7 @@
 <ul class="post-list">
     {% for post in posts %}
     <li>
-        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-
+        <h3><a href="{{ 'album' | page({album: post.slug}) }}">{{ post.title }}</a></h3>
         <p class="info">
             Posted
             {% if post.categories.count %} in {% endif %}
