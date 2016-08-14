@@ -27,7 +27,7 @@ class Tag
         'crotchless' => 'Crotchless'
     ];
 
-    const SHEERNESS = [
+    const TEXTURES = [
         'sheer' => 'Sheer',
         'opaque' => 'Opaque',
         'glossy' => 'Glossy',
