@@ -30,10 +30,12 @@ class Tag
     const SHEERNESS = [
         'sheer' => 'Sheer',
         'opaque' => 'Opaque',
+        'glossy' => 'Glossy',
         'fishnet' => 'Fishnet'
     ];
 
     const COLORS = [
+        'nude' => 'Nude',
         'suntan' => 'Suntan',
         'black' => 'Black',
         'white' => 'White',
