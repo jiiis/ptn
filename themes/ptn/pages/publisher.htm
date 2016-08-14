@@ -16,4 +16,4 @@ postPage = "album"
 {% put title %}
 Publisher {% if category %}{{ ' | ' ~ category.name }}{% endif %}
 {% endput %}
-{% component 'blogPosts' %}
+{% partial 'components/albums' %}
