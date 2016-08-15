@@ -1,0 +1,13 @@
+title = "Tag"
+url = "/tag/:tag/:page?|^[0-9]+$"
+layout = "default"
+description = "The page displaying a list of albums by a specific tag."
+is_hidden = 0
+
+[blogTagSearch]
+tag = "{{ :tag }}"
+pagination = 1
+page = "{{ :page }}"
+resultsPerPage = 24
+==
+{% component 'blogTagSearch' %}
