@@ -39,6 +39,8 @@ public function onBeforePageStart()
     $this['styleTags'] = $filterTags(Tag::STYLES);
     $this['textureTags'] = $filterTags(Tag::TEXTURES);
     $this['colorTags'] = $filterTags(Tag::COLORS);
+
+    $this['currentPublisherSlug'] = $this->param('publisher');
 }
 ?>
 ==
