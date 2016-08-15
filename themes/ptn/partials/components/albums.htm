@@ -8,7 +8,7 @@
             Posted
             {% if post.categories.count %} in {% endif %}
             {% for category in post.categories %}
-            <a href="{{ category.url }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+            <a href="{{ 'publisher' | page({publisher: category.slug}) }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
             {% endfor %}
             on {{ post.published_at|date('M d, Y') }}
         </p>

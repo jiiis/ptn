@@ -96,7 +96,7 @@
                             <ul class="ptn-list__list">
                                 {% for category in categories %}
                                     <li class="ptn-list__list-item{% if category.slug == currentCategorySlug %} ptn-list__list-item_active{% endif %}">
-                                        <a class="ptn-list__list-item-link" href="{{ category.url }}">
+                                        <a class="ptn-list__list-item-link" href="{{ 'publisher' | page({publisher: category.slug}) }}">
                                             <div class="ptn-list__list-item-container">
                                                 <div class="ptn-list__list-item-text-container">
                                                     <p class="ptn-list__list-item-text">{{ category.name }}</p>
