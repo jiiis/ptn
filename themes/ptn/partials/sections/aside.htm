@@ -94,12 +94,12 @@
                     <div class="ptn-list__list-item-sublist ptn-list">
                         <div class="ptn-list__body">
                             <ul class="ptn-list__list">
-                                {% for category in categories %}
-                                    <li class="ptn-list__list-item{% if category.slug == currentPublisherSlug %} ptn-list__list-item_active{% endif %}">
-                                        <a class="ptn-list__list-item-link" href="{{ 'publisher' | page({publisher: category.slug}) }}">
+                                {% for publisher in categories %}
+                                    <li class="ptn-list__list-item{% if publisher.slug == currentPublisherSlug or publisher.slug in albumPublisherSlugs %} ptn-list__list-item_active{% endif %}">
+                                        <a class="ptn-list__list-item-link" href="{{ 'publisher' | page({publisher: publisher.slug}) }}">
                                             <div class="ptn-list__list-item-container">
                                                 <div class="ptn-list__list-item-text-container">
-                                                    <p class="ptn-list__list-item-text">{{ category.name }}</p>
+                                                    <p class="ptn-list__list-item-text">{{ publisher.name }}</p>
                                                 </div>
                                             </div>
                                         </a>
