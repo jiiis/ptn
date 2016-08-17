@@ -125,7 +125,7 @@
                             <ul class="ptn-list__list">
                                 {% for tagSlug, tagName in regionTags %}
                                 <li class="ptn-list__list-item">
-                                    <a class="ptn-list__list-item-link" href="">
+                                    <a class="ptn-list__list-item-link" href="{{ 'tag' | page({tag: tagSlug}) }}">
                                         <div class="ptn-list__list-item-container">
                                             <div class="ptn-list__list-item-text-container">
                                                 <p class="ptn-list__list-item-text text-uppercase">{{ tagName }}</p>
@@ -154,7 +154,7 @@
                             <ul class="ptn-list__list">
                                 {% for tagSlug, tagName in typeTags %}
                                 <li class="ptn-list__list-item">
-                                    <a class="ptn-list__list-item-link" href="">
+                                    <a class="ptn-list__list-item-link" href="{{ 'tag' | page({tag: tagSlug}) }}">
                                         <div class="ptn-list__list-item-container">
                                             <div class="ptn-list__list-item-text-container">
                                                 <p class="ptn-list__list-item-text text-uppercase">{{ tagName }}</p>
@@ -183,7 +183,7 @@
                             <ul class="ptn-list__list">
                                 {% for tagSlug, tagName in styleTags %}
                                 <li class="ptn-list__list-item">
-                                    <a class="ptn-list__list-item-link" href="">
+                                    <a class="ptn-list__list-item-link" href="{{ 'tag' | page({tag: tagSlug}) }}">
                                         <div class="ptn-list__list-item-container">
                                             <div class="ptn-list__list-item-text-container">
                                                 <p class="ptn-list__list-item-text text-uppercase">{{ tagName }}</p>
@@ -212,7 +212,7 @@
                             <ul class="ptn-list__list">
                                 {% for tagSlug, tagName in textureTags %}
                                 <li class="ptn-list__list-item">
-                                    <a class="ptn-list__list-item-link" href="">
+                                    <a class="ptn-list__list-item-link" href="{{ 'tag' | page({tag: tagSlug}) }}">
                                         <div class="ptn-list__list-item-container">
                                             <div class="ptn-list__list-item-text-container">
                                                 <p class="ptn-list__list-item-text text-uppercase">{{ tagName }}</p>
@@ -241,7 +241,7 @@
                             <ul class="ptn-list__list">
                                 {% for tagSlug, tagName in colorTags %}
                                 <li class="ptn-list__list-item">
-                                    <a class="ptn-list__list-item-link" href="">
+                                    <a class="ptn-list__list-item-link" href="{{ 'tag' | page({tag: tagSlug}) }}">
                                         <div class="ptn-list__list-item-container">
                                             <div class="ptn-list__list-item-text-container">
                                                 <p class="ptn-list__list-item-text text-uppercase">{{ tagName }}</p>
