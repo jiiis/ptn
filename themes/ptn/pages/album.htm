@@ -16,6 +16,10 @@ public function onEnd()
     $this['albumPublisherSlugs'] = array_map(function($publisher) {
         return $publisher->slug;
     }, iterator_to_array($this->album->categories));
+
+    $this['albumTagSlugs'] = array_map(function($tag) {
+        return $tag->name;
+    }, iterator_to_array($this->album->tags));
 }
 ?>
 ==
