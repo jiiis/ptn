@@ -10,7 +10,14 @@ pagination = 1
 page = "{{ :page }}"
 resultsPerPage = 24
 ==
+<?php
+public function onEnd()
+{
+    $this['tag'] = $this->blogTagSearch->tag;
+}
+?>
+==
 {% put title %}
-Tag {% if blogTagSearch %}{{ ' | ' ~ tags[blogTagSearch.tag.name] }}{% endif %}
+Tag {% if tag %}{{ ' | ' ~ tags[tag.name] }}{% endif %}
 {% endput %}
 {% component 'blogTagSearch' %}
