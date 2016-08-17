@@ -10,4 +10,7 @@ pagination = 1
 page = "{{ :page }}"
 resultsPerPage = 24
 ==
+{% put title %}
+Tag {% if blogTagSearch %}{{ ' | ' ~ tags[blogTagSearch.tag.name] }}{% endif %}
+{% endput %}
 {% component 'blogTagSearch' %}
