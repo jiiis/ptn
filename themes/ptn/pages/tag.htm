@@ -11,6 +11,11 @@ page = "{{ :page }}"
 resultsPerPage = 24
 ==
 <?php
+public function onInit()
+{
+    $this['currentTagSlug'] = $this->param('tag');
+}
+
 public function onEnd()
 {
     $this['tag'] = $this->blogTagSearch->tag;

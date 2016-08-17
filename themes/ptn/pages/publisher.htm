@@ -13,6 +13,13 @@ sortOrder = "published_at desc"
 categoryPage = "publisher"
 postPage = "album"
 ==
+<?php
+public function onInit()
+{
+    $this['currentPublisherSlug'] = $this->param('publisher');
+}
+?>
+==
 {% put title %}
 Publisher {% if category %}{{ ' | ' ~ category.name }}{% endif %}
 {% endput %}

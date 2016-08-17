@@ -24,10 +24,6 @@ public function onInit()
 
 public function onBeforePageStart()
 {
-    /******************** publisher ********************/
-    $this['currentPublisherSlug'] = $this->param('publisher');
-
-    /******************** tag ********************/
     $tagSlugs = array_map(function($tagObject) {
         return $tagObject->name;
     }, iterator_to_array($this->blogTags->tags));
@@ -45,8 +41,6 @@ public function onBeforePageStart()
     $this['colorTags'] = $filterTags(Tag::COLORS);
 
     $this['tags'] = array_merge(Tag::REGIONS, Tag::TYPES, Tag::STYLES, Tag::TEXTURES, Tag::COLORS);
-
-    $this['currentTagSlug'] = $this->param('tag');
 }
 ?>
 ==
