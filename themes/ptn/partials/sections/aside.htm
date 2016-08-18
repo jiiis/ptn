@@ -10,7 +10,7 @@
                 <i class="ptn-aside__account-menu-trigger-icon zmdi zmdi-caret-down"></i>
             </div>
         </div>
-        <div id="account-menu" class="ptn-aside__account-menu-container ptn-list">
+        <div id="account-menu" class="ptn-aside__menu-container ptn-aside__account-menu-container ptn-list">
             <div class="ptn-list__body">
                 <ul class="ptn-list__list">
                     <li class="ptn-list__list-item">
@@ -80,6 +80,12 @@
                         </div>
                     </a>
                 </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ptn-aside__menu-container ptn-list">
+        <div class="ptn-list__body">
+            <ul class="ptn-list__list">
                 <li class="ptn-list__list-item">
                     <a class="ptn-list__list-item-link ptn-list__list-item-link_sublist">
                         <div class="ptn-list__list-item-container">
@@ -95,20 +101,26 @@
                         <div class="ptn-list__body">
                             <ul class="ptn-list__list">
                                 {% for publisher in categories %}
-                                    <li class="ptn-list__list-item{% if publisher.slug == currentPublisherSlug or publisher.slug in albumPublisherSlugs %} ptn-list__list-item_active{% endif %}">
-                                        <a class="ptn-list__list-item-link" href="{{ 'publisher' | page({publisher: publisher.slug}) }}">
-                                            <div class="ptn-list__list-item-container">
-                                                <div class="ptn-list__list-item-text-container">
-                                                    <p class="ptn-list__list-item-text">{{ publisher.name }}</p>
-                                                </div>
+                                <li class="ptn-list__list-item{% if publisher.slug == currentPublisherSlug or publisher.slug in albumPublisherSlugs %} ptn-list__list-item_active{% endif %}">
+                                    <a class="ptn-list__list-item-link" href="{{ 'publisher' | page({publisher: publisher.slug}) }}">
+                                        <div class="ptn-list__list-item-container">
+                                            <div class="ptn-list__list-item-text-container">
+                                                <p class="ptn-list__list-item-text">{{ publisher.name }}</p>
                                             </div>
-                                        </a>
-                                    </li>
+                                        </div>
+                                    </a>
+                                </li>
                                 {% endfor %}
                             </ul>
                         </div>
                     </div>
                 </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ptn-aside__menu-container ptn-list">
+        <div class="ptn-list__body">
+            <ul class="ptn-list__list">
                 <li class="ptn-list__list-item">
                     <a class="ptn-list__list-item-link ptn-list__list-item-link_sublist">
                         <div class="ptn-list__list-item-container">
@@ -138,6 +150,12 @@
                         </div>
                     </div>
                 </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ptn-aside__menu-container ptn-list">
+        <div class="ptn-list__body">
+            <ul class="ptn-list__list">
                 <li class="ptn-list__list-item">
                     <a class="ptn-list__list-item-link ptn-list__list-item-link_sublist">
                         <div class="ptn-list__list-item-container">
@@ -167,6 +185,12 @@
                         </div>
                     </div>
                 </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ptn-aside__menu-container ptn-list">
+        <div class="ptn-list__body">
+            <ul class="ptn-list__list">
                 <li class="ptn-list__list-item">
                     <a class="ptn-list__list-item-link ptn-list__list-item-link_sublist">
                         <div class="ptn-list__list-item-container">
@@ -196,6 +220,12 @@
                         </div>
                     </div>
                 </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ptn-aside__menu-container ptn-list">
+        <div class="ptn-list__body">
+            <ul class="ptn-list__list">
                 <li class="ptn-list__list-item">
                     <a class="ptn-list__list-item-link ptn-list__list-item-link_sublist">
                         <div class="ptn-list__list-item-container">
@@ -225,6 +255,12 @@
                         </div>
                     </div>
                 </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ptn-aside__menu-container ptn-list">
+        <div class="ptn-list__body">
+            <ul class="ptn-list__list">
                 <li class="ptn-list__list-item">
                     <a class="ptn-list__list-item-link ptn-list__list-item-link_sublist">
                         <div class="ptn-list__list-item-container">
@@ -254,6 +290,12 @@
                         </div>
                     </div>
                 </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ptn-aside__menu-container ptn-list">
+        <div class="ptn-list__body">
+            <ul class="ptn-list__list">
                 <li class="ptn-list__list-item">
                     <a class="ptn-list__list-item-link ptn-list__list-item-link_sublist" href="">
                         <div class="ptn-list__list-item-container">
@@ -330,7 +372,7 @@
                                                         </div>
                                                     </a>
                                                 </li>
-                                                <li class="ptn-list__list-item ptn-list__list-item_active">
+                                                <li class="ptn-list__list-item">
                                                     <a class="ptn-list__list-item-link" href="">
                                                         <div class="ptn-list__list-item-container">
                                                             <div class="ptn-list__list-item-text-container">
