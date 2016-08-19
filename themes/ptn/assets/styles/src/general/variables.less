@@ -103,6 +103,12 @@
 @ptn-util__color_purple: #9c27b0;
 @ptn-util__color_bluegray: #607d8B;
 
+@ptn-util__color_transparent-lighter: rgba(255, 255, 255, 0.3);
+@ptn-util__color_transparent-light: rgba(0, 0, 0, 0.1);
+@ptn-util__color_transparent-dark: rgba(0, 0, 0, 0.4);
+@ptn-util__color_transparent-darker: rgba(0, 0, 0, 0.85);
+@ptn-util__color_transparent-coral: rgba(255, 127, 80, 0.3);
+
 @ptn__color_header: @ptn-util__color_white;
 @ptn__color_footer: @ptn-util__color_gray-9;
 @ptn__color_footer_highlight: @ptn-util__color_gray-6;
@@ -111,15 +117,13 @@
 @ptn__color_hover-before: @ptn-util__color_gray-6;
 @ptn__color_hover-after: @text-color;
 
-@ptn__color_divider: rgba(0, 0, 0, 0.08);
+@ptn__color_divider-light: @ptn-util__color_white;
+@ptn__color_divider-dark: @ptn-util__color_gray-e;
 
 /******************** background ********************/
-@ptn-util__background_highlight-black-1: rgba(0, 0, 0, 0.08);
-@ptn-util__background_highlight-black-2: rgba(0, 0, 0, 0.4);
-@ptn-util__background_highlight-white: rgba(255, 255, 255, 0.3);
-@ptn-util__background_highlight-coral: rgba(255, 127, 80, 0.3);
+@ptn-util__background_highlight-general: @ptn-util__color_gray-e;
 
-@ptn__background_header: rgba(0, 0, 0, 0.85);
+@ptn__background_header: @ptn-util__color_transparent-darker;
 @ptn__background_search: @ptn-util__color_white;
 @ptn__background_aside: @ptn-util__color_white;
 @ptn__background_dropdown-menu: @ptn-util__color_white;
@@ -167,7 +171,7 @@
 @ptn__box-shadow_header: 0 1px 4px rgba(0, 0, 0, 0.3);
 @ptn__box-shadow_dropdown: 0 2px 10px rgba(0, 0, 0, 0.2);
 @ptn__box-shadow_aside-small-screen: 0 0 10px rgba(50, 50, 50, 0.4);
-@ptn__box-shadow_aside-large-screen: 0 1px 1px rgba(0, 0, 0, 0.2);
+@ptn__box-shadow_aside-large-screen: 0 1px 1px rgba(0, 0, 0, 0.1);
 @ptn__box-shadow_aside-account-picture: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
 
 /******************** z-index ********************/

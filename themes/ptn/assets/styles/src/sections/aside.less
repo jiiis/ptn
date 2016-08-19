@@ -28,7 +28,14 @@
 }
 
 .ptn-aside__menu-container {
-  border-bottom: 1px solid @ptn__color_divider;
+  border-bottom: 1px solid @ptn__color_divider-dark;
+
+  .ptn-list__list-item-sublist {
+    .ptn-list__list-item {
+      background: @ptn-util__background_highlight-general;
+      border-top: 1px solid @ptn__color_divider-light;
+    }
+  }
 
   .ptn-list__body {
     margin: 0;
@@ -70,7 +77,7 @@
   height: @ptn__height_aside-account-menu-trigger;
   line-height: @ptn__height_aside-account-menu-trigger;
   color: @ptn-util__color_white;
-  background: @ptn-util__background_highlight-black-2;
+  background: @ptn-util__color_transparent-dark;
 
   .ptn-util__cursor_pointer;
 
