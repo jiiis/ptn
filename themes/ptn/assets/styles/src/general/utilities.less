@@ -62,19 +62,19 @@
 }
 
 /******************** hover ********************/
-.ptn-util__text-hover {
-  color: @ptn__color_hover-before !important;
+.ptn-util__text-hover(@colorBefore: @ptn-util__color_highlight-before, @colorAfter: @ptn-util__color_highlight-after) {
+  color: @colorBefore !important;
 
   &:hover {
-    .ptn-util__text-highlight;
+    .ptn-util__text-highlight(@colorAfter);
   }
 
-  .ptn-util__transition(all, @ptn-util__animation-duration_hover-2);
+  .ptn-util__transition(all, @ptn-util__animation-duration_hover-text);
 }
 
 /******************** highlight ********************/
-.ptn-util__text-highlight {
-  color: @ptn__color_hover-after !important;
+.ptn-util__text-highlight(@colorAfter: @ptn-util__color_highlight-after) {
+  color: @colorAfter !important;
   //font-weight: @ptn__font-weight_500 !important;
 }
 
