@@ -32,7 +32,9 @@
     margin: 0 @ptn__margin_footer-menu-item-horizontal;
 
     & > a {
-      .ptn-util__text-hover(@ptn__color_footer, @ptn__color_footer-highlighted);
+      color: @ptn__color_footer !important;
+
+      .ptn-util__text-hover(@ptn__color_footer-highlighted);
     }
   }
 }

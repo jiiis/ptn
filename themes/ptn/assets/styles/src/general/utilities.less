@@ -62,19 +62,19 @@
 }
 
 /******************** hover ********************/
-.ptn-util__text-hover(@colorBefore: @ptn-util__color_highlight-before, @colorAfter: @ptn-util__color_highlight-after) {
-  color: @colorBefore !important;
-
+.ptn-util__text-hover(@color: @ptn-util__color_highlight-light, @background: initial) {
   &:hover {
-    .ptn-util__text-highlight(@colorAfter);
+    background: @background;
+
+    .ptn-util__text-highlight(@color);
   }
 
   .ptn-util__transition(all, @ptn-util__animation-duration_hover-text);
 }
 
 /******************** highlight ********************/
-.ptn-util__text-highlight(@colorAfter: @ptn-util__color_highlight-after) {
-  color: @colorAfter !important;
+.ptn-util__text-highlight(@color: @ptn-util__color_highlight-light) {
+  color: @color !important;
   //font-weight: @ptn__font-weight_500 !important;
 }
 
