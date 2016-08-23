@@ -42,21 +42,24 @@
 
 }
 
+.ptn-list__list-item-link {
+  position: relative;
+  color: @ptn-util__color_link !important;
+
+  .ptn-util__link_block;
+  .ptn-util__cursor_pointer;
+
+  &:not(.ptn-list__list-item-link_sublist) {
+    .ptn-util__text-hover(@ptn-util__color_highlight-light, @ptn-util__background_highlight-light);
+  }
+}
+
 .ptn-list__list-item_active {
   .ptn-list__list-item-link {
     background: @ptn-util__background_highlight-light;
 
     .ptn-util__text-highlight(@ptn-util__color_highlight-light);
   }
-}
-
-.ptn-list__list-item-link {
-  position: relative;
-  color: @ptn-util__color_link !important;
-
-  .ptn-util__link_block;
-  .ptn-util__text-hover(@ptn-util__color_highlight-light, @ptn-util__background_highlight-light);
-  .ptn-util__cursor_pointer;
 }
 
 .ptn-list__list-item-container {
