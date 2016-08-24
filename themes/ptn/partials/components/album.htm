@@ -1,27 +1,15 @@
 {% set post = blogPost.post %}
 
-<div class="content">{{ post.content_html|raw }}</div>
-
 {% if post.featured_images.count %}
-<div class="featured-images text-center">
-    {% for image in post.featured_images %}
-    <p>
-        <img
-                data-src="{{ image.filename }}"
-                src="{{ image.path }}"
-                alt="{{ image.description }}"
-                style="max-width: 100%" />
-    </p>
-    {% endfor %}
+<div class="card">
+    <div class="card-body">
+        <div id="lightbox" class="ptn-lightbox">
+            {% for image in post.featured_images %}
+            <div data-src="{{ image.path }}">
+                <img src="{{ image.thumb(200, 200, {'mode': 'crop', extension: 'jpg'}) }}">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 {% endif %}
-
-<p class="info">
-    Posted
-    {% if post.categories.count %} in
-    {% for category in post.categories %}
-    <a href="{{ 'publisher' | page({publisher: category.slug}) }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
-    {% endfor %}
-    {% endif %}
-    on {{ post.published_at|date('M d, Y') }}
-</p>

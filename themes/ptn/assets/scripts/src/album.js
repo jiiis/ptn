@@ -1,3 +1,6 @@
 'use strict';
 
-(function(window) {})(window);
+(function(window) {
+    /******************** lightgallery ********************/
+    $('#lightbox').lightGallery();
+})(window);
