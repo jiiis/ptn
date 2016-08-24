@@ -50,7 +50,7 @@
       "require",
       "urlComments"
     ],
-    "value": 100
+    "value": 120
   },
   "requireBlocksOnNewline": 1,
   "requireCamelCaseOrUpperCaseIdentifiers": true,
