@@ -7,7 +7,10 @@ var $ = require('gulp'),
     isEnvProd = argv.env === 'prod';
 
 $.task('build:styles:less', function() {
-    return $.src(paths.styles.src.shared.file)
+    return $.src([
+        paths.styles.src.shared.file,
+        paths.styles.src.pages.album.file
+    ])
         .pipe($$.plumber())
         .pipe($$.less({
             plugins: [
@@ -32,10 +35,7 @@ $.task('build:styles:bless', function() {
 });
 
 $.task('build:styles:minify', function() {
-    return $.src([
-        paths.styles.dist.shared.file,
-        paths.styles.dist.shared.blessed.files
-    ], {
+    return $.src(paths.styles.dist.files, {
         base: paths.styles.dist.dir
     })
         .pipe($$.plumber())

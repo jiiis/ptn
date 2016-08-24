@@ -16,6 +16,11 @@ module.exports = {
             shared: {
                 file: path.join(dirStyles, 'src', 'app.less'),
                 files: path.join(dirStyles, 'src', '**/*')
+            },
+            pages: {
+                album: {
+                    file: path.join(dirStyles, 'src', 'album.less')
+                }
             }
         },
         dist: {
@@ -27,6 +32,11 @@ module.exports = {
                 blessed: {
                     dir: path.join(dirStyles, 'dist', 'blessed'),
                     files: path.join(dirStyles, 'dist', 'blessed', '**/*.css')
+                }
+            },
+            pages: {
+                album: {
+                    file: path.join(dirStyles, 'dist', 'album.css')
                 }
             }
         }
