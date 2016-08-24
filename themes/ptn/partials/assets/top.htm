@@ -32,6 +32,10 @@
 <link rel="stylesheet" href="{{ 'assets/styles/dist/blessed/app-2.css' | theme }}">
 <link rel="stylesheet" href="{{ 'assets/styles/dist/blessed/app-3.css' | theme }}">
 
+{% if this.page.title == 'Album' %}
+<link rel="stylesheet" href="{{ 'assets/styles/dist/album.css' | theme }}">
+{% endif %}
+
 <!--[if lt IE 9]>
 <script src="{{ 'assets/scripts/dist/shared-top.js' | theme }}"></script>
 <![endif]-->
