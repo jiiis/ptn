@@ -1,5 +1,9 @@
 <script src="{{ 'assets/scripts/dist/shared-bottom.js' | theme }}"></script>
 
+{% if this.page.title == 'Album' %}
+<script src="{{ 'assets/scripts/dist/album.js' | theme }}"></script>
+{% endif %}
+
 {% framework extras %}
 
 {% scripts %}
