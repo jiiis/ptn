@@ -7,7 +7,7 @@ var $ = require('gulp'),
     isEnvProd = argv.env === 'prod';
 
 $.task('build:styles:less', function() {
-    return $.src(paths.styles.src.file)
+    return $.src(paths.styles.src.shared.file)
         .pipe($$.plumber())
         .pipe($$.less({
             plugins: [
@@ -21,20 +21,20 @@ $.task('build:styles:less', function() {
 });
 
 $.task('build:styles:bless', function() {
-    return $.src(paths.styles.dist.file)
+    return $.src(paths.styles.dist.shared.file)
         .pipe($$.plumber())
         .pipe($$.sakugawa({
             maxSelectors: 4000,
             mediaQueries: 'separate',
             suffix: '-'
         }))
-        .pipe($.dest(paths.styles.dist.blessed.dir));
+        .pipe($.dest(paths.styles.dist.shared.blessed.dir));
 });
 
 $.task('build:styles:minify', function() {
     return $.src([
-        paths.styles.dist.file,
-        paths.styles.dist.blessed.files
+        paths.styles.dist.shared.file,
+        paths.styles.dist.shared.blessed.files
     ], {
         base: paths.styles.dist.dir
     })

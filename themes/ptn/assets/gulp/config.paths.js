@@ -13,19 +13,22 @@ module.exports = {
     styles: {
         dir: dirStyles,
         src: {
-            dir: path.join(dirStyles, 'src'),
-            file: path.join(dirStyles, 'src', 'app.less'),
-            files: path.join(dirStyles, 'src', '**/*')
+            shared: {
+                file: path.join(dirStyles, 'src', 'app.less'),
+                files: path.join(dirStyles, 'src', '**/*')
+            }
         },
         dist: {
             dir: path.join(dirStyles, 'dist'),
-            file: path.join(dirStyles, 'dist', 'app.css'),
             files: path.join(dirStyles, 'dist', '**/*'),
-            blessed: {
-                dir: path.join(dirStyles, 'dist', 'blessed'),
-                files: path.join(dirStyles, 'dist', 'blessed', '**/*.css')
-            },
-            url: '/themes/ptn/assets/styles/dist'
+            url: '/themes/ptn/assets/styles/dist',
+            shared: {
+                file: path.join(dirStyles, 'dist', 'app.css'),
+                blessed: {
+                    dir: path.join(dirStyles, 'dist', 'blessed'),
+                    files: path.join(dirStyles, 'dist', 'blessed', '**/*.css')
+                }
+            }
         }
     },
     scripts: {
