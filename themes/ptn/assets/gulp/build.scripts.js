@@ -34,12 +34,24 @@ $.task('build:scripts:shared-bottom', function() {
         .pipe($.dest(paths.scripts.dist.dir));
 });
 
+$.task('build:scripts:album', function() {
+    return $.src(paths.scripts.src.pages.album.files)
+        .pipe($$.plumber())
+        .pipe($$.if(isEnvProd, $$.sourcemaps.init()))
+        .pipe($$.concat('album.js'))
+        .pipe($$.if(isEnvProd, $$.uglify({
+            preserveComments: false
+        })))
+        .pipe($$.if(isEnvProd, $$.sourcemaps.write('./', {
+            sourceMappingURLPrefix: paths.scripts.dist.url
+        })))
+        .pipe($.dest(paths.scripts.dist.dir));
+});
+
 $.task('build:scripts', function(done) {
-    return $$.runSequence(
-        [
-            'build:scripts:shared-top',
-            'build:scripts:shared-bottom'
-        ],
-        done
-    );
+    return $$.runSequence([
+        'build:scripts:shared-top',
+        'build:scripts:shared-bottom',
+        'build:scripts:album'
+    ], done);
 });

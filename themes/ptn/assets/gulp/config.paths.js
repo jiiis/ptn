@@ -49,7 +49,14 @@ module.exports = {
                     ]
                 }
             },
-            pages: {}
+            pages: {
+                album: {
+                    files: [
+                        path.join(dirVendors, 'bower', 'lightgallery', 'dist', 'js', 'lightgallery-all.js'),
+                        path.join(dirScripts, 'src', 'album.js')
+                    ]
+                }
+            }
         },
         dist: {
             dir: path.join(dirScripts, 'dist'),

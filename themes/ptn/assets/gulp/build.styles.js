@@ -53,10 +53,5 @@ $.task('build:styles:minify', function() {
 });
 
 $.task('build:styles', function(done) {
-    return $$.runSequence(
-        'build:styles:less',
-        'build:styles:bless',
-        'build:styles:minify',
-        done
-    );
+    return $$.runSequence('build:styles:less', 'build:styles:bless', 'build:styles:minify', done);
 });
