@@ -6,6 +6,7 @@ var $ = require('gulp'),
 $.task('watch', ['build'], function() {
     $.watch([
         paths.styles.src.shared.files,
+        paths.styles.src.pages.album.file,
         paths.vendors.styles.files
     ], ['build:styles']);
 
