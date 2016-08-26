@@ -1,0 +1,37 @@
+/******************** variables ********************/
+@import '../general/variables';
+
+/******************** vendors ********************/
+@import (less) '@{ptn-util__path_bower}/lightgallery/dist/css/lightgallery.css';
+
+/******************** overrides ********************/
+@font-face {
+  font-family: 'lg';
+  src: url('@{ptn-util__path_bower-public}/lightgallery/dist/fonts/lg.eot?n1z373');
+  src: url('@{ptn-util__path_bower-public}/lightgallery/dist/fonts/lg.eot?#iefixn1z373') format('embedded-opentype'), url('@{ptn-util__path_bower-public}/lightgallery/dist/fonts/lg.woff?n1z373') format('woff'), url('@{ptn-util__path_bower-public}/lightgallery/dist/fonts/lg.ttf?n1z373') format('truetype'), url('@{ptn-util__path_bower-public}/lightgallery/dist/fonts/lg.svg?n1z373#lg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.lg-outer {
+  .lg-thumb-outer {
+    background: @ptn-util__color_gray-2;
+  }
+
+  .lg-thumb {
+    margin-bottom: 0;
+    padding: @ptn-util__mardding_smaller 0;
+  }
+
+  .lg-thumb-item {
+    border: none;
+    border-radius: @ptn-util__border-radius_round;
+    margin-bottom: 0;
+    opacity: 0.5;
+
+    &:hover, &.active {
+      opacity: 1;
+      box-shadow: @ptn__box-shadow_lightgallery-thumb-highlighted;
+    }
+  }
+}

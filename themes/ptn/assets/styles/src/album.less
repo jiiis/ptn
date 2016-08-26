@@ -1,15 +1,2 @@
-/******************** path ********************/
-@ptn-util__path_bower: '../../vendors/bower';
-@ptn-util__path_lightgallery: '@{ptn-util__path_bower}/lightgallery/dist';
-
 /******************** lightgallery ********************/
-@import (less) '@{ptn-util__path_lightgallery}/css/lightgallery.css';
-
-/******************** override ********************/
-@font-face {
-  font-family: 'lg';
-  src: url('@{ptn-util__path_lightgallery}/fonts/lg.eot?n1z373');
-  src: url('@{ptn-util__path_lightgallery}/fonts/lg.eot?#iefixn1z373') format('embedded-opentype'), url('@{ptn-util__path_lightgallery}/fonts/lg.woff?n1z373') format('woff'), url('@{ptn-util__path_lightgallery}/fonts/lg.ttf?n1z373') format('truetype'), url('@{ptn-util__path_lightgallery}/fonts/lg.svg?n1z373#lg') format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
+@import 'widgets/lightgallery';
