@@ -19,6 +19,7 @@
             dropdown_menu: '.ptn-dropdown__menu',
             list_item: '.ptn-list__list-item',
             list_item_active: '.ptn-list__list-item_active',
+            list_item_link: '.ptn-list__list-item-link',
             sublist: '.ptn-list__list-item-sublist',
             sublist_trigger: '.ptn-list__list-item-link_sublist',
             fullscreen_trigger: '[data-ptn-action="fullscreen"]',
@@ -59,6 +60,12 @@
 
     /******************** event: DOM ready ********************/
     $(function() {
+        /******************** widget: waves ********************/
+        (function() {
+            Waves.attach(_selectors.list_item_link);
+            Waves.init();
+        })();
+
         /******************** widget: scrollbar ********************/
         (function() {
             _addScrollBar($(_selectors.aside), 'minimal-dark', 'y');
