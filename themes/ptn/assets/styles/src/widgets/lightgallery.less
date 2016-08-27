@@ -27,11 +27,37 @@
     border: none;
     border-radius: @ptn-util__border-radius_round;
     margin-bottom: 0;
-    opacity: 0.5;
+    opacity: 0.3;
 
     &:hover, &.active {
       opacity: 1;
-      box-shadow: @ptn__box-shadow_lightgallery-thumb-highlighted;
     }
+  }
+
+  .lg-toogle-thumb {
+    right: @ptn__mardding_button-floating;
+    padding: 0;
+    height: @ptn__size_button-floating;
+    width: @ptn__size_button-floating;
+    line-height: @ptn__size_button-floating;
+    color: @ptn__color_button-floating;
+    background: @ptn__background_button-floating;
+    border-radius: @ptn-util__border-radius_round;
+    box-shadow: @ptn__box-shadow_button-floating;
+    transition: all;
+    transition-duration: @ptn__animation-duration_button-floating;
+
+    &:hover {
+      color: @ptn__color_button-floating-highlighted;
+      transform: rotate(360deg);
+    }
+  }
+
+  &:not(.lg-thumb-open) .lg-toogle-thumb {
+    top: -(@ptn__size_button-floating + @ptn__mardding_button-floating);
+  }
+
+  &.lg-thumb-open .lg-toogle-thumb {
+    top: -(@ptn__size_button-floating / 2);
   }
 }

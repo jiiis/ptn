@@ -16,7 +16,8 @@
 @ptn-util__mardding_larger: 36px;
 @ptn-util__mardding_largest: 48px;
 
-@ptn-util__mardding_content-footer: 48px;
+@ptn__mardding_content-footer: 48px;
+@ptn__mardding_button-floating: 24px;
 
 /******************** margin ********************/
 @ptn__margin_header-menu-item-horizontal: 3px;
@@ -31,7 +32,7 @@
 /******************** padding ********************/
 @ptn__padding_aside-trigger-horizontal: (@ptn__height_header-nav-item - @ptn__width_line-wrap) / 2;
 @ptn__padding_aside-trigger-vertical: (@ptn__height_header-nav-item - @ptn__height_line-wrap) / 2;
-@ptn__padding_content-bottom: (@ptn__height_footer-row * 2 + @ptn__margin_footer-row-vertical + @ptn__margin_footer-bottom + @ptn-util__mardding_content-footer);
+@ptn__padding_content-bottom: (@ptn__height_footer-row * 2 + @ptn__margin_footer-row-vertical + @ptn__margin_footer-bottom + @ptn__mardding_content-footer);
 @ptn__padding_content-small-screen: @ptn-util__mardding_smaller @ptn-util__mardding_small @ptn__padding_content-bottom;
 @ptn__padding_content-large-screen: @ptn-util__mardding_smaller * 2 @ptn-util__mardding_small * 2 @ptn__padding_content-bottom;
 @ptn__padding_count: 1px 5px;
@@ -41,6 +42,7 @@
 @ptn__size_action: 30px;
 @ptn__size_action-icon: 18px;
 @ptn__size_aside-account-picture: 48px;
+@ptn__size_button-floating: 54px;
 
 /******************** width ********************/
 @ptn__width_header-menu-item: 48px;
@@ -111,10 +113,8 @@
 
 @ptn-util__color_highlight-light: @ptn-util__color_gray-2;
 @ptn-util__color_highlight-dark: @ptn-util__color_gray-e;
-
 @ptn-util__color_divider-light: @ptn-util__color_white;
 @ptn-util__color_divider-dark: @ptn-util__color_gray-e;
-
 @ptn-util__color_link: @ptn-util__color_gray-6;
 
 @ptn__color_header: @ptn-util__color_white;
@@ -122,6 +122,8 @@
 @ptn__color_footer-highlighted: @ptn-util__color_gray-6;
 @ptn__color_list-item-header: @ptn-util__color_gray-2;
 @ptn__color_media-header: @ptn-util__color_gray-2;
+@ptn__color_button-floating: @ptn-util__color_gray-6;
+@ptn__color_button-floating-highlighted: @ptn-util__color_gray-2;
 
 /******************** background ********************/
 @ptn-util__background_highlight-light: @ptn-util__color_gray-e;
@@ -133,6 +135,7 @@
 @ptn__background_aside-sublist-items: @ptn-util__color_gray-e;
 @ptn__background_dropdown-menu: @ptn-util__color_white;
 @ptn__background_progress: @ptn-util__color_gray-e;
+@ptn__background_button-floating: @ptn-util__color_white;
 
 /******************** border-radius ********************/
 @ptn-util__border-radius_1: 1px;
@@ -177,8 +180,7 @@
 @ptn__box-shadow_dropdown: 0 2px 10px rgba(0, 0, 0, 0.2);
 @ptn__box-shadow_aside-small-screen: 0 0 10px rgba(50, 50, 50, 0.4);
 @ptn__box-shadow_aside-large-screen: 0 1px 1px rgba(0, 0, 0, 0.1);
-@ptn__box-shadow_aside-account-picture: 0 2px 5px rgba(0, 0, 0, 0.16), 0 2px 10px rgba(0, 0, 0, 0.12);
-@ptn__box-shadow_lightgallery-thumb-highlighted: 0 0 0 3px rgba(255, 255, 255, 0.9);
+@ptn__box-shadow_button-floating: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 
 /******************** z-index ********************/
 @ptn-util__z-index_0: 0;
@@ -201,3 +203,4 @@
 @ptn__animation-duration_loader-dash: 1500ms;
 @ptn__animation-duration_loader-color: 6000ms;
 @ptn__animation-duration_empty-notifications-rotate: 300ms;
+@ptn__animation-duration_button-floating: 500ms;
