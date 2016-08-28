@@ -4,17 +4,21 @@
 
 # Package managers #
 ####################
-/vendor
+vendor
 node_modules
+
+# Credentials #
+###############
+config/filesystems.php
 
 # Logs #
 ########
 *.log
 
-# OS generated #
-################
-.DS_Store
-
 # IDE #
 #######
 .idea
+
+# OS generated #
+################
+.DS_Store

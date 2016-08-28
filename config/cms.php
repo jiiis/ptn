@@ -198,15 +198,15 @@ return [
     'storage' => [
 
         'uploads' => [
-            'disk'   => 'local',
-            'folder' => 'uploads',
-            'path'   => '/storage/app/uploads',
+            'disk'   => 's3',
+            'folder' => 'albums',
+            'path'   => 'https://s3-ap-southeast-2.amazonaws.com/ptn-public/albums',
         ],
 
         'media' => [
-            'disk'   => 'local',
+            'disk'   => 's3',
             'folder' => 'media',
-            'path'   => '/storage/app/media',
+            'path'   => 'https://s3-ap-southeast-2.amazonaws.com/ptn-public/media',
         ],
 
     ],
