@@ -200,13 +200,13 @@ return [
         'uploads' => [
             'disk'   => 's3',
             'folder' => 'albums',
-            'path'   => 'https://s3-ap-southeast-2.amazonaws.com/ptn-public/albums',
+            'path'   => 'https://d247rd9t0sddi4.cloudfront.net/albums',
         ],
 
         'media' => [
             'disk'   => 's3',
             'folder' => 'media',
-            'path'   => 'https://s3-ap-southeast-2.amazonaws.com/ptn-public/media',
+            'path'   => 'https://d247rd9t0sddi4.cloudfront.net/media',
         ],
 
     ],
