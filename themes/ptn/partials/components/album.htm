@@ -1,8 +1,8 @@
 {% set post = blogPost.post %}
 
 {% if post.featured_images.count %}
-<div class="card">
-    <div class="card-body">
+<div class="ptn-card">
+    <div class="ptn-card__body">
         <div id="lightbox" class="ptn-lightbox">
             {% for image in post.featured_images %}
             <div data-src="{{ image.path }}">
