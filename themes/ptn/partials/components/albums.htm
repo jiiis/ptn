@@ -1,39 +1,17 @@
 {% set posts = blogPosts.posts %}
 
-<ul class="post-list">
-    {% for post in posts %}
-    <li>
-        <h3><a href="{{ 'album' | page({album: post.slug}) }}">{{ post.title }}</a></h3>
-        <p class="info">
-            Posted
-            {% if post.categories.count %} in {% endif %}
-            {% for category in post.categories %}
-            <a href="{{ 'publisher' | page({publisher: category.slug}) }}">{{ category.name }}</a>{% if not loop.last %}, {% endif %}
+<div class="ptn-card">
+    <div class="ptn-card__body">
+        {% if posts.count %}
+        <div id="photos" class="ptn-photos ptn-row">
+            {% for post in posts %}
+            <div class="ptn-col col-xs-6 col-sm-4 col-md-3 col-lg-2">
+                <a class="ptn-photo" href="{{ 'album' | page({album: post.slug}) }}" target="_blank">
+                    <img class="ptn-photo__image" src="{{ post.featured_images[0].thumb(240, 240, {'mode': 'crop', extension: 'jpg'}) }}">
+                </a>
+            </div>
             {% endfor %}
-            on {{ post.published_at|date('M d, Y') }}
-        </p>
-
-        <p class="excerpt">{{ post.summary }}</p>
-    </li>
-    {% else %}
-    <li class="no-data">{{ noPostsMessage }}</li>
-    {% endfor %}
-</ul>
-
-{% if posts.lastPage > 1 %}
-<ul class="pagination">
-    {% if posts.currentPage > 1 %}
-    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage-1) }) }}">&larr; Prev</a></li>
-    {% endif %}
-
-    {% for page in 1..posts.lastPage %}
-    <li class="{{ posts.currentPage == page ? 'active' : null }}">
-        <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
-    </li>
-    {% endfor %}
-
-    {% if posts.lastPage > posts.currentPage %}
-    <li><a href="{{ this.page.baseFileName|page({ (pageParam): (posts.currentPage+1) }) }}">Next &rarr;</a></li>
-    {% endif %}
-</ul>
-{% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
