@@ -2,11 +2,12 @@
 
 (function(window) {
     /******************** lightgallery ********************/
-    $('#lightbox').lightGallery({
-        preload: 3,
+    $('#photos').lightGallery({
         closable: false,
-        hideBarsDelay: 3000,
         enableDrag: false,
+        preload: 5,
+        speed: 300,
+        hideBarsDelay: 3000,
         thumbMargin: 12,
         thumbWidth: 90,
         thumbContHeight: 114
