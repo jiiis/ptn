@@ -1,10 +1,18 @@
 .ptn-content {
-  padding: @ptn__padding_content-large-screen;
+  padding: @ptn__padding_content-lg-screen;
 
   .ptn-util__transition(all, @ptn-util__animation-duration_resize);
 
   @media (max-width: @screen-xs-max) {
-    padding: @ptn__padding_content-small-screen;
+    padding: @ptn__padding_content-xs-screen;
+  }
+
+  @media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    padding: @ptn__padding_content-sm-screen;
+  }
+
+  @media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    padding: @ptn__padding_content-md-screen;
   }
 }
 
