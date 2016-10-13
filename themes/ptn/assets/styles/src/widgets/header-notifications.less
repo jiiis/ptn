@@ -18,7 +18,7 @@
       background: url('@{ptn-util__path_assets-public}/images/widgets/notifications.png') no-repeat center;
 
       .opacity(0);
-      .scale-rotate(0, -180deg);
+      .ptn-util__transform_scale-rotate(0, -180deg);
       .ptn-util__transition(all, @ptn__animation-duration_empty-notifications-rotate);
     }
   }
@@ -33,7 +33,7 @@
   .ptn-list__body {
     &:before {
       .opacity(1);
-      .scale-rotate(1, 0deg);
+      .ptn-util__transform_scale-rotate(1, 0deg);
     }
   }
 }

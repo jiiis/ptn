@@ -104,6 +104,11 @@
   z-index: @zIndex;
 }
 
+/******************** transform ********************/
+.ptn-util__transform_scale-rotate(@scale, @rotate) {
+  transform: scale(@scale) rotate(@rotate);
+}
+
 /******************** transition ********************/
 .ptn-util__transition(@property, @duration) {
   .transition-property(@property);

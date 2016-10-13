@@ -1,0 +1,21 @@
+.ptn-photos {
+
+}
+
+.ptn-photo {
+  overflow: hidden;
+}
+
+.ptn-photo__image {
+  &:extend(.img-responsive);
+
+  width: 100%;
+  //border-radius: @ptn-util__border-radius_3;
+
+  .ptn-util__transition(all, @ptn-util__animation-duration_hover-image);
+
+  &:hover {
+    .ptn-util__transform_scale-rotate(1.2, 5deg);
+    .ptn-util__cursor_pointer;
+  }
+}

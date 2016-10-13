@@ -3,10 +3,12 @@
 {% if post.featured_images.count %}
 <div class="ptn-card">
     <div class="ptn-card__body">
-        <div id="lightbox" class="ptn-lightbox">
+        <div id="photos" class="ptn-photos ptn-row">
             {% for image in post.featured_images %}
-            <div data-src="{{ image.path }}">
-                <img src="{{ image.thumb(200, 200, {'mode': 'crop', extension: 'jpg'}) }}">
+            <div class="ptn-col col-xs-6 col-sm-4 col-md-3 col-lg-2" data-src="{{ image.path }}">
+                <div class="ptn-photo" >
+                    <img class="ptn-photo__image" src="{{ image.thumb(240, 240, {'mode': 'crop', extension: 'jpg'}) }}">
+                </div>
             </div>
             {% endfor %}
         </div>
