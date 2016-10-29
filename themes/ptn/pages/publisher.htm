@@ -7,7 +7,7 @@ is_hidden = 0
 [blogPosts]
 pageNumber = "{{ :page }}"
 categoryFilter = "{{ :publisher }}"
-postsPerPage = 24
+postsPerPage = 1
 noPostsMessage = "There is no album found by this publisher."
 sortOrder = "published_at desc"
 categoryPage = "publisher"
@@ -23,4 +23,4 @@ public function onInit()
 {% put title %}
 Publisher {% if category %}{{ ' | ' ~ category.name }}{% endif %}
 {% endput %}
-{% partial 'components/albums' %}
+{% partial 'components/albums-publisher' %}
