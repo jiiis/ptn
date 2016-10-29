@@ -23,9 +23,7 @@
     color: @ptn-util__color_gray-6;
     background: @ptn-util__color_gray-e;
 
-    &:hover {
-      .ptn-pagination__list-item-link_highlighted;
-    }
+    .ptn-util__text-hover(@ptn-util__color_white, @ptn-util__color_lightcoral);
 
     > .zmdi {
       line-height: inherit;
@@ -36,11 +34,7 @@
 
 .ptn-pagination__list-item_active {
   > .ptn-pagination__list-item-link {
-    .ptn-pagination__list-item-link_highlighted;
+    color: @ptn-util__color_white;
+    background: @ptn-util__color_lightcoral;
   }
-}
-
-.ptn-pagination__list-item-link_highlighted {
-  color: @ptn-util__color_white;
-  background: @ptn-util__color_lightcoral;
 }
