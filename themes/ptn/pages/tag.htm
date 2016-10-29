@@ -8,7 +8,7 @@ is_hidden = 0
 tag = "{{ :tag }}"
 pagination = 1
 page = "{{ :page }}"
-resultsPerPage = 24
+resultsPerPage = 1
 ==
 <?php
 public function onInit()
@@ -25,4 +25,4 @@ public function onEnd()
 {% put title %}
 Tag {% if tag %}{{ ' | ' ~ tags[tag.name] }}{% endif %}
 {% endput %}
-{% component 'blogTagSearch' %}
+{% partial 'components/albums-tag' %}

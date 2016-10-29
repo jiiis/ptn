@@ -1,8 +1,8 @@
 {% set posts = blogPosts.posts %}
 
 <div class="ptn-card">
+    {% if posts.count %}
     <div class="ptn-card__body">
-        {% if posts.count %}
         <div id="photos" class="ptn-photos ptn-row">
             {% for post in posts %}
             <div class="ptn-col col-xs-6 col-sm-4 col-md-3 col-lg-2">
@@ -12,8 +12,8 @@
             </div>
             {% endfor %}
         </div>
-        {% endif %}
     </div>
+    {% endif %}
     {% if posts.lastPage > 1 %}
     <div class="ptn-card__footer">
         <div class="ptn-pagination">
