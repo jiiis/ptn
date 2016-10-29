@@ -25,3 +25,15 @@
 
 /******************** bootstrap | link hover decoration ********************/
 @link-hover-decoration: none;
+
+
+/******************** october cms | strip loading indicator ********************/
+.stripe-loading-indicator {
+  height: @ptn__height_stripe-loading-indicator !important;
+
+  .stripe, .stripe-loaded {
+    height: @ptn__height_stripe-loading-indicator !important;
+    background: @ptn-util__color_red !important;
+    box-shadow: none !important;
+  }
+}
