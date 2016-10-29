@@ -14,4 +14,33 @@
         </div>
         {% endif %}
     </div>
+    {% if posts.lastPage > 1 %}
+    <div class="ptn-card__footer">
+        <div class="ptn-pagination">
+            <ul class="ptn-pagination__list">
+                {% if posts.currentPage > 1 %}
+                <li class="ptn-pagination__list-item">
+                    <a class="ptn-pagination__list-item-link" href="{{ this.page.baseFileName | page({(pageParam): (posts.currentPage - 1)}) }}">
+                        <i class="zmdi zmdi-chevron-left"></i>
+                    </a>
+                </li>
+                {% endif %}
+
+                {% for page in 1..posts.lastPage %}
+                <li class="ptn-pagination__list-item{% if posts.currentPage == page %} ptn-pagination__list-item_active{% endif %}">
+                    <a class="ptn-pagination__list-item-link" href="{{ this.page.baseFileName | page({(pageParam): page}) }}">{{ page }}</a>
+                </li>
+                {% endfor %}
+
+                {% if posts.lastPage > posts.currentPage %}
+                <li class="ptn-pagination__list-item">
+                    <a class="ptn-pagination__list-item-link" href="{{ this.page.baseFileName | page({(pageParam): (posts.currentPage + 1)}) }}">
+                        <i class="zmdi zmdi-chevron-right"></i>
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
 </div>
