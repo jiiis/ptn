@@ -1,0 +1,43 @@
+.ptn-util__loader(@size, @color: @ptn-util__color_black) {
+  width: @size;
+  height: @size;
+
+  svg {
+    transform-origin: center center;
+    animation: ptn-util__keyframes_loader-rotate 2000ms linear infinite;
+
+    circle {
+      stroke: @color;
+      stroke-width: 2;
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+      stroke-linecap: round;
+      stroke-miterlimit: 10;
+      fill: none;
+      animation: ptn-util__keyframes_loader-dash 1500ms ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes ptn-util__keyframes_loader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ptn-util__keyframes_loader-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dasharray: 90, 200;
+    stroke-dashoffset: -125px;
+  }
+}

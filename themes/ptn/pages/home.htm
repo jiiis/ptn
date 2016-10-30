@@ -1,0 +1,17 @@
+title = "Home"
+url = "/:page?|^[0-9]+$"
+layout = "ptn"
+description = "The home page displaying a list of all albums."
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+postsPerPage = 1
+noPostsMessage = "There is no album found."
+sortOrder = "published_at desc"
+categoryPage = "publisher"
+postPage = "album"
+==
+{% put title %}
+Home
+{% endput %}

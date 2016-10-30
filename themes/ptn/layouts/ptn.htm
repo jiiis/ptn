@@ -1,0 +1,62 @@
+description = "The default layout template."
+
+[blogCategories]
+slug = "{{ :slug }}"
+displayEmpty = 0
+categoryPage = "publisher"
+
+[blogTags]
+hideOrphans = 0
+results = 0
+orderBy = 0
+direction = "desc"
+==
+<?php
+use Ptn\Tag;
+
+public function onInit()
+{
+    $this['app'] = [
+        'name' => Config::get('ptn.app_name'),
+        'nameAcronym' => Config::get('ptn.app_name_acronym'),
+    ];
+}
+
+public function onBeforePageStart()
+{
+    $tagSlugs = array_map(function($tagObject) {
+        return $tagObject->name;
+    }, iterator_to_array($this->blogTags->tags));
+
+    $filterTags = function($tags) use ($tagSlugs) {
+        return array_filter($tags, function($tagSlug) use ($tagSlugs) {
+            return in_array($tagSlug, $tagSlugs);
+        }, ARRAY_FILTER_USE_KEY);
+    };
+
+    $this['regionTags'] = $filterTags(Tag::REGIONS);
+    $this['typeTags'] = $filterTags(Tag::TYPES);
+    $this['styleTags'] = $filterTags(Tag::STYLES);
+    $this['textureTags'] = $filterTags(Tag::TEXTURES);
+    $this['colorTags'] = $filterTags(Tag::COLORS);
+
+    $this['tags'] = array_merge(Tag::REGIONS, Tag::TYPES, Tag::STYLES, Tag::TEXTURES, Tag::COLORS);
+}
+?>
+==
+<!doctype html>
+<!--[if IE 9 ]>
+<html lang="en" class="ptn-html_ie9">
+<![endif]-->
+<!--[if !IE 9 ]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <title>{{ app.nameAcronym }} | {% placeholder title %}</title>
+
+    {% partial 'assets/top' %}
+</head>
+<body>
+    {% partial 'widgets/page_loader' %}
+</body>
+</html>
