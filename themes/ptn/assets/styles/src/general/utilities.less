@@ -1,2 +1,16 @@
 /******************** flex ********************/
 @import 'utilities/flex';
+
+/******************** transition ********************/
+.ptn-util__transition(@property: all, @duration: 150ms, @timingFunction: linear, @delay: 0ms) {
+  transition: @property @duration @timingFunction @delay;
+}
+
+/******************** transform ********************/
+.ptn-util__scale(@ratio) {
+  transform: scale(@ratio);
+}
+
+.ptn-util__rotate(@degrees) {
+  transform: rotate(@degrees);
+}
