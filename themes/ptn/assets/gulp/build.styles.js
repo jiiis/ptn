@@ -16,7 +16,7 @@ $.task('build:styles:less', function() {
         .pipe($$.less({
             plugins: [
                 new $$.lessPluginAutoprefix({
-                    browsers: ['last 2 versions']
+                    browsers: ['last 3 versions']
                 }),
                 new $$.lessPluginCsscomb()
             ]
