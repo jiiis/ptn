@@ -1,6 +1,13 @@
 /******************** flex ********************/
 @import 'utilities/flex';
 
+/******************** opacity ********************/
+.ptn-util__opacity(@opacity) {
+  opacity: @opacity;
+  @opacity-ie: (@opacity * 100);
+  filter: ~'alpha(opacity=@{opacity-ie})';
+}
+
 /******************** transition ********************/
 .ptn-util__transition(@property: all, @duration: 150ms, @timingFunction: ease-in-out, @delay: 0ms) {
   transition: @property @duration @timingFunction @delay;
@@ -13,4 +20,13 @@
 
 .ptn-util__rotate(@degrees) {
   transform: rotate(@degrees);
+}
+
+.ptn-util__translate3d(@x, @y, @z) {
+  transform: translate3d(@x, @y, @z);
+}
+
+/******************** user-select ********************/
+.ptn-util__user-select_none {
+  user-select: none;
 }

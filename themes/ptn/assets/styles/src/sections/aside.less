@@ -1,0 +1,24 @@
+.ptn-aside {
+  overflow-y: auto;
+  position: fixed;
+  top: 60px;
+  width: 270px;
+  height: ~'calc(100% - 60px)';
+  background: @ptn-util__color_pastel-blue;
+
+  z-index: @ptn__z-index_aside;
+
+  .ptn-util__translate3d(-270px, 0, 0);
+  .ptn-util__transition(all, @ptn-util__duration_200);
+  .ptn-util__user-select_none;
+
+  &.ptn-util__widget_on {
+    box-shadow: @ptn-util__box-shadow_center-1;
+
+    .ptn-util__translate3d(0, 0, 0);
+
+    @media (max-width: @ptn-util__screen_md-max) {
+      box-shadow: @ptn-util__box-shadow_center-2;
+    }
+  }
+}

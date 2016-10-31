@@ -15,7 +15,7 @@
 
 @ptn-util__screen_xs-max: @ptn-util__screen_sm-min - 1;
 @ptn-util__screen_sm-max: @ptn-util__screen_md-min - 1;
-@ptn-util__screen_md-max: @ptn-util__screen_lg-min - 1;
+@ptn-util__screen_md-max: (@ptn-util__screen_lg-min - 1);
 
 /******************** color ********************/
 @ptn-util__color_selago: #e6dde4;
@@ -38,8 +38,13 @@
 @ptn-util__box-shadow_4: 0 16px 28px 0 rgba(0, 0, 0, 0.22), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
 @ptn-util__box-shadow_5: 0 27px 24px 0 rgba(0, 0, 0, 0.2), 0 40px 77px 0 rgba(0, 0, 0, 0.22);
 
+@ptn-util__box-shadow_center-1: 0 0 6px 0 rgba(0, 0, 0, 0.3);
+@ptn-util__box-shadow_center-2: 0 0 48px 1px rgba(0, 0, 0, 0.3);
+
 /******************** z-index ********************/
 @ptn__z-index_page-loader: 1000;
+@ptn__z-index_header: 11;
+@ptn__z-index_aside: 10;
 
 /******************** duration ********************/
 @ptn-util__duration_100: 100ms;
