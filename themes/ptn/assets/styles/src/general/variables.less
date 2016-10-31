@@ -2,6 +2,21 @@
 @ptn-util__path_vendors: '../../../vendors';
 @ptn-util__path_vendors-public: '/themes/ptn/assets/vendors';
 
+/******************** screen ********************/
+@ptn-util__screen_xs: 480px;
+@ptn-util__screen_sm: 768px;
+@ptn-util__screen_md: 992px;
+@ptn-util__screen_lg: 1200px;
+
+@ptn-util__screen_xs-min: @ptn-util__screen_xs;
+@ptn-util__screen_sm-min: @ptn-util__screen_sm;
+@ptn-util__screen_md-min: @ptn-util__screen_md;
+@ptn-util__screen_lg-min: @ptn-util__screen_lg;
+
+@ptn-util__screen_xs-max: @ptn-util__screen_sm-min - 1;
+@ptn-util__screen_sm-max: @ptn-util__screen_md-min - 1;
+@ptn-util__screen_md-max: @ptn-util__screen_lg-min - 1;
+
 /******************** color ********************/
 @ptn-util__color_selago: #e6dde4;
 @ptn-util__color_pastel-blue: #afccca;
