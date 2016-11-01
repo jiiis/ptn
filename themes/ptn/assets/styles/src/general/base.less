@@ -9,13 +9,14 @@
   }
 }
 
-*, *:active, *:hover {
+*, *:focus, *:hover, *:active {
   outline: none !important;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
 }
 
 html, body {
   min-height: 100vh;
+  color: @ptn__color_text;
   font-size: 10px;
 }
 
@@ -29,6 +30,11 @@ body {
   font-family: roboto, Helvetica, Arial, sans-serif;
 }
 
+ol, ul {
+  list-style: none;
+}
+
 a {
+  color: @ptn__color_text;
   text-decoration: none;
 }
