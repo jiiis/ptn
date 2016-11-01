@@ -15,19 +15,20 @@
 }
 
 html, body {
-  min-height: 100vh;
-  color: @ptn__color_text;
-  font-size: 10px;
+
 }
 
 html {
   overflow-x: ~"hidden\0/";
   -ms-overflow-style: none;
+  font-family: roboto, Helvetica, Arial, sans-serif;
+  font-size: 10px;
 }
 
 body {
+  min-height: 100vh;
+  color: @ptn-util__color_lighter;
   background: @ptn-util__color_darker;
-  font-family: roboto, Helvetica, Arial, sans-serif;
 
   .ptn-util__user-select_none;
 }
@@ -37,6 +38,6 @@ ol, ul {
 }
 
 a {
-  color: @ptn__color_text;
+  color: @ptn-util__color_lighter;
   text-decoration: none;
 }
