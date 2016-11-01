@@ -9,7 +9,7 @@
 }
 
 /******************** transition ********************/
-.ptn-util__transition(@property: all, @duration: 150ms, @timingFunction: ease-in-out, @delay: 0ms) {
+.ptn-util__transition(@property: all, @duration: @ptn-util__duration_faster, @timingFunction: ease-in-out, @delay: 0ms) {
   transition: @property @duration @timingFunction @delay;
 }
 
@@ -29,4 +29,19 @@
 /******************** user-select ********************/
 .ptn-util__user-select_none {
   user-select: none;
+}
+
+/******************** pointer-events ********************/
+.ptn-util__pointer-events_none {
+  pointer-events: none;
+}
+
+/******************** hover ********************/
+.ptn-util__text-hover(@color, @background) {
+  &:hover {
+    color: @color;
+    background: @background;
+  }
+
+  .ptn-util__transition(all, @ptn-util__duration_fast);
 }
