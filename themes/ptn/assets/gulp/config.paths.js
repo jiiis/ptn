@@ -65,7 +65,7 @@ module.exports = {
             pages: {
                 album: {
                     files: [
-                        path.join(dirVendors, 'lightgallery', 'dist', 'js', 'lightgallery-all.js'),
+                        path.join(dirVendors, 'lightgallery', 'lib', 'lightgallery-all.js'),
                         path.join(dirScripts, 'src', 'album.js')
                     ]
                 }
