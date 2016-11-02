@@ -1,0 +1,29 @@
+title = "Album"
+url = "/album/:album"
+layout = "ptn"
+description = "The page displaying an album."
+is_hidden = 0
+
+[blogPost]
+slug = "{{ :album }}"
+categoryPage = "publisher"
+==
+<?php
+public function onEnd()
+{
+    $this['album'] = $this->blogPost->post;
+
+    $this['albumPublisherSlugs'] = array_map(function($publisher) {
+        return $publisher->slug;
+    }, iterator_to_array($this->album->categories));
+
+    $this['albumTagSlugs'] = array_map(function($tag) {
+        return $tag->name;
+    }, iterator_to_array($this->album->tags));
+}
+?>
+==
+{% put title %}
+Album {% if post %}{{ ' | ' ~ post.title }}{% endif %}
+{% endput %}
+{% partial 'components/album' %}
