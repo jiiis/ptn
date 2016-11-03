@@ -1,6 +1,9 @@
 /******************** variables ********************/
 @import '../general/variables';
 
+/******************** utilities ********************/
+@import '../general/utilities';
+
 /******************** vendors ********************/
 @import (less) '@{ptn-util__path_vendors}/lightgallery/dist/css/lightgallery.css';
 
@@ -9,8 +12,10 @@
   font-family: 'lg';
   src: url('@{ptn-util__path_vendors-public}/lightgallery/dist/fonts/lg.eot?n1z373');
   src: url('@{ptn-util__path_vendors-public}/lightgallery/dist/fonts/lg.eot?#iefixn1z373') format('embedded-opentype'), url('@{ptn-util__path_vendors-public}/lightgallery/dist/fonts/lg.woff?n1z373') format('woff'), url('@{ptn-util__path_vendors-public}/lightgallery/dist/fonts/lg.ttf?n1z373') format('truetype'), url('@{ptn-util__path_vendors-public}/lightgallery/dist/fonts/lg.svg?n1z373#lg') format('svg');
-  font-weight: normal;
-  font-style: normal;
+}
+
+.lg-backdrop {
+  background: @ptn-util__color_darkest;
 }
 
 .lg-outer {
@@ -30,19 +35,14 @@
     }
   }
 
-  .lg-img-wrap {
-    padding: 0;
-
-    &:before {
-      height: 100%;
-      vertical-align: middle;
-    }
+  .lg-toolbar {
+    background: @ptn-util__color_dark_transparent;
   }
 
   .lg-item {
     &.lg-complete.lg-zoomable {
       .lg-image {
-        transition: all 0.25s cubic-bezier(0, 0, .25, 1) 0s !important;
+        .ptn-util__transition(all, @ptn-util__duration_fast) !important;
       }
     }
 
@@ -66,9 +66,20 @@
     }
   }
 
+  .lg-img-wrap {
+    padding: 0;
+
+    &:before {
+      height: 100%;
+      vertical-align: middle;
+    }
+  }
+
   .lg-thumb-outer {
     padding: 12px 0 12px 12px;
-    background: @ptn-util__color_white_transparent;
+    background: @ptn-util__color_darker;
+
+    .ptn-util__transition(all, @ptn-util__duration_fast) !important;
   }
 
   .lg-thumb {
@@ -80,10 +91,12 @@
     border: none;
     border-radius: 50%;
     margin-bottom: 0;
-    opacity: 0.35;
+
+    .ptn-util__opacity(0.35);
+    .ptn-util__transition(all, @ptn-util__duration_faster);
 
     &:hover, &.active {
-      opacity: 1;
+      .ptn-util__opacity(1);
     }
   }
 
@@ -93,26 +106,24 @@
     height: 54px;
     width: 54px;
     line-height: 54px;
-    color: @ptn-util__color_dark;
-    background: @ptn-util__color_lightest;
     border-radius: 50%;
-    box-shadow: @ptn-util__box-shadow_3;
-    transition: all;
-    transition-duration: @ptn-util__duration_medium;
+    color: @ptn-util__color_darkest !important;
+    background: @ptn-util__color_lightest;
+
+    .ptn-util__transition(all, @ptn-util__duration_medium);
 
     &:hover {
-      color: @ptn-util__color_darker;
-      transform: rotate(360deg);
+      .ptn-util__rotate(360deg);
     }
   }
 }
 
 @keyframes loader {
   0% {
-    transform: rotate(0deg);
+    .ptn-util__rotate(0deg);
   }
 
   100% {
-    transform: rotate(360deg);
+    .ptn-util__rotate(360deg);
   }
 }
