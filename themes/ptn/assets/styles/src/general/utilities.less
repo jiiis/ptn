@@ -22,6 +22,10 @@
   transform: rotate(@degrees);
 }
 
+.ptn-util__scale_rotate(@ratio, @degrees) {
+  transform: scale(@ratio) rotate(@degrees);
+}
+
 .ptn-util__translate3d(@x, @y, @z) {
   transform: translate3d(@x, @y, @z);
 }
@@ -44,4 +48,16 @@
   }
 
   .ptn-util__transition(all, @ptn-util__duration_fast);
+}
+
+/******************** clearfix ********************/
+.ptn-util__clearfix {
+  &:before, &:after {
+    content: ' ';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
 }
