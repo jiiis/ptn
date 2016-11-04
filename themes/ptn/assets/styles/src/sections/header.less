@@ -11,11 +11,12 @@
   .ptn-util__transition(all, @ptn-util__duration_faster);
 
   @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_md-max) {
-    padding: 0 0 0 12px;
+    padding: 0 12px;
   }
 
   @media (max-width: @ptn-util__screen_xs-max) {
     padding: 0 9px;
+    height: 48px;
   }
 }
 
@@ -75,5 +76,10 @@
     height: 24px;
 
     .ptn-util__pointer-events_none;
+    .ptn-util__transition(all, @ptn-util__duration_faster);
+
+    @media (max-width: @ptn-util__screen_xs-max) {
+      height: 22px;
+    }
   }
 }
