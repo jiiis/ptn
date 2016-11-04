@@ -1,0 +1,28 @@
+title = "Tag"
+url = "/tag/:tag/:page?|^[0-9]+$"
+layout = "ptn"
+description = "The page displaying a list of albums by a specific tag."
+is_hidden = 0
+
+[blogTagSearch]
+tag = "{{ :tag }}"
+pagination = 1
+page = "{{ :page }}"
+resultsPerPage = 1
+==
+<?php
+public function onInit()
+{
+    $this['currentTagSlug'] = $this->param('tag');
+}
+
+public function onEnd()
+{
+    $this['tag'] = $this->blogTagSearch->tag;
+}
+?>
+==
+{% put title %}
+Tag {% if tag %}{{ ' | ' ~ tags[tag.name] }}{% endif %}
+{% endput %}
+{% partial 'components/albums-tag' %}
