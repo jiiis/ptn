@@ -1,0 +1,26 @@
+title = "Publisher"
+url = "/publisher/:publisher/:page?|^[0-9]+$"
+layout = "ptn"
+description = "The page displaying a list of albums by a specific publisher."
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page }}"
+categoryFilter = "{{ :publisher }}"
+postsPerPage = 1
+noPostsMessage = "There is no album found by this publisher."
+sortOrder = "published_at desc"
+categoryPage = "publisher"
+postPage = "album"
+==
+<?php
+public function onInit()
+{
+    $this['currentPublisherSlug'] = $this->param('publisher');
+}
+?>
+==
+{% put title %}
+Publisher {% if category %}{{ ' | ' ~ category.name }}{% endif %}
+{% endput %}
+{% partial 'components/albums-publisher' %}
