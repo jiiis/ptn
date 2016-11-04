@@ -8,7 +8,7 @@
   z-index: @ptn__z-index_header;
 
   .ptn__flex-container_horizontal(start, center);
-  .ptn-util__transition(all, @ptn-util__duration_faster);
+  .ptn-util__transition;
 
   @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_md-max) {
     padding: 0 12px;
@@ -35,8 +35,8 @@
     border-radius: 3px;
     background: @ptn-util__color_white_transparent;
 
+    .ptn-util__transition;
     .ptn-util__scale(0);
-    .ptn-util__transition(all, @ptn-util__duration_faster);
   }
 
   &.ptn-util__trigger_on {
@@ -49,7 +49,7 @@
 .ptn-header__logo {
   margin: 0 0 0 12px;
 
-  .ptn-util__transition(all, @ptn-util__duration_faster);
+  .ptn-util__transition;
 
   @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_md-max) {
     margin: 0 0 0 9px;
@@ -76,7 +76,7 @@
     height: 24px;
 
     .ptn-util__pointer-events_none;
-    .ptn-util__transition(all, @ptn-util__duration_faster);
+    .ptn-util__transition;
 
     @media (max-width: @ptn-util__screen_xs-max) {
       height: 22px;
