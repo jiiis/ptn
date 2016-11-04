@@ -8,6 +8,15 @@
   z-index: @ptn__z-index_header;
 
   .ptn__flex-container_horizontal(start, center);
+  .ptn-util__transition(all, @ptn-util__duration_faster);
+
+  @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_md-max) {
+    padding: 0 0 0 12px;
+  }
+
+  @media (max-width: @ptn-util__screen_xs-max) {
+    padding: 0 9px;
+  }
 }
 
 .ptn-header__aside-trigger {
@@ -37,7 +46,17 @@
 }
 
 .ptn-header__logo {
-  margin: 0 0 0 18px;
+  margin: 0 0 0 12px;
+
+  .ptn-util__transition(all, @ptn-util__duration_faster);
+
+  @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_md-max) {
+    margin: 0 0 0 9px;
+  }
+
+  @media (max-width: @ptn-util__screen_xs-max) {
+    margin: 0 0 0 6px;
+  }
 }
 
 .ptn-header__logo-link {
@@ -51,7 +70,7 @@
 
   > img {
     position: relative;
-    top: -3px;
+    top: -2px;
     margin: 0 0 0 3px;
     height: 24px;
 
