@@ -1,0 +1,12 @@
+<div class="ptn-card">
+    {% if blogTagSearch.posts.count %}
+    <div id="card-albums-body" class="ptn-card__body">
+        {% partial "components/albums-tag-result" %}
+    </div>
+    {% endif %}
+    {% if blogTagSearch.lastPage > 1 %}
+    <div id="card-albums-footer" class="ptn-card__footer">
+        {% partial "components/albums-tag-pagination" %}
+    </div>
+    {% endif %}
+</div>

@@ -1,0 +1,44 @@
+<div class="ptn-pagination">
+    <ul class="ptn-pagination__list">
+        {% if blogTagSearch.previousPage %}
+        <li class="ptn-pagination__list-item">
+            <a
+                    class="ptn-pagination__list-item-link"
+                    data-request="onLoadPage"
+                    data-request-data="page: {{ blogTagSearch.previousPage }}"
+                    data-request-update="
+                            'components/albums-tag-result': '#card-albums-body',
+                            'components/albums-tag-pagination': '#card-albums-footer',
+                ">
+                <i class="zmdi zmdi-chevron-left"></i>
+            </a>
+        </li>
+        {% endif %}
+        {% for page in 1..blogTagSearch.lastPage %}
+        <li class="ptn-pagination__list-item{% if blogTagSearch.currentPage == page %} ptn-pagination__list-item_active{% endif %}">
+            <a
+                    class="ptn-pagination__list-item-link"
+                    data-request="onLoadPage"
+                    data-request-data="page: {{ page }}"
+                    data-request-update="
+                            'components/albums-tag-result': '#card-albums-body',
+                            'components/albums-tag-pagination': '#card-albums-footer',
+                ">{{ page }}</a>
+        </li>
+        {% endfor %}
+        {% if blogTagSearch.nextPage %}
+        <li class="ptn-pagination__list-item">
+            <a
+                    class="ptn-pagination__list-item-link"
+                    data-request="onLoadPage"
+                    data-request-data="page: {{ blogTagSearch.nextPage }}"
+                    data-request-update="
+                        'components/albums-tag-result': '#card-albums-body',
+                        'components/albums-tag-pagination': '#card-albums-footer',
+                ">
+                <i class="zmdi zmdi-chevron-right"></i>
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
