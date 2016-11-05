@@ -20,15 +20,6 @@
     }
   }
 
-  @media (max-width: @ptn-util__screen_xs-max) {
-    top: 48px;
-    height: ~'calc(100% - 48px)';
-  }
-}
-
-.ptn-aside__menu {
-  position: relative;
-
   > .ptn-list {
     > .ptn-list__list {
       > .ptn-list__item {
@@ -37,5 +28,10 @@
         }
       }
     }
+  }
+
+  @media (max-width: @ptn-util__screen_xs-max) {
+    top: 48px;
+    height: ~'calc(100% - 48px)';
   }
 }

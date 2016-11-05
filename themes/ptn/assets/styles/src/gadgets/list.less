@@ -5,10 +5,6 @@
 .ptn-list_sublist {
   background: @ptn-util__color_darker;
 
-  .ptn-list__item {
-    padding: 0 0 0 36px;
-  }
-
   .ptn-list__item_active {
     &:before {
       content: '';
@@ -25,7 +21,14 @@
   }
 
   .ptn-list__link {
+    padding: 0 0 0 54px;
     height: 36px;
+  }
+
+  .ptn-list_sublist {
+    .ptn-list__link {
+      padding: 0 0 0 108px;
+    }
   }
 }
 
@@ -34,7 +37,7 @@
 }
 
 .ptn-list__item {
-
+  position: relative;
 }
 
 .ptn-list__item_active {
