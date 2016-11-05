@@ -8,6 +8,13 @@
   filter: ~'alpha(opacity=@{opacity-ie})';
 }
 
+/******************** text ********************/
+.ptn-util__text-overflow_truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /******************** transition ********************/
 .ptn-util__transition(@property: all, @duration: @ptn-util__duration_faster, @timingFunction: ease-in-out, @delay: 0ms) {
   transition: @property @duration @timingFunction @delay;

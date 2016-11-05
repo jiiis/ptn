@@ -1,2 +1,205 @@
 <aside id="aside" class="ptn-aside">
+    <div class="ptn-aside__menu">
+        <div class="ptn-list">
+            <ul class="ptn-list__list">
+                <li class="ptn-list__item{% if this.page.id == 'home' %} ptn-list__item_active{% endif %}">
+                    <a class="ptn-list__link" href="{{ '/' | app }}">
+                        <div class="ptn-list__item-icon">
+                            <i class="zmdi zmdi-home"></i>
+                        </div>
+                        <p class="ptn-list__item-text">Home</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="ptn-list">
+            <ul class="ptn-list__list">
+                <li class="ptn-list__item ptn-list__item_sublist">
+                    <a class="ptn-list__link">
+                        <div class="ptn-list__item-icon">
+                            <i class="zmdi zmdi-balance"></i>
+                        </div>
+                        <p class="ptn-list__item-text">Publishers</p>
+                    </a>
+                    <div class="ptn-list ptn-list_sublist">
+                        <ul class="ptn-list__list">
+                            {% for publisher in categories %}
+                            <li class="ptn-list__item{% if publisher.slug == currentPublisherSlug or publisher.slug in albumPublisherSlugs %} ptn-list__item_active{% endif %}">
+                                <a class="ptn-list__link" href="{{ 'publisher' | page({publisher: publisher.slug}) }}">
+                                    <p class="ptn-list__item-text">{{ publisher.name }}</p>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="ptn-list">
+            <ul class="ptn-list__list">
+                <li class="ptn-list__item ptn-list__item_sublist">
+                    <a class="ptn-list__link">
+                        <div class="ptn-list__item-icon">
+                            <i class="zmdi zmdi-globe"></i>
+                        </div>
+                        <p class="ptn-list__item-text">Regions</p>
+                    </a>
+                    <div class="ptn-list ptn-list_sublist">
+                        <ul class="ptn-list__list">
+                            {% for tagSlug, tagName in regionTags %}
+                            <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
+                                <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
+                                    <p class="ptn-list__item-text">{{ tagName }}</p>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="ptn-list">
+            <ul class="ptn-list__list">
+                <li class="ptn-list__item ptn-list__item_sublist">
+                    <a class="ptn-list__link">
+                        <div class="ptn-list__item-icon">
+                            <i class="zmdi zmdi-labels"></i>
+                        </div>
+                        <p class="ptn-list__item-text">Types</p>
+                    </a>
+                    <div class="ptn-list ptn-list_sublist">
+                        <ul class="ptn-list__list">
+                            {% for tagSlug, tagName in typeTags %}
+                            <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
+                                <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
+                                    <p class="ptn-list__item-text">{{ tagName }}</p>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="ptn-list">
+            <ul class="ptn-list__list">
+                <li class="ptn-list__item ptn-list__item_sublist">
+                    <a class="ptn-list__link">
+                        <div class="ptn-list__item-icon">
+                            <i class="zmdi zmdi-looks"></i>
+                        </div>
+                        <p class="ptn-list__item-text">Styles</p>
+                    </a>
+                    <div class="ptn-list ptn-list_sublist">
+                        <ul class="ptn-list__list">
+                            {% for tagSlug, tagName in styleTags %}
+                            <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
+                                <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
+                                    <p class="ptn-list__item-text">{{ tagName }}</p>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="ptn-list">
+            <ul class="ptn-list__list">
+                <li class="ptn-list__item ptn-list__item_sublist">
+                    <a class="ptn-list__link">
+                        <div class="ptn-list__item-icon">
+                            <i class="zmdi zmdi-blur"></i>
+                        </div>
+                        <p class="ptn-list__item-text">Textures</p>
+                    </a>
+                    <div class="ptn-list ptn-list_sublist">
+                        <ul class="ptn-list__list">
+                            {% for tagSlug, tagName in textureTags %}
+                            <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
+                                <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
+                                    <p class="ptn-list__item-text">{{ tagName }}</p>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="ptn-list">
+            <ul class="ptn-list__list">
+                <li class="ptn-list__item ptn-list__item_sublist">
+                    <a class="ptn-list__link">
+                        <div class="ptn-list__item-icon">
+                            <i class="zmdi zmdi-cocktail"></i>
+                        </div>
+                        <p class="ptn-list__item-text">Colors</p>
+                    </a>
+                    <div class="ptn-list ptn-list_sublist">
+                        <ul class="ptn-list__list">
+                            {% for tagSlug, tagName in colorTags %}
+                            <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
+                                <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
+                                    <p class="ptn-list__item-text">{{ tagName }}</p>
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="ptn-list">
+            <ul class="ptn-list__list">
+                <li class="ptn-list__item ptn-list__item_sublist">
+                    <a class="ptn-list__link">
+                        <div class="ptn-list__item-icon">
+                            <i class="zmdi zmdi-fire"></i>
+                        </div>
+                        <p class="ptn-list__item-text">Deep menu</p>
+                    </a>
+                    <div class="ptn-list ptn-list_sublist">
+                        <ul class="ptn-list__list">
+                            <li class="ptn-list__item">
+                                <a class="ptn-list__link">
+                                    <p class="ptn-list__item-text">Level 2</p>
+                                </a>
+                            </li>
+                            <li class="ptn-list__item">
+                                <a class="ptn-list__link">
+                                    <p class="ptn-list__item-text">Level 2</p>
+                                </a>
+                                <div class="ptn-list ptn-list_sublist">
+                                    <ul class="ptn-list__list">
+                                        <li class="ptn-list__item">
+                                            <a class="ptn-list__link">
+                                                <p class="ptn-list__item-text">Level 3</p>
+                                            </a>
+                                        </li>
+                                        <li class="ptn-list__item ptn-list__item_active">
+                                            <a class="ptn-list__link">
+                                                <p class="ptn-list__item-text">Level 3</p>
+                                            </a>
+
+                                        </li>
+                                        <li class="ptn-list__item">
+                                            <a class="ptn-list__link">
+                                                <p class="ptn-list__item-text">Level 3</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="ptn-list__item">
+                                <a class="ptn-list__link">
+                                    <p class="ptn-list__item-text">Level 2</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </aside>

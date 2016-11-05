@@ -5,7 +5,6 @@
   width: 270px;
   height: ~'calc(100% - 60px)';
   background: @ptn-util__color_dark;
-
   z-index: @ptn__z-index_aside;
 
   .ptn-util__transition;
@@ -24,5 +23,19 @@
   @media (max-width: @ptn-util__screen_xs-max) {
     top: 48px;
     height: ~'calc(100% - 48px)';
+  }
+}
+
+.ptn-aside__menu {
+  position: relative;
+
+  > .ptn-list {
+    > .ptn-list__list {
+      > .ptn-list__item {
+        > .ptn-list__link, > .ptn-list_sublist {
+          border-bottom: 1px solid @ptn-util__color_darker;
+        }
+      }
+    }
   }
 }
