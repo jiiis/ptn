@@ -15,28 +15,6 @@
   white-space: nowrap;
 }
 
-/******************** transition ********************/
-.ptn-util__transition(@property: all, @duration: @ptn-util__duration_faster, @timingFunction: ease-in-out, @delay: 0ms) {
-  transition: @property @duration @timingFunction @delay;
-}
-
-/******************** transform ********************/
-.ptn-util__scale(@ratio) {
-  transform: scale(@ratio);
-}
-
-.ptn-util__rotate(@degrees) {
-  transform: rotate(@degrees);
-}
-
-.ptn-util__scale_rotate(@ratio, @degrees) {
-  transform: scale(@ratio) rotate(@degrees);
-}
-
-.ptn-util__translate3d(@x, @y, @z) {
-  transform: translate3d(@x, @y, @z);
-}
-
 /******************** user-select ********************/
 .ptn-util__user-select_none {
   user-select: none;
@@ -67,4 +45,30 @@
   &:after {
     clear: both;
   }
+}
+
+/******************** transition ********************/
+.ptn-util__transition(@property: all, @duration: @ptn-util__duration_faster, @timingFunction: ease-in-out, @delay: 0ms) {
+  transition: @property @duration @timingFunction @delay;
+}
+
+/******************** transform ********************/
+.ptn-util__scale(@ratio) {
+  transform: scale(@ratio);
+}
+
+.ptn-util__scale(@ratioX, @ratioY) {
+  transform: scale(@ratioX, @ratioY);
+}
+
+.ptn-util__rotate(@degrees) {
+  transform: rotate(@degrees);
+}
+
+.ptn-util__scale_rotate(@ratio, @degrees) {
+  transform: scale(@ratio) rotate(@degrees);
+}
+
+.ptn-util__translate3d(@x, @y, @z) {
+  transform: translate3d(@x, @y, @z);
 }

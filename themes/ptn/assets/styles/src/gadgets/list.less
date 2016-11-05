@@ -6,23 +6,18 @@
   background: @ptn-util__color_darker;
 
   .ptn-list__item_active {
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      width: 6px;
-      height: 36px;
-      background: @ptn-util__color_red;
-    }
-
     .ptn-list__link {
-      background: initial;
+      .ptn-list__link-highlighted_sublist;
     }
   }
 
   .ptn-list__link {
     padding: 0 0 0 54px;
     height: 36px;
+
+    &:hover {
+      .ptn-list__link-highlighted_sublist;
+    }
   }
 
   .ptn-list_sublist {
@@ -37,22 +32,49 @@
 }
 
 .ptn-list__item {
-  position: relative;
+
+}
+
+.ptn-list__item_sublist {
+  > .ptn-list__link {
+    &:hover {
+      background: initial;
+    }
+  }
 }
 
 .ptn-list__item_active {
-  .ptn-list__link {
-    background: @ptn-util__color_red;
+  > .ptn-list__link {
+    .ptn-list__link-highlighted;
   }
 }
 
 .ptn-list__link {
+  position: relative;
   padding: 0 0 0 18px;
   height: 48px;
   box-sizing: content-box;
   cursor: pointer;
 
   .ptn__flex-container_horizontal(start, center);
+  .ptn-util__transition;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 6px;
+    height: 36px;
+    background: @ptn-util__color_red;
+    opacity: 0;
+
+    .ptn-util__transition;
+    .ptn-util__scale(1, 0);
+  }
+
+  &:hover {
+    .ptn-list__link-highlighted;
+  }
 }
 
 .ptn-list__item-icon {
@@ -76,6 +98,17 @@
   margin: 0 0 0 12px;
 }
 
-.ptn-list__make-link-highlighted {
+/******************** utilities ********************/
+.ptn-list__link-highlighted {
+  background: @ptn-util__color_red;
+}
 
+.ptn-list__link-highlighted_sublist {
+  background: initial;
+
+  &:before {
+    opacity: 1;
+
+    .ptn-util__scale(1);
+  }
 }
