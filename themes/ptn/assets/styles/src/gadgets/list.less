@@ -38,6 +38,7 @@
 .ptn-list__item_sublist {
   > .ptn-list__link {
     &:hover {
+      color: @ptn-util__color_lighter;
       background: initial;
     }
   }
@@ -101,10 +102,12 @@
 
 /******************** utilities ********************/
 .ptn-list__link-highlighted {
+  color: @ptn-util__color_lightest;
   background: @ptn-util__color_red;
 }
 
 .ptn-list__link-highlighted_sublist {
+  color: @ptn-util__color_lighter;
   background: initial;
 
   &:before {
