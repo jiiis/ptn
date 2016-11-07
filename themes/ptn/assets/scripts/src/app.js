@@ -43,6 +43,11 @@
 
     /******************** event: DOM ready ********************/
     $(function() {
+        /******************** widget: scrollbar ********************/
+        (function() {
+            _addScrollBar($(_selectors.aside), 'minimal-dark', 'y');
+        })();
+
         /******************** widget: aside | toggle ********************/
         (function() {
             var asideStatus = localStorage.getItem(_localStorageKeys.statusAside);
@@ -74,6 +79,23 @@
     /******************** private functions ********************/
     function _isElementExistent($element) {
         return !!$element.length;
+    }
+
+    function _addScrollBar($element, theme, mouseWheelAxis) {
+        if (!_isElementExistent($element)) {
+            return;
+        }
+
+        $element.mCustomScrollbar({
+            theme: theme,
+            scrollInertia: 100,
+            axis: 'yx',
+            mouseWheel: {
+                preventDefault: true,
+                enable: true,
+                axis: mouseWheelAxis
+            }
+        });
     }
 
     function _toggleAside() {
