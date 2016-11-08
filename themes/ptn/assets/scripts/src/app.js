@@ -6,7 +6,11 @@
         _selectors = {
             pageLoader: '#page-loader',
             asideTrigger: '#aside-trigger',
-            aside: '#aside'
+            aside: '#aside',
+            listItem: '.ptn-list__item',
+            listLink: '.ptn-list__link',
+            sublist: '.ptn-list_sublist',
+            sublistTrigger: '.ptn-list__item_sublist > .ptn-list__link'
         },
         _localStorageKeys = {
             statusAside: 'ptn-status-aside'
@@ -61,6 +65,28 @@
 
                 _toggleAside();
             });
+        })();
+
+        /******************** widget: sublist | toggle ********************/
+        (function() {
+            _$body.on('click', _selectors.sublistTrigger, function(e) {
+                e.preventDefault();
+
+                _toggleSublist($(this));
+            });
+
+            function _toggleSublist($trigger) {
+                var isSublistOn = $trigger.hasClass(_classes.triggerOn),
+                    $listItemClosest = $trigger.closest(_selectors.listItem);
+
+                if (isSublistOn) {
+                    $listItemClosest.find(_selectors.sublist).slideUp(_animationDurations.slide);
+                    $listItemClosest.find(_selectors.listLink).removeClass(_classes.triggerOn);
+                } else {
+                    $trigger.next(_selectors.sublist).slideDown(_animationDurations.slide);
+                    $trigger.addClass(_classes.triggerOn);
+                }
+            }
         })();
     });
 
