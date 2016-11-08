@@ -89,7 +89,7 @@
         $element.mCustomScrollbar({
             theme: theme,
             scrollInertia: 100,
-            axis: 'yx',
+            axis: 'y',
             mouseWheel: {
                 preventDefault: true,
                 enable: true,

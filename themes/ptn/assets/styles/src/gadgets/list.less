@@ -6,18 +6,22 @@
   background: @ptn-util__color_darker;
 
   .ptn-list__item_active {
-    .ptn-list__link {
+    > .ptn-list__link {
       .ptn-list__link-highlighted_sublist;
+    }
+  }
+
+  .ptn-list__item:not(.ptn-list__item_sublist) {
+    > .ptn-list__link {
+      &:hover {
+        .ptn-list__link-highlighted_sublist;
+      }
     }
   }
 
   .ptn-list__link {
     padding: 0 0 0 54px;
     height: 36px;
-
-    &:hover {
-      .ptn-list__link-highlighted_sublist;
-    }
   }
 
   .ptn-list_sublist {
