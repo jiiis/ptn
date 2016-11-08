@@ -77,6 +77,7 @@
       font-size: 1.8rem;
       backface-visibility: hidden;
 
+      .ptn-util__opacity(0);
       .ptn-util__transition;
     }
 
@@ -105,6 +106,10 @@
     &:hover {
       color: @ptn-util__color_lighter;
       background: initial;
+
+      &:before, &:after {
+        .ptn-util__opacity(1);
+      }
     }
   }
 }
