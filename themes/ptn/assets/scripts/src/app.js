@@ -48,6 +48,12 @@
 
     /******************** event: DOM ready ********************/
     $(function() {
+        /******************** widget: waves ********************/
+        (function() {
+            Waves.attach(_selectors.listLink, ['waves-light']);
+            Waves.init();
+        })();
+
         /******************** widget: scrollbar ********************/
         (function() {
             _addScrollBar($(_selectors.aside), 'minimal-dark', 'y');
