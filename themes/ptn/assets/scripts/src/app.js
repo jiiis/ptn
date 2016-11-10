@@ -130,6 +130,12 @@
         });
     }
 
+    function _scrollTo($element, position) {
+        $element.mCustomScrollbar('scrollTo', position, {
+            scrollInertia: 0
+        });
+    }
+
     function _toggleAside() {
         var statusOld = localStorage.getItem(_localStorageKeys.statusAside),
             statusNew = statusOld === _statuses.on ? _statuses.off : _statuses.on,
@@ -143,7 +149,7 @@
         $aside.toggleClass(_classes.widgetOn);
 
         statusNew === _statuses.on && _resetSublists();
-        // _scrollTo($aside, 'top');
+        _scrollTo($aside, 'top');
     }
 
     function _toggleAsideStatelessly(action) {
@@ -161,7 +167,7 @@
         }
 
         _resetSublists();
-        // _scrollTo($aside, 'top');
+        _scrollTo($aside, 'top');
     }
 
     function _resetSublists() {
