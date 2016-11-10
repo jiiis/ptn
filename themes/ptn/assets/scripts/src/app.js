@@ -8,6 +8,7 @@
             asideTrigger: '#aside-trigger',
             aside: '#aside',
             listItem: '.ptn-list__item',
+            listItemActive: '.ptn-list__item_active',
             listLink: '.ptn-list__link',
             sublist: '.ptn-list_sublist',
             sublistTrigger: '.ptn-list__item_sublist > .ptn-list__link'
@@ -65,6 +66,11 @@
 
                 _toggleAside();
             });
+        })();
+
+        /******************** widget: sublist | init ********************/
+        (function() {
+            _resetSublists();
         })();
 
         /******************** widget: sublist | toggle ********************/
@@ -136,7 +142,7 @@
         $asideTrigger.toggleClass(_classes.triggerOn);
         $aside.toggleClass(_classes.widgetOn);
 
-        // _resetSublists();
+        statusNew === _statuses.on && _resetSublists();
         // _scrollTo($aside, 'top');
     }
 
@@ -154,7 +160,21 @@
             $aside.removeClass(_classes.widgetOn);
         }
 
-        // _resetSublists();
+        _resetSublists();
         // _scrollTo($aside, 'top');
+    }
+
+    function _resetSublists() {
+        var $activeListItemAncestors = $(_selectors.listItemActive).parents();
+
+        $(_selectors.sublist).hide();
+        $(_selectors.sublistTrigger).removeClass(_classes.triggerOn);
+
+        $activeListItemAncestors.each(function() {
+            var $listItem = $(this);
+
+            $listItem.children(_selectors.sublist).show();
+            $listItem.children(_selectors.sublistTrigger).addClass(_classes.triggerOn);
+        });
     }
 })(window);
