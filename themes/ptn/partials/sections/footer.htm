@@ -1,10 +1,10 @@
 <footer id="footer" class="ptn-footer">
     <p class="ptn-footer__copyright">Copyright &copy; {{ 'now' | date('Y') }} <i>{{ app.name }}</i></p>
     <ul class="ptn-footer__menu">
-        <li><a href="">Home</a></li>
-        <li><a href="">Dashboard</a></li>
-        <li><a href="">Reports</a></li>
-        <li><a href="">Support</a></li>
-        <li><a href="">Contact</a></li>
+        <li><a href="{{ '/' | app }}">Home</a></li>
+        <li><a href="{{ 'tag' | page({tag: 'china'}) }}">China</a></li>
+        <li><a href="{{ 'tag' | page({tag: 'pantyhose'}) }}">Pantyhose</a></li>
+        <li><a href="{{ 'tag' | page({tag: 'opaque'}) }}">Opaque</a></li>
+        <li><a href="{{ 'tag' | page({tag: 'suntan'}) }}">Suntan</a></li>
     </ul>
 </footer>
