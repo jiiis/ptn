@@ -31,8 +31,9 @@
             off: 'off'
         },
         _animationDurations = {
-            fade: 500,
-            slide: 200
+            slide: 200,
+            click: 500,
+            fade: 500
         },
         _delay = {
             pageLoader: 500
@@ -51,7 +52,9 @@
         /******************** widget: waves ********************/
         (function() {
             Waves.attach(_selectors.listLink, ['waves-light']);
-            Waves.init();
+            Waves.init({
+                duration: _animationDurations.click
+            });
         })();
 
         /******************** widget: scrollbar ********************/
