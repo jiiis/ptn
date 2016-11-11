@@ -32,11 +32,24 @@
   text-transform: uppercase;
 
   .ptn-util__flex-grow(1);
+  .ptn__flex-container_horizontal(start, center);
   .ptn-util__text-overflow_truncate;
   .ptn-util__transition;
 
   @media (max-width: @ptn-util__screen_xs-max) {
-    text-align: center;
+    .ptn__flex-container_horizontal(center, center);
+  }
+
+  > .zmdi {
+    font-size: 2.1rem;
+
+    + span {
+      margin: 0 0 0 12px;
+
+      @media (max-width: @ptn-util__screen_sm-max) {
+        margin: 0 0 0 9px;
+      }
+    }
   }
 }
 
