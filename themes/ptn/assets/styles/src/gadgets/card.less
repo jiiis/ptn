@@ -4,7 +4,36 @@
 }
 
 .ptn-card__header {
+  height: 60px;
+  padding: 0 24px;
+  border-bottom: 1px solid @ptn-util__color_darker;
 
+  .ptn__flex-container_horizontal(start, center);
+
+  @media (min-width: @ptn-util__screen_md-min) and (max-width: @ptn-util__screen_md-max) {
+    padding: 0 18px;
+  }
+
+  @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_sm-max) {
+    padding: 0 12px;
+  }
+
+  @media (max-width: @ptn-util__screen_xs-max) {
+    padding: 0 6px;
+    height: 48px;
+  }
+}
+
+.ptn-card__title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+
+  .ptn-util__flex-grow(1);
+  .ptn-util__text-overflow_truncate;
+
+  @media (max-width: @ptn-util__screen_xs-max) {
+    text-align: center;
+  }
 }
 
 .ptn-card__body {
@@ -26,5 +55,7 @@
 }
 
 .ptn-card__footer {
+  height: 90px;
+
   border-top: 1px solid @ptn-util__color_darker;
 }
