@@ -9,18 +9,21 @@
   border-bottom: 1px solid @ptn-util__color_darker;
 
   .ptn__flex-container_horizontal(start, center);
+  .ptn-util__transition;
 
   @media (min-width: @ptn-util__screen_md-min) and (max-width: @ptn-util__screen_md-max) {
     padding: 0 18px;
+    height: 54px;
   }
 
   @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_sm-max) {
     padding: 0 12px;
+    height: 48px;
   }
 
   @media (max-width: @ptn-util__screen_xs-max) {
     padding: 0 6px;
-    height: 48px;
+    height: 42px;
   }
 }
 
@@ -30,6 +33,7 @@
 
   .ptn-util__flex-grow(1);
   .ptn-util__text-overflow_truncate;
+  .ptn-util__transition;
 
   @media (max-width: @ptn-util__screen_xs-max) {
     text-align: center;
@@ -57,5 +61,19 @@
 .ptn-card__footer {
   height: 90px;
 
+  .ptn-util__transition;
+
   border-top: 1px solid @ptn-util__color_darker;
+
+  @media (min-width: @ptn-util__screen_md-min) and (max-width: @ptn-util__screen_md-max) {
+    height: 84px;
+  }
+
+  @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_sm-max) {
+    height: 78px;
+  }
+
+  @media (max-width: @ptn-util__screen_xs-max) {
+    height: 72px;
+  }
 }
