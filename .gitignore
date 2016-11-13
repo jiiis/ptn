@@ -9,6 +9,7 @@ node_modules
 
 # Credentials #
 ###############
+config/database.php
 config/filesystems.php
 
 # Logs #
