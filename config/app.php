@@ -81,9 +81,9 @@ return [
     |
     */
 
-    'key' => 'QeMcQPPPVIxCNqZYGE6QDj8YHIRRQrqM',
+    'key' => 'SomeRandomStringSomeRandomString',
 
-    'cipher' => MCRYPT_RIJNDAEL_256,
+    'cipher' => 'AES-256-CBC',
 
     /*
     |--------------------------------------------------------------------------
