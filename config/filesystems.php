@@ -50,8 +50,8 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key'    => 'AKIAJMALBLYA6TI7JIIQ',
-            'secret' => getenv('AWS_SECRET'),
+            'key'    => getenv('AWS_ACCESS_KEY_ID'),
+            'secret' => getenv('AWS_SECRET_ACCESS_KEY'),
             'region' => 'ap-southeast-2',
             'bucket' => 'ptn-public',
         ],

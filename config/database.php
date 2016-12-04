@@ -58,7 +58,7 @@ return [
             'port'      => 3306,
             'database'  => 'ptn',
             'username'  => 'ptn',
-            'password'  => getenv('DATABASE_PASSWORD'),
+            'password'  => getenv('MYSQL_PASSWORD'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
