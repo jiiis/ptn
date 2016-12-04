@@ -54,7 +54,7 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => 'ptn-cluster.cluster-cejagdyy3pt9.ap-southeast-2.rds.amazonaws.com',
+            'host'      => 'ptn.cejagdyy3pt9.ap-southeast-2.rds.amazonaws.com',
             'port'      => 3306,
             'database'  => 'ptn',
             'username'  => 'ptn',
