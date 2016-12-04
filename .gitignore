@@ -1,5 +1,6 @@
 # Environments #
 ################
+.env
 .vagrant
 
 # Package managers #
@@ -20,6 +21,6 @@ node_modules
 #######
 .idea
 
-# OS generated #
-################
+# OS #
+######
 .DS_Store
