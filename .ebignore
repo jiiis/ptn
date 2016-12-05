@@ -1,0 +1,70 @@
+# Environments #
+################
+#.env
+.vagrant
+provisioning
+
+# Package managers #
+####################
+#vendor
+node_modules
+
+# Credentials #
+###############
+#config/database.php
+#config/filesystems.php
+
+# Themes #
+##########
+themes/*
+!themes/ptn/*
+
+# Storage #
+###########
+storage/*
+!storage/.gitignore
+!storage/app/.gitignore
+!storage/cms/.gitignore
+!storage/cms/disabled.json
+!storage/cms/cache/.gitignore
+!storage/cms/combiner/.gitignore
+!storage/cms/twig/.gitignore
+!storage/framework/.gitignore
+!storage/framework/services.json
+!storage/framework/config.php
+!storage/framework/routes.php
+!storage/framework/compiled.php
+!storage/framework/events.scanned.php
+!storage/framework/routes.scanned.php
+!storage/framework/cache/.gitignore
+!storage/framework/sessions/.gitignore
+!storage/framework/views/.gitignore
+!storage/logs/.gitignore
+!storage/temp/.gitignore
+!storage/temp/.gitignore
+
+# Tests #
+#########
+tests
+
+# Logs #
+########
+*.log
+
+# IDE #
+#######
+.idea
+
+# OS #
+######
+.DS_Store
+
+# Local #
+#########
+_local_
+
+# AWS #
+#######
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
