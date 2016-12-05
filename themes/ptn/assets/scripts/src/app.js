@@ -70,7 +70,7 @@
                 _toggleAsideStatelessly(_actions.show);
             }
 
-            _$body.on('click', _selectors.asideTrigger, function(e) {
+            _$body.on('click touchstart', _selectors.asideTrigger, function(e) {
                 e.preventDefault();
 
                 _toggleAside();
@@ -84,7 +84,7 @@
 
         /******************** widget: sublist | toggle ********************/
         (function() {
-            _$body.on('click', _selectors.sublistTrigger, function(e) {
+            _$body.on('click touchstart', _selectors.sublistTrigger, function(e) {
                 e.preventDefault();
 
                 _toggleSublist($(this));
