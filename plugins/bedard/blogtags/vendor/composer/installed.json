@@ -6,18 +6,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/october-widgets/tagbox.git",
-            "reference": "d3a3351a4fb6f5b27b0cc3bce434e684d67ac7ed"
+            "reference": "9ed118d04764139c1071b05d301cf933a770da8d"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/october-widgets/tagbox/zipball/d3a3351a4fb6f5b27b0cc3bce434e684d67ac7ed",
-            "reference": "d3a3351a4fb6f5b27b0cc3bce434e684d67ac7ed",
+            "url": "https://api.github.com/repos/october-widgets/tagbox/zipball/9ed118d04764139c1071b05d301cf933a770da8d",
+            "reference": "9ed118d04764139c1071b05d301cf933a770da8d",
             "shasum": ""
         },
         "require": {
             "php": ">=5.4.0"
         },
-        "time": "2015-02-17 10:06:07",
+        "time": "2015-04-14 19:11:32",
         "type": "library",
         "extra": {
             "branch-alias": {

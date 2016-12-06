@@ -2,7 +2,6 @@
 
 use Backend\Classes\ReportWidgetBase;
 use Exception;
-use App;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 
@@ -33,9 +32,15 @@ class Cache extends ReportWidgetBase
         ];
     }
 
-    public function onClear()
+    public function onClearCache()
     {
         \Artisan::call('cache:clear');
+        try {
+            \Artisan::call('view:clear');
+        }
+        catch (Exception $ex) {
+            // ...
+        }
 
         return [
             'partial' => $this->makePartial('widget', ['size' => $this->loadData()])

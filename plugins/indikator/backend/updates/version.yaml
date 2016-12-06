@@ -40,3 +40,14 @@
 1.4.6: Improved the UI and fixed bug.
 1.4.7: Hide the label in top menu.
 1.4.8: Enable the gzip compression.
+1.5.0:
+    - Delete the unused files and folders.
+    - create_trash_table.php
+1.5.1: Minor improvements and bugfix.
+1.5.2: Improved the Trash items page.
+1.5.3: Expanded the Trash items page.
+1.5.4: Minor improvements.
+1.5.5: Added tooltip when hiding the labels.
+1.5.6: Fixed the page overflow issue.
+1.5.7: Added the context menu feature.
+1.5.8: Improved the context menu.

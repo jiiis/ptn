@@ -2,6 +2,7 @@
 
 use System\Classes\PluginBase;
 use System\Classes\PluginManager;
+use System\Classes\SettingsManager;
 use Backend\Classes\Controller as BackendController;
 use Backend;
 use BackendAuth;
@@ -23,9 +24,27 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerSettings()
+    {
+        return [
+            'trash' => [
+                'label'       => 'indikator.backend::lang.trash.title',
+                'description' => 'indikator.backend::lang.trash.description',
+                'icon'        => 'icon-eraser',
+                'permissions' => ['indikator.backend.trash'],
+                'url'         => Backend::url('indikator/backend/trash'),
+                'category'    => SettingsManager::CATEGORY_SYSTEM
+            ]
+        ];
+    }
+
     public function registerReportWidgets()
     {
         return [
+            'Indikator\Backend\ReportWidgets\Cache' => [
+                'label'   => 'indikator.backend::lang.widgets.cache.title',
+                'context' => 'dashboard'
+            ],
             'Indikator\Backend\ReportWidgets\Status' => [
                 'label'   => 'indikator.backend::lang.widgets.system.title',
                 'context' => 'dashboard'
@@ -61,10 +80,6 @@ class Plugin extends PluginBase
             'Indikator\Backend\ReportWidgets\Images' => [
                 'label'   => 'indikator.backend::lang.widgets.images.title',
                 'context' => 'dashboard'
-            ],
-            'Indikator\Backend\ReportWidgets\Cache' => [
-                'label'   => 'indikator.backend::lang.widgets.cache.title',
-                'context' => 'dashboard'
             ]
         ];
     }
@@ -95,9 +110,19 @@ class Plugin extends PluginBase
         ];
     }
 
+    public function registerPermissions()
+    {
+        return [
+            'indikator.backend.trash' => [
+                'tab'   => 'indikator.backend::lang.plugin.name',
+                'label' => 'indikator.backend::lang.trash.permission'
+            ]
+        ];
+    }
+
     public function boot()
     {
-        if ((bool)File::get('plugins/indikator/backend/assets/gzip.txt')) {
+        if ((bool)File::get(base_path().'/plugins/indikator/backend/assets/gzip.txt')) {
             ob_start('ob_gzhandler');
         }
 
@@ -105,78 +130,82 @@ class Plugin extends PluginBase
         {
             if ($form->model instanceof Backend\Models\Preference) {
                 $form->addTabFields([
-                    // Display settings
+                    /*
+                     * Display settings
+                     */
                     'rounded_avatar' => [
                         'tab'     => 'indikator.backend::lang.settings.tab_display',
                         'label'   => 'indikator.backend::lang.settings.avatar_label',
                         'comment' => 'indikator.backend::lang.settings.avatar_comment',
                         'type'    => 'switch',
-                        'default' => 'false'
+                        'default' => false
                     ],
                     'topmenu_label' => [
                         'tab'     => 'indikator.backend::lang.settings.tab_display',
                         'label'   => 'indikator.backend::lang.settings.topmenu_label',
                         'comment' => 'indikator.backend::lang.settings.topmenu_comment',
                         'type'    => 'switch',
-                        'default' => 'false'
+                        'default' => false
                     ],
                     'sidebar_description' => [
                         'tab'     => 'indikator.backend::lang.settings.tab_display',
                         'label'   => 'indikator.backend::lang.settings.sidebar_desc_label',
                         'comment' => 'indikator.backend::lang.settings.sidebar_desc_comment',
                         'type'    => 'switch',
-                        'default' => 'false'
+                        'default' => false
                     ],
                     'sidebar_search' => [
                         'tab'     => 'indikator.backend::lang.settings.tab_display',
                         'label'   => 'indikator.backend::lang.settings.sidebar_search_label',
                         'comment' => 'indikator.backend::lang.settings.sidebar_search_comment',
                         'type'    => 'switch',
-                        'default' => 'false'
+                        'default' => false
                     ],
                     'more_themes' => [
                         'tab'     => 'indikator.backend::lang.settings.tab_display',
                         'label'   => 'indikator.backend::lang.settings.themes_label',
                         'comment' => 'indikator.backend::lang.settings.themes_comment',
                         'type'    => 'switch',
-                        'default' => 'false'
+                        'default' => false
                     ],
 
-                    // Behavior settings
+                    /*
+                     *  Behavior settings
+                     */
                     'focus_searchfield' => [
                         'tab'     => 'indikator.backend::lang.settings.tab_behavior',
                         'label'   => 'indikator.backend::lang.settings.search_label',
                         'comment' => 'indikator.backend::lang.settings.search_comment',
                         'type'    => 'switch',
-                        'default' => 'false'
+                        'default' => false
+                    ],
+                    'context_menu' => [
+                        'tab'     => 'indikator.backend::lang.settings.tab_behavior',
+                        'label'   => 'indikator.backend::lang.settings.context_menu_label',
+                        'comment' => 'indikator.backend::lang.settings.context_menu_comment',
+                        'type'    => 'switch',
+                        'default' => false
                     ],
                     'form_clearbutton' => [
                         'tab'     => 'indikator.backend::lang.settings.tab_behavior',
                         'label'   => 'indikator.backend::lang.settings.clearbutton_label',
                         'comment' => 'indikator.backend::lang.settings.clearbutton_comment',
                         'type'    => 'switch',
-                        'default' => 'false'
+                        'default' => false
                     ],
                     'virtual_keyboard' => [
                         'tab'     => 'indikator.backend::lang.settings.tab_behavior',
                         'label'   => 'indikator.backend::lang.settings.keyboard_label',
                         'comment' => 'indikator.backend::lang.settings.keyboard_comment',
                         'type'    => 'switch',
-                        'default' => 'false'
-                    ],
-                    'delete_plugin' => [
-                        'tab'     => 'indikator.backend::lang.settings.tab_behavior',
-                        'label'   => 'indikator.backend::lang.settings.delete_plugin_label',
-                        'comment' => 'indikator.backend::lang.settings.delete_plugin_comment',
-                        'type'    => 'switch',
-                        'default' => 'false'
+                        'default' => false
                     ],
                     'enabled_gzip' => [
                         'tab'     => 'indikator.backend::lang.settings.tab_behavior',
                         'label'   => 'indikator.backend::lang.settings.enabled_gzip_label',
                         'comment' => 'indikator.backend::lang.settings.enabled_gzip_comment',
                         'type'    => 'switch',
-                        'default' => 'false'
+                        'default' => false
                     ]
                 ]);
             }
@@ -185,19 +214,24 @@ class Plugin extends PluginBase
         BackendController::extend(function($controller)
         {
             if (BackendAuth::check()) {
-                // User settings
+                /*
+                 * User settings
+                 */
                 $preferenceModel = class_exists('Backend\Models\UserPreference')
                     ? Backend\Models\UserPreference::forUser()
                     : Backend\Models\UserPreferences::forUser();
                 $preferences = $preferenceModel->get('backend::backend.preferences');
 
-                // Display settings
+                /*
+                 * Display settings
+                 */
                 if (isset($preferences['rounded_avatar']) && $preferences['rounded_avatar']) {
                     $controller->addCss('/plugins/indikator/backend/assets/css/rounded-avatar.css');
                 }
 
                 if (isset($preferences['topmenu_label']) && $preferences['topmenu_label']) {
                     $controller->addCss('/plugins/indikator/backend/assets/css/topmenu-label.css');
+                    $controller->addJs('/plugins/indikator/backend/assets/js/topmenu-label.js');
                 }
 
                 if (isset($preferences['sidebar_search']) && $preferences['sidebar_search']) {
@@ -212,9 +246,17 @@ class Plugin extends PluginBase
                     $controller->addJs('/plugins/indikator/backend/assets/js/setting-theme.js');
                 }
 
-                // Behavior settings
+                /*
+                 * Behavior settings
+                 */
                 if (isset($preferences['focus_searchfield']) && $preferences['focus_searchfield']) {
+                    $controller->addCss('/plugins/indikator/backend/assets/css/setting-search.css');
                     $controller->addJs('/plugins/indikator/backend/assets/js/setting-search.js');
+                }
+
+                if (isset($preferences['context_menu']) && $preferences['context_menu']) {
+                    $controller->addCss('/plugins/indikator/backend/assets/css/context-menu.css');
+                    $controller->addJs('/plugins/indikator/backend/assets/js/context-menu.js');
                 }
 
                 if (isset($preferences['form_clearbutton']) && $preferences['form_clearbutton']) {
@@ -226,15 +268,11 @@ class Plugin extends PluginBase
                     $controller->addJs('/plugins/indikator/backend/assets/js/ml-keyboard.js');
                 }
 
-                if (isset($preferences['delete_plugin']) && $preferences['delete_plugin'] && PluginManager::instance()->exists('October.Demo')) {
-                    PluginManager::instance()->deletePlugin('October.Demo');
-                }
-
                 if (isset($preferences['enabled_gzip']) && $preferences['enabled_gzip']) {
-                    File::put('plugins/indikator/backend/assets/gzip.txt', 1);
+                    File::put(base_path().'/plugins/indikator/backend/assets/gzip.txt', 1);
                 }
                 else {
-                    File::put('plugins/indikator/backend/assets/gzip.txt', 0);
+                    File::put(base_path().'/plugins/indikator/backend/assets/gzip.txt', 0);
                 }
             }
         });

@@ -1,10 +1,11 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
     "hash": "69e2a07fb58d0ec9502907a5cf318752",
+    "content-hash": "5d6d4bfdf3c39fad783920bd4b6cdcea",
     "packages": [
         {
             "name": "owl/tagbox",
@@ -12,12 +13,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/october-widgets/tagbox.git",
-                "reference": "d3a3351a4fb6f5b27b0cc3bce434e684d67ac7ed"
+                "reference": "9ed118d04764139c1071b05d301cf933a770da8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/october-widgets/tagbox/zipball/d3a3351a4fb6f5b27b0cc3bce434e684d67ac7ed",
-                "reference": "d3a3351a4fb6f5b27b0cc3bce434e684d67ac7ed",
+                "url": "https://api.github.com/repos/october-widgets/tagbox/zipball/9ed118d04764139c1071b05d301cf933a770da8d",
+                "reference": "9ed118d04764139c1071b05d301cf933a770da8d",
                 "shasum": ""
             },
             "require": {
@@ -52,7 +53,7 @@
                 "owl",
                 "tagbox"
             ],
-            "time": "2015-02-17 10:06:07"
+            "time": "2015-04-14 19:11:32"
         }
     ],
     "packages-dev": [],

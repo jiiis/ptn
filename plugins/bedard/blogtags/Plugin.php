@@ -2,6 +2,7 @@
 
 use Backend;
 use Bedard\BlogTags\Models\Tag;
+use Config;
 use Event;
 use System\Classes\PluginBase;
 use RainLab\Blog\Controllers\Posts as PostsController;
@@ -12,7 +13,6 @@ use RainLab\Blog\Models\Post as PostModel;
  */
 class Plugin extends PluginBase
 {
-
     /**
      * @var array   Require the RainLab.Blog plugin
      */
@@ -34,7 +34,8 @@ class Plugin extends PluginBase
             'name'        => 'Blog Tags Extension',
             'description' => 'Enables tagging blog posts and display related articles.',
             'author'      => 'Scott Bedard',
-            'icon'        => 'icon-tags'
+            'icon'        => 'icon-tags',
+            'homepage'    => 'https://github.com/scottbedard/blogtags'
         ];
     }
 
@@ -49,7 +50,7 @@ class Plugin extends PluginBase
             'Owl\FormWidgets\Tagbox\Widget' => [
                 'label' => 'Tagbox',
                 'code'  => 'owl-tagbox'
-            ],
+            ]
         ];
     }
 
@@ -61,9 +62,9 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'Bedard\BlogTags\Components\BlogTags'       => 'blogTags',
-            'Bedard\BlogTags\Components\BlogTagSearch'  => 'blogTagSearch',
-            'Bedard\BlogTags\Components\BlogRelated'    => 'blogRelated',
+            'Bedard\BlogTags\Components\BlogTags'      => 'blogTags',
+            'Bedard\BlogTags\Components\BlogTagSearch' => 'blogTagSearch',
+            'Bedard\BlogTags\Components\BlogRelated'   => 'blogRelated'
         ];
     }
 
@@ -73,12 +74,12 @@ class Plugin extends PluginBase
         Event::listen('backend.menu.extendItems', function($manager) {
            $manager->addSideMenuItems('RainLab.Blog', 'blog', [
                 'tags' => [
-                    'label'       => 'Tags',
-                    'icon'        => 'icon-tags',
-                    'code'        => 'tags',
-                    'owner'       => 'RainLab.Blog',
-                    'url'         => Backend::url('bedard/blogtags/tags')
-                ],
+                    'label' => 'Tags',
+                    'icon'  => 'icon-tags',
+                    'code'  => 'tags',
+                    'owner' => 'RainLab.Blog',
+                    'url'   => Backend::url('bedard/blogtags/tags')
+                ]
             ]);
         });
 
@@ -87,10 +88,10 @@ class Plugin extends PluginBase
             if (!$model instanceof PostModel) return;
             $form->addSecondaryTabFields([
                 'tagbox' => [
-                    'label'     => 'Tags',
-                    'tab'       => 'rainlab.blog::lang.post.tab_categories',
-                    'type'      => 'owl-tagbox',
-                    'slugify'   => true
+                    'label'   => 'Tags',
+                    'tab'     => 'rainlab.blog::lang.post.tab_categories',
+                    'type'    => 'owl-tagbox',
+                    'slugify' => Config::get('bedard.blogtags::slugify', true),
                 ]
             ]);
         });

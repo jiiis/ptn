@@ -52,15 +52,17 @@
         })
 
         // Focus the cursor in the input box
-        this.$list.on('click', function() {
-            self.$input.focus()
-        })
-        this.$input.on('focus', function() {
-            self.$list.addClass('focused')
-        })
-        this.$input.on('blur', function() {
-            self.$list.removeClass('focused')
-        })
+        if (this.config.autofocus) {
+            this.$list.on('click', function() {
+                self.$input.focus()
+            })
+            this.$input.on('focus', function() {
+                self.$list.addClass('focused')
+            })
+            this.$input.on('blur', function() {
+                self.$list.removeClass('focused')
+            })
+        }
     }
 
     /**

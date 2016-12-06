@@ -45,7 +45,13 @@ class Widget extends FormWidgetBase
 
         // Validation message
         $config['validationMessage'] = isset($this->config->validationMessage)
-            ? $this->config->validationMessage : 'The tag format is invalid.';
+            ? $this->config->validationMessage
+            : 'The tag format is invalid.';
+
+        // Disable auto-focus
+        $config['autofocus'] = isset($this->config->autofocus)
+            ? (bool) $this->config->autofocus
+            : true;
 
         // Javascript configuration
         $config['fieldName'] = $this->fieldName;
@@ -69,10 +75,12 @@ class Widget extends FormWidgetBase
                 $tags[] = htmlspecialchars($tag);
         } else if ($loadValue = $this->getLoadValue()) {
             $loadValue = json_decode($loadValue, true);
-            foreach ($loadValue as $tag) {
-                if (empty($tag))
-                    continue;
-                $tags[] = htmlspecialchars($tag);
+            if ($loadValue && is_array($loadValue)) {
+                foreach ($loadValue as $tag) {
+                    if (empty($tag))
+                        continue;
+                    $tags[] = htmlspecialchars($tag);
+                }
             }
         }
 
@@ -85,7 +93,12 @@ class Widget extends FormWidgetBase
     public function loadAssets()
     {
         $this->addJs('js/tagbox.js');
-        $this->addCss('css/tagbox.css');
+
+        if (isset($this->config->cssPath) && $this->config->cssPath)
+            $this->addCss($this->config->cssPath);
+
+        elseif (!isset($this->config->cssPath))
+            $this->addCss('css/tagbox.css');
     }
 
     /**
