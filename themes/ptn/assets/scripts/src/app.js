@@ -39,6 +39,7 @@
             pageLoader: 500
         },
         _$window = $(window),
+        _$document = $(document),
         _$html = $('html'),
         _$body = $('body');
 
@@ -49,6 +50,11 @@
 
     /******************** event: DOM ready ********************/
     $(function() {
+        /******************** disable pinch-to-zoom for mobile safari ********************/
+        _$document.on('gesturestart', function(e) {
+            e.preventDefault();
+        });
+
         /******************** widget: waves ********************/
         (function() {
             Waves.attach(_selectors.listLink, ['waves-light']);
