@@ -50,7 +50,7 @@
 
     /******************** event: DOM ready ********************/
     $(function() {
-        /******************** disable pinch-to-zoom for mobile safari ********************/
+        /******************** disable pinch-to-zoom for iOS safari ********************/
         _$document.on('gesturestart', function(e) {
             e.preventDefault();
         });

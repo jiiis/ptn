@@ -54,7 +54,7 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => 'ptn.cejagdyy3pt9.ap-southeast-2.rds.amazonaws.com',
+            'host'      => '35.185.129.46',
             'port'      => 3306,
             'database'  => 'ptn',
             'username'  => 'ptn',
