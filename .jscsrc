@@ -83,9 +83,6 @@
   "requirePaddingNewlinesBeforeKeywords": [
     "return"
   ],
-  "requirePaddingNewLinesBeforeLineComments": {
-    "allExcept": "firstAfterCurly"
-  },
   "requireParenthesesAroundIIFE": true,
   "requireSemicolons": true,
   "requireShorthandArrowFunctions": true,
