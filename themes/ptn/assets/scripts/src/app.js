@@ -13,9 +13,10 @@
             sublist: '.ptn-list_sublist',
             sublistTrigger: '.ptn-list__item_sublist > .ptn-list__link'
         },
-        _localStorageKeys = {
-            statusAside: 'ptn-status-aside'
-        },
+        // Disabled because localStorage doesn't work in private browsing.
+        // _localStorageKeys = {
+        //     statusAside: 'ptn-status-aside'
+        // },
         _classes = {
             triggerOn: 'ptn-util__trigger_on',
             widgetOn: 'ptn-util__widget_on',
@@ -69,13 +70,22 @@
         })();
 
         /******************** widget: aside | toggle ********************/
+        // Disabled because localStorage doesn't work in private browsing.
+        // (function() {
+        //     var asideStatus = localStorage.getItem(_localStorageKeys.statusAside);
+        //
+        //     if (asideStatus === _statuses.on) {
+        //         _toggleAsideStatelessly(_actions.show);
+        //     }
+        //
+        //     _$body.on('click touchstart', _selectors.asideTrigger, function(e) {
+        //         e.preventDefault();
+        //
+        //         _toggleAside();
+        //     });
+        // })();
+
         (function() {
-            var asideStatus = localStorage.getItem(_localStorageKeys.statusAside);
-
-            if (asideStatus === _statuses.on) {
-                _toggleAsideStatelessly(_actions.show);
-            }
-
             _$body.on('click touchstart', _selectors.asideTrigger, function(e) {
                 e.preventDefault();
 
@@ -151,19 +161,31 @@
         });
     }
 
-    function _toggleAside() {
-        var statusOld = localStorage.getItem(_localStorageKeys.statusAside),
-            statusNew = statusOld === _statuses.on ? _statuses.off : _statuses.on,
-            $asideTrigger = $(_selectors.asideTrigger),
-            $aside = $(_selectors.aside);
+    // Disabled because localStorage doesn't work in private browsing.
+    // function _toggleAside() {
+    //     var statusOld = localStorage.getItem(_localStorageKeys.statusAside),
+    //         statusNew = statusOld === _statuses.on ? _statuses.off : _statuses.on,
+    //         $asideTrigger = $(_selectors.asideTrigger),
+    //         $aside = $(_selectors.aside);
+    //
+    //     localStorage.setItem(_localStorageKeys.statusAside, statusNew);
+    //
+    //     _$body.toggleClass(_classes.bodyAsideOn);
+    //     $asideTrigger.toggleClass(_classes.triggerOn);
+    //     $aside.toggleClass(_classes.widgetOn);
+    //
+    //     statusNew === _statuses.on && _resetSublists();
+    //     _scrollTo($aside, 'top');
+    // }
 
-        localStorage.setItem(_localStorageKeys.statusAside, statusNew);
+    function _toggleAside() {
+        var $asideTrigger = $(_selectors.asideTrigger),
+            $aside = $(_selectors.aside);
 
         _$body.toggleClass(_classes.bodyAsideOn);
         $asideTrigger.toggleClass(_classes.triggerOn);
         $aside.toggleClass(_classes.widgetOn);
 
-        statusNew === _statuses.on && _resetSublists();
         _scrollTo($aside, 'top');
     }
 
