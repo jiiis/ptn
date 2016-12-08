@@ -186,6 +186,7 @@
         $asideTrigger.toggleClass(_classes.triggerOn);
         $aside.toggleClass(_classes.widgetOn);
 
+        _$body.hasClass(_classes.bodyAsideOn) && _resetSublists();
         _scrollTo($aside, 'top');
     }
 
