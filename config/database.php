@@ -54,10 +54,10 @@ return [
 
         'mysql' => [
             'driver'    => 'mysql',
-            'host'      => '35.185.131.244',
             'port'      => 3306,
-            'database'  => 'ptn',
-            'username'  => 'ptn',
+            'host'      => getenv('MYSQL_HOST'),
+            'database'  => getenv('MYSQL_DATABASE'),
+            'username'  => getenv('MYSQL_USERNAME'),
             'password'  => getenv('MYSQL_PASSWORD'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
