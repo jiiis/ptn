@@ -26,6 +26,12 @@
   }
 
   &.lg-thumb-open {
+    .lg-actions {
+      .lg-prev, .lg-next {
+        top: ~'calc(50% - 57px)';
+      }
+    }
+
     .lg-image {
       padding-bottom: 114px;
 
@@ -45,6 +51,12 @@
 
   .lg-toolbar {
     background: @ptn-util__color_dark_transparent;
+  }
+
+  .lg-actions {
+    .lg-prev, .lg-next {
+      .ptn-util__transition(all, @ptn-util__duration_fast);
+    }
   }
 
   .lg-item {
