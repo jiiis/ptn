@@ -68,7 +68,7 @@
   .lg-item {
     &.lg-complete.lg-zoomable {
       .lg-image {
-        .ptn-util__transition(padding, @ptn-util__duration_fast) !important;
+        transition: transform @ptn-util__duration_fast cubic-bezier(0, 0, 0.25, 1), padding @ptn-util__duration_fast ease-in-out, opacity @ptn-util__duration_fast ease-in-out !important;
       }
     }
 
