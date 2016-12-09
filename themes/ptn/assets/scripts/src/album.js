@@ -6,7 +6,7 @@
         easing: 'ease-in-out',
         closable: false,
         enableDrag: false,
-        preload: 5,
+        preload: 10,
         speed: 500,
         hideBarsDelay: 3000,
         thumbMargin: 12,
