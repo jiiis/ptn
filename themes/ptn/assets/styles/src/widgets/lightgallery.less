@@ -28,7 +28,13 @@
   &.lg-thumb-open {
     .lg-actions {
       .lg-prev, .lg-next {
-        top: ~'calc(50% - 57px)';
+        top: ~'calc(50% - 67px)';
+      }
+    }
+
+    .lg-item {
+      &:before {
+        top: ~'calc(50% - 84px)';
       }
     }
 
@@ -55,6 +61,8 @@
 
   .lg-actions {
     .lg-prev, .lg-next {
+      top: ~'calc(50% - 10px)';
+
       .ptn-util__transition(all, @ptn-util__duration_fast);
     }
   }
@@ -69,11 +77,11 @@
     &:before {
       content: '';
       position: absolute;
-      top: 0;
+      top: ~'calc(50% - 27px)';
       bottom: 0;
       left: 0;
       right: 0;
-      margin: auto;
+      margin: 0 auto;
       width: 54px;
       height: 54px;
       border: 2px solid transparent;
@@ -83,6 +91,8 @@
       animation-duration: @ptn-util__duration_slower;
       animation-iteration-count: infinite;
       animation-timing-function: linear;
+
+      .ptn-util__transition(padding, @ptn-util__duration_fast);
     }
   }
 
