@@ -12,4 +12,11 @@
             <img src="{{ 'assets/images/logos/logo-lightest-96x96.png' | theme }}">
         </a>
     </div>
+    <div class="ptn-header__space"></div>
+    <div class="ptn-header__account">
+        {% if user %}
+        {% else %}
+        <a class="ptn-header__account-sign" href="" >sign in | sign up</a>
+        {% endif %}
+    </div>
 </header>
