@@ -1,0 +1,18 @@
+title = "Account"
+url = "/account"
+layout = "minimal"
+description = "The account page."
+is_hidden = 0
+
+[account]
+redirect = "home"
+paramCode = "code"
+
+[resetPassword]
+paramCode = "code"
+==
+{% put title %}
+Account
+{% endput %}
+{% component 'account' %}
+{% component 'resetPassword' %}
