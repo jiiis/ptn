@@ -1,0 +1,35 @@
+description = "The minimal layout template."
+
+[session]
+security = "all"
+==
+<?php
+public function onInit()
+{
+    $this['app'] = [
+        'name' => Config::get('ptn.app_name'),
+        'nameAcronym' => Config::get('ptn.app_name_acronym'),
+    ];
+}
+?>
+==
+<!doctype html>
+<!--[if IE 9 ]>
+<html lang="en" class="ptn-html_ie9">
+<![endif]-->
+<!--[if !IE 9 ]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <title>{{ app.nameAcronym }} | {% placeholder title %}</title>
+
+    {% partial 'assets/top' %}
+</head>
+<body>
+    {% partial 'sections/content' %}
+    {% partial 'sections/footer' %}
+    {% partial 'widgets/page-loader' %}
+    {% partial 'widgets/google-analytics' %}
+    {% partial 'assets/bottom' %}
+</body>
+</html>
