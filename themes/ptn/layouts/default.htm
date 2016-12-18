@@ -15,6 +15,7 @@ orderBy = 0
 direction = "desc"
 ==
 <?php
+use Ptn\Publisher;
 use Ptn\Tag;
 
 public function onInit()
@@ -27,6 +28,10 @@ public function onInit()
 
 public function onBeforePageStart()
 {
+    // Publisher
+    $this['publishersPremium'] = Publisher::PREMIUM;
+
+    // Tag
     $tagSlugs = array_map(function($tagObject) {
         return $tagObject->name;
     }, iterator_to_array($this->blogTags->tags));

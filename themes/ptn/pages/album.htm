@@ -26,11 +26,28 @@ public function onEnd()
     $this['albumTagSlugs'] = array_map(function($tag) {
         return $tag->name;
     }, iterator_to_array($this->album->tags));
+
+    $this['albumPublishersPremium'] = array_intersect($this->albumPublisherSlugs, $this->publishersPremium);
+    $this['isAlbumShown'] = count($this->albumPublishersPremium) === 0 || ($this->user && $this->user->is_activated);
 }
 ?>
 ==
 {% put title %}
 Album {% if post %}{{ ' | ' ~ post.title }}{% endif %}
 {% endput %}
+
+{% if isAlbumShown %}
 {% partial 'components/album' %}
 {% partial 'components/albums-related' %}
+{% else %}
+{% if not user %}
+<p>You have to sign in to view the albums from the following publishers:</p>
+{% else %}
+<p>You have to verify your account {{ user.email }} to view the albums from the following publishers:</p>
+{% endif %}
+<ul>
+{% for publisher in albumPublishersPremium %}
+    <li>{{ publisher }}</li>
+{% endfor %}
+</ul>
+{% endif %}

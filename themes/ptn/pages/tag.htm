@@ -25,4 +25,5 @@ public function onEnd()
 {% put title %}
 Tag {% if tag %}{{ ' | ' ~ tags[tag.name] }}{% endif %}
 {% endput %}
+
 {% partial 'components/albums-tag' %}
