@@ -10,6 +10,8 @@ paramCode = "code"
 
 [resetPassword]
 paramCode = "code"
+
+[sociallogin]
 ==
 {% put title %}
 Account
@@ -17,3 +19,6 @@ Account
 
 {% component 'account' %}
 {% component 'resetPassword' %}
+{% for name, link in social_login_links %}
+<a href="{{ link }}">{{ name }}</a>
+{% endfor %}
