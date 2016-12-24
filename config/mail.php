@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'driver' => 'mail',
+    'driver' => 'mailgun',
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'noreply@domain.tld', 'name' => 'OctoberCMS'],
+    'from' => ['address' => 'account@pantyhose-tights-nylons.com', 'name' => 'Pantyhose.Tights.Nylons'],
 
     /*
     |--------------------------------------------------------------------------
