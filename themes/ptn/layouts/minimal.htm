@@ -15,10 +15,10 @@ public function onInit()
 ==
 <!doctype html>
 <!--[if IE 9 ]>
-<html lang="en" class="ptn-html_ie9">
+<html lang="en" class="ptn-html_layout-minimal ptn-html_ie9">
 <![endif]-->
 <!--[if !IE 9 ]><!-->
-<html lang="en">
+<html lang="en" class="ptn-html_layout-minimal">
 <!--<![endif]-->
 <head>
     <title>{{ app.nameAcronym }} | {% placeholder title %}</title>
@@ -26,8 +26,7 @@ public function onInit()
     {% partial 'assets/top' %}
 </head>
 <body>
-    {% partial 'sections/content' %}
-    {% partial 'sections/footer' %}
+    {% partial 'sections/main' %}
     {% partial 'widgets/page-loader' %}
     {% partial 'widgets/google-analytics' %}
     {% partial 'assets/bottom' %}
