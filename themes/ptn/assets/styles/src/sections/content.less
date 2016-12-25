@@ -20,3 +20,22 @@
   margin: 0 auto;
   max-width: 1500px;
 }
+
+.ptn-html_layout-minimal {
+  .ptn-content {
+    padding-top: 0 !important;
+    min-height: 100vh;
+  }
+
+  .ptn-content__container {
+    min-height: ~'calc(100vh - 144px)';
+
+    .ptn__flex-container_vertical(center, center);
+  }
+
+  @media (max-width: @ptn-util__screen_xs-max) {
+    .ptn-content__container {
+      min-height: ~'calc(100vh - 132px)';
+    }
+  }
+}
