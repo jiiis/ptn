@@ -25,7 +25,3 @@ Account
 {% partial 'components/account-sign-in' %}
 {% partial 'components/account-sign-up' %}
 {% endif %}
-
-{% for name, link in social_login_links %}
-<a href="{{ link }}">{{ name }}</a>
-{% endfor %}
