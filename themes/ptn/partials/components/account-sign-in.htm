@@ -1,5 +1,5 @@
 <div id="account-sign-in" class="ptn-account-block">
-    <div class="ptn-account-block_form">
+    <div class="ptn-account-block__body">
         <form data-request="onSignin">
             <div class="form-group">
                 <label for="userSigninLogin">{{ loginAttributeLabel }}</label>
@@ -19,7 +19,7 @@
                         id="userSigninPassword"
                         placeholder="Enter your password">
             </div>
-            <button type="submit" class="btn btn-default">Sign in</button>
+            <button class="ptn-account-block__submit" type="submit"><i class="zmdi zmdi-arrow-forward"></i></button>
         </form>
         {% for name, link in social_login_links %}
         <a href="{{ link }}">{{ name }}</a>
