@@ -3,6 +3,9 @@
 (function(window) {
     /******************** private variables ********************/
     var _isDeviceMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+        _dataAttributes = {
+            accountBlockTrigger: 'ptn-account-block-trigger'
+        },
         _selectors = {
             pageLoader: '#page-loader',
             asideTrigger: '#aside-trigger',
@@ -11,7 +14,9 @@
             listItemActive: '.ptn-list__item_active',
             listLink: '.ptn-list__link',
             sublist: '.ptn-list_sublist',
-            sublistTrigger: '.ptn-list__item_sublist > .ptn-list__link'
+            sublistTrigger: '.ptn-list__item_sublist > .ptn-list__link',
+            accountBlockTrigger: '[' + _dataAttributes.accountBlockTrigger + ']',
+            accountBlock: '.ptn-account-block'
         },
         // Disabled because localStorage doesn't work in private browsing.
         // _localStorageKeys = {
@@ -119,6 +124,19 @@
                 }
             }
         })();
+
+        /******************** widget: account ********************/
+        (function() {
+            _switchAccountBlock('account-sign-in');
+
+            _$body.on('click touchstart', _selectors.accountBlockTrigger, function(e) {
+                e.preventDefault();
+
+                var accountBlockId = $(this).attr(_dataAttributes.accountBlockTrigger);
+
+                _switchAccountBlock(accountBlockId);
+            });
+        })();
     });
 
     /******************** event: page load ********************/
@@ -220,5 +238,17 @@
             $listItem.children(_selectors.sublist).show();
             $listItem.children(_selectors.sublistTrigger).addClass(_classes.triggerOn);
         });
+    }
+
+    function _switchAccountBlock(accountBlockId) {
+        var $accountBlocks = $(_selectors.accountBlock),
+            $accountBlock = $('#' + accountBlockId);
+
+        if (!_isElementExistent($accountBlock)) {
+            return;
+        }
+
+        $accountBlocks.removeClass(_classes.widgetOn);
+        $accountBlock.addClass(_classes.widgetOn);
     }
 })(window);

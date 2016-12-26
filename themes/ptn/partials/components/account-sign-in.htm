@@ -1,5 +1,5 @@
-<div class="ptn-sheet">
-    <div class="ptn-form">
+<div id="account-sign-in" class="ptn-account-block">
+    <div class="ptn-account-block_form">
         <form data-request="onSignin">
             <div class="form-group">
                 <label for="userSigninLogin">{{ loginAttributeLabel }}</label>
@@ -21,8 +21,15 @@
             </div>
             <button type="submit" class="btn btn-default">Sign in</button>
         </form>
+        {% for name, link in social_login_links %}
+        <a href="{{ link }}">{{ name }}</a>
+        {% endfor %}
     </div>
-    {% for name, link in social_login_links %}
-    <a href="{{ link }}">{{ name }}</a>
-    {% endfor %}
+    <div class="ptn-account-block__navigation">
+        <ul class="ptn-account-block__navigation-list">
+            <li class="ptn-account-block__navigation-list-item">
+                <a class="ptn-account-block__navigation-list-item-link" ptn-account-block-trigger="account-sign-up">sign up</a>
+            </li>
+        </ul>
+    </div>
 </div>
