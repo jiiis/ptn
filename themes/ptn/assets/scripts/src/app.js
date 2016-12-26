@@ -16,7 +16,8 @@
             sublist: '.ptn-list_sublist',
             sublistTrigger: '.ptn-list__item_sublist > .ptn-list__link',
             accountBlockTrigger: '[' + _dataAttributes.accountBlockTrigger + ']',
-            accountBlock: '.ptn-account-block'
+            accountBlock: '.ptn-account-block',
+            accountBlockSubmit: '.ptn-account-block__submit'
         },
         // Disabled because localStorage doesn't work in private browsing.
         // _localStorageKeys = {
@@ -64,6 +65,8 @@
         /******************** widget: waves ********************/
         (function() {
             Waves.attach(_selectors.listLink, ['waves-light']);
+            Waves.attach(_selectors.accountBlockSubmit);
+
             Waves.init({
                 duration: _animationDurations.click
             });
@@ -125,7 +128,7 @@
             }
         })();
 
-        /******************** widget: account ********************/
+        /******************** widget: account block ********************/
         (function() {
             _switchAccountBlock('account-sign-in');
 
