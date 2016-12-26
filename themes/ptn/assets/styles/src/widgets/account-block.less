@@ -29,8 +29,14 @@
   font-size: 2.1rem;
   color: @ptn-util__color_dark;
   background: @ptn-util__color_lighter;
-  box-shadow: @ptn-util__box-shadow_3;
+  box-shadow: @ptn-util__box-shadow_1;
   cursor: pointer;
+
+  .ptn-util__transition(all, @ptn-util__duration_medium);
+
+  &:hover {
+    .ptn-util__rotate(360deg);
+  }
 }
 
 .ptn-account-block__navigation {
