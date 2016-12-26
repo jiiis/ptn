@@ -72,3 +72,10 @@
 .ptn-util__translate3d(@x, @y, @z) {
   transform: translate3d(@x, @y, @z);
 }
+
+/******************** animation ********************/
+.ptn-util__animation(@name, @duration) {
+  animation-name: @name;
+  animation-duration: @duration;
+  animation-fill-mode: both;
+}
