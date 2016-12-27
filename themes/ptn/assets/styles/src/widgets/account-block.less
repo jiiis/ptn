@@ -10,11 +10,24 @@
   }
 }
 
+.ptn-account-block__container {
+  background: @ptn-util__color_dark;
+  box-shadow: @ptn-util__box-shadow_1;
+}
+
+.ptn-account-block__header {
+  padding: 24px 36px;
+  border-bottom: 1px solid @ptn-util__color_darker;
+
+  > p {
+    text-transform: uppercase;
+    font-size: 2.1rem;
+  }
+}
+
 .ptn-account-block__body {
   position: relative;
   padding: 24px 48px 24px 36px;
-  background: @ptn-util__color_dark;
-  box-shadow: @ptn-util__box-shadow_1;
 }
 
 .ptn-account-block__submit {
@@ -37,6 +50,34 @@
 
   &:hover {
     .ptn-util__transform_rotate(360deg);
+  }
+}
+
+.ptn-account-block__footer {
+  padding: 24px 36px;
+  border-top: 1px solid @ptn-util__color_darker;
+
+  > p {
+    font-size: 1.8rem;
+  }
+}
+
+.ptn-account-block__social-sign-in {
+  display: block;
+  margin: 12px 0 0;
+  height: 42px;
+  border: 1px solid @ptn-util__color_lighter;
+
+  .ptn__flex-container_horizontal(center, center);
+  .ptn-util__text-hover(@ptn-util__color_dark, @ptn-util__color_lighter);
+
+  > .zmdi {
+    margin: 0 12px 0 0;
+    font-size: 1.8rem;
+  }
+
+  > span {
+    font-size: 1.5rem;
   }
 }
 

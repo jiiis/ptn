@@ -1,37 +1,48 @@
 <div id="account-sign-in" class="ptn-account-block">
-    <div class="ptn-account-block__body">
-        <form data-request="onSignin">
-            <div class="ptn-input-block">
-                <label class="ptn-input-block__label">
-                    <i class="zmdi zmdi-email"></i>
-                </label>
-                <div class="ptn-input-block__input">
-                    <input
-                            class="ptn-input-block__input-text"
-                            type="email"
-                            name="email"
-                            placeholder="Email">
+    <div class="ptn-account-block__container">
+        <div class="ptn-account-block__header">
+            <p>sign in</p>
+        </div>
+        <div class="ptn-account-block__body">
+            <form data-request="onSignin">
+                <div class="ptn-input-block">
+                    <label class="ptn-input-block__label">
+                        <i class="zmdi zmdi-email"></i>
+                    </label>
+                    <div class="ptn-input-block__input">
+                        <input
+                                class="ptn-input-block__input-text"
+                                type="email"
+                                name="email"
+                                placeholder="Email">
+                    </div>
                 </div>
-            </div>
-            <div class="ptn-input-block">
-                <label class="ptn-input-block__label">
-                    <i class="zmdi zmdi-lock"></i>
-                </label>
-                <div class="ptn-input-block__input">
-                    <input
-                            class="ptn-input-block__input-text"
-                            type="password"
-                            name="password"
-                            placeholder="Password">
+                <div class="ptn-input-block">
+                    <label class="ptn-input-block__label">
+                        <i class="zmdi zmdi-lock"></i>
+                    </label>
+                    <div class="ptn-input-block__input">
+                        <input
+                                class="ptn-input-block__input-text"
+                                type="password"
+                                name="password"
+                                placeholder="Password">
+                    </div>
                 </div>
-            </div>
-            <button class="ptn-account-block__submit" type="submit">
-                <i class="zmdi zmdi-arrow-forward"></i>
-            </button>
-        </form>
-        {% for name, link in social_login_links %}
-        <a href="{{ link }}">{{ name }}</a>
-        {% endfor %}
+                <button class="ptn-account-block__submit" type="submit">
+                    <i class="zmdi zmdi-arrow-forward"></i>
+                </button>
+            </form>
+        </div>
+        <div class="ptn-account-block__footer">
+            <p>Or sign in with</p>
+            {% for name, link in social_login_links %}
+            <a class="ptn-account-block__social-sign-in" href="{{ link }}">
+                <i class="zmdi zmdi-{{ name | lower }}"></i>
+                <span>{{ name }}</span>
+            </a>
+            {% endfor %}
+        </div>
     </div>
     <div class="ptn-account-block__navigation">
         <ul class="ptn-account-block__navigation-list">
