@@ -35,12 +35,13 @@
             </form>
         </div>
         <div class="ptn-account-block__footer">
-            <p>Or sign in with</p>
+            <!--<p>Or sign in with</p>-->
             {% for name, link in social_login_links %}
             <a class="ptn-account-block__social-sign-in" href="{{ link }}">
                 <i class="zmdi zmdi-{{ name | lower }}"></i>
                 <span>{{ name }}</span>
             </a>
+            <div class="ptn-util__clearfix"></div>
             {% endfor %}
         </div>
     </div>
