@@ -41,5 +41,64 @@
 }
 
 .ptn-account-block__navigation {
+  margin: 12px 0 0;
+}
 
+.ptn-account-block__navigation-list {
+  .ptn__flex-container_horizontal(center, center);
+}
+
+.ptn-account-block__navigation-list-item {
+  margin: 0 3px;
+}
+
+.ptn-account-block__navigation-list-item-link {
+  display: block;
+  height: 36px;
+  border-radius: 18px;
+  color: @ptn-util__color_lighter;
+  background: @ptn-util__color_dark;
+  box-shadow: @ptn-util__box-shadow_1;
+  white-space: nowrap;
+  cursor: pointer;
+
+  .ptn__flex-container_horizontal(start, center);
+  .ptn-util__text-hover(@ptn-util__color_lightest, @ptn-util__color_dark);
+  .ptn-util__transition;
+
+  &:hover {
+    > span {
+      width: 66px;
+
+      .ptn-util__opacity(1);
+    }
+  }
+
+  &[ptn-account-block-trigger=account-sign-up]:hover {
+    > span {
+      width: 66px;
+    }
+  }
+
+  &[ptn-account-block-trigger=account-sign-in]:hover {
+    > span {
+      width: 62px;
+    }
+  }
+
+  > .zmdi {
+    width: 36px;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  > span {
+    overflow: hidden;
+    width: 0;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+
+    .ptn-util__opacity(0);
+    .ptn-util__transition;
+  }
 }
