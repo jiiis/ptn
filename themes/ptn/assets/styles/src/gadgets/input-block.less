@@ -1,0 +1,59 @@
+.ptn-input-block {
+  margin: 0 0 24px;
+
+  .ptn__flex-container_horizontal(start, center);
+
+  &.ptn-util__widget_on {
+    .ptn-input-block__input:after {
+      .ptn-util__opacity(1);
+      .ptn-util__transform_scale(1);
+    }
+  }
+}
+
+.ptn-input-block__label {
+  margin: 0 24px 0 0;
+
+  > .zmdi {
+    font-size: 2.1rem;
+  }
+}
+
+.ptn-input-block__input {
+  position: relative;
+
+  .ptn-util__flex-grow(1);
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: @ptn-util__color_lightest;
+
+    .ptn-util__opacity(0);
+    .ptn-util__transition;
+    .ptn-util__transform_scale(0, 1);
+  }
+}
+
+.ptn-input-block__input-text {
+  width: 100%;
+  height: 36px;
+  border-top: none;
+  border-bottom: 1px solid @ptn-util__color_darker;
+  border-left: none;
+  border-right: none;
+  font-size: 1.4rem;
+  color: @ptn-util__color_lightest;
+  background: none;
+
+  .ptn-util__input-placeholder-color(@ptn-util__color_light);
+
+  &:-webkit-autofill {
+    -webkit-text-fill-color: @ptn-util__color_lightest;
+    -webkit-box-shadow: 0 0 0 1000px @ptn-util__color_dark inset;
+  }
+}

@@ -25,6 +25,25 @@
   pointer-events: none;
 }
 
+/******************** input ********************/
+.ptn-util__input-placeholder-color(@color) {
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+
+  &::-moz-placeholder {
+    color: @color;
+  }
+
+  &:-moz-placeholder {
+    color: @color;
+  }
+
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+}
+
 /******************** hover ********************/
 .ptn-util__text-hover(@color, @background: initial) {
   &:hover {

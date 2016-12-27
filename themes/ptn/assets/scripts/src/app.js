@@ -17,7 +17,9 @@
             sublistTrigger: '.ptn-list__item_sublist > .ptn-list__link',
             accountBlockTrigger: '[' + _dataAttributes.accountBlockTrigger + ']',
             accountBlock: '.ptn-account-block',
-            accountBlockSubmit: '.ptn-account-block__submit'
+            accountBlockSubmit: '.ptn-account-block__submit',
+            inputBlock: '.ptn-input-block',
+            inputBlockInputText: '.ptn-input-block__input-text'
         },
         // Disabled because localStorage doesn't work in private browsing.
         // _localStorageKeys = {
@@ -128,7 +130,7 @@
             }
         })();
 
-        /******************** widget: account block ********************/
+        /******************** widget: account block | switch ********************/
         (function() {
             _switchAccountBlock('account-sign-in');
 
@@ -138,6 +140,19 @@
                 var accountBlockId = $(this).attr(_dataAttributes.accountBlockTrigger);
 
                 _switchAccountBlock(accountBlockId);
+            });
+        })();
+
+        /******************** widget: input block | focus ********************/
+        (function() {
+            _$body.on('focus', _selectors.inputBlockInputText, function(e) {
+                e.preventDefault();
+
+                $(this).closest(_selectors.inputBlock).addClass(_classes.widgetOn);
+            }).on('blur', _selectors.inputBlockInputText, function(e) {
+                e.preventDefault();
+
+                $(this).closest(_selectors.inputBlock).removeClass(_classes.widgetOn);
             });
         })();
     });
