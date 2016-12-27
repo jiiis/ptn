@@ -12,6 +12,17 @@ paramCode = "code"
 
 [sociallogin]
 ==
+<?php
+use Illuminate\Support\Facades\Redirect;
+
+public function onSignin()
+{
+    $this->account->onSignin();
+
+    return Redirect::to('/');
+}
+?>
+==
 {% put title %}
 Account
 {% endput %}
