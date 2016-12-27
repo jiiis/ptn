@@ -1,6 +1,6 @@
 .ptn-account-block {
   display: none;
-  width: 90%;
+  width: 85%;
   max-width: 480px;
 
   .ptn-util__animation(fadeInUp, @ptn-util__duration_fast);
@@ -67,18 +67,31 @@
   margin: 6px 0;
   height: 42px;
   border: 1px solid @ptn-util__color_lighter;
+  border-radius: 3px;
 
-  .ptn__flex-container_horizontal(center, center);
+  .ptn__flex-container_horizontal(start, stretch);
   .ptn-util__text-hover(@ptn-util__color_dark, @ptn-util__color_lighter);
-  .ptn-util__clearfix;
+
+  &:hover {
+    > .zmdi {
+      border-right: 1px solid @ptn-util__color_dark;
+    }
+  }
 
   > .zmdi {
-    margin: 0 12px 0 0;
+    width: 42px;
     font-size: 1.8rem;
+    border-right: 1px solid @ptn-util__color_lighter;
+
+    .ptn__flex-container_horizontal(center, center);
+    .ptn-util__transition(border, @ptn-util__duration_fast);
   }
 
   > span {
     font-size: 1.5rem;
+
+    .ptn-util__flex-grow(1);
+    .ptn__flex-container_horizontal(center, center);
   }
 }
 
