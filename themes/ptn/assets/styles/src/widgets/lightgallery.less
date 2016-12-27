@@ -1,7 +1,9 @@
 /******************** variables ********************/
 @import '../general/variables';
+
 /******************** utilities ********************/
 @import '../general/utilities';
+
 /******************** vendors ********************/
 @import (less) '@{ptn-util__path_vendors}/lightgallery/dist/css/lightgallery.css';
 
@@ -91,12 +93,9 @@
       border: 2px solid transparent;
       border-right-color: @ptn-util__color_lighter;
       border-radius: 50%;
-      animation-name: loader;
-      animation-duration: @ptn-util__duration_slower;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
 
       .ptn-util__transition(all, @ptn-util__duration_fast);
+      .ptn-util__animation(loader, @ptn-util__duration_slower, linear, infinite);
     }
   }
 

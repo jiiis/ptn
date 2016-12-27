@@ -74,8 +74,6 @@
 }
 
 /******************** animation ********************/
-.ptn-util__animation(@name, @duration) {
-  animation-name: @name;
-  animation-duration: @duration;
-  animation-fill-mode: both;
+.ptn-util__animation(@name, @duration, @timingFunction: ease, @iterationCount: 1) {
+  animation: @name @duration @timingFunction 0ms @iterationCount normal both;
 }
