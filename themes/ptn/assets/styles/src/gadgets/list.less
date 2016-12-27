@@ -58,7 +58,7 @@
         opacity: 0;
 
         .ptn-util__transition;
-        .ptn-util__scale(1, 0);
+        .ptn-util__transform_scale(1, 0);
       }
     }
   }
@@ -84,22 +84,22 @@
     &:before {
       content: '\f278';
 
-      .ptn-util__scale(1);
+      .ptn-util__transform_scale(1);
     }
 
     &:after {
       content: '\f273';
 
-      .ptn-util__scale(0);
+      .ptn-util__transform_scale(0);
     }
 
     &.ptn-util__trigger_on {
       &:before {
-        .ptn-util__scale(0);
+        .ptn-util__transform_scale(0);
       }
 
       &:after {
-        .ptn-util__scale(1);
+        .ptn-util__transform_scale(1);
       }
     }
 
@@ -169,6 +169,6 @@
   &:before {
     opacity: 1 !important;
 
-    .ptn-util__scale(1) !important;
+    .ptn-util__transform_scale(1) !important;
   }
 }

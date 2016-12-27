@@ -53,23 +53,23 @@
 }
 
 /******************** transform ********************/
-.ptn-util__scale(@ratio) {
+.ptn-util__transform_scale(@ratio) {
   transform: scale(@ratio);
 }
 
-.ptn-util__scale(@ratioX, @ratioY) {
+.ptn-util__transform_scale(@ratioX, @ratioY) {
   transform: scale(@ratioX, @ratioY);
 }
 
-.ptn-util__rotate(@degrees) {
+.ptn-util__transform_rotate(@degrees) {
   transform: rotate(@degrees);
 }
 
-.ptn-util__scale_rotate(@ratio, @degrees) {
+.ptn-util__transform_scale_rotate(@ratio, @degrees) {
   transform: scale(@ratio) rotate(@degrees);
 }
 
-.ptn-util__translate3d(@x, @y, @z) {
+.ptn-util__transform_translate3d(@x, @y, @z) {
   transform: translate3d(@x, @y, @z);
 }
 
