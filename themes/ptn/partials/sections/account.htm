@@ -1,0 +1,11 @@
+<div class="ptn-account">
+    {% if user %}
+    {% if not user.is_activated %}
+    {% partial 'components/account-activation-check' %}
+    {% endif %}
+    {% partial 'components/account-update' %}
+    {% else %}
+    {% partial 'components/account-sign-in' %}
+    {% partial 'components/account-sign-up' %}
+    {% endif %}
+</div>
