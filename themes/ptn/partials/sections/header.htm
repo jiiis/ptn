@@ -15,9 +15,10 @@
     <div class="ptn-header__space"></div>
     <div class="ptn-header__account">
         {% if user %}
-        <a data-request="onLogout" data-request-redirect="/home" href="">Sign out</a>
+        <a class="ptn-header__account-link">{{ user.name }}</a>
+        <!--<a data-request="onLogout" data-request-redirect="/home" href="">sign out</a>-->
         {% else %}
-        <a class="ptn-header__account-sign" href="{{ 'account' | page }}">sign in | sign up</a>
+        <a class="ptn-header__account-link" href="{{ 'account' | page }}">sign in</a>
         {% endif %}
     </div>
 </header>
