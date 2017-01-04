@@ -12,13 +12,54 @@
             <img src="{{ 'assets/images/logos/logo-lightest-96x96.png' | theme }}">
         </a>
     </div>
-    <div class="ptn-header__space"></div>
-    <div class="ptn-header__account">
-        {% if user %}
-        <a class="ptn-header__account-link">{{ user.name }}</a>
-        <!--<a data-request="onLogout" data-request-redirect="/home" href="">sign out</a>-->
-        {% else %}
-        <a class="ptn-header__account-link" href="{{ 'account' | page }}">sign in</a>
-        {% endif %}
+    <div class="ptn-header__navigation">
+        <ul class="ptn-header__navigation-list">
+            <li class="ptn-header__navigation-list-item">
+                {% if user %}
+                <div class="ptn-header__navigation-list-item-wrap ptn-dropdown">
+                    <a class="ptn-header__navigation-list-item-icon ptn-dropdown__trigger">
+                        <i class="zmdi zmdi-account"></i>
+                    </a>
+                    <div class="dropdown__menu">
+                        <div class="ptn-list">
+                            <ul class="ptn-list__list">
+                                <li class="ptn-list__item">
+                                    <a class="ptn-list__link" href="{{ 'account' | page }}">
+                                        <div class="ptn-list__item-icon">
+                                            <i class="zmdi zmdi-male"></i>
+                                        </div>
+                                        <p class="ptn-list__item-text">my account</p>
+                                    </a>
+                                </li>
+                                <li class="ptn-list__item">
+                                    <a class="ptn-list__link" data-request="onLogout" data-request-redirect="/home">
+                                        <div class="ptn-list__item-icon">
+                                            <i class="zmdi zmdi-run"></i>
+                                        </div>
+                                        <p class="ptn-list__item-text">sign out</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="ptn-header__navigation-list-item-wrap">
+                    <a class="ptn-header__navigation-list-item-text" href="{{ 'account' | page }}">
+                        <i class="zmdi zmdi-account"></i>
+                        <span>sign in</span>
+                    </a>
+                </div>
+                {% endif %}
+            </li>
+        </ul>
     </div>
+    <!--<div class="ptn-header__account">-->
+        <!--{% if user %}-->
+        <!--<a class="ptn-header__account-link">{{ user.name }}</a>-->
+        <!--&lt;!&ndash;<a data-request="onLogout" data-request-redirect="/home" href="">sign out</a>&ndash;&gt;-->
+        <!--{% else %}-->
+        <!--<a class="ptn-header__account-link" href="{{ 'account' | page }}">sign in</a>-->
+        <!--{% endif %}-->
+    <!--</div>-->
 </header>

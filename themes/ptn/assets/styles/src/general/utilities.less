@@ -45,13 +45,36 @@
 }
 
 /******************** hover ********************/
-.ptn-util__text-hover(@color, @background: initial) {
+.ptn-util__hover_text(@color, @background: initial) {
   &:hover {
     color: @color;
     background: @background;
   }
 
-  .ptn-util__transition(all, @ptn-util__duration_fast);
+  .ptn-util__transition;
+}
+
+.ptn-util__hover_pop(@background: @ptn-util__color_lighter_transparent, @borderRadius: 3px) {
+  position: relative;
+  cursor: pointer;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    border-radius: @borderRadius;
+    background: @background;
+
+    .ptn-util__transition;
+    .ptn-util__transform_scale(0);
+    .ptn-util__opacity(0);
+  }
+
+  &:hover:before, &:focus:before {
+    .ptn-util__transform_scale(1);
+    .ptn-util__opacity(1);
+  }
 }
 
 /******************** clearfix ********************/

@@ -54,7 +54,7 @@
   box-shadow: @ptn-util__box-shadow_1;
   cursor: pointer;
 
-  .ptn-util__text-hover(@ptn-util__color_dark, @ptn-util__color_lightest);
+  .ptn-util__hover_text(@ptn-util__color_dark, @ptn-util__color_lightest);
   .ptn-util__transition(all, @ptn-util__duration_fast);
 
   &:hover {
@@ -78,7 +78,7 @@
   border-radius: 3px;
 
   .ptn__flex-container_horizontal(start, stretch);
-  .ptn-util__text-hover(@ptn-util__color_dark, @ptn-util__color_lighter);
+  .ptn-util__hover_text(@ptn-util__color_dark, @ptn-util__color_lighter);
 
   &:hover {
     > .zmdi {
@@ -125,7 +125,7 @@
   white-space: nowrap;
 
   .ptn__flex-container_horizontal(start, center);
-  .ptn-util__text-hover(@ptn-util__color_lightest, @ptn-util__color_dark);
+  .ptn-util__hover_text(@ptn-util__color_lightest, @ptn-util__color_dark);
   .ptn-util__transition;
 
   &:hover {
