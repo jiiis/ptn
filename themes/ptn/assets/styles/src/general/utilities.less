@@ -46,7 +46,7 @@
 
 /******************** hover ********************/
 .ptn-util__hover_text(@color, @background: initial) {
-  &:hover {
+  &:hover, &.ptn-util__trigger_on {
     color: @color;
     background: @background;
   }
@@ -67,13 +67,13 @@
     background: @background;
 
     .ptn-util__transition;
-    .ptn-util__transform_scale(0);
     .ptn-util__opacity(0);
+    .ptn-util__transform_scale(0);
   }
 
-  &:hover:before, &:focus:before {
-    .ptn-util__transform_scale(1);
+  &:hover:before, &.ptn-util__trigger_on:before {
     .ptn-util__opacity(1);
+    .ptn-util__transform_scale(1);
   }
 }
 

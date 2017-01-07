@@ -1,5 +1,12 @@
 .ptn-dropdown {
   position: relative;
+
+  &.ptn-util__widget_on {
+    .dropdown__menu {
+      .ptn-util__opacity(1);
+      .ptn-util__transform_scale(1);
+    }
+  }
 }
 
 .ptn-dropdown__trigger {
@@ -13,6 +20,11 @@
   min-width: 180px;
   background: @ptn-util__color_dark_transparent;
   box-shadow: @ptn-util__box-shadow_3;
+  transform-origin: top right;
+
+  .ptn-util__transition;
+  .ptn-util__opacity(0);
+  .ptn-util__transform_scale(0);
 }
 
 .dropdown__menu-header {
@@ -28,5 +40,5 @@
 }
 
 .dropdown__menu-body {
-
+  padding: 12px 0;
 }
