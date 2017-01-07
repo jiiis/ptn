@@ -21,25 +21,30 @@
                         <i class="zmdi zmdi-account"></i>
                     </a>
                     <div class="dropdown__menu">
-                        <div class="ptn-list">
-                            <ul class="ptn-list__list">
-                                <li class="ptn-list__item">
-                                    <a class="ptn-list__link" href="{{ 'account' | page }}">
-                                        <div class="ptn-list__item-icon">
-                                            <i class="zmdi zmdi-male"></i>
-                                        </div>
-                                        <p class="ptn-list__item-text">my account</p>
-                                    </a>
-                                </li>
-                                <li class="ptn-list__item">
-                                    <a class="ptn-list__link" data-request="onLogout" data-request-redirect="/home">
-                                        <div class="ptn-list__item-icon">
-                                            <i class="zmdi zmdi-run"></i>
-                                        </div>
-                                        <p class="ptn-list__item-text">sign out</p>
-                                    </a>
-                                </li>
-                            </ul>
+                        <div class="dropdown__menu-header">
+                            <p class="dropdown__menu-title">{{ user.name }}</p>
+                        </div>
+                        <div class="dropdown__menu-body">
+                            <div class="ptn-list">
+                                <ul class="ptn-list__list">
+                                    <li class="ptn-list__item">
+                                        <a class="ptn-list__link" href="{{ 'account' | page }}">
+                                            <div class="ptn-list__item-icon">
+                                                <i class="zmdi zmdi-male"></i>
+                                            </div>
+                                            <p class="ptn-list__item-text">My account</p>
+                                        </a>
+                                    </li>
+                                    <li class="ptn-list__item">
+                                        <a class="ptn-list__link" data-request="onLogout" data-request-redirect="/home">
+                                            <div class="ptn-list__item-icon">
+                                                <i class="zmdi zmdi-run"></i>
+                                            </div>
+                                            <p class="ptn-list__item-text">Sign out</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -47,19 +52,11 @@
                 <div class="ptn-header__navigation-list-item-wrap">
                     <a class="ptn-header__navigation-list-item-text" href="{{ 'account' | page }}">
                         <i class="zmdi zmdi-account"></i>
-                        <span>sign in</span>
+                        <span>Sign in</span>
                     </a>
                 </div>
                 {% endif %}
             </li>
         </ul>
     </div>
-    <!--<div class="ptn-header__account">-->
-        <!--{% if user %}-->
-        <!--<a class="ptn-header__account-link">{{ user.name }}</a>-->
-        <!--&lt;!&ndash;<a data-request="onLogout" data-request-redirect="/home" href="">sign out</a>&ndash;&gt;-->
-        <!--{% else %}-->
-        <!--<a class="ptn-header__account-link" href="{{ 'account' | page }}">sign in</a>-->
-        <!--{% endif %}-->
-    <!--</div>-->
 </header>
