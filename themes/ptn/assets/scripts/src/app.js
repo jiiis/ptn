@@ -15,6 +15,8 @@
             listLink: '.ptn-list__link',
             sublist: '.ptn-list_sublist',
             sublistTrigger: '.ptn-list__item_sublist > .ptn-list__link',
+            dropdown: '.ptn-dropdown',
+            dropdownTrigger: '.ptn-dropdown__trigger',
             accountBlockTrigger: '[' + _dataAttributes.accountBlockTrigger + ']',
             accountBlock: '.ptn-account-block',
             accountBlockSubmit: '.ptn-account-block__submit',
@@ -128,6 +130,31 @@
                     $trigger.addClass(_classes.triggerOn);
                 }
             }
+        })();
+
+        /******************** widget: dropdown | toggle ********************/
+        (function() {
+            _$body.on('click touchstart', _selectors.dropdownTrigger, function(e) {
+                e.preventDefault();
+
+                var $dropdownTrigger = $(this),
+                    $dropdown = $dropdownTrigger.closest(_selectors.dropdown);
+
+                $dropdownTrigger.toggleClass(_classes.triggerOn);
+                $dropdown.toggleClass(_classes.widgetOn);
+            });
+
+            _$body.on('click touchstart', function(e) {
+                var $target = $(e.target),
+                    isTargetDropdown = $target.closest(_selectors.dropdown).length > 0;
+
+                if (isTargetDropdown) {
+                    return;
+                }
+
+                $(_selectors.dropdownTrigger).removeClass(_classes.triggerOn);
+                $(_selectors.dropdown).removeClass(_classes.widgetOn);
+            });
         })();
 
         /******************** widget: account block | switch ********************/
