@@ -111,14 +111,13 @@
 }
 
 .ptn-header__navigation-list-item-icon, .ptn-header__navigation-list-item-text {
-  display: block;
+  .ptn__flex-container_horizontal(center, center);
 }
 
 .ptn-header__navigation-list-item-icon {
   width: 48px;
   height: 36px;
 
-  .ptn__flex-container_horizontal(center, center);
   .ptn-util__hover_text(@ptn-util__color_lightest);
   .ptn-util__hover_pop;
 
@@ -135,7 +134,7 @@
     font-size: 2.1rem;
 
     + span {
-      padding: 0 0 0 6px;
+      padding: 0 0 0 9px;
     }
   }
 }
