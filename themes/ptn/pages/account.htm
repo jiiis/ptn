@@ -5,6 +5,7 @@ description = "The account page."
 is_hidden = 0
 
 [account]
+redirect = "home"
 paramCode = "activation_code"
 
 [resetPassword]
@@ -13,14 +14,14 @@ paramCode = "code"
 [sociallogin]
 ==
 <?php
-use Illuminate\Support\Facades\Redirect;
+//use Illuminate\Support\Facades\Redirect;
 
-public function onSignin()
-{
-    $this->account->onSignin();
+//public function onSignin()
+//{
+//    $this->account->onSignin();
 
-    return Redirect::to('/');
-}
+//    return Redirect::to('/');
+//}
 ?>
 ==
 {% put title %}
