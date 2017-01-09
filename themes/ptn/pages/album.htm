@@ -49,14 +49,5 @@ Album {% if post %}{{ ' | ' ~ post.title }}{% endif %}
 {% partial 'components/album' %}
 {% partial 'components/albums-related' %}
 {% else %}
-{% if not user %}
-<p>You have to sign in to view the albums from the following publishers:</p>
-{% else %}
-<p>You have to verify your account {{ user.email }} to view the albums from the following publishers:</p>
-{% endif %}
-<ul>
-{% for publisher in albumPublishersPremium %}
-    <li>{{ publisher.name }}</li>
-{% endfor %}
-</ul>
+{% partial 'units/access-warning' %}
 {% endif %}
