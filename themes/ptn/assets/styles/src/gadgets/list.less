@@ -12,6 +12,18 @@
     }
   }
 
+  .ptn-list__item_highlighted {
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-style: solid;
+      border-width: 6px;
+      border-color: @ptn-util__color_red @ptn-util__color_red transparent transparent;
+    }
+  }
+
   .ptn-list__item:not(.ptn-list__item_sublist) {
     > .ptn-list__link {
       &:hover {
@@ -45,6 +57,8 @@
 }
 
 .ptn-list__item {
+  position: relative;
+
   &:not(.ptn-list__item_sublist) {
     > .ptn-list__link {
       &:before {
