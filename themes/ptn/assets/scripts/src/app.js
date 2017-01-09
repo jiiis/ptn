@@ -159,7 +159,7 @@
 
         /******************** widget: account block | switch ********************/
         (function() {
-            _switchAccountBlock('account-sign-in');
+            _switchAccountBlock('account-sign-up');
             _switchAccountBlock('account-update');
 
             _$body.on('click touchstart', _selectors.accountBlockTrigger, function(e) {
