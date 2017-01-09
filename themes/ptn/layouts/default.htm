@@ -29,7 +29,7 @@ public function onInit()
 public function onBeforePageStart()
 {
     // Publisher
-    $this['publishersPremium'] = Publisher::PREMIUM;
+    $this['publisherSlugsPremium'] = Publisher::PREMIUM;
 
     // Tag
     $tagSlugs = array_map(function($tagObject) {

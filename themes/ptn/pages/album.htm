@@ -34,7 +34,7 @@ public function onEnd()
     }, $albumTagsArray);
 
     $this['albumPublishersPremium'] = array_filter($albumPublishersArray, function($publisher) {
-        return in_array($publisher->slug, $this->publishersPremium);
+        return in_array($publisher->slug, $this->publisherSlugsPremium);
     });
 
     $this['isAlbumShown'] = count($this->albumPublishersPremium) === 0 || ($this->user && $this->user->is_activated);

@@ -23,7 +23,7 @@
                 <div class="ptn-list ptn-list_sublist">
                     <ul class="ptn-list__list">
                         {% for publisher in categories %}
-                        <li class="ptn-list__item{% if publisher.slug == currentPublisherSlug or publisher.slug in albumPublisherSlugs %} ptn-list__item_active{% endif %}">
+                        <li class="ptn-list__item{% if publisher.slug == currentPublisherSlug or publisher.slug in albumPublisherSlugs %} ptn-list__item_active{% endif %}{% if publisher.slug in publisherSlugsPremium %} ptn-list__item_highlighted{% endif %}">
                             <a class="ptn-list__link" href="{{ 'publisher' | page({publisher: publisher.slug}) }}">
                                 <p class="ptn-list__item-text">{{ publisher.name }}</p>
                             </a>
