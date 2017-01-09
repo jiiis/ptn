@@ -11,7 +11,7 @@
             asideTrigger: '#aside-trigger',
             aside: '#aside',
             listItem: '.ptn-list__item',
-            listItemActive: '.ptn-list__item_active',
+            listItemActive: '.ptn-list__item.ptn-util__widget_active',
             listLink: '.ptn-list__link',
             sublist: '.ptn-list_sublist',
             sublistTrigger: '.ptn-list__item_sublist > .ptn-list__link',
@@ -28,8 +28,10 @@
         //     statusAside: 'ptn-status-aside'
         // },
         _classes = {
-            triggerOn: 'ptn-util__trigger_on',
+            widgetActive: 'ptn-util__widget_active',
+            widgetHighlighted: 'ptn-util__widget_highlighted',
             widgetOn: 'ptn-util__widget_on',
+            triggerOn: 'ptn-util__trigger_on',
             htmlMobileDevice: 'ptn-html_mobile-device',
             bodyAsideOn: 'ptn-body_aside-on'
         },
