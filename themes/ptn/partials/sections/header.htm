@@ -24,7 +24,7 @@
                         <div class="dropdown__menu-header">
                             <p class="dropdown__menu-title">{{ user.name }}</p>
                         </div>
-                        <div class="dropdown__menu-body_hollow">
+                        <div class="dropdown__menu-body dropdown__menu-body_hollow">
                             <div class="ptn-list">
                                 <ul class="ptn-list__list">
                                     <li class="ptn-list__item">
@@ -86,6 +86,20 @@
                                         <i class="zmdi zmdi-arrow-forward"></i>
                                     </button>
                                 </form>
+                            </div>
+                        </div>
+                        <div class="dropdown__menu-body dropdown__menu-body_hollow">
+                            <div class="ptn-list">
+                                <ul class="ptn-list__list">
+                                    <li class="ptn-list__item">
+                                        <a class="ptn-list__link" href="{{ 'account' | page }}">
+                                            <div class="ptn-list__item-icon">
+                                                <i class="zmdi zmdi-male-alt"></i>
+                                            </div>
+                                            <p class="ptn-list__item-text">Sign up</p>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
