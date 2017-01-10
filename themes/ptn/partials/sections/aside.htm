@@ -1,7 +1,7 @@
 <aside id="aside" class="ptn-aside">
     <div class="ptn-list">
         <ul class="ptn-list__list">
-            <li class="ptn-list__item{% if this.page.id == 'home' %} ptn-util__widget_active{% endif %}">
+            <li class="ptn-list__item{% if this.page.id == 'home' %} ptn-list__item_active{% endif %}">
                 <a class="ptn-list__link" href="{{ '/' | app }}">
                     <div class="ptn-list__item-icon">
                         <i class="zmdi zmdi-home"></i>
@@ -23,7 +23,7 @@
                 <div class="ptn-list ptn-list_sublist">
                     <ul class="ptn-list__list">
                         {% for publisher in categories %}
-                        <li class="ptn-list__item{% if publisher.slug == currentPublisherSlug or publisher.slug in albumPublisherSlugs %} ptn-util__widget_active{% endif %}{% if publisher.slug in publisherSlugsPremium %} ptn-util__widget_highlighted{% endif %}">
+                        <li class="ptn-list__item{% if publisher.slug == currentPublisherSlug or publisher.slug in albumPublisherSlugs %} ptn-list__item_active{% endif %}{% if publisher.slug in publisherSlugsPremium %} ptn-list__item_highlighted{% endif %}">
                             <a class="ptn-list__link" href="{{ 'publisher' | page({publisher: publisher.slug}) }}">
                                 <p class="ptn-list__item-text">{{ publisher.name }}</p>
                             </a>
@@ -46,7 +46,7 @@
                 <div class="ptn-list ptn-list_sublist">
                     <ul class="ptn-list__list">
                         {% for tagSlug, tagName in regionTags %}
-                        <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-util__widget_active{% endif %}">
+                        <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
                             <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
                                 <p class="ptn-list__item-text">{{ tagName }}</p>
                             </a>
@@ -69,7 +69,7 @@
                 <div class="ptn-list ptn-list_sublist">
                     <ul class="ptn-list__list">
                         {% for tagSlug, tagName in typeTags %}
-                        <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-util__widget_active{% endif %}">
+                        <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
                             <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
                                 <p class="ptn-list__item-text">{{ tagName }}</p>
                             </a>
@@ -92,7 +92,7 @@
                 <div class="ptn-list ptn-list_sublist">
                     <ul class="ptn-list__list">
                         {% for tagSlug, tagName in styleTags %}
-                        <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-util__widget_active{% endif %}">
+                        <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
                             <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
                                 <p class="ptn-list__item-text">{{ tagName }}</p>
                             </a>
@@ -115,7 +115,7 @@
                 <div class="ptn-list ptn-list_sublist">
                     <ul class="ptn-list__list">
                         {% for tagSlug, tagName in textureTags %}
-                        <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-util__widget_active{% endif %}">
+                        <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
                             <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
                                 <p class="ptn-list__item-text">{{ tagName }}</p>
                             </a>
@@ -138,7 +138,7 @@
                 <div class="ptn-list ptn-list_sublist">
                     <ul class="ptn-list__list">
                         {% for tagSlug, tagName in colorTags %}
-                        <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-util__widget_active{% endif %}">
+                        <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
                             <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
                                 <p class="ptn-list__item-text">{{ tagName }}</p>
                             </a>
@@ -176,7 +176,7 @@
                                             <p class="ptn-list__item-text">Level 3</p>
                                         </a>
                                     </li>
-                                    <li class="ptn-list__item ptn-util__widget_active">
+                                    <li class="ptn-list__item ptn-list__item_active">
                                         <a class="ptn-list__link">
                                             <p class="ptn-list__item-text">Level 3</p>
                                         </a>
