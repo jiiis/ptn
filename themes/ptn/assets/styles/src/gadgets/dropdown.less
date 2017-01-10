@@ -33,10 +33,16 @@
 }
 
 .dropdown__menu-title {
+  max-width: 270px;
   line-height: 24px;
   font-size: 1.5rem;
+  text-align: center;
 
-  .ptn__flex-container_horizontal(center, center);
+  @media (max-width: @ptn-util__screen_xs-max) {
+    max-width: 240px;
+  }
+
+  .ptn-util__text-overflow_truncate;
 }
 
 .dropdown__menu-body {
