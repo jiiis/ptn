@@ -24,7 +24,7 @@
                         <div class="dropdown__menu-header">
                             <p class="dropdown__menu-title">{{ user.name }}</p>
                         </div>
-                        <div class="dropdown__menu-body">
+                        <div class="dropdown__menu-body_hollow">
                             <div class="ptn-list">
                                 <ul class="ptn-list__list">
                                     <li class="ptn-list__item">
@@ -49,11 +49,46 @@
                     </div>
                 </div>
                 {% else %}
-                <div class="ptn-header__navigation-list-item-wrap">
-                    <a class="ptn-header__navigation-list-item-text" href="{{ 'account' | page }}">
+                <div class="ptn-header__navigation-list-item-wrap ptn-dropdown">
+                    <a class="ptn-header__navigation-list-item-text ptn-dropdown__trigger">
                         <i class="zmdi zmdi-walk"></i>
                         <span>Sign in</span>
                     </a>
+                    <div class="dropdown__menu">
+                        <div class="dropdown__menu-body">
+                            <div class="dropdown__menu-form">
+                                <form data-request="onSignin">
+                                    <div class="ptn-input-block">
+                                        <label class="ptn-input-block__label">
+                                            <i class="zmdi zmdi-email"></i>
+                                        </label>
+                                        <div class="ptn-input-block__input">
+                                            <input
+                                                    class="ptn-input-block__input-text"
+                                                    type="email"
+                                                    name="email"
+                                                    placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <div class="ptn-input-block">
+                                        <label class="ptn-input-block__label">
+                                            <i class="zmdi zmdi-shield-security"></i>
+                                        </label>
+                                        <div class="ptn-input-block__input">
+                                            <input
+                                                    class="ptn-input-block__input-text"
+                                                    type="password"
+                                                    name="password"
+                                                    placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <button type="submit">
+                                        <i class="zmdi zmdi-arrow-forward"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 {% endif %}
             </li>

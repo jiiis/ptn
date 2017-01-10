@@ -40,5 +40,30 @@
 }
 
 .dropdown__menu-body {
+  padding: 12px 18px;
+}
+
+.dropdown__menu-body_hollow {
   padding: 12px 0;
+}
+
+.dropdown__menu-form {
+  width: 240px;
+
+  form {
+    > button {
+      display: block;
+      width: 100%;
+      height: 30px;
+      border: 1px solid @ptn-util__color_light;
+      color: @ptn-util__color_light;
+      background: transparent;
+
+      .ptn-util__hover_text(@ptn-util__color_dark, @ptn-util__color_light);
+
+      > .zmdi {
+        font-size: 2.1rem;
+      }
+    }
+  }
 }
