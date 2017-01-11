@@ -39,6 +39,16 @@
   }
 }
 
+.ptn-account-block__body-title {
+  margin: 0 0 24px;
+  line-height: 18px;
+  font-size: 1.5rem;
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
 .ptn-account-block__submit {
   position: absolute;
   top: 50%;
@@ -150,6 +160,12 @@
   &[ptn-account-block-trigger=account-sign-out]:hover {
     > span {
       width: 76px;
+    }
+  }
+
+  &[ptn-account-block-trigger=account-forgot-password]:hover {
+    > span {
+      width: 142px;
     }
   }
 
