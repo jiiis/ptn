@@ -29,14 +29,14 @@
 }
 
 .dropdown__menu-header {
-  padding: 6px 18px;
+  padding: 12px 18px;
   border-bottom: 1px solid @ptn-util__color_darker;
 }
 
 .dropdown__menu-title {
   max-width: 270px;
-  line-height: 24px;
-  font-size: 1.5rem;
+  line-height: 18px;
+  font-size: 1.6rem;
   text-align: center;
 
   @media (max-width: @ptn-util__screen_xs-max) {
@@ -51,6 +51,12 @@
 
   + .dropdown__menu-body {
     border-top: 1px solid @ptn-util__color_darker;
+  }
+
+  > .ptn-list {
+    .ptn-list__item-text {
+      font-size: 1.6rem;
+    }
   }
 }
 
@@ -76,9 +82,9 @@
 
     > button {
       display: block;
-      margin: 12px 0;
+      margin: 12px 0 0;
       width: 100%;
-      height: 30px;
+      height: 36px;
       border: 1px solid @ptn-util__color_light;
       border-radius: @ptn-util__border-radius_small;
       color: @ptn-util__color_light;
@@ -87,7 +93,7 @@
       .ptn-util__hover_text(@ptn-util__color_dark, @ptn-util__color_light);
 
       > .zmdi {
-        font-size: 2.1rem;
+        font-size: 2.4rem;
       }
     }
   }
