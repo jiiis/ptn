@@ -3,6 +3,10 @@
 
   .ptn__flex-container_horizontal(start, center);
 
+  @media (max-width: @ptn-util__screen_xs-max) {
+    margin: 0 0 24px;
+  }
+
   &.ptn-util__widget_on {
     .ptn-input-block__input:after {
       .ptn-util__opacity(1);
