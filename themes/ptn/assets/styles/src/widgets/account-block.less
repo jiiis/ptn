@@ -17,7 +17,7 @@
   padding: 24px 36px;
 
   @media (max-width: @ptn-util__screen_xs-max) {
-    padding: 12px 18px;
+    padding: 18px;
   }
 }
 
@@ -27,21 +27,29 @@
   > p {
     text-transform: uppercase;
     font-size: 1.8rem;
+
+    @media (max-width: @ptn-util__screen_xs-max) {
+      font-size: 1.5rem;
+    }
   }
 }
 
 .ptn-account-block__body {
   position: relative;
-  padding: 24px 48px 24px 36px;
+  padding: 24px 48px 30px 36px;
 
   @media (max-width: @ptn-util__screen_xs-max) {
-    padding: 12px 36px 12px 18px;
+    padding: 18px 42px 30px 18px;
+  }
+
+  > form {
+    .ptn-util__clearfix;
   }
 }
 
 .ptn-account-block__body-title {
   margin: 0 0 24px;
-  line-height: 18px;
+  line-height: 24px;
   font-size: 1.5rem;
 
   &:last-child {
