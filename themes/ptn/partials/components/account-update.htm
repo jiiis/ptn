@@ -65,9 +65,16 @@
         <ul class="ptn-account-block__navigation-list">
             <li class="ptn-account-block__navigation-list-item">
                 <a
-                        class="ptn-account-block__navigation-list-item-link"
-                        data-request="onLogout"
-                        ptn-account-block-trigger="account-sign-out">
+                        class="ptn-account-block__navigation-list-item-link ptn-account-block__navigation-list-item-link_home"
+                        href="{{ '/' | app }}">
+                    <i class="zmdi zmdi-home"></i>
+                    <span>home</span>
+                </a>
+            </li>
+            <li class="ptn-account-block__navigation-list-item">
+                <a
+                        class="ptn-account-block__navigation-list-item-link ptn-account-block__navigation-list-item-link_sign-out"
+                        data-request="onLogout">
                     <i class="zmdi zmdi-power"></i>
                     <span>sign out</span>
                 </a>

@@ -49,13 +49,25 @@
     <div class="ptn-account-block__navigation">
         <ul class="ptn-account-block__navigation-list">
             <li class="ptn-account-block__navigation-list-item">
-                <a class="ptn-account-block__navigation-list-item-link" ptn-account-block-trigger="account-sign-up">
+                <a
+                        class="ptn-account-block__navigation-list-item-link ptn-account-block__navigation-list-item-link_home"
+                        href="{{ '/' | app }}">
+                    <i class="zmdi zmdi-home"></i>
+                    <span>home</span>
+                </a>
+            </li>
+            <li class="ptn-account-block__navigation-list-item">
+                <a
+                        class="ptn-account-block__navigation-list-item-link ptn-account-block__navigation-list-item-link_sign-up"
+                        ptn-account-block-trigger="account-sign-up">
                     <i class="zmdi zmdi-plus"></i>
                     <span>sign up</span>
                 </a>
             </li>
             <li class="ptn-account-block__navigation-list-item">
-                <a class="ptn-account-block__navigation-list-item-link" ptn-account-block-trigger="account-forgot-password">
+                <a
+                        class="ptn-account-block__navigation-list-item-link ptn-account-block__navigation-list-item-link_forgot-password"
+                        ptn-account-block-trigger="account-forgot-password">
                     <i class="zmdi zmdi-refresh-alt"></i>
                     <span>forgot password</span>
                 </a>
