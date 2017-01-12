@@ -1,11 +1,11 @@
 title = "Publisher"
-url = "/publisher/:publisher/:page?1|^[0-9]+$"
+url = "/publisher/:publisher/:page_publisher?1|^[0-9]+$"
 layout = "default"
 description = "The page displaying a list of albums by a specific publisher."
 is_hidden = 0
 
 [blogPosts]
-pageNumber = "{{ :page }}"
+pageNumber = "{{ :page_publisher }}"
 categoryFilter = "{{ :publisher }}"
 postsPerPage = 1
 noPostsMessage = "There is no album found by this publisher."

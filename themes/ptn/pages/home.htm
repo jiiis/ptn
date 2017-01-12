@@ -1,11 +1,11 @@
 title = "Home"
-url = "/:page?1|^[0-9]+$"
+url = "/:page_home?1|^[0-9]+$"
 layout = "default"
 description = "The home page displaying a list of all albums."
 is_hidden = 0
 
 [blogPosts]
-pageNumber = "{{ :page }}"
+pageNumber = "{{ :page_home }}"
 postsPerPage = 1
 noPostsMessage = "There is no album found."
 sortOrder = "published_at desc"
