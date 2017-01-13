@@ -1,6 +1,12 @@
 {% set posts = blogPosts.posts %}
 
 <div class="ptn-card">
+    <div class="ptn-card__header">
+        <p class="ptn-card__title">
+            <i class="zmdi zmdi-landscape"></i>
+            <span>{{ category.name }}</span>
+        </p>
+    </div>
     {% if posts.count %}
     <div class="ptn-card__body">
         <div id="photos" class="ptn-photos ptn-row">
