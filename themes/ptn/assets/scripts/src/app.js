@@ -90,7 +90,7 @@
         //         _toggleAsideStatelessly(_actions.show);
         //     }
         //
-        //     _$body.on('click touchstart', _selectors.asideTrigger, function(e) {
+        //     _$body.on('click touchend', _selectors.asideTrigger, function(e) {
         //         e.preventDefault();
         //
         //         _toggleAside();
@@ -98,7 +98,7 @@
         // })();
 
         (function() {
-            _$body.on('click touchstart', _selectors.asideTrigger, function(e) {
+            _$body.on('click touchend', _selectors.asideTrigger, function(e) {
                 e.preventDefault();
 
                 _toggleAside();
@@ -112,7 +112,7 @@
 
         /******************** widget: sublist | toggle ********************/
         (function() {
-            _$body.on('click touchstart', _selectors.sublistTrigger, function(e) {
+            _$body.on('click touchend', _selectors.sublistTrigger, function(e) {
                 e.preventDefault();
 
                 _toggleSublist($(this));
@@ -134,7 +134,7 @@
 
         /******************** widget: dropdown | toggle ********************/
         (function() {
-            _$body.on('click touchstart', _selectors.dropdownTrigger, function(e) {
+            _$body.on('click touchend', _selectors.dropdownTrigger, function(e) {
                 e.preventDefault();
 
                 var $dropdownTrigger = $(this),
@@ -144,7 +144,7 @@
                 $dropdown.toggleClass(_classes.widgetOn);
             });
 
-            _$body.on('click touchstart', function(e) {
+            _$body.on('click touchend', function(e) {
                 var $target = $(e.target),
                     isTargetDropdown = $target.closest(_selectors.dropdown).length > 0;
 
@@ -162,7 +162,7 @@
             _switchAccountBlock('account-sign-up');
             _switchAccountBlock('account-update');
 
-            _$body.on('click touchstart', _selectors.accountBlockTrigger, function(e) {
+            _$body.on('click touchend', _selectors.accountBlockTrigger, function(e) {
                 e.preventDefault();
 
                 var accountBlockId = $(this).attr(_dataAttributes.accountBlockTrigger);
