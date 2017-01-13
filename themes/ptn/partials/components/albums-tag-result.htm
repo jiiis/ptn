@@ -1,6 +1,5 @@
 {% set posts = blogTagSearch.posts %}
 
-{% if posts.count %}
 <div id="photos" class="ptn-photos ptn-row">
     {% for post in posts %}
     <div class="ptn-col_xs_6 ptn-col_sm_4 ptn-col_md_3 ptn-col_lg_2">
@@ -10,4 +9,3 @@
     </div>
     {% endfor %}
 </div>
-{% endif %}
