@@ -18,7 +18,7 @@
 
   @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_sm-max) {
     padding: 0 12px;
-    height: 48px;
+    height: 54px;
   }
 
   @media (max-width: @ptn-util__screen_xs-max) {
@@ -28,7 +28,7 @@
 }
 
 .ptn-card__title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   text-transform: uppercase;
 
   .ptn-util__flex-grow(1);
@@ -36,6 +36,8 @@
   .ptn-util__transition;
 
   @media (max-width: @ptn-util__screen_xs-max) {
+    font-size: 1.5rem;
+
     .ptn__flex-container_horizontal(center, center);
   }
 
@@ -44,11 +46,17 @@
     text-align: center;
     font-size: 2.1rem;
 
+    @media (max-width: @ptn-util__screen_xs-max) {
+      font-size: 1.8rem;
+    }
+
     + span {
-      margin: 0 0 0 12px;
+      margin: 0 0 0 9px;
+
+      .ptn-util__transition;
 
       @media (max-width: @ptn-util__screen_sm-max) {
-        margin: 0 0 0 9px;
+        margin: 0 0 0 6px;
       }
     }
   }
