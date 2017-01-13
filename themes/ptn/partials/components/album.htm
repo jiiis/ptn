@@ -1,6 +1,13 @@
 {% set post = blogPost.post %}
+{% set category = post.categories[0] %}
 
 <div class="ptn-card">
+    <div class="ptn-card__header">
+        <p class="ptn-card__title">
+            <i class="zmdi zmdi-landscape"></i>
+            <span><a href="{{ 'publisher' | page({publisher: category.slug}) }}">{{ category.name }}</a> / {{ post.title }}</span>
+        </p>
+    </div>
     <div class="ptn-card__body">
         {% if post.featured_images.count %}
         <div id="photos" class="ptn-photos ptn-row">
