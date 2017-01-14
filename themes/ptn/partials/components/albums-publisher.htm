@@ -3,8 +3,13 @@
 <div class="ptn-card">
     <div class="ptn-card__header">
         <p class="ptn-card__title">
+            {% if category %}
             <i class="zmdi zmdi-balance"></i>
             <span>{{ category.name }}</span>
+            {% else %}
+            <i class="zmdi zmdi-timer"></i>
+            <span>New albums</span>
+            {% endif %}
         </p>
     </div>
     {% if posts.count %}
