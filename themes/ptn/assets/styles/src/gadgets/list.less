@@ -154,27 +154,24 @@
   @media (max-width: @ptn-util__screen_xs-max) {
     height: 42px;
   }
-}
-
-.ptn-list__item-icon {
-  width: 24px;
-  text-align: center;
 
   > .zmdi {
+    width: 24px;
+    text-align: center;
     font-size: 2.1rem;
+
+    + span {
+      margin: 0 0 0 12px;
+    }
   }
-}
 
-.ptn-list__item-text {
-  padding: 0 18px 0 0;
-  font-size: 1.5rem;
+  > span {
+    padding: 0 18px 0 0;
+    font-size: 1.5rem;
 
-  .ptn-util__flex-grow(1);
-  .ptn-util__text-overflow_truncate;
-}
-
-.ptn-list__item-icon + .ptn-list__item-text {
-  margin: 0 0 0 12px;
+    .ptn-util__flex-grow(1);
+    .ptn-util__text-overflow_truncate;
+  }
 }
 
 /******************** utilities ********************/
