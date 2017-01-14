@@ -35,8 +35,8 @@
 
 .ptn-dropdown__menu-title {
   max-width: 270px;
-  line-height: 18px;
-  font-size: 1.6rem;
+  line-height: 24px;
+  font-size: 1.8rem;
   text-align: center;
 
   .ptn-util__text-overflow_truncate;
@@ -48,6 +48,12 @@
 
 .ptn-dropdown__menu-body {
   padding: 18px;
+
+  .ptn-util__transition;
+
+  @media (max-width: @ptn-util__screen_xs-max) {
+    padding: 12px 18px;
+  }
 
   + .ptn-dropdown__menu-body {
     border-top: 1px solid @ptn-util__color_darker;
@@ -88,6 +94,12 @@
 
     > .ptn-input-block {
       margin: 0 0 18px;
+
+      .ptn-util__transition;
+
+      @media (max-width: @ptn-util__screen_xs-max) {
+        margin: 0 0 12px;
+      }
     }
 
     > button {
