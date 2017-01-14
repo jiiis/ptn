@@ -3,9 +3,22 @@
 }
 
 .ptn-photo {
+  position: relative;
   overflow: hidden;
   display: block;
   box-shadow: @ptn-util__box-shadow_1;
+}
+
+.ptn-photo_highlighted {
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-style: solid;
+    border-width: 9px;
+    border-color: @ptn-util__color_red @ptn-util__color_red transparent transparent;
+  }
 }
 
 .ptn-photo__image {
