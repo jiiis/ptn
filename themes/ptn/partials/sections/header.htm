@@ -24,6 +24,25 @@
                         <div class="dropdown__menu-header">
                             <p class="dropdown__menu-title">{{ user.name }}</p>
                         </div>
+                        {% if not user.is_activated %}
+                        <div class="dropdown__menu-body">
+                            <p class="dropdown__menu-warning-text"><b>Account not verified</b></p>
+                        </div>
+                        <div class="dropdown__menu-body dropdown__menu-body_hollow">
+                            <div class="ptn-list">
+                                <ul class="ptn-list__list">
+                                    <li class="ptn-list__item">
+                                        <a class="ptn-list__link" data-request="onSendActivationEmail">
+                                            <div class="ptn-list__item-icon">
+                                                <i class="zmdi zmdi-navigation"></i>
+                                            </div>
+                                            <p class="ptn-list__item-text">Send verification email again</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        {% endif %}
                         <div class="dropdown__menu-body dropdown__menu-body_hollow">
                             <div class="ptn-list">
                                 <ul class="ptn-list__list">
