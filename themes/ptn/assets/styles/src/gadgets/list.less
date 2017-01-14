@@ -93,6 +93,10 @@
 
       .ptn-util__transition;
       .ptn-util__opacity(0);
+
+      @media (max-width: @ptn-util__screen_xs-max) {
+        line-height: 42px;
+      }
     }
 
     &:before {
@@ -145,6 +149,10 @@
 
   &:hover {
     .ptn-list__link-highlighted;
+  }
+
+  @media (max-width: @ptn-util__screen_xs-max) {
+    height: 42px;
   }
 }
 
