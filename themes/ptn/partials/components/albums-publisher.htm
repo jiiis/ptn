@@ -17,7 +17,7 @@
         <div id="photos" class="ptn-photos ptn-row">
             {% for post in posts %}
             <div class="ptn-col_xs_6 ptn-col_sm_4 ptn-col_md_3 ptn-col_lg_2">
-                <a class="ptn-photo" href="{{ 'album' | page({album: post.slug}) }}">
+                <a class="ptn-photo{% if post.categories[0].slug in publisherSlugsPremium %} ptn-photo_highlighted{% endif %}" href="{{ 'album' | page({album: post.slug}) }}">
                     <img class="ptn-photo__image" src="{{ post.featured_images[0].thumb(240, 240, {'mode': 'crop', extension: 'jpg'}) }}">
                 </a>
             </div>
