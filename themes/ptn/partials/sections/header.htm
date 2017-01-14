@@ -17,7 +17,7 @@
             <li class="ptn-header__navigation-list-item">
                 {% if user %}
                 <div class="ptn-header__navigation-list-item-wrap ptn-dropdown">
-                    <a class="ptn-header__navigation-list-item-icon ptn-dropdown__trigger">
+                    <a class="ptn-header__navigation-list-item-icon{% if not user.is_activated %} ptn-header__navigation-list-item-icon_notified ptn-header__navigation-list-item-icon_notified_warning{% endif %} ptn-dropdown__trigger">
                         <i class="zmdi zmdi-account"></i>
                     </a>
                     <div class="ptn-dropdown__menu">
