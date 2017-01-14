@@ -20,15 +20,15 @@
                     <a class="ptn-header__navigation-list-item-icon ptn-dropdown__trigger">
                         <i class="zmdi zmdi-account"></i>
                     </a>
-                    <div class="dropdown__menu">
-                        <div class="dropdown__menu-header">
-                            <p class="dropdown__menu-title">{{ user.name }}</p>
+                    <div class="ptn-dropdown__menu">
+                        <div class="ptn-dropdown__menu-header">
+                            <p class="ptn-dropdown__menu-title">{{ user.name }}</p>
                         </div>
                         {% if not user.is_activated %}
-                        <div class="dropdown__menu-body">
-                            <p class="dropdown__menu-warning-text"><b>Account not verified</b></p>
+                        <div class="ptn-dropdown__menu-body">
+                            <p class="ptn-dropdown__menu-warning-text"><b>Account not verified</b></p>
                         </div>
-                        <div class="dropdown__menu-body dropdown__menu-body_hollow">
+                        <div class="ptn-dropdown__menu-body ptn-dropdown__menu-body_hollow">
                             <div class="ptn-list">
                                 <ul class="ptn-list__list">
                                     <li class="ptn-list__item">
@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         {% endif %}
-                        <div class="dropdown__menu-body dropdown__menu-body_hollow">
+                        <div class="ptn-dropdown__menu-body ptn-dropdown__menu-body_hollow">
                             <div class="ptn-list">
                                 <ul class="ptn-list__list">
                                     <li class="ptn-list__item">
@@ -73,9 +73,9 @@
                         <i class="zmdi zmdi-walk"></i>
                         <span>Sign in</span>
                     </a>
-                    <div class="dropdown__menu">
-                        <div class="dropdown__menu-body">
-                            <div class="dropdown__menu-form">
+                    <div class="ptn-dropdown__menu">
+                        <div class="ptn-dropdown__menu-body">
+                            <div class="ptn-dropdown__menu-form">
                                 <form data-request="onSignin">
                                     <div class="ptn-input-block">
                                         <label class="ptn-input-block__label">
@@ -108,7 +108,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="dropdown__menu-body dropdown__menu-body_hollow">
+                        <div class="ptn-dropdown__menu-body ptn-dropdown__menu-body_hollow">
                             <div class="ptn-list">
                                 <ul class="ptn-list__list">
                                     {% for name, link in social_login_links %}
@@ -124,7 +124,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="dropdown__menu-body dropdown__menu-body_hollow">
+                        <div class="ptn-dropdown__menu-body ptn-dropdown__menu-body_hollow">
                             <div class="ptn-list">
                                 <ul class="ptn-list__list">
                                     <li class="ptn-list__item">
