@@ -16,8 +16,14 @@
     top: 0;
     right: 0;
     border-style: solid;
-    border-width: 9px;
+    border-width: 12px;
     border-color: @ptn-util__color_red @ptn-util__color_red transparent transparent;
+
+    .ptn-util__transition;
+
+    @media (max-width: @ptn-util__screen_xs-max) {
+      border-width: 9px;
+    }
   }
 }
 
