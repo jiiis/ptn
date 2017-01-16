@@ -2,7 +2,7 @@
     <div class="ptn-card__header">
         <p class="ptn-card__title">
             <i class="zmdi zmdi-{{ tagExtra.icon }}"></i>
-            <span>{{ tagExtra.name }}</span>
+            <span>{{ tagExtra.group | upper ~ ' / ' ~ tagExtra.name }}</span>
         </p>
     </div>
     {% if blogTagSearch.posts.count %}
