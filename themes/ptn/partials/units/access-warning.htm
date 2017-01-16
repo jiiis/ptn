@@ -10,8 +10,8 @@
                 {% endfor %}
             </ul>
             {% else %}
-            <h3>Hey {{ user.name }}, it seems your email address hasn't been verified yet (totally free, BTW).</h3>
-            <p>You will have to verify your account to view the albums from the following PREMIUM publisher(s):</p>
+            <h3>Hey {{ user.name }}, it appears your email address hasn't been verified yet.</h3>
+            <p>You'll have to verify your account to view the albums from the following PREMIUM publisher(s):</p>
             <ul>
                 {% for publisher in albumPublishersPremium %}
                 <li><a href="{{ 'publisher' | page({publisher: publisher.slug}) }}"><b>{{ publisher.name }}</b></a></li>
