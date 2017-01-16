@@ -1,8 +1,8 @@
 <div class="ptn-card">
     <div class="ptn-card__header">
         <p class="ptn-card__title">
-            <i class="zmdi zmdi-label"></i>
-            <span>{{ tag.name }}</span>
+            <i class="zmdi zmdi-{{ tagExtra.icon }}"></i>
+            <span>{{ tagExtra.name }}</span>
         </p>
     </div>
     {% if blogTagSearch.posts.count %}

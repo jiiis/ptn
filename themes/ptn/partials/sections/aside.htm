@@ -30,16 +30,17 @@
             </li>
         </ul>
     </div>
+    {% for tagGroupName, tagGroup in tagGroups %}
     <div class="ptn-list">
         <ul class="ptn-list__list">
             <li class="ptn-list__item ptn-list__item_sublist">
                 <a class="ptn-list__link">
-                    <i class="zmdi zmdi-globe"></i>
-                    <span>Regions</span>
+                    <i class="zmdi zmdi-{{ tagGroup.icon }}"></i>
+                    <span>{{ tagGroupName }}</span>
                 </a>
                 <div class="ptn-list ptn-list_sublist">
                     <ul class="ptn-list__list">
-                        {% for tagSlug, tagName in regionTags %}
+                        {% for tagSlug, tagName in tagGroup.tags %}
                         <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
                             <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
                                 <span>{{ tagName }}</span>
@@ -51,90 +52,7 @@
             </li>
         </ul>
     </div>
-    <div class="ptn-list">
-        <ul class="ptn-list__list">
-            <li class="ptn-list__item ptn-list__item_sublist">
-                <a class="ptn-list__link">
-                    <i class="zmdi zmdi-labels"></i>
-                    <span>Types</span>
-                </a>
-                <div class="ptn-list ptn-list_sublist">
-                    <ul class="ptn-list__list">
-                        {% for tagSlug, tagName in typeTags %}
-                        <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
-                            <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
-                                <span>{{ tagName }}</span>
-                            </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="ptn-list">
-        <ul class="ptn-list__list">
-            <li class="ptn-list__item ptn-list__item_sublist">
-                <a class="ptn-list__link">
-                    <i class="zmdi zmdi-looks"></i>
-                    <span>Styles</span>
-                </a>
-                <div class="ptn-list ptn-list_sublist">
-                    <ul class="ptn-list__list">
-                        {% for tagSlug, tagName in styleTags %}
-                        <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
-                            <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
-                                <span>{{ tagName }}</span>
-                            </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="ptn-list">
-        <ul class="ptn-list__list">
-            <li class="ptn-list__item ptn-list__item_sublist">
-                <a class="ptn-list__link">
-                    <i class="zmdi zmdi-blur"></i>
-                    <span>Textures</span>
-                </a>
-                <div class="ptn-list ptn-list_sublist">
-                    <ul class="ptn-list__list">
-                        {% for tagSlug, tagName in textureTags %}
-                        <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
-                            <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
-                                <span>{{ tagName }}</span>
-                            </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="ptn-list">
-        <ul class="ptn-list__list">
-            <li class="ptn-list__item ptn-list__item_sublist">
-                <a class="ptn-list__link">
-                    <i class="zmdi zmdi-cocktail"></i>
-                    <span>Colors</span>
-                </a>
-                <div class="ptn-list ptn-list_sublist">
-                    <ul class="ptn-list__list">
-                        {% for tagSlug, tagName in colorTags %}
-                        <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
-                            <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
-                                <span>{{ tagName }}</span>
-                            </a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </div>
+    {% endfor %}
     <div class="ptn-list">
         <ul class="ptn-list__list">
             <li class="ptn-list__item ptn-list__item_sublist">

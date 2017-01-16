@@ -20,12 +20,15 @@ public function onInit()
 
 public function onEnd()
 {
-    $this['tag'] = $this->blogTagSearch->tag;
+    $tag = $this->blogTagSearch->tag;
+
+    $this['tag'] = $tag;
+    $this['tagExtra'] = $this->tagsExtra[$tag->name];
 }
 ?>
 ==
 {% put title %}
-Tag {% if tag %}{{ ' | ' ~ tags[tag.name] }}{% endif %}
+Tag {% if tagExtra %}{{ ' | ' ~ tagExtra.name }}{% endif %}
 {% endput %}
 
 {% partial 'components/albums-tag' %}

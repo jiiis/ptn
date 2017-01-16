@@ -4,42 +4,55 @@ namespace Ptn;
 
 class Tag
 {
-    const REGIONS = [
-        'china' => 'China',
-        'japan' => 'Japan',
-        'south-korea' => 'South Korea',
-        'taiwan' => 'Taiwan'
-    ];
-
-    const TYPES = [
-        'pantyhose' => 'Pantyhose',
-        'leggings' => 'Leggings',
-        'thigh-highs' => 'Thigh highs',
-        'knee-highs' => 'Knee highs',
-        'garters' => 'Garters',
-        'bodystockings' => 'Bodystockings',
-        'footlets' => 'Footlets'
-    ];
-
-    const STYLES = [
-        'control-top' => 'Control top',
-        'sheer-to-waist' => 'Sheer to waist',
-        'crotchless' => 'Crotchless'
-    ];
-
-    const TEXTURES = [
-        'sheer' => 'Sheer',
-        'opaque' => 'Opaque',
-        'glossy' => 'Glossy',
-        'fishnet' => 'Fishnet'
-    ];
-
-    const COLORS = [
-        'nude' => 'Nude',
-        'suntan' => 'Suntan',
-        'black' => 'Black',
-        'white' => 'White',
-        'gray' => 'Gray',
-        'candy' => 'Candy'
+    const TAG_GROUPS = [
+        'regions' => [
+            'icon' => 'globe',
+            'tags' => [
+                'china' => 'China',
+                'japan' => 'Japan',
+                'south-korea' => 'South Korea',
+                'taiwan' => 'Taiwan'
+            ]
+        ],
+        'types' => [
+            'icon' => 'labels',
+            'tags' => [
+                'pantyhose' => 'Pantyhose',
+                'leggings' => 'Leggings',
+                'thigh-highs' => 'Thigh highs',
+                'knee-highs' => 'Knee highs',
+                'garters' => 'Garters',
+                'bodystockings' => 'Bodystockings',
+                'footlets' => 'Footlets'
+            ]
+        ],
+        'styles' => [
+            'icon' => 'looks',
+            'tags' => [
+                'control-top' => 'Control top',
+                'sheer-to-waist' => 'Sheer to waist',
+                'crotchless' => 'Crotchless'
+            ]
+        ],
+        'textures' => [
+            'icon' => 'blur',
+            'tags' => [
+                'sheer' => 'Sheer',
+                'opaque' => 'Opaque',
+                'glossy' => 'Glossy',
+                'fishnet' => 'Fishnet'
+            ]
+        ],
+        'colors' => [
+            'icon' => 'cocktail',
+            'tags' => [
+                'nude' => 'Nude',
+                'suntan' => 'Suntan',
+                'black' => 'Black',
+                'white' => 'White',
+                'gray' => 'Gray',
+                'candy' => 'Candy'
+            ]
+        ]
     ];
 }

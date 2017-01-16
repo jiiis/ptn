@@ -37,6 +37,9 @@ public function onBeforePageStart()
     $this['publisherSlugsPremium'] = Publisher::PREMIUM;
 
     // Tag
+    $tagGroups = Tag::TAG_GROUPS;
+    $tagsExtra = [];
+
     $tagSlugs = array_map(function($tagObject) {
         return $tagObject->name;
     }, iterator_to_array($this->blogTags->tags));
@@ -47,13 +50,19 @@ public function onBeforePageStart()
         }, ARRAY_FILTER_USE_KEY);
     };
 
-    $this['regionTags'] = $filterTags(Tag::REGIONS);
-    $this['typeTags'] = $filterTags(Tag::TYPES);
-    $this['styleTags'] = $filterTags(Tag::STYLES);
-    $this['textureTags'] = $filterTags(Tag::TEXTURES);
-    $this['colorTags'] = $filterTags(Tag::COLORS);
+    array_walk($tagGroups, function(&$tagGroup, $tagGroupName) use (&$tagsExtra, $filterTags) {
+        $tagGroup['tags'] = $filterTags($tagGroup['tags']);
 
-    $this['tags'] = array_merge(Tag::REGIONS, Tag::TYPES, Tag::STYLES, Tag::TEXTURES, Tag::COLORS);
+        foreach ($tagGroup['tags'] as $tagSlug => $tagName) {
+            $tagsExtra[$tagSlug] = [
+                'icon' => $tagGroup['icon'],
+                'name' => $tagName
+            ];
+        }
+    });
+
+    $this['tagGroups'] = $tagGroups;
+    $this['tagsExtra'] = $tagsExtra;
 }
 ?>
 ==
