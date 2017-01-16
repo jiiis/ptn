@@ -55,6 +55,7 @@ public function onBeforePageStart()
 
         foreach ($tagGroup['tags'] as $tagSlug => $tagName) {
             $tagsExtra[$tagSlug] = [
+                'group' => $tagGroupName,
                 'icon' => $tagGroup['icon'],
                 'name' => $tagName
             ];

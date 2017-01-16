@@ -28,7 +28,7 @@ public function onEnd()
 ?>
 ==
 {% put title %}
-Tag {% if tagExtra %}{{ ' | ' ~ tagExtra.name }}{% endif %}
+{% if tagExtra %} {{tagExtra.group | capitalize ~ ' | ' ~ tagExtra.name }}{% endif %}
 {% endput %}
 
 {% partial 'components/albums-tag' %}
