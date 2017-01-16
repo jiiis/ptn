@@ -21,7 +21,7 @@ public function onInit()
 ?>
 ==
 {% put title %}
-Publisher {% if category %}{{ ' | ' ~ category.name }}{% endif %}
+Publishers {% if category %}{{ ' | ' ~ category.name }}{% endif %}
 {% endput %}
 
 {% partial 'components/albums-publisher' %}
