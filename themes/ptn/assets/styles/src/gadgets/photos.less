@@ -43,3 +43,15 @@
     .ptn-util__transform_scale_rotate(1.2, 5deg);
   }
 }
+
+@media (min-width: @ptn-util__screen_lg-min) {
+  .ptn-body_aside-on {
+    .ptn-photo_highlighted {
+      &:after {
+        top: -1px;
+        right: -1px;
+        border-width: 9px;
+      }
+    }
+  }
+}
