@@ -1,4 +1,6 @@
 {% set posts = blogPosts.posts %}
+{% set pageCurrent = posts.currentPage %}
+{% set pageLast = posts.lastPage %}
 
 <div class="ptn-card">
     <div class="ptn-card__header">
@@ -27,26 +29,26 @@
         </div>
     </div>
     {% endif %}
-    {% if posts.lastPage > 1 %}
+    {% if pageLast > 1 %}
     <div class="ptn-card__footer">
         <div class="ptn-pagination">
             <ul class="ptn-pagination__list">
-                {% if posts.currentPage > 1 %}
+                {% if pageCurrent > 1 %}
                 <li class="ptn-pagination__list-item">
-                    <a class="ptn-pagination__list-item-link" href="{{ this.page.baseFileName | page({(pageParam): (posts.currentPage - 1)}) }}">
-                        <i class="zmdi zmdi-chevron-left"></i>
+                    <a class="ptn-pagination__list-item-link" href="{{ this.page.baseFileName | page({(pageParam): 1}) }}">
+                        <i class="zmdi zmdi-fast-rewind"></i>
                     </a>
                 </li>
                 {% endif %}
-                {% for page in 1..posts.lastPage %}
+                {% for page in 1..pageLast %}
                 <li class="ptn-pagination__list-item{% if posts.currentPage == page %} ptn-pagination__list-item_active{% endif %}">
                     <a class="ptn-pagination__list-item-link" href="{{ this.page.baseFileName | page({(pageParam): page}) }}">{{ page }}</a>
                 </li>
                 {% endfor %}
-                {% if posts.lastPage > posts.currentPage %}
+                {% if pageLast > pageCurrent %}
                 <li class="ptn-pagination__list-item">
-                    <a class="ptn-pagination__list-item-link" href="{{ this.page.baseFileName | page({(pageParam): (posts.currentPage + 1)}) }}">
-                        <i class="zmdi zmdi-chevron-right"></i>
+                    <a class="ptn-pagination__list-item-link" href="{{ this.page.baseFileName | page({(pageParam): pageLast}) }}">
+                        <i class="zmdi zmdi-fast-forward"></i>
                     </a>
                 </li>
                 {% endif %}
