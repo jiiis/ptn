@@ -29,7 +29,6 @@
 
 .ptn-card__title {
   font-size: 1.8rem;
-  //text-transform: uppercase;
 
   .ptn-util__flex-grow(1);
   .ptn__flex-container_horizontal(start, center);
@@ -81,6 +80,7 @@
 }
 
 .ptn-card__footer {
+  overflow: hidden;
   height: 90px;
 
   .ptn-util__transition;
@@ -88,14 +88,17 @@
   border-top: 1px solid @ptn-util__color_darker;
 
   @media (min-width: @ptn-util__screen_md-min) and (max-width: @ptn-util__screen_md-max) {
+    margin: 0 18px;
     height: 84px;
   }
 
   @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_sm-max) {
+    margin: 0 12px;
     height: 78px;
   }
 
   @media (max-width: @ptn-util__screen_xs-max) {
+    margin: 0 6px;
     height: 72px;
   }
 }
