@@ -40,8 +40,8 @@
                     </a>
                 </li>
                 {% endif %}
-                {% for page in 1..pageLast %}
-                <li class="ptn-pagination__list-item{% if posts.currentPage == page %} ptn-pagination__list-item_active{% endif %}">
+                {% for page in (pageCurrent - 9 > 1 ? pageCurrent - 9 : 1)..(pageCurrent + 9 < pageLast ? pageCurrent + 9 : pageLast) %}
+                <li class="ptn-pagination__list-item{% if pageCurrent == page %} ptn-pagination__list-item_active{% endif %}{% if page < pageCurrent - 2 or page > pageCurrent + 2 %} ptn-pagination__list-item_screen-sm{% endif %}{% if page < pageCurrent - 5 or page > pageCurrent + 5 %} ptn-pagination__list-item_screen-md{% endif %}{% if page < pageCurrent - 7 or page > pageCurrent + 7 %} ptn-pagination__list-item_screen-lg{% endif %}">
                     <a class="ptn-pagination__list-item-link" href="{{ this.page.baseFileName | page({(pageParam): page}) }}">{{ page }}</a>
                 </li>
                 {% endfor %}
