@@ -9,7 +9,12 @@
 }
 
 .ptn-pagination__list-item {
+  overflow: hidden;
   margin: 0 3px;
+  width: 42px;
+  height: 42px;
+
+  .ptn-util__transition;
 }
 
 .ptn-pagination__list-item_active {
@@ -21,62 +26,71 @@
 
 .ptn-pagination__list-item_orbit-1 {
   @media (max-width: 372px) {
-    display: none;
+    .ptn-pagination__list-item_hidden;
   }
 }
 
 .ptn-pagination__list-item_orbit-2 {
   @media (max-width: 462px) {
-    display: none;
+    .ptn-pagination__list-item_hidden;
   }
 }
 
 .ptn-pagination__list-item_orbit-3 {
   @media (max-width: 558px) {
-    display: none;
+    .ptn-pagination__list-item_hidden;
   }
 }
 
 .ptn-pagination__list-item_orbit-4 {
   @media (max-width: 660px) {
-    display: none;
+    .ptn-pagination__list-item_hidden;
   }
 }
 
 .ptn-pagination__list-item_orbit-5 {
   @media (max-width: 990px) {
-    display: none;
+    .ptn-pagination__list-item_hidden;
   }
 }
 
 .ptn-pagination__list-item_orbit-7 {
   @media (max-width: 1182px) {
-    display: none;
+    .ptn-pagination__list-item_hidden;
   }
 }
 
 .ptn-pagination__list-item_orbit-9 {
   @media (max-width: 1386px) {
-    display: none;
+    .ptn-pagination__list-item_hidden;
   }
 }
 
 .ptn-pagination__list-item-link {
   display: block;
-  width: 42px;
-  height: 42px;
-  line-height:42px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  text-align: center;
   font-size: 1.5rem;
   color: @ptn-util__color_lighter;
   background: @ptn-util__color_lighter_transparent;
 
+  .ptn__flex-container_horizontal(center, center);
   .ptn-util__hover_text(@ptn-util__color_dark, @ptn-util__color_lighter);
 
   > .zmdi {
-    line-height: inherit;
     font-size: 1.8rem;
+  }
+}
+
+.ptn-pagination__list-item_hidden {
+  margin: 0;
+  width: 0;
+  height: 0;
+
+  .ptn-pagination__list-item-link {
+    .ptn-util__opacity(0);
+    .ptn-util__transform_scale(0);
   }
 }
 
@@ -84,13 +98,13 @@
   .ptn-body_aside-on {
     .ptn-pagination__list-item_orbit-7 {
       @media (max-width: 1494px) {
-        display: none;
+        .ptn-pagination__list-item_hidden;
       }
     }
 
     .ptn-pagination__list-item_orbit-9 {
       @media (max-width: 1590px) {
-        display: none;
+        .ptn-pagination__list-item_hidden;
       }
     }
   }
