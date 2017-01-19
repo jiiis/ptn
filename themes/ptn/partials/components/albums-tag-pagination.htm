@@ -1,21 +1,34 @@
+{% set pageCurrent = blogTagSearch.currentPage %}
+{% set pageLast = blogTagSearch.lastPage %}
+
 <div class="ptn-pagination">
     <ul class="ptn-pagination__list">
-        {% if blogTagSearch.previousPage %}
+        {% if pageCurrent > 1 %}
         <li class="ptn-pagination__list-item">
             <a
                     class="ptn-pagination__list-item-link"
                     data-request="onLoadPage"
-                    data-request-data="page: {{ blogTagSearch.previousPage }}"
+                    data-request-data="page: 1"
                     data-request-update="
                             'components/albums-tag-result': '#card-albums-body',
                             'components/albums-tag-pagination': '#card-albums-footer',
                 ">
-                <i class="zmdi zmdi-chevron-left"></i>
+                <i class="zmdi zmdi-fast-rewind"></i>
             </a>
         </li>
         {% endif %}
-        {% for page in 1..blogTagSearch.lastPage %}
-        <li class="ptn-pagination__list-item{% if blogTagSearch.currentPage == page %} ptn-pagination__list-item_active{% endif %}">
+        {% for page in (pageCurrent - 11 > 1 ? pageCurrent - 11 : 1)..(pageCurrent + 11 < pageLast ? pageCurrent + 11 : pageLast) %}
+        <li class="
+                ptn-pagination__list-item
+                {% if pageCurrent == page %}ptn-pagination__list-item_active{% endif %}
+                {% if page < pageCurrent - 1 or page > pageCurrent + 1 %}ptn-pagination__list-item_orbit-1{% endif %}
+                {% if page < pageCurrent - 2 or page > pageCurrent + 2 %}ptn-pagination__list-item_orbit-2{% endif %}
+                {% if page < pageCurrent - 3 or page > pageCurrent + 3 %}ptn-pagination__list-item_orbit-3{% endif %}
+                {% if page < pageCurrent - 4 or page > pageCurrent + 4 %}ptn-pagination__list-item_orbit-4{% endif %}
+                {% if page < pageCurrent - 5 or page > pageCurrent + 5 %}ptn-pagination__list-item_orbit-5{% endif %}
+                {% if page < pageCurrent - 7 or page > pageCurrent + 7 %}ptn-pagination__list-item_orbit-7{% endif %}
+                {% if page < pageCurrent - 9 or page > pageCurrent + 9 %}ptn-pagination__list-item_orbit-9{% endif %}
+            ">
             <a
                     class="ptn-pagination__list-item-link"
                     data-request="onLoadPage"
@@ -26,17 +39,17 @@
                 ">{{ page }}</a>
         </li>
         {% endfor %}
-        {% if blogTagSearch.nextPage %}
+        {% if pageLast > pageCurrent %}
         <li class="ptn-pagination__list-item">
             <a
                     class="ptn-pagination__list-item-link"
                     data-request="onLoadPage"
-                    data-request-data="page: {{ blogTagSearch.nextPage }}"
+                    data-request-data="page: {{ pageLast }}"
                     data-request-update="
                         'components/albums-tag-result': '#card-albums-body',
                         'components/albums-tag-pagination': '#card-albums-footer',
                 ">
-                <i class="zmdi zmdi-chevron-right"></i>
+                <i class="zmdi zmdi-fast-forward"></i>
             </a>
         </li>
         {% endif %}
