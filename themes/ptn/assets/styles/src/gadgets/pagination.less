@@ -79,3 +79,19 @@
     font-size: 1.8rem;
   }
 }
+
+@media (min-width: @ptn-util__screen_lg-min) {
+  .ptn-body_aside-on {
+    .ptn-pagination__list-item_orbit-7 {
+      @media (max-width: 1494px) {
+        display: none;
+      }
+    }
+
+    .ptn-pagination__list-item_orbit-9 {
+      @media (max-width: 1590px) {
+        display: none;
+      }
+    }
+  }
+}
