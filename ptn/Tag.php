@@ -30,6 +30,8 @@ class Tag
             'icon' => 'looks',
             'tags' => [
                 'control-top' => 'Control top',
+                'french-lace' => 'French lace',
+                't-band' => 'T band',
                 'sheer-to-waist' => 'Sheer to waist',
                 'crotchless' => 'Crotchless'
             ]
