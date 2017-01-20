@@ -48,12 +48,12 @@ class Tag
         'colors' => [
             'icon' => 'cocktail',
             'tags' => [
-                'nude' => 'Nude',
-                'suntan' => 'Suntan',
+                'nude-suntan' => 'Nude & suntan',
                 'black' => 'Black',
                 'white' => 'White',
                 'gray' => 'Gray',
-                'candy' => 'Candy'
+                'candy' => 'Candy',
+                'bare' => 'Bare'
             ]
         ]
     ];
