@@ -17,6 +17,7 @@ class Tag
         'types' => [
             'icon' => 'labels',
             'tags' => [
+                'bare' => 'Bare',
                 'pantyhose' => 'Pantyhose',
                 'leggings' => 'Leggings',
                 'thigh-highs' => 'Thigh highs',
@@ -52,8 +53,7 @@ class Tag
                 'black' => 'Black',
                 'white' => 'White',
                 'gray' => 'Gray',
-                'candy' => 'Candy',
-                'bare' => 'Bare'
+                'candy' => 'Candy'
             ]
         ]
     ];
