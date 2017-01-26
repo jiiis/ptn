@@ -5,6 +5,7 @@ namespace Ptn;
 class Publisher
 {
     const PREMIUM = [
-        'tgod'
+        'aiss',
+        'beautyleg'
     ];
 }
