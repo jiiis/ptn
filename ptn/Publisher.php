@@ -6,6 +6,7 @@ class Publisher
 {
     const PREMIUM = [
         'aiss',
-        'beautyleg'
+        'beautyleg',
+        'leghacker'
     ];
 }
