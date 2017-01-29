@@ -11,9 +11,15 @@ noPostsMessage = "There is no album found."
 sortOrder = "published_at desc"
 categoryPage = "publisher"
 postPage = "album"
+
+[blogTagSearch]
+tag = "featured"
+postPage = "album"
+categoryPage = "publisher"
 ==
 {% put title %}
 Home
 {% endput %}
 
+{% partial 'components/albums-featured' %}
 {% partial 'components/albums-publisher' %}
