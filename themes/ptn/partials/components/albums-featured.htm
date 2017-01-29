@@ -1,0 +1,25 @@
+{% set posts = blogTagSearch.posts %}
+
+{% if posts.count %}
+<div class="ptn-card">
+    <div class="ptn-card__header">
+        <p class="ptn-card__title">
+            <i class="zmdi zmdi-toys"></i>
+            <span>FEATURED ALBUMS</span>
+        </p>
+    </div>
+    <div id="card-albums-body" class="ptn-card__body">
+        <div id="photos" class="ptn-photos ptn-row">
+            {% for post in posts | shuffle | slice(0, 12) %}
+            <div class="ptn-col_xs_6 ptn-col_sm_4 ptn-col_md_3 ptn-col_lg_2">
+                <div class="ptn-photo{% if post.categories[0].slug in publisherSlugsPremium %} ptn-photo_highlighted{% endif %}">
+                    <a class="ptn-photo__link" href="{{ 'album' | page({album: post.slug}) }}">
+                        <img class="ptn-photo__image" src="{{ post.featured_images[0].thumb(240, 240, {'mode': 'crop', extension: 'jpg'}) }}">
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
