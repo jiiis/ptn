@@ -24,6 +24,7 @@ class Tag
                 'knee-highs' => 'Knee highs',
                 'garters' => 'Garters',
                 'bodystockings' => 'Bodystockings',
+                'socks' => 'Socks',
                 'footlets' => 'Footlets'
             ]
         ],
