@@ -28,6 +28,7 @@
                         <div class="ptn-dropdown__menu-body">
                             <p class="ptn-dropdown__menu-notification ptn-dropdown__menu-notification_warning">Account not verified</p>
                         </div>
+                        {% if this.page.id == 'album' %}
                         <div class="ptn-dropdown__menu-body ptn-dropdown__menu-body_hollow">
                             <div class="ptn-list">
                                 <ul class="ptn-list__list">
@@ -40,6 +41,7 @@
                                 </ul>
                             </div>
                         </div>
+                        {% endif %}
                         {% endif %}
                         <div class="ptn-dropdown__menu-body ptn-dropdown__menu-body_hollow">
                             <div class="ptn-list">
