@@ -164,8 +164,8 @@
 
         /******************** widget: account block | switch ********************/
         (function() {
-            _switchAccountBlock('account-sign-up');
-            _switchAccountBlock('account-update');
+            _switchAccountBlock('account-block-sign-up');
+            _switchAccountBlock('account-block-update');
 
             _$body.on('click touchend', _selectors.accountBlockTrigger, function() {
                 var accountBlockId = $(this).attr(_dataAttributes.accountBlockTrigger);
