@@ -4,7 +4,8 @@
     /******************** private variables ********************/
     var _isDeviceMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
         _dataAttributes = {
-            accountBlockTrigger: 'ptn-account-block-trigger'
+            accountBlockTrigger: 'ptn-account-block-trigger',
+            dropdownTrigger: 'ptn-dropdown-trigger'
         },
         _selectors = {
             pageLoader: '#page-loader',
@@ -17,6 +18,7 @@
             sublistTrigger: '.ptn-list__item_sublist > .ptn-list__link',
             dropdown: '.ptn-dropdown',
             dropdownTrigger: '.ptn-dropdown__trigger',
+            dropdownTriggerGeneral: '[' + _dataAttributes.dropdownTrigger + ']',
             accountBlockTrigger: '[' + _dataAttributes.accountBlockTrigger + ']',
             accountBlock: '.ptn-account-block',
             accountBlockSubmit: '.ptn-account-block__submit',
@@ -142,6 +144,18 @@
 
                 $dropdownTrigger.toggleClass(_classes.triggerOn);
                 $dropdown.toggleClass(_classes.widgetOn);
+            });
+
+            _$body.on('click touchend', _selectors.dropdownTriggerGeneral, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+
+                var dropdownId = $(this).attr(_dataAttributes.dropdownTrigger),
+                    $dropdown = $('#' + dropdownId),
+                    $dropdownTrigger = $dropdown.find(_selectors.dropdownTrigger);
+
+                $dropdownTrigger.addClass(_classes.triggerOn);
+                $dropdown.addClass(_classes.widgetOn);
             });
 
             _$body.on('click touchend', function(e) {

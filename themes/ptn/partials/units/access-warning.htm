@@ -3,7 +3,7 @@
         <div class="ptn-typography">
             {% if not user %}
             <h3>Hey there, it seems you're not signed in yet (it's totally free).</h3>
-            <p>You need to sign in to view the albums from the following PREMIUM publisher(s):</p>
+            <p>You need to <a ptn-dropdown-trigger="dropdown-sign-in"><b>sign in</b></a> to view the albums from the following PREMIUM publisher(s):</p>
             <ul>
                 {% for publisher in albumPublishersPremium %}
                 <li><a href="{{ 'publisher' | page({publisher: publisher.slug}) }}"><b>{{ publisher.name }}</b></a></li>
