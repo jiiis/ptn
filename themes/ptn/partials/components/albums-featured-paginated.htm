@@ -1,0 +1,18 @@
+<div class="ptn-card">
+    <div class="ptn-card__header">
+        <p class="ptn-card__title">
+            <i class="zmdi zmdi-toys"></i>
+            <span>FEATURED ALBUMS</span>
+        </p>
+    </div>
+    {% if blogTagSearch.posts.count %}
+    <div id="card-albums-body" class="ptn-card__body">
+        {% partial "components/albums-tag-result" %}
+    </div>
+    {% endif %}
+    {% if blogTagSearch.lastPage > 1 %}
+    <div id="card-albums-footer" class="ptn-card__footer">
+        {% partial "components/albums-tag-pagination" %}
+    </div>
+    {% endif %}
+</div>
