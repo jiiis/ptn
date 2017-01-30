@@ -4,7 +4,17 @@
             <li class="ptn-list__item{% if this.page.id == 'home' %} ptn-list__item_active{% endif %}">
                 <a class="ptn-list__link" href="{{ '/' | app }}">
                     <i class="zmdi zmdi-home"></i>
-                    <span>Home</span>
+                    <span>home</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="ptn-list">
+        <ul class="ptn-list__list">
+            <li class="ptn-list__item{% if this.page.id == 'featured' %} ptn-list__item_active{% endif %}">
+                <a class="ptn-list__link" href="{{ '/featured' | app }}">
+                    <i class="zmdi zmdi-toys"></i>
+                    <span>featured</span>
                 </a>
             </li>
         </ul>
