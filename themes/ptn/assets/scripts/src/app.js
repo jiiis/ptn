@@ -93,12 +93,16 @@
         //     }
         //
         //     _$body.on('click touchend', _selectors.asideTrigger, function(e) {
+        //         e.preventDefault();
+        //
         //         _toggleAside();
         //     });
         // })();
 
         (function() {
-            _$body.on('click touchend', _selectors.asideTrigger, function() {
+            _$body.on('click touchend', _selectors.asideTrigger, function(e) {
+                e.preventDefault();
+
                 _toggleAside();
             });
         })();
@@ -110,7 +114,9 @@
 
         /******************** widget: sublist | toggle ********************/
         (function() {
-            _$body.on('click touchend', _selectors.sublistTrigger, function() {
+            _$body.on('click touchend', _selectors.sublistTrigger, function(e) {
+                e.preventDefault();
+
                 _toggleSublist($(this));
             });
 
@@ -130,7 +136,9 @@
 
         /******************** widget: dropdown | toggle ********************/
         (function() {
-            _$body.on('click touchend', _selectors.dropdownTrigger, function() {
+            _$body.on('click touchend', _selectors.dropdownTrigger, function(e) {
+                e.preventDefault();
+
                 var $dropdownTrigger = $(this),
                     $dropdown = $dropdownTrigger.closest(_selectors.dropdown);
 
@@ -139,6 +147,7 @@
             });
 
             _$body.on('click touchend', _selectors.dropdownTriggerGeneral, function(e) {
+                e.preventDefault();
                 e.stopPropagation();
 
                 var dropdownId = $(this).attr(_dataAttributes.dropdownTrigger),
@@ -167,7 +176,9 @@
             _switchAccountBlock('account-block-sign-up');
             _switchAccountBlock('account-block-update');
 
-            _$body.on('click touchend', _selectors.accountBlockTrigger, function() {
+            _$body.on('click touchend', _selectors.accountBlockTrigger, function(e) {
+                e.preventDefault();
+
                 var accountBlockId = $(this).attr(_dataAttributes.accountBlockTrigger);
 
                 _switchAccountBlock(accountBlockId);
@@ -176,9 +187,13 @@
 
         /******************** widget: input block | focus ********************/
         (function() {
-            _$body.on('focus', _selectors.inputBlockInputText, function() {
+            _$body.on('focus', _selectors.inputBlockInputText, function(e) {
+                e.preventDefault();
+
                 $(this).closest(_selectors.inputBlock).addClass(_classes.widgetOn);
-            }).on('blur', _selectors.inputBlockInputText, function() {
+            }).on('blur', _selectors.inputBlockInputText, function(e) {
+                e.preventDefault();
+
                 $(this).closest(_selectors.inputBlock).removeClass(_classes.widgetOn);
             });
         })();
