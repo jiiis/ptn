@@ -5,15 +5,6 @@ namespace Ptn;
 class Tag
 {
     const TAG_GROUPS = [
-        'regions' => [
-            'icon' => 'globe',
-            'tags' => [
-                'china' => 'China',
-                'japan' => 'Japan',
-                'south-korea' => 'South Korea',
-                'taiwan' => 'Taiwan'
-            ]
-        ],
         'types' => [
             'icon' => 'labels',
             'tags' => [
@@ -55,6 +46,15 @@ class Tag
                 'white' => 'White',
                 'gray' => 'Gray',
                 'candy' => 'Candy'
+            ]
+        ],
+        'regions' => [
+            'icon' => 'globe',
+            'tags' => [
+                'china' => 'China',
+                'japan' => 'Japan',
+                'south-korea' => 'South Korea',
+                'taiwan' => 'Taiwan'
             ]
         ]
     ];
