@@ -2,5 +2,5 @@
 
 return [
     'app_name' => 'Pantyhose.Tights.Nylons',
-    'app_name_acronym' => 'PTN',
+    'app_name_acronym' => 'P.T.N',
 ];
