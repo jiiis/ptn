@@ -29,7 +29,11 @@
 
 .ptn-photo_highlighted_small {
   &:after {
-    @media (max-width: @ptn-util__screen_xs-max) {
+    @media (max-width: @ptn-util__screen_md-max) {
+      border-width: 9px;
+    }
+
+    @media (max-width: @ptn-util__screen_sm-max) {
       border-width: 6px;
     }
   }
