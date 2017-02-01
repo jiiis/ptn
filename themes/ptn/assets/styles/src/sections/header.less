@@ -64,7 +64,6 @@
   }
 
   @media (max-width: @ptn-util__screen_xs-max) {
-    display: none;
     margin: 0 0 0 6px;
   }
 }
@@ -76,6 +75,18 @@
     color: @ptn-util__color_lightest;
     font-size: 1.8rem;
     text-transform: uppercase;
+
+    &:first-of-type {
+      @media (max-width: @ptn-util__screen_xs-max) {
+        display: none;
+      }
+    }
+
+    &:last-of-type {
+      @media (min-width: @ptn-util__screen_sm-min) {
+        display: none;
+      }
+    }
   }
 
   > img {
@@ -88,7 +99,8 @@
     .ptn-util__transition;
 
     @media (max-width: @ptn-util__screen_xs-max) {
-      height: 22px;
+      margin: 0 0 0 6px;
+      height: 21px;
     }
   }
 }
