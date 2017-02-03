@@ -44,7 +44,8 @@
 
       &:last-child {
         > .ptn-list__link:not(.ptn-util__trigger_on), > .ptn-list_sublist {
-          border-bottom: none;
+          // Don't use "none" or "0" as the value so as to prevent the border color animation.
+          border-bottom: 0 solid @ptn-util__color_darker;
         }
       }
     }
