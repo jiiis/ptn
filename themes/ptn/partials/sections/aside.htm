@@ -51,12 +51,25 @@
                 </a>
                 <div class="ptn-list ptn-list_sublist">
                     <ul class="ptn-list__list">
-                        {% for publisher in categories %}
-                        <li class="ptn-list__item{% if publisher.slug == currentPublisherSlug or publisher.slug in albumPublisherSlugs %} ptn-list__item_active{% endif %}{% if publisher.slug in publisherSlugsPremium %} ptn-list__item_highlighted{% endif %}">
-                            <a class="ptn-list__link" href="{{ 'publisher' | page({publisher: publisher.slug}) }}">
-                                <span>{{ publisher.name }}</span>
+                        {% for category in categories %}
+                        {% if category.children | length > 0 %}
+                        <li class="ptn-list__item ptn-list__item_sublist">
+                            <a class="ptn-list__link">
+                                <span>{{ category.name }}</span>
                             </a>
+                            <div class="ptn-list ptn-list_sublist">
+                                <ul class="ptn-list__list">
+                                    {% for publisher in category.children %}
+                                    <li class="ptn-list__item{% if publisher.slug == currentPublisherSlug or publisher.slug in albumPublisherSlugs %} ptn-list__item_active{% endif %}{% if publisher.slug in publisherSlugsPremium %} ptn-list__item_highlighted{% endif %}">
+                                        <a class="ptn-list__link" href="{{ 'publisher' | page({publisher: publisher.slug}) }}">
+                                            <span>{{ publisher.name }}</span>
+                                        </a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
                         </li>
+                        {% endif %}
                         {% endfor %}
                     </ul>
                 </div>
