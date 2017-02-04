@@ -34,6 +34,12 @@ public function onEnd()
     });
 
     /******************** region ********************/
+    // This assumes each album has only 1 publisher.
+    $publisherSlug = $this->albumPublisherSlugs[0];
+
+    if (array_key_exists($publisherSlug, $this->indexPublisherRegion)) {
+        $this['currentRegionSlug'] = $this->indexPublisherRegion[$publisherSlug];
+    }
 
     /******************** tag ********************/
     $albumTagsArray = iterator_to_array($this->album->tags);
