@@ -33,24 +33,26 @@ public function onInit()
 
 public function onBeforePageStart()
 {
-    // Publisher
+    /******************** publisher ********************/
+    $this['publisherSlugsPremium'] = Publisher::PREMIUM;
+
+    /******************** region ********************/
     $indexPublisherRegion = [];
 
     $regions = array_filter(iterator_to_array($this->categories), function($category) {
         return count($category->children) > 0;
     });
 
-    array_walk($regions, function($regionCategory) use (&$indexPublisherRegion) {
-        foreach ($regionCategory->children as $publisher) {
-            $indexPublisherRegion[$publisher->slug] = $regionCategory->slug;
+    array_walk($regions, function($region) use (&$indexPublisherRegion) {
+        foreach ($region->children as $publisher) {
+            $indexPublisherRegion[$publisher->slug] = $region->slug;
         }
     });
 
     $this['regions'] = $regions;
     $this['indexPublisherRegion'] = $indexPublisherRegion;
-    $this['publisherSlugsPremium'] = Publisher::PREMIUM;
 
-    // Tag
+    /******************** tag ********************/
     $tagGroups = Tag::TAG_GROUPS;
     $tagsExtra = [];
 
