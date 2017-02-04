@@ -20,24 +20,29 @@ public function onEnd()
 {
     $this['album'] = $this->blogPost->post;
 
+    /******************** publisher ********************/
     $this['albumPublishers'] = $this->album->categories;
 
     $albumPublishersArray = iterator_to_array($this->albumPublishers);
-
-    $albumTagsArray = iterator_to_array($this->album->tags);
 
     $this['albumPublisherSlugs'] = array_map(function($publisher) {
         return $publisher->slug;
     }, $albumPublishersArray);
 
-    $this['albumTagSlugs'] = array_map(function($tag) {
-        return $tag->name;
-    }, $albumTagsArray);
-
     $this['albumPublishersPremium'] = array_filter($albumPublishersArray, function($publisher) {
         return in_array($publisher->slug, $this->publisherSlugsPremium);
     });
 
+    /******************** region ********************/
+
+    /******************** tag ********************/
+    $albumTagsArray = iterator_to_array($this->album->tags);
+
+    $this['albumTagSlugs'] = array_map(function($tag) {
+        return $tag->name;
+    }, $albumTagsArray);
+
+    /******************** album ********************/
     $this['isAlbumShown'] = count($this->albumPublishersPremium) === 0 || ($this->user && $this->user->is_activated);
 }
 ?>
