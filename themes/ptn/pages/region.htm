@@ -1,0 +1,27 @@
+title = "Region"
+url = "/regions/:region/:page_region?1|^[0-9]+$"
+layout = "default"
+description = "The page displaying a list of albums by a specific region."
+is_hidden = 0
+
+[blogPosts]
+pageNumber = "{{ :page_region }}"
+categoryFilter = "{{ :region }}"
+postsPerPage = 24
+noPostsMessage = "There is no album found by this region."
+sortOrder = "published_at desc"
+categoryPage = "publisher"
+postPage = "album"
+==
+<?php
+public function onInit()
+{
+    $this['currentRegionSlug'] = $this->param('region');
+}
+?>
+==
+{% put title %}
+Regions {% if category %}{{ ' | ' ~ category.name }}{% endif %}
+{% endput %}
+
+{% partial 'components/albums-publisher' %}
