@@ -48,14 +48,14 @@ class Tag
                 'candy' => 'Candy'
             ]
         ],
-        'regions' => [
-            'icon' => 'globe',
-            'tags' => [
-                'china' => 'China',
-                'japan' => 'Japan',
-                'south-korea' => 'South Korea',
-                'taiwan' => 'Taiwan'
-            ]
-        ]
+//        'regions' => [
+//            'icon' => 'globe',
+//            'tags' => [
+//                'china' => 'China',
+//                'japan' => 'Japan',
+//                'south-korea' => 'South Korea',
+//                'taiwan' => 'Taiwan'
+//            ]
+//        ]
     ];
 }
