@@ -18,6 +18,11 @@ public function onInit()
 {
     $this['currentPublisherSlug'] = $this->param('publisher');
 }
+
+public function onStart()
+{
+    $this['currentRegionSlug'] = $this->indexPublisherRegion[$this->currentPublisherSlug];
+}
 ?>
 ==
 {% put title %}
