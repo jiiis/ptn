@@ -46,6 +46,27 @@
         <ul class="ptn-list__list">
             <li class="ptn-list__item ptn-list__item_sublist">
                 <a class="ptn-list__link">
+                    <i class="zmdi zmdi-globe"></i>
+                    <span>regions</span>
+                </a>
+                <div class="ptn-list ptn-list_sublist">
+                    <ul class="ptn-list__list">
+                        {% for region in regions %}
+                        <li class="ptn-list__item{% if region.slug == currentRegionSlug %} ptn-list__item_active{% endif %}">
+                            <a class="ptn-list__link" href="{{ 'region' | page({region: region.slug}) }}">
+                                <span>{{ region.name }}</span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="ptn-list">
+        <ul class="ptn-list__list">
+            <li class="ptn-list__item ptn-list__item_sublist">
+                <a class="ptn-list__link">
                     <i class="zmdi zmdi-camera"></i>
                     <span>Publishers</span>
                 </a>
