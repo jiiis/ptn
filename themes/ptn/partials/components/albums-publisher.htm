@@ -5,12 +5,15 @@
 <div class="ptn-card">
     <div class="ptn-card__header">
         <p class="ptn-card__title">
-            {% if category %}
-            <i class="zmdi zmdi-camera"></i>
-            <span>PUBLISHERS / {{ category.name }}</span>
-            {% else %}
+            {% if this.page.id == 'home' %}
             <i class="zmdi zmdi-timer"></i>
             <span>NEW ALBUMS</span>
+            {% elseif this.page.id == 'region' %}
+            <i class="zmdi zmdi-globe"></i>
+            <span>REGIONS / {{ category.name }}</span>
+            {% else %}
+            <i class="zmdi zmdi-camera"></i>
+            <span>PUBLISHERS / {{ category.name }}</span>
             {% endif %}
         </p>
     </div>
