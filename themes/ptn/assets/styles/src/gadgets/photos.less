@@ -5,6 +5,13 @@
 .ptn-photo {
   position: relative;
   box-shadow: @ptn-util__box-shadow_1;
+
+  &:hover {
+    > .ptn-photo__cover {
+      .ptn-util__opacity(1);
+      .ptn-util__transform_scale(1, 1);
+    }
+  }
 }
 
 .ptn-photo_highlighted {
@@ -40,20 +47,40 @@
 }
 
 .ptn-photo__link {
-  overflow: hidden;
   display: block;
+  overflow: hidden;
 }
 
 .ptn-photo__image {
   display: block;
   width: 100%;
-  cursor: pointer;
 
   .ptn-util__transition(all, @ptn-util__duration_fastest);
 
   &:hover {
     .ptn-util__transform_scale_rotate(1.2, 5deg);
   }
+}
+
+.ptn-photo__cover {
+  position: absolute;
+  bottom: 0;
+  padding: 0 12px;
+  width: 100%;
+  height: 30px;
+  font-size: 1.4rem;
+  color: @ptn-util__color_lightest;
+  background: @ptn-util__color_dark_transparent;
+  transform-origin: bottom;
+
+  .ptn__flex-container_horizontal(start, center);
+  .ptn-util__transition;
+  .ptn-util__opacity(0);
+  .ptn-util__transform_scale(1, 0);
+}
+
+.ptn-photo__cover-link {
+  .ptn-util__text-overflow_truncate;
 }
 
 @media (min-width: @ptn-util__screen_lg-min) {
