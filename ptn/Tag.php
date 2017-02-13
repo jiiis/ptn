@@ -47,15 +47,6 @@ class Tag
                 'gray' => 'Gray',
                 'candy' => 'Candy'
             ]
-        ],
-//        'regions' => [
-//            'icon' => 'globe',
-//            'tags' => [
-//                'china' => 'China',
-//                'japan' => 'Japan',
-//                'south-korea' => 'South Korea',
-//                'taiwan' => 'Taiwan'
-//            ]
-//        ]
+        ]
     ];
 }

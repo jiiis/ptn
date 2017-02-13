@@ -9,8 +9,10 @@
         },
         _selectors = {
             pageLoader: '#page-loader',
-            asideTrigger: '#aside-trigger',
+            header: '#header',
             aside: '#aside',
+            main: '#main',
+            asideTrigger: '#aside-trigger',
             listItem: '.ptn-list__item',
             listItemActive: '.ptn-list__item_active',
             listLink: '.ptn-list__link',
@@ -206,7 +208,11 @@
 
         if (_isElementExistent($pageLoader)) {
             window.setTimeout(function() {
-                $pageLoader.fadeOut(_animationDurations.fade);
+                $pageLoader.fadeOut(_animationDurations.fade, function() {
+                    $(_selectors.header).fadeIn(_animationDurations.fade);
+                    $(_selectors.aside).fadeIn(_animationDurations.fade);
+                    $(_selectors.main).fadeIn(_animationDurations.fade);
+                });
             }, _delay.pageLoader);
         }
     });
