@@ -208,11 +208,10 @@
 
         if (_isElementExistent($pageLoader)) {
             window.setTimeout(function() {
-                $pageLoader.fadeOut(_animationDurations.fade, function() {
-                    $(_selectors.header).fadeIn(_animationDurations.fade);
-                    $(_selectors.aside).fadeIn(_animationDurations.fade);
-                    $(_selectors.main).fadeIn(_animationDurations.fade);
-                });
+                $pageLoader.fadeOut(_animationDurations.fade);
+                $(_selectors.header).fadeIn(_animationDurations.fade);
+                $(_selectors.aside).fadeIn(_animationDurations.fade);
+                $(_selectors.main).fadeIn(_animationDurations.fade);
             }, _delay.pageLoader);
         }
     });
