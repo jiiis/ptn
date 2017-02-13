@@ -3,6 +3,9 @@
 (function(window) {
     /******************** private variables ********************/
     var _isDeviceMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+        _screenWidths = {
+            lg: 1200
+        },
         _dataAttributes = {
             accountBlockTrigger: 'ptn-account-block-trigger',
             dropdownTrigger: 'ptn-dropdown-trigger'
@@ -10,8 +13,8 @@
         _selectors = {
             pageLoader: '#page-loader',
             header: '#header',
-            aside: '#aside',
             main: '#main',
+            aside: '#aside',
             asideTrigger: '#aside-trigger',
             listItem: '.ptn-list__item',
             listItemActive: '.ptn-list__item_active',
@@ -107,6 +110,18 @@
 
                 _toggleAside();
             });
+
+            _$body.on('click touchend', function(e) {
+                var $target = $(e.target),
+                    isTargetInAside = $target.closest(_selectors.aside).length > 0
+                        || $target.closest(_selectors.asideTrigger).length > 0;
+
+                if (isTargetInAside || _$document.width() >= _screenWidths.lg) {
+                    return;
+                }
+
+                _closeAside();
+            });
         })();
 
         /******************** widget: sublist | init ********************/
@@ -162,9 +177,9 @@
 
             _$body.on('click touchend', function(e) {
                 var $target = $(e.target),
-                    isTargetDropdown = $target.closest(_selectors.dropdown).length > 0;
+                    isTargetInDropdown = $target.closest(_selectors.dropdown).length > 0;
 
-                if (isTargetDropdown) {
+                if (isTargetInDropdown) {
                     return;
                 }
 
@@ -271,6 +286,15 @@
 
         _$body.hasClass(_classes.bodyAsideOn) && _resetSublists();
         _scrollTo($aside, 'top');
+    }
+
+    function _closeAside() {
+        var $asideTrigger = $(_selectors.asideTrigger),
+            $aside = $(_selectors.aside);
+
+        _$body.removeClass(_classes.bodyAsideOn);
+        $asideTrigger.removeClass(_classes.triggerOn);
+        $aside.removeClass(_classes.widgetOn);
     }
 
     function _toggleAsideStatelessly(action) {
