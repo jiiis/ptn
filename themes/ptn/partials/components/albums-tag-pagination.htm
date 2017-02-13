@@ -29,6 +29,9 @@
                 {% if page < pageCurrent - 7 or page > pageCurrent + 7 %}ptn-pagination__list-item_orbit-7{% endif %}
                 {% if page < pageCurrent - 9 or page > pageCurrent + 9 %}ptn-pagination__list-item_orbit-9{% endif %}
             ">
+            {% if pageCurrent == page %}
+            <span class="ptn-pagination__list-item-link">{{ page }}</span>
+            {% else %}
             <a
                     class="ptn-pagination__list-item-link"
                     data-request="onLoadPage"
@@ -37,6 +40,7 @@
                             'components/albums-tag-result': '#card-albums-body',
                             'components/albums-tag-pagination': '#card-albums-footer',
                 ">{{ page }}</a>
+            {% endif %}
         </li>
         {% endfor %}
         {% if pageLast > pageCurrent %}
