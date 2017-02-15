@@ -16,7 +16,7 @@
                     <a class="ptn-photo__link" href="{{ 'album' | page({album: post.slug}) }}">
                         <img class="ptn-photo__image" src="{{ post.featured_images[0].thumb(240, 240, {'mode': 'crop', extension: 'jpg'}) }}">
                     </a>
-                    <div class="ptn-photo__cover">
+                    <div class="ptn-photo__cover ptn-photo__cover_small">
                         <a class="ptn-photo__cover-link" href="{{ 'publisher' | page({publisher: post.categories[0].slug}) }}">{{ post.categories[0].name }}</a>
                     </div>
                 </div>

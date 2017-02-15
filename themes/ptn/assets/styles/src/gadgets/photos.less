@@ -67,8 +67,8 @@
   bottom: 0;
   padding: 0 12px;
   width: 100%;
-  height: 30px;
-  font-size: 1.4rem;
+  height: 20%;
+  font-size: 1.5rem;
   color: @ptn-util__color_lightest;
   background: @ptn-util__color_dark_transparent;
   transform-origin: bottom;
@@ -77,6 +77,22 @@
   .ptn-util__transition(all, @ptn-util__duration_fastest);
   .ptn-util__opacity(0);
   .ptn-util__transform_scale(1, 0);
+}
+
+.ptn-photo__cover_small {
+  @media (max-width: @ptn-util__screen_md-max) {
+    font-size: 1.4rem;
+  }
+
+  @media (max-width: @ptn-util__screen_sm-max) {
+    padding: 0 9px;
+    font-size: 1.3rem;
+  }
+
+  @media (max-width: @ptn-util__screen_xs-max) {
+    padding: 0 6px;
+    font-size: 1.2rem;
+  }
 }
 
 .ptn-photo__cover-link {
