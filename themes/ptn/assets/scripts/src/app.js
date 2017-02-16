@@ -219,7 +219,7 @@
     _$window.on('load', function() {
         window.setTimeout(function() {
             $(_selectors.pageLoader).fadeOut(_animationDurations.fade);
-            $([_selectors.header, _selectors.aside, _selectors.main].join(', ')).fadeIn(_animationDurations.fade);
+            $([_selectors.header, _selectors.aside, _selectors.main].join(', ')).show();
         }, _delay.pageLoader);
     });
 
