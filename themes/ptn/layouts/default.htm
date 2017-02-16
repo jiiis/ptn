@@ -88,6 +88,9 @@ public function onBeforePageStart()
 
     $this['tagGroups'] = $tagGroups;
     $this['tagsExtra'] = $tagsExtra;
+    $this['countFeatured'] = Post::whereHas('tags', function($tag) {
+        $tag->where('name', 'featured');
+    })->count();
 }
 ?>
 ==

@@ -14,7 +14,7 @@
             <li class="ptn-list__item{% if this.page.id == 'featured' %} ptn-list__item_active{% endif %}">
                 <a class="ptn-list__link" href="{{ '/featured' | app }}">
                     <i class="zmdi zmdi-toys"></i>
-                    <span>featured</span>
+                    <span>featured [<span class="ptn-list__text_highlighted">{{ countFeatured }}</span>]</span>
                 </a>
             </li>
         </ul>
