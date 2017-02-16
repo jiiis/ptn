@@ -34,6 +34,9 @@ public function onInit()
 
 public function onBeforePageStart()
 {
+    /******************** general ********************/
+    $this['count'] = Post::all()->count();
+
     /******************** publisher ********************/
     $this['publisherSlugsPremium'] = Publisher::PREMIUM;
 
