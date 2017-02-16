@@ -32,7 +32,7 @@
                         {% for tagSlug, tagName in tagGroup.tags %}
                         <li class="ptn-list__item{% if tagSlug == currentTagSlug or tagSlug in albumTagSlugs %} ptn-list__item_active{% endif %}">
                             <a class="ptn-list__link" href="{{ 'tag' | page({tag: tagSlug}) }}">
-                                <span>{{ tagName }}</span>
+                                <span>{{ tagName }} [<span class="ptn-list__text_highlighted">{{ tagsExtra[tagSlug].count }}</span>]</span>
                             </a>
                         </li>
                         {% endfor %}
