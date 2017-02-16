@@ -179,12 +179,18 @@
 
 .ptn-list__text_highlighted {
   color: @ptn-util__color_red;
+
+  .ptn-util__transition;
 }
 
 /******************** utilities ********************/
 .ptn-list__link-highlighted {
   color: @ptn-util__color_lightest;
   background: @ptn-util__color_red;
+
+  .ptn-list__text_highlighted {
+    color: @ptn-util__color_lightest;
+  }
 }
 
 .ptn-list__link-highlighted_sublist {
@@ -194,5 +200,9 @@
   &:before {
     .ptn-util__opacity(1) !important;
     .ptn-util__transform_scale(1) !important;
+  }
+
+  .ptn-list__text_highlighted {
+    color: @ptn-util__color_red;
   }
 }
