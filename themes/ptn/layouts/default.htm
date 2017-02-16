@@ -20,6 +20,7 @@ paramCode = "activation_code"
 [sociallogin]
 ==
 <?php
+use Rainlab\Blog\Models\Post;
 use Ptn\Publisher;
 use Ptn\Tag;
 
@@ -77,7 +78,10 @@ public function onBeforePageStart()
             $tagsExtra[$tagSlug] = [
                 'group' => $tagGroupName,
                 'icon' => $tagGroup['icon'],
-                'name' => $tagName
+                'name' => $tagName,
+                'count' => Post::whereHas('tags', function($tag) use ($tagSlug) {
+                    $tag->where('name', $tagSlug);
+                })->count()
             ];
         }
     });
