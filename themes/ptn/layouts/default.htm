@@ -44,8 +44,12 @@ public function onBeforePageStart()
     });
 
     array_walk($regions, function($region) use (&$indexPublisherRegion) {
+        $region['post_count_total'] = 0;
+
         foreach ($region->children as $publisher) {
             $indexPublisherRegion[$publisher->slug] = $region->slug;
+
+            $region['post_count_total'] += $publisher->post_count;
         }
     });
 

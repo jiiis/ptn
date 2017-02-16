@@ -54,7 +54,7 @@
                         {% for region in regions %}
                         <li class="ptn-list__item{% if region.slug == currentRegionSlug %} ptn-list__item_active{% endif %}">
                             <a class="ptn-list__link" href="{{ 'region' | page({region: region.slug}) }}">
-                                <span>{{ region.name }}</span>
+                                <span>{{ region.name }} [<span class="ptn-list__text_highlighted">{{ region.post_count_total }}</span>]</span>
                             </a>
                         </li>
                         {% endfor %}
