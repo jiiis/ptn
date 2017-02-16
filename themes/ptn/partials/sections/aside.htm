@@ -82,7 +82,7 @@
                                     {% for publisher in region.children %}
                                     <li class="ptn-list__item{% if publisher.slug == currentPublisherSlug or publisher.slug in albumPublisherSlugs %} ptn-list__item_active{% endif %}{% if publisher.slug in publisherSlugsPremium %} ptn-list__item_highlighted{% endif %}">
                                         <a class="ptn-list__link" href="{{ 'publisher' | page({publisher: publisher.slug}) }}">
-                                            <span>{{ publisher.name }}</span>
+                                            <span>{{ publisher.name }} [<span class="ptn-list__text_highlighted">{{ publisher.post_count }}</span>]</span>
                                         </a>
                                     </li>
                                     {% endfor %}
