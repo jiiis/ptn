@@ -216,7 +216,7 @@
     });
 
     /******************** widget: page loader ********************/
-    _$window.on('load', function() {
+    $(function() {
         window.setTimeout(function() {
             $(_selectors.pageLoader).fadeOut(_animationDurations.fade);
             $([_selectors.header, _selectors.aside, _selectors.main].join(', ')).show();
