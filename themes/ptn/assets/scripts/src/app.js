@@ -110,6 +110,10 @@
     // });
 
     $(function() {
+        if (_$document.width() >= _screenWidths.lg) {
+            _toggleAside();
+        }
+
         _$body.on('click touchend', _selectors.asideTrigger, function(e) {
             e.preventDefault();
 
