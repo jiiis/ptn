@@ -42,23 +42,26 @@ public function onBeforePageStart()
 
     /******************** region ********************/
     $indexPublisherRegion = [];
+    $regionPostCounts = [];
 
     $regions = array_filter(iterator_to_array($this->categories), function($category) {
         return count($category->children) > 0;
     });
 
-    array_walk($regions, function($region) use (&$indexPublisherRegion) {
-        $region['post_count_total'] = 0;
+
+    array_walk($regions, function($region) use (&$indexPublisherRegion, &$regionPostCounts) {
+        $regionPostCounts[$region->slug] = 0;
 
         foreach ($region->children as $publisher) {
             $indexPublisherRegion[$publisher->slug] = $region->slug;
 
-            $region['post_count_total'] += $publisher->post_count;
+            $regionPostCounts[$region->slug] += $publisher->post_count;
         }
     });
 
-    $this['regions'] = $regions;
     $this['indexPublisherRegion'] = $indexPublisherRegion;
+    $this['regionPostCounts'] = $regionPostCounts;
+    $this['regions'] = $regions;
 
     /******************** tag ********************/
     $tagGroups = Tag::TAG_GROUPS;

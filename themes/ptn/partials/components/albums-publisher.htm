@@ -7,13 +7,13 @@
         <p class="ptn-card__title">
             {% if this.page.id == 'home' %}
             <i class="zmdi zmdi-timer"></i>
-            <span>NEW ALBUMS</span>
+            <span>NEW ALBUMS [<span class="ptn-card__title-text_highlighted">{{ count }}</span>]</span>
             {% elseif this.page.id == 'region' %}
             <i class="zmdi zmdi-globe"></i>
-            <span>REGIONS / {{ category.name }}</span>
+            <span>REGIONS / {{ category.name }} [<span class="ptn-card__title-text_highlighted">{{ regionPostCounts[category.slug] }}</span>]</span>
             {% else %}
             <i class="zmdi zmdi-camera"></i>
-            <span>PUBLISHERS / {{ category.name }}</span>
+            <span>PUBLISHERS / {{ category.name }} [<span class="ptn-card__title-text_highlighted">{{ category.post_count }}</span>]</span>
             {% endif %}
         </p>
     </div>
