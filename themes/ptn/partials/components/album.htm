@@ -1,7 +1,7 @@
 {% set post = blogPost.post %}
 {% set category = post.categories[0] %}
 
-<div class="ptn-card">
+<div class="ptn-card{% if post.categories[0].slug in publisherSlugsPremium %} ptn-card_highlighted{% endif %}">
     <div class="ptn-card__header">
         <p class="ptn-card__title">
             <i class="zmdi zmdi-landscape"></i>
