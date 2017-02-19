@@ -43,6 +43,7 @@
 }
 
 .ptn-card__header {
+  position: relative;
   height: 60px;
   padding: 0 24px;
   border-bottom: 1px solid @ptn-util__color_darker;
@@ -160,6 +161,27 @@
   }
 }
 
+.ptn-card__header-subheader-trigger {
+  position: absolute;
+  right: 24px;
+  text-align: center;
+  font-size: 2.4rem;
+
+  @media (min-width: @ptn-util__screen_md-min) and (max-width: @ptn-util__screen_md-max) {
+    right: 18px;
+  }
+
+  @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_sm-max) {
+    right: 12px;
+  }
+
+  @media (max-width: @ptn-util__screen_xs-max) {
+    right: 6px;
+    width: 18px;
+    font-size: 2.1rem;
+  }
+}
+
 .ptn-card__subheader {
   padding: 0 24px;
   height: 42px;
@@ -264,6 +286,10 @@
 
     .ptn-card__body {
       padding: 15px 18px;
+    }
+
+    .ptn-card__header-subheader-trigger {
+      right: 18px;
     }
   }
 }
