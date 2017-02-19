@@ -73,12 +73,6 @@
   .ptn__flex-container_horizontal(start, center);
   .ptn-util__transition;
 
-  @media (max-width: @ptn-util__screen_xs-max) {
-    font-size: 1.5rem;
-
-    .ptn__flex-container_horizontal(center, center);
-  }
-
   > a {
     .ptn__flex-container_horizontal(start, center);
   }
@@ -87,10 +81,6 @@
     width: 24px;
     text-align: center;
     font-size: 2.1rem;
-
-    @media (max-width: @ptn-util__screen_xs-max) {
-      font-size: 1.8rem;
-    }
 
     + span {
       margin: 0 0 0 9px;
@@ -101,6 +91,16 @@
         margin: 0 0 0 6px;
       }
     }
+
+    @media (max-width: @ptn-util__screen_xs-max) {
+      font-size: 1.8rem;
+    }
+  }
+
+  @media (max-width: @ptn-util__screen_xs-max) {
+    font-size: 1.5rem;
+
+    .ptn__flex-container_horizontal(center, center);
   }
 }
 
@@ -114,6 +114,7 @@
 
 .ptn-card__datum {
   margin: 0 24px 0 0;
+  font-size: 1.7rem;
 
   .ptn__flex-container_horizontal(start, center);
   .ptn-util__transition;
@@ -125,7 +126,7 @@
   > .zmdi {
     width: 24px;
     text-align: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
 
     + span {
       margin: 0 0 0 9px;
@@ -136,15 +137,24 @@
         margin: 0 0 0 6px;
       }
     }
+
+    @media (max-width: @ptn-util__screen_xs-max) {
+      font-size: 1.8rem;
+    }
   }
 
-  > span {
-    font-size: 1.5rem;
+  @media (min-width: @ptn-util__screen_md-min) and (max-width: @ptn-util__screen_md-max) {
+    margin: 0 24px 0 0;
+  }
+
+  @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_sm-max) {
+    margin: 0 18px 0 0;
   }
 
   @media (max-width: @ptn-util__screen_xs-max) {
     margin: 0 12px 0 0;
     min-width: 72px;
+    font-size: 1.5rem;
 
     .ptn__flex-container_horizontal(center, center);
   }
@@ -174,6 +184,22 @@
     height: 30px;
 
     .ptn__flex-container_horizontal(center, center);
+  }
+
+  .ptn-card__datum {
+    font-size: 1.5rem;
+
+    > .zmdi {
+      font-size: 1.8rem;
+
+      @media (max-width: @ptn-util__screen_xs-max) {
+        font-size: 1.7rem;
+      }
+    }
+
+    @media (max-width: @ptn-util__screen_xs-max) {
+      font-size: 1.4rem;
+    }
   }
 }
 
