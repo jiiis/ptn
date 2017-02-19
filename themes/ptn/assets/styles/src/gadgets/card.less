@@ -136,11 +136,14 @@
 }
 
 .ptn-card__data {
-  margin: 0 12px 0 0;
-  min-width: 72px;
+  margin: 0 24px 0 0;
 
   .ptn__flex-container_horizontal(start, center);
   .ptn-util__transition;
+
+  &:last-child {
+    margin: 0;
+  }
 
   > .zmdi {
     width: 24px;
@@ -163,6 +166,9 @@
   }
 
   @media (max-width: @ptn-util__screen_xs-max) {
+    margin: 0 12px 0 0;
+    min-width: 72px;
+
     .ptn__flex-container_horizontal(center, center);
   }
 }
