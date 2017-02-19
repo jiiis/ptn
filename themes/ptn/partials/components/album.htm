@@ -8,6 +8,16 @@
             <span><a href="{{ 'publisher' | page({publisher: category.slug}) }}">{{ category.name }}</a> / {{ post.title }}</span>
         </p>
     </div>
+    <div class="ptn-card__subheader">
+        <div class="ptn-card__data">
+            <i class="zmdi zmdi-image-alt"></i>
+            <span>[<span class="ptn-card__title-text_highlighted">{{ post.featured_images | length }}</span>]</span>
+        </div>
+        <div class="ptn-card__data">
+            <i class="zmdi zmdi-eye"></i>
+            <span>[<span class="ptn-card__title-text_highlighted">{{ post.views }}</span>]</span>
+        </div>
+    </div>
     <div class="ptn-card__body">
         {% if post.featured_images.count %}
         <div id="photos" class="ptn-photos ptn-row">
