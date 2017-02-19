@@ -10,12 +10,14 @@
     </div>
     <div class="ptn-card__subheader">
         <div class="ptn-card__data">
-            <i class="zmdi zmdi-image-alt"></i>
-            <span>[<span class="ptn-card__title-text_highlighted">{{ post.featured_images | length }}</span>]</span>
-        </div>
-        <div class="ptn-card__data">
-            <i class="zmdi zmdi-eye"></i>
-            <span>[<span class="ptn-card__title-text_highlighted">{{ post.views }}</span>]</span>
+            <div class="ptn-card__datum">
+                <i class="zmdi zmdi-image-alt"></i>
+                <span>[<span class="ptn-card__title-text_highlighted">{{ post.featured_images | length }}</span>]</span>
+            </div>
+            <div class="ptn-card__datum">
+                <i class="zmdi zmdi-eye"></i>
+                <span>[<span class="ptn-card__title-text_highlighted">{{ post.views }}</span>]</span>
+            </div>
         </div>
     </div>
     <div class="ptn-card__body">
@@ -23,7 +25,7 @@
         <div id="photos" class="ptn-photos ptn-row">
             {% for image in post.featured_images %}
             {% if loop.index != 1 %}
-            <div class="ptn-col_xs_6 ptn-col_sm_4 ptn-col_md_3 ptn-col_lg_2" data-src="{{ image.path }}">
+            <div class="ptn-col_xs_6 ptn-col_sm_4 ptn-col_md_3 ptn-col_lg_2" datum-src="{{ image.path }}">
                 <div class="ptn-photo">
                     <a class="ptn-photo__link">
                         <img class="ptn-photo__image" src="{{ image.thumb(240, 240, {'mode': 'crop', extension: 'jpg'}) }}">
