@@ -1,3 +1,17 @@
+#album {
+  .ptn-card__header-subheader-trigger {
+    @media (min-width: @ptn-util__screen_sm-min) {
+      display: none;
+    }
+  }
+}
+
+#album-card-header {
+  @media (max-width: @ptn-util__screen_xs-max) {
+    cursor: pointer;
+  }
+}
+
 #album-card-header-data {
   @media (max-width: @ptn-util__screen_xs-max) {
     display: none;

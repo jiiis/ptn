@@ -1,8 +1,8 @@
 {% set post = blogPost.post %}
 {% set category = post.categories[0] %}
 
-<div class="ptn-card{% if post.categories[0].slug in publisherSlugsPremium %} ptn-card_highlighted{% endif %}">
-    <div class="ptn-card__header">
+<div id="album" class="ptn-card{% if post.categories[0].slug in publisherSlugsPremium %} ptn-card_highlighted{% endif %}">
+    <div id="album-card-header" class="ptn-card__header">
         <p class="ptn-card__title">
             <i class="zmdi zmdi-landscape"></i>
             <span><a href="{{ 'publisher' | page({publisher: category.slug}) }}">{{ category.name }}</a> / {{ post.title }}</span>
@@ -17,6 +17,7 @@
                 <span>[<span class="ptn-card__title-text_highlighted">{{ post.views }}</span>]</span>
             </div>
         </div>
+        <i class="ptn-card__header-subheader-trigger zmdi zmdi-caret-down"></i>
     </div>
     <div id="album-card-subheader" class="ptn-card__subheader">
         <div class="ptn-card__data">

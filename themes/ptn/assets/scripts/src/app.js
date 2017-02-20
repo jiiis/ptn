@@ -4,6 +4,7 @@
     /******************** private variables ********************/
     var _isDeviceMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
         _screenWidths = {
+            sm: 768,
             lg: 1200
         },
         _dataAttributes = {
@@ -16,6 +17,8 @@
             main: '#main',
             aside: '#aside',
             asideTrigger: '#aside-trigger',
+            albumHeader: '#album-card-header',
+            albumSubheader: '#album-card-subheader',
             listItem: '.ptn-list__item',
             listItemActive: '.ptn-list__item_active',
             listLink: '.ptn-list__link',
@@ -225,6 +228,19 @@
             $(_selectors.pageLoader).fadeOut(_animationDurations.fade);
             $([_selectors.header, _selectors.aside, _selectors.main].join(', ')).show();
         }, _delay.pageLoader);
+    });
+
+    /******************** component: album subheader | toggle ********************/
+    $(function() {
+        _$body.on('click', _selectors.albumHeader, function(e) {
+            e.preventDefault();
+
+            if (_$document.width() >= _screenWidths.sm) {
+                return;
+            }
+
+            $(_selectors.albumSubheader).slideToggle(_animationDurations.slide);
+        });
     });
 
     /******************** private functions ********************/
