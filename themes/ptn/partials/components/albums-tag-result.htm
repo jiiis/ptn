@@ -7,8 +7,20 @@
             <a class="ptn-photo__link" href="{{ 'album' | page({album: post.slug}) }}">
                 <img class="ptn-photo__image" src="{{ post.featured_images[0].thumb(240, 240, {'mode': 'crop', extension: 'jpg'}) }}">
             </a>
-            <div class="ptn-photo__cover">
-                <a class="ptn-photo__cover-link" href="{{ 'publisher' | page({publisher: post.categories[0].slug}) }}">{{ post.categories[0].name }}</a>
+            <div class="ptn-photo__caption">
+                <div class="ptn-photo__caption-title">
+                    <a href="{{ 'publisher' | page({publisher: post.categories[0].slug}) }}">{{ post.categories[0].name }}</a>
+                </div>
+                <div class="ptn-photo__caption-data">
+                    <div class="ptn-photo__caption-datum">
+                        <i class="zmdi zmdi-image-alt"></i>
+                        <span>[<span class="ptn-photo__text_highlighted">{{ post.featured_images | length }}</span>]</span>
+                    </div>
+                    <div class="ptn-photo__caption-datum">
+                        <i class="zmdi zmdi-eye"></i>
+                        <span>[<span class="ptn-photo__text_highlighted">{{ post.views }}</span>]</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
