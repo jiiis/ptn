@@ -76,7 +76,12 @@
         });
     });
 
-    /******************** widget: waves ********************/
+    /******************** vendor: scrollbar ********************/
+    $(function() {
+        _addScrollBar($(_selectors.aside), 'minimal-dark', 'y');
+    });
+
+    /******************** vendor: waves ********************/
     $(function() {
         Waves.attach(_selectors.listLink, ['waves-light']);
         Waves.attach(_selectors.accountBlockSubmit);
@@ -86,17 +91,7 @@
         });
     });
 
-    /******************** widget: scrollbar ********************/
-    $(function() {
-        _addScrollBar($(_selectors.aside), 'minimal-dark', 'y');
-    });
-
-    /******************** widget: sublist | init ********************/
-    $(function() {
-        _resetSublists();
-    });
-
-    /******************** widget: aside | toggle ********************/
+    /******************** section: aside | toggle ********************/
     // Disabled because localStorage doesn't work in private browsing.
     // $(function() {
     //     var asideStatus = localStorage.getItem(_localStorageKeys.statusAside);
@@ -136,7 +131,47 @@
         });
     });
 
-    /******************** widget: sublist | toggle ********************/
+    /******************** component: album subheader | toggle ********************/
+    $(function() {
+        _$body.on('click', _selectors.albumHeader, function(e) {
+            e.preventDefault();
+
+            if (_$document.width() >= _screenWidths.sm) {
+                return;
+            }
+
+            $(_selectors.albumSubheader).slideToggle(_animationDurations.slide);
+        });
+    });
+
+    /******************** widget: account block | switch ********************/
+    $(function() {
+        _switchAccountBlock('account-block-sign-up');
+        _switchAccountBlock('account-block-update');
+
+        _$body.on('click touchend', _selectors.accountBlockTrigger, function(e) {
+            e.preventDefault();
+
+            var accountBlockId = $(this).attr(_dataAttributes.accountBlockTrigger);
+
+            _switchAccountBlock(accountBlockId);
+        });
+    });
+
+    /******************** widget: page loader ********************/
+    $(function() {
+        window.setTimeout(function() {
+            $(_selectors.pageLoader).fadeOut(_animationDurations.fade);
+            $([_selectors.header, _selectors.aside, _selectors.main].join(', ')).show();
+        }, _delay.pageLoader);
+    });
+
+    /******************** gadget: sublist | init ********************/
+    $(function() {
+        _resetSublists();
+    });
+
+    /******************** gadget: sublist | toggle ********************/
     $(function() {
         _$body.on('click touchend', _selectors.sublistTrigger, function(e) {
             e.preventDefault();
@@ -158,7 +193,7 @@
         }
     });
 
-    /******************** widget: dropdown | toggle ********************/
+    /******************** gadget: dropdown | toggle ********************/
     $(function() {
         _$body.on('click touchend', _selectors.dropdownTrigger, function(e) {
             e.preventDefault();
@@ -195,21 +230,7 @@
         });
     });
 
-    /******************** widget: account block | switch ********************/
-    $(function() {
-        _switchAccountBlock('account-block-sign-up');
-        _switchAccountBlock('account-block-update');
-
-        _$body.on('click touchend', _selectors.accountBlockTrigger, function(e) {
-            e.preventDefault();
-
-            var accountBlockId = $(this).attr(_dataAttributes.accountBlockTrigger);
-
-            _switchAccountBlock(accountBlockId);
-        });
-    });
-
-    /******************** widget: input block | focus ********************/
+    /******************** gadget: input block | focus ********************/
     $(function() {
         _$body.on('focus', _selectors.inputBlockInputText, function(e) {
             e.preventDefault();
@@ -219,27 +240,6 @@
             e.preventDefault();
 
             $(this).closest(_selectors.inputBlock).removeClass(_classes.widgetOn);
-        });
-    });
-
-    /******************** widget: page loader ********************/
-    $(function() {
-        window.setTimeout(function() {
-            $(_selectors.pageLoader).fadeOut(_animationDurations.fade);
-            $([_selectors.header, _selectors.aside, _selectors.main].join(', ')).show();
-        }, _delay.pageLoader);
-    });
-
-    /******************** component: album subheader | toggle ********************/
-    $(function() {
-        _$body.on('click', _selectors.albumHeader, function(e) {
-            e.preventDefault();
-
-            if (_$document.width() >= _screenWidths.sm) {
-                return;
-            }
-
-            $(_selectors.albumSubheader).slideToggle(_animationDurations.slide);
         });
     });
 
