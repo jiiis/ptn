@@ -140,7 +140,11 @@
                 return;
             }
 
-            $(_selectors.albumSubheader).slideToggle(_animationDurations.slide);
+            var $albumHeader = $(this),
+                $albumSubheader = $albumHeader.next(_selectors.albumSubheader);
+
+            $albumHeader.toggleClass(_classes.triggerOn);
+            $albumSubheader.toggleClass(_classes.widgetOn);
         });
     });
 

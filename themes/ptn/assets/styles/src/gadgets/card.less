@@ -51,6 +51,12 @@
   .ptn__flex-container_horizontal(start, center);
   .ptn-util__transition;
 
+  &.ptn-util__trigger_on {
+    .ptn-card__header-subheader-trigger {
+      .ptn-util__transform_rotate(180deg);
+    }
+  }
+
   @media (min-width: @ptn-util__screen_md-min) and (max-width: @ptn-util__screen_md-max) {
     padding: 0 18px;
     height: 54px;
@@ -167,6 +173,8 @@
   text-align: center;
   font-size: 2.4rem;
 
+  .ptn-util__transition;
+
   @media (min-width: @ptn-util__screen_md-min) and (max-width: @ptn-util__screen_md-max) {
     right: 18px;
   }
@@ -184,13 +192,29 @@
 
 .ptn-card__subheader {
   padding: 0 24px;
-  height: 42px;
+  height: 0;
   border-bottom: 1px solid @ptn-util__color_darker;
   font-size: 1.5rem;
   background: @ptn-util__color_darker;
+  transform-origin: top;
 
   .ptn__flex-container_horizontal(start, center);
   .ptn-util__transition;
+  .ptn-util__transform_scale(1, 0);
+
+  &.ptn-util__widget_on {
+    height: 42px;
+
+    .ptn-util__transform_scale(1);
+
+    @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_sm-max) {
+      height: 36px;
+    }
+
+    @media (max-width: @ptn-util__screen_xs-max) {
+      height: 30px;
+    }
+  }
 
   @media (min-width: @ptn-util__screen_md-min) and (max-width: @ptn-util__screen_md-max) {
     padding: 0 18px;
@@ -198,12 +222,10 @@
 
   @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_sm-max) {
     padding: 0 12px;
-    height: 36px;
   }
 
   @media (max-width: @ptn-util__screen_xs-max) {
     padding: 0 6px;
-    height: 30px;
 
     .ptn__flex-container_horizontal(center, center);
   }
