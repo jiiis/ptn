@@ -216,20 +216,6 @@
     }
   }
 
-  @media (min-width: @ptn-util__screen_md-min) and (max-width: @ptn-util__screen_md-max) {
-    padding: 0 18px;
-  }
-
-  @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_sm-max) {
-    padding: 0 12px;
-  }
-
-  @media (max-width: @ptn-util__screen_xs-max) {
-    padding: 0 6px;
-
-    .ptn__flex-container_horizontal(center, center);
-  }
-
   .ptn-card__datum {
     font-size: 1.5rem;
 
@@ -244,6 +230,20 @@
     @media (max-width: @ptn-util__screen_xs-max) {
       font-size: 1.4rem;
     }
+  }
+
+  @media (min-width: @ptn-util__screen_md-min) and (max-width: @ptn-util__screen_md-max) {
+    padding: 0 18px;
+  }
+
+  @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_sm-max) {
+    padding: 0 12px;
+  }
+
+  @media (max-width: @ptn-util__screen_xs-max) {
+    padding: 0 6px;
+
+    .ptn__flex-container_horizontal(center, center);
   }
 }
 

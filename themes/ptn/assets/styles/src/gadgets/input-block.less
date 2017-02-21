@@ -4,15 +4,15 @@
   .ptn__flex-container_horizontal(start, center);
   .ptn-util__transition;
 
-  @media (max-width: @ptn-util__screen_xs-max) {
-    margin: 0 0 24px;
-  }
-
   &.ptn-util__widget_on {
     .ptn-input-block__input:after {
       .ptn-util__opacity(1);
       .ptn-util__transform_scale(1);
     }
+  }
+
+  @media (max-width: @ptn-util__screen_xs-max) {
+    margin: 0 0 24px;
   }
 }
 
