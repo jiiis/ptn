@@ -123,6 +123,7 @@
 
   @media (max-width: @ptn-util__screen_xs-max) {
     padding: 0 6px;
+    height: 24px;
     font-size: 1.5rem;
 
     .ptn__flex-container_horizontal(center, center);
@@ -150,6 +151,7 @@
   color: @ptn-util__color_light;
 
   .ptn__flex-container_horizontal(start, center);
+  .ptn-util__transition;
 
   &:last-child {
     margin: 0;
@@ -160,9 +162,19 @@
     text-align: center;
     font-size: 1.8rem;
 
+    .ptn-util__transition;
+
     + span {
       margin: 0 0 0 6px;
     }
+
+    @media (max-width: @ptn-util__screen_xs-max) {
+      font-size: 1.7rem;
+    }
+  }
+
+  @media (max-width: @ptn-util__screen_xs-max) {
+    font-size: 1.4rem;
   }
 }
 
@@ -182,11 +194,20 @@
 
     .ptn-photo__caption-title {
       padding: 0 9px;
+      height: 24px;
       font-size: 1.5rem;
     }
 
     .ptn-photo__caption-data {
       margin: 0 9px;
+    }
+
+    .ptn-photo__caption-datum {
+      font-size: 1.4rem;
+
+      > .zmdi {
+        font-size: 1.7rem;
+      }
     }
   }
 }
