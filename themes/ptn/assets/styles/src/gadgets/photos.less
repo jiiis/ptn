@@ -49,10 +49,16 @@
 .ptn-photo__link {
   display: block;
   overflow: hidden;
+  position: relative;
+  padding: 100% 0 0;
+  height: 0;
 }
 
 .ptn-photo__image {
   display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
 
   .ptn-util__transition(all, @ptn-util__duration_fastest);
