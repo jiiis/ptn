@@ -197,6 +197,7 @@
 }
 
 .ptn-card__subheader {
+  overflow: hidden;
   padding: 0 24px;
   height: 0;
   border-bottom: 1px solid @ptn-util__color_darker;
@@ -206,12 +207,12 @@
 
   .ptn__flex-container_horizontal(start, center);
   .ptn-util__transition;
-  .ptn-util__transform_scale(1, 0);
+  //.ptn-util__transform_scale(1, 0);
 
   &.ptn-util__widget_on {
     height: 42px;
 
-    .ptn-util__transform_scale(1);
+    //.ptn-util__transform_scale(1);
 
     @media (min-width: @ptn-util__screen_sm-min) and (max-width: @ptn-util__screen_sm-max) {
       height: 36px;
