@@ -3,6 +3,8 @@ url = "/albums/:album/:activation_code?"
 layout = "default"
 description = "The page displaying an album."
 is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
 
 [blogPost]
 slug = "{{ :album }}"
@@ -14,6 +16,9 @@ results = 12
 orderBy = 0
 direction = "desc"
 postPage = "album"
+
+[SeoBlogPost]
+post = "post"
 ==
 <?php
 public function onEnd()
@@ -63,3 +68,5 @@ Albums{% if post %}{{ ' | ' ~ post.title }}{% endif %}
 {% else %}
 {% partial 'units/access-warning' %}
 {% endif %}
+
+{% component 'SeoBlogPost' data=post %}
