@@ -21,7 +21,7 @@ public function onInit()
 ?>
 ==
 {% put title %}
-Regions {% if category %}{{ ' | ' ~ category.name }}{% endif %}
+Regions{% if category %}{{ ' | ' ~ category.name }}{% endif %}
 {% endput %}
 
 {% partial 'components/albums-publisher' %}

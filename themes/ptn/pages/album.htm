@@ -54,7 +54,7 @@ public function onEnd()
 ?>
 ==
 {% put title %}
-Albums {% if post %}{{ ' | ' ~ post.title }}{% endif %}
+Albums{% if post %}{{ ' | ' ~ post.title }}{% endif %}
 {% endput %}
 
 {% if isAlbumShown %}
